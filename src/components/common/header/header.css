@@ -1,13 +1,5 @@
 /* src/components/common/header/header.css */
 
-/* CSS variable for header height to prevent overlay */
-:root{
-  --header-height: 88px;
-}
-
-/* ensure page content is pushed below fixed header */
-body{ padding-top: var(--header-height); }
-
 /* Header – fixed on top */
 .header{
   background: #fff;
@@ -19,7 +11,6 @@ body{ padding-top: var(--header-height); }
   width: 100%;
   z-index: 9999;
   padding: 10px 0;
-  height: var(--header-height);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -131,7 +122,7 @@ body{ padding-top: var(--header-height); }
 /* Mobile Menu */
 .mobile-nav{
   position: fixed;
-  top: var(--header-height);
+  top: 88px;
   left: 50%;
   transform: translate(-50%, -140%);
   width: min(520px, 92vw);
@@ -374,10 +365,9 @@ i.fa.fa-chevron-down{
     font-size: 1.7rem;
   }
   
-  :root{ --header-height: 78px; }
   .mobile-nav{
     width: 95vw;
-    top: var(--header-height);
+    top: 78px;
   }
 }
 
@@ -398,4 +388,26 @@ i.fa.fa-chevron-down{
   .headerRow{
     padding: 0 10px;
   }
+}
+
+/* Ensure page content is not hidden under the fixed header.
+   Use a CSS variable so we can tweak values per breakpoint. */
+:root{
+  --header-height: 88px; /* default desktop header height */
+}
+
+body{
+  padding-top: var(--header-height);
+}
+
+@media (max-width: 900px){
+  :root{ --header-height: 78px; }
+}
+
+@media (max-width: 600px){
+  :root{ --header-height: 78px; }
+}
+
+@media (max-width: 400px){
+  :root{ --header-height: 72px; }
 }

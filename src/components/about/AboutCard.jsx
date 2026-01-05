@@ -143,7 +143,7 @@ const AboutCard = () => {
 
           {/* CTA */}
           <a
-            href="/admissions"
+            href="/classes"
             className="primary-btn aboutCta"
             data-aos="fade-up"
             data-aos-delay="300"

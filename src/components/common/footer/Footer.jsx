@@ -4,14 +4,6 @@ import { blog } from "../../../dummydata";
 import "./footer.css";
 
 const Footer = () => {
-  const exploreLinks = [
-    { to: "/about", label: "About Us" },
-    { to: "/courses", label: "Courses" },
-    { to: "/why-ims", label: "Why IMS" },
-    { to: "/team", label: "Our Team" },
-    { to: "/journal", label: "Journal" },
-    { to: "/contact", label: "Contact" },
-  ];
 
   const quickLinks = [
     { to: "/pricing", label: "Pricing" },
@@ -81,20 +73,6 @@ const Footer = () => {
             </div>
 
             <div className="footerSticker" aria-hidden="true">🌙📚✨</div>
-          </div>
-
-          {/* Explore */}
-          <div className="footerBox" data-aos="fade-up" data-aos-delay="80" data-aos-duration="900">
-            <h3 className="footerHeading">Explore</h3>
-            <ul className="footerList">
-              {exploreLinks.map((l) => (
-                <li key={l.to}>
-                  <Link to={l.to} className="footerLink">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Quick Links */}
