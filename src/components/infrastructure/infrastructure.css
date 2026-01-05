@@ -1,0 +1,358 @@
+.infraPage{
+  padding: clamp(48px, 5vw, 80px) 0;
+}
+
+.infraPage h2{
+  margin-bottom: 14px;
+  color: #1c1f43;
+}
+
+.infraPage p{
+  /* max-width: 800px; */
+  color: #555;
+  line-height: 1.8;
+}
+
+
+/* -------computer page---------- */
+
+.infraPage{
+  padding: clamp(48px, 5vw, 80px) 0;
+}
+
+.infra-header h2{
+  margin-bottom: 6px;
+  color: #1c1f43;
+}
+
+.infra-subtitle{
+  color: #555;
+  max-width: 640px;
+}
+
+/* Two-column layout */
+.infra-grid{
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 28px;
+  margin-top: 28px;
+  align-items: flex-start;
+}
+
+.infra-title{
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #1c1f43;
+}
+
+.infra-intro{
+  color: #555;
+  margin-bottom: 18px;
+}
+
+header.infraTop {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Bullet list */
+.infra-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.infra-list li{
+  display: flex;
+  gap: 12px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.infra-icon{
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1eb2a6, #167d74);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.infra-list h4{
+  margin: 0 0 4px;
+  color: #1c1f43;
+  font-size: 1.02rem;
+}
+
+.infra-list p{
+  margin: 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Image */
+.infra-right{
+  display: flex;
+  justify-content: center;
+}
+
+.infra-image-wrap{
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+.infra-image{
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 300ms ease;
+}
+
+.infra-image-wrap:hover .infra-image{
+  transform: scale(1.03);
+}
+
+/* Bottom text */
+.infra-bottom{
+  margin-top: 26px;
+  max-width: 900px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.infra-bottom p + p{
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .infra-grid{
+    grid-template-columns: 1fr;
+  }
+}
+.infraPage{
+  padding: clamp(48px, 5vw, 80px) 0;
+}
+
+/* Top heading */
+.infraTop h1{
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  color: #1c1f43;
+  margin-bottom: 6px;
+}
+
+.infraTop p{
+  /* max-width: 720px; */
+  color: #555;
+  line-height: 1.8;
+}
+
+/* Two-column layout: text left, image right */
+.infra-grid{
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 28px;
+  margin-top: 28px;
+  align-items: flex-start;
+}
+
+.infra-title{
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+  color: #1c1f43;
+}
+
+.infra-intro{
+  color: #555;
+  margin-bottom: 18px;
+}
+
+/* keep your existing .infra-list, .infra-icon, .infra-right, .infra-image, .infra-bottom, media query */
+@media (max-width: 900px){
+  .infra-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------ */
+
+/* Top heading already ok: .infraTop etc. */
+
+/* Gallery section */
+.infra-gallery{
+  margin-top: 40px;
+  text-align: center;
+}
+
+.infra-gallery-title{
+  font-size: clamp(1.6rem, 2.6vw, 2rem);
+  color: #1c1f43;
+  margin-bottom: 6px;
+}
+
+.infra-gallery-text{
+  max-width: 700px;
+  margin: 0 auto 18px;
+  color: #555;
+}
+
+/* Carousel layout */
+.infra-carousel{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.infra-carousel-window{
+  width: 360px;
+  height: 420px;
+  /* border-radius: 18px; */
+  overflow: hidden;
+  /* box-shadow: 0 18px 40px rgba(0,0,0,0.12); */
+  position: relative;
+  /* background: #000; */
+  background-color: var(--bg);
+}
+
+.infra-carousel-img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 260ms ease, transform 260ms ease;
+  background-color: var(--bg);
+}
+
+.infra-carousel-img.active{
+  opacity: 1;
+  transform: scale(1);
+}
+
+.infra-carousel-btn{
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(28,31,67,0.92);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+.infra-carousel-btn:hover{
+  background: #1eb2a6;
+}
+
+/* Dots */
+.infra-dots{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.infra-dot{
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.18);
+  cursor: pointer;
+}
+
+.infra-dot.active{
+  background: #1eb2a6;
+}
+
+/* Responsive */
+@media (max-width: 600px){
+  .infra-carousel-btn{
+    width: 32px;
+    height: 32px;
+  }
+}
+.infra-overview-grid{
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.infra-card{
+  display: block;
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px 16px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.infra-card:hover{
+  transform: translateY(-4px);
+  border-color: rgba(30,178,166,0.4);
+  box-shadow: 0 16px 40px rgba(30,178,166,0.14);
+}
+
+.infra-card-icon{
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1eb2a6, #167d74);
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.infra-card h3{
+  margin: 0 0 6px;
+  color: #1c1f43;
+}
+
+.infra-card p{
+  margin: 0 0 8px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.infra-card-list{
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0 0 10px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.infra-card-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: #1eb2a6;
+  text-decoration: none;
+}
+
+.infra-card-link i{
+  font-size: 0.9rem;
+}

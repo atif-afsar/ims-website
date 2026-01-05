@@ -1,0 +1,458 @@
+/* ===================== NEET PROGRAM – PREMIUM ISLAMIC DESIGN ===================== */
+.neet-program {
+  padding: clamp(90px, 5vw, 140px) 0 120px;
+  background: linear-gradient(135deg, #f8fdfa 0%, #e8f7f4 50%, #f0f8f7 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle Islamic Pattern */
+.neet-program::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 26%, rgba(30,178,166,0.18), transparent 55%),
+    radial-gradient(circle at 80% 30%, rgba(212,175,55,0.18), transparent 55%);
+}
+
+/* Decorative stickers */
+.sectionDecorNeet .neetSticker {
+  position: absolute;
+  font-size: clamp(40px, 5vw, 70px);
+  opacity: 0.16;
+  filter: drop-shadow(0 14px 20px rgba(0,0,0,0.18));
+  pointer-events: none;
+  animation: neetFloat 10s ease-in-out infinite;
+  z-index: 0;
+}
+
+.neetStickerLeft { left: -10px; top: 20%; }
+.neetStickerRight { right: -10px; top: 32%; animation-delay: 0.8s; }
+
+@keyframes neetFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-18px) rotate(3deg); }
+}
+
+/* Intro */
+.neet-intro {
+  text-align: center;
+  margin: clamp(30px, 5vw, 60px) 0 clamp(40px, 6vw, 80px);
+}
+
+.intro-text {
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+  color: #1eb2a6;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Two Programs */
+.neet-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: clamp(24px, 3vw, 50px);
+  margin: clamp(40px, 6vw, 80px) 0;
+}
+
+.neet-card {
+  background: white;
+  padding: clamp(30px, 4vw, 55px) clamp(20px, 3vw, 40px);
+  border-radius: 32px;
+  text-align: center;
+  box-shadow: 0 25px 70px rgba(30,178,166,0.15);
+  transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid transparent;
+}
+
+.neet-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #1eb2a6, #16a085, #1eb2a6);
+  border-radius: 32px 32px 0 0;
+}
+
+.neet-card:hover {
+  transform: translateY(-18px) 3s;
+  border-color: #1eb2a6;
+  box-shadow: 0 40px 100px rgba(30,178,166,0.28);
+}
+
+.card-icon {
+  font-size: 3.1rem;
+  color: #1eb2a6;
+  margin-bottom: 18px;
+}
+
+.neet-card h3 {
+  font-size: clamp(1.4rem, 2.1vw, 1.9rem);
+  color: #1eb2a6;
+  margin: 10px 0;
+  font-weight: 700;
+}
+
+.for-class {
+  display: inline-block;
+  background: linear-gradient(135deg, #471eb2, #16a085);
+  color: white;
+  padding: 8px 22px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.neet-card p {
+  margin-top: 10px;
+  color: #555;
+  line-height: 1.7;
+}
+
+.highlight-badge {
+  margin-top: 18px;
+  padding: 10px 26px;
+  background: linear-gradient(135deg, #471eb2, #16a085);
+  color: white;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.98rem;
+  display: inline-block;
+  box-shadow: 0 10px 30px rgba(30,178,166,0.4);
+}
+
+/* Features */
+.neet-features {
+  margin-top: clamp(60px, 7vw, 120px);
+}
+
+.features-with-image {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(30px, 4vw, 80px);
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.features-left {
+  padding-right: 16px;
+}
+
+.section-mini-title {
+  font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+  font-weight: 800;
+  color: #1c1f43;
+  margin-bottom: 12px;
+}
+
+.features-grid-2col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: 18px 26px;
+  margin-top: 18px;
+}
+
+.feature-item-2col {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: white;
+  padding: 16px 18px;
+  border-radius: 18px;
+  box-shadow: 0 2px 2px #471eb2;
+  transition: transform 260ms ease, box-shadow 260ms ease, border-left-color 260ms ease;
+  border-left: 5px solid #1eb2a6;
+}
+
+.feature-item-2col:hover {
+  transform: translateX(8px);
+  box-shadow: 0 18px 45px rgba(30,178,166,0.18);
+  border-left-color: #16a085;
+}
+
+.feature-icon {
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(135deg, #471eb2, #16a085);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  flex-shrink: 0;
+  box-shadow: 0 10px 25px rgba(30,178,166,0.35);
+}
+
+.feature-item-2col span {
+  font-size: 0.98rem;
+  color: #444;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Image */
+.features-right {
+  position: relative;
+}
+
+.image-container {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+}
+
+.neet-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.image-container:hover .neet-image {
+  transform: scale(1.06);
+}
+
+.image-overlay {
+  position: absolute;
+  /* inset: auto 0 0 0; */
+  background: linear-gradient(transparent, rgba(30,178,166,0.78));
+  color: white;
+  padding: 40px 26px 24px;
+  text-align: center;
+}
+
+.overlay-text {
+  font-family: "Amiri", serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.overlay-sub {
+  font-size: 0.98rem;
+  opacity: 0.96;
+}
+
+/* Results */
+.neet-results {
+  margin-top: clamp(70px, 7vw, 120px);
+  text-align: center;
+}
+
+.alhamdulillah-badge {
+  display: inline-block;
+  background: linear-gradient(45deg, #c29438, #ff0000bc);
+  color: #0e5c56;
+  padding: 8px 22px;
+  border-radius: 999px;
+  font-family: "Amiri", serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-right: 10px;
+  box-shadow: 0 8px 25px rgba(212,175,55,0.3);
+}
+
+.results-grid-2col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: 26px;
+  margin-top: 40px;
+}
+
+.result-card-premium {
+  background: white;
+  padding: 40px 26px 32px;
+  border-radius: 32px;
+  text-align: center;
+  box-shadow: 0 25px 70px rgba(30,178,166,0.15);
+  position: relative;
+  overflow: hidden;
+  transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+  border: 3px solid transparent;
+}
+
+.result-card-premium::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  background: linear-gradient(135deg, #471eb2, #16a085);
+  border-radius: 32px 32px 0 0;
+}
+
+.result-card-premium:hover {
+  transform: translateY(-18px);
+  border-color: #1eb2a6;
+  box-shadow: 0 40px 100px rgba(30,178,166,0.30);
+}
+
+/* Rank ribbon */
+.rank-ribbon {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(45deg, #d4af37, #ffd700);
+  color: #0e5c56;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  font-weight: bold;
+  box-shadow: 0 10px 30px rgba(212,175,55,0.4);
+  z-index: 10;
+}
+
+/* Student */
+.student-photo {
+  width: 120px;
+  height: 120px;
+  margin: 24px auto 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 8px solid white;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(30,178,166,0.3);
+}
+
+.student-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+.photo-glow {
+  position: absolute;
+  inset: -10px;
+  background: linear-gradient(45deg, #1eb2a6, transparent, #d4af37);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: neetPulse 4s infinite;
+}
+
+@keyframes neetPulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.08); opacity: 0.5; }
+}
+
+.student-name {
+  font-size: 1.35rem;
+  color: #1eb2a6;
+  margin: 16px 0 6px;
+  font-weight: 700;
+}
+
+.arabic-name {
+  font-family: "Amiri", serif;
+  font-size: 1.4rem;
+  color: #d4af37;
+  font-weight: bold;
+  margin: 4px 0 12px;
+}
+
+/* Score */
+.score-badge {
+  background: linear-gradient(135deg, #471eb2, #16a085);
+  color: white;
+  padding: 10px 26px;
+  border-radius: 999px;
+  display: inline-block;
+  margin: 14px 0;
+  font-weight: bold;
+  box-shadow: 0 15px 40px rgba(30,178,166,0.4);
+}
+
+.score {
+  font-size: 1.7rem;
+  display: block;
+}
+
+/* Dua */
+.success-dua {
+  margin-top: 12px;
+  font-family: "Amiri", serif;
+  font-size: 1.1rem;
+  color: #1eb2a6;
+  font-weight: bold;
+  background: rgba(30,178,166,0.08);
+  padding: 10px 20px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+/* CTA */
+.neet-cta {
+  text-align: center;
+  margin-top: clamp(60px, 7vw, 100px);
+  padding: clamp(30px, 4.5vw, 70px) clamp(18px, 4vw, 50px);
+  background: linear-gradient(135deg, #1eb2a6, #16a085);
+  border-radius: 35px;
+  color: white;
+}
+
+.neet-cta h3 {
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.neet-cta-btn {
+  background: white;
+  color: #1eb2a6;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-size: 1.02rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.neet-cta-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .features-with-image {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .features-left {
+    text-align: center;
+    padding-right: 0;
+  }
+  .feature-item-2col {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionDecorNeet .neetSticker { display: none; }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .sectionDecorNeet .neetSticker,
+  .photo-glow {
+    animation: none !important;
+  }
+}

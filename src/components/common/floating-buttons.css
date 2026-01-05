@@ -1,0 +1,47 @@
+.float-btn{
+  position: fixed;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  font-size: 26px;
+  text-decoration: none;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* WhatsApp – bottom right */
+.float-whatsapp{
+  right: 18px;
+  bottom: 18px;
+  background-color: #25d366;
+}
+
+/* Call – bottom left */
+.float-call{
+  left: 18px;
+  bottom: 18px;
+  background-color: #1eb2a6;
+}
+
+.float-btn:hover{
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.30);
+}
+
+@media (max-width: 600px){
+  .float-btn{
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+
+  .float-whatsapp{ right: 14px; bottom: 14px; }
+  .float-call{ left: 14px; bottom: 14px; }
+}

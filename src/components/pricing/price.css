@@ -1,0 +1,203 @@
+/* ===== Pricing Section ===== */
+.priceSection {
+  padding: clamp(70px, 8vw, 120px) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.priceSticker {
+  position: absolute;
+  font-size: clamp(40px, 5vw, 70px);
+  opacity: 0.14;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 18px rgba(0,0,0,0.16));
+  animation: priceFloat 10s ease-in-out infinite;
+}
+
+.priceStickerLeft { left: -10px; top: 22%; }
+.priceStickerRight { right: -10px; top: 32%; animation-delay: 0.8s; }
+
+@keyframes priceFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-18px) rotate(3deg); }
+}
+
+.priceTopNote {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(30,178,166,0.10);
+  border: 1px solid rgba(30,178,166,0.18);
+  color: #167d74;
+  font-weight: 800;
+  margin: 12px 0 26px;
+}
+
+/* responsive grid for cards */
+.priceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: 18px;
+}
+
+/* pricing card */
+.priceItem {
+  background: #fff;
+  border-radius: 22px;
+  padding: 28px 22px;
+  text-align: center;
+  box-shadow: 0 20px 55px rgba(30,178,166,0.12);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+}
+
+.priceItem::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 7px;
+  background: linear-gradient(90deg, #1eb2a6, #16a085, #1eb2a6);
+}
+
+.priceItem:hover {
+  transform: translateY(-10px);
+  border-color: rgba(30,178,166,0.55);
+  box-shadow: 0 34px 75px rgba(30,178,166,0.20);
+}
+
+.planChip {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(212,175,55,0.16);
+  color: #8a6b12;
+  font-weight: 900;
+  font-size: 0.92rem;
+}
+
+.planName {
+  margin: 14px 0 6px;
+  font-weight: 900;
+  color: #1c1f43;
+}
+
+.planPrice {
+  font-size: clamp(2.2rem, 3.2vw, 3.1rem);
+  margin: 10px 0 14px;
+  color: #1eb2a6;
+  font-weight: 900;
+}
+
+.planCurrency {
+  font-size: 1.15rem;
+  margin-right: 6px;
+  color: #1c1f43;
+}
+
+.planDesc {
+  color: #666;
+  line-height: 1.7;
+  margin: 0 0 18px;
+}
+
+.planBtn {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== FAQ ===== */
+.faqSection {
+  padding: clamp(60px, 7vw, 110px) 0;
+}
+
+.faqWrap {
+  width: min(100%, 900px);
+  margin: 0 auto;
+}
+
+.faqBox {
+  background: #fff;
+  border-radius: 18px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+}
+
+.faqAccordion {
+  width: 100%;
+  border: 0;
+  background: #fff;
+  cursor: pointer;
+  padding: 16px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.faqAccordion:hover,
+.faqAccordion.open {
+  background: rgba(30,178,166,0.10);
+}
+
+.faqQ {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 900;
+  color: #1c1f43;
+}
+
+.faqQ i {
+  color: #1eb2a6;
+}
+
+.faqIcon i {
+  color: #1eb2a6;
+}
+
+.faqPanel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 260ms ease;
+}
+
+.faqPanel.open {
+  max-height: 260px;
+}
+
+.faqPanel p {
+  margin: 0;
+  padding: 0 16px 16px;
+  color: #555;
+  line-height: 1.75;
+}
+
+.faqSticker {
+  text-align: center;
+  margin-top: 18px;
+  opacity: 0.85;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .priceSticker { display: none; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .priceSticker { animation: none !important; }
+  .faqPanel { transition: none !important; }
+  .priceItem { transition: none !important; }
+}

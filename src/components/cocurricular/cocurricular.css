@@ -1,0 +1,263 @@
+.cocurricular-section {
+  padding: clamp(80px, 9vw, 140px) 0;
+  background: linear-gradient(135deg, #f8fdfa 0%, #e8f7f4 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft background pattern */
+.cocurricular-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(30,178,166,0.22), transparent 55%),
+    radial-gradient(circle at 82% 30%, rgba(212,175,55,0.18), transparent 50%),
+    radial-gradient(circle at 30% 88%, rgba(30,178,166,0.14), transparent 55%);
+}
+
+/* Stickers (emoji elements) */
+.sectionDecorCo .coSticker {
+  position: absolute;
+  font-size: clamp(38px, 5vw, 70px);
+  opacity: 0.14;
+  filter: drop-shadow(0 14px 18px rgba(0,0,0,0.16));
+  pointer-events: none;
+  animation: coFloat 10s ease-in-out infinite;
+  z-index: 0;
+}
+
+.coStickerLeft { left: -10px; top: 18%; }
+.coStickerRight { right: -10px; top: 30%; animation-delay: 0.8s; }
+.coStickerTop { left: 50%; top: 10%; transform: translateX(-50%); animation-delay: 1.2s; }
+
+@keyframes coFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-18px) rotate(3deg); }
+}
+
+/* Intro */
+.cocurricular-intro {
+  text-align: center;
+  max-width: 900px;
+  margin: clamp(26px, 4vw, 60px) auto;
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  line-height: 1.8;
+  color: #444;
+  position: relative;
+  z-index: 1;
+}
+
+.cocurricular-intro strong {
+  color: #1eb2a6;
+  font-weight: 800;
+}
+
+/* Responsive grid (auto-fit) */
+.cocurricular-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: clamp(18px, 3vw, 40px);
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card */
+.cocurricular-card {
+  background: white;
+  padding: clamp(28px, 3.5vw, 50px) clamp(18px, 2.6vw, 35px);
+  border-radius: 32px;
+  text-align: center;
+  box-shadow: 0 25px 70px rgba(30,178,166,0.12);
+  transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid transparent;
+}
+
+.cocurricular-card::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #1eb2a6, #16a085, #1eb2a6);
+  border-radius: 32px 32px 0 0;
+}
+
+.cocurricular-card:hover {
+  transform: translateY(-14px);
+  border-color: rgba(30,178,166,0.65);
+  box-shadow: 0 40px 100px rgba(30,178,166,0.22);
+}
+
+/* Small badge at top */
+.card-top {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.vibe-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(10px);
+}
+
+.vibe-ico { display: inline-flex; }
+
+.vibe-sports { color: #0f6bff; }
+.vibe-creative { color: #b04cff; }
+.vibe-values { color: #ff4d7d; }
+.vibe-achievement { color: #d4af37; }
+.vibe-skill { color: #1eb2a6; }
+
+/* Icon */
+.card-icon-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+.card-icon {
+  width: clamp(78px, 7vw, 92px);
+  height: clamp(78px, 7vw, 92px);
+  background: linear-gradient(135deg, #471eb2, #16a085);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(34px, 3.2vw, 42px);
+  box-shadow: 0 15px 40px rgba(30,178,166,0.4);
+  transition: transform 260ms ease;
+  z-index: 2;
+  position: relative;
+}
+
+.cocurricular-card:hover .card-icon {
+  transform: scale(1.12) rotate(8deg);
+}
+
+.icon-glow {
+  position: absolute;
+  inset: -14px;
+  background: radial-gradient(circle, rgba(30,178,166,0.35), transparent);
+  border-radius: 50%;
+  animation: pulseGlow 3s infinite;
+  z-index: 1;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(1.08); }
+}
+
+/* Text */
+.cocurricular-card h3 {
+  font-size: clamp(1.25rem, 1.6vw, 1.55rem);
+  color: #1eb2a6;
+  margin: 14px 0 10px;
+  font-weight: 800;
+}
+
+.cocurricular-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Tags */
+.coTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.coTag {
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  background: rgba(30,178,166,0.10);
+  color: var(--brand);
+  border: 1px solid rgba(30,178,166,0.18);
+}
+
+/* Stars */
+.card-decoration .star1,
+.card-decoration .star2,
+.card-decoration .star3 {
+  position: absolute;
+  color: #d4af37;
+  font-size: 18px;
+  opacity: 0.55;
+  animation: floatStar 6s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.star1 { top: 18px; left: 18px; animation-delay: 0s; }
+.star2 { bottom: 18px; right: 22px; animation-delay: 2s; }
+.star3 { top: 50%; left: 14px; animation-delay: 4s; }
+
+@keyframes floatStar {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(180deg); }
+}
+
+/* Footer quote */
+.cocurricular-footer {
+  text-align: center;
+  margin-top: clamp(50px, 7vw, 100px);
+  padding: clamp(26px, 4vw, 50px);
+  background: linear-gradient(135deg, #1eb2a6, #16a085);
+  border-radius: 35px;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-quote {
+  font-size: clamp(1.15rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  margin: 0;
+  font-style: italic;
+}
+
+.footer-quote span {
+  display: block;
+  font-size: clamp(0.95rem, 1.4vw, 1.25rem);
+  margin-top: 12px;
+  opacity: 0.92;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sectionDecorCo .coSticker { display: none; }
+}
+
+/* Reduce motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .sectionDecorCo .coSticker,
+  .icon-glow,
+  .card-decoration .star1,
+  .card-decoration .star2,
+  .card-decoration .star3 {
+    animation: none !important;
+  }
+  .cocurricular-card,
+  .card-icon {
+    transition: none !important;
+  }
+}
