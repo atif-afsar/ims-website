@@ -160,32 +160,189 @@ p  { font-size: clamp(0.98rem, 1.2vw, 1.1rem); }
 }
 
 /* Back Section – Hero Pages */
+/* ================================
+   BACK / PAGE HEADER
+================================ */
+
 .back {
-  min-height: clamp(420px, 78vh, 720px);
-  background: linear-gradient(rgba(28, 31, 67, 0.90), rgba(28, 31, 67, 0.95)),
-              url("./assets/images/about/about-bg.jpg") center/cover no-repeat;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
   position: relative;
-  padding: 24px 0;
+  padding: clamp(72px, 10vw, 120px) 16px
+           clamp(56px, 8vw, 90px);
+  text-align: center;
+  color: #fff;
+
+  background: linear-gradient(
+      rgba(28, 31, 67, 0.88),
+      rgba(28, 31, 67, 0.95)
+    ),
+    url("./assets/images/about/about-bg.jpg") center / cover no-repeat;
+
+  overflow: hidden;
 }
+
+/* Soft ambient glow */
+.back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 20%,
+    rgba(255,255,255,0.08),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* Subtle bottom fade for elegance */
+.back::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(28,31,67,0.25) 70%,
+    rgba(28,31,67,0.45) 100%
+  );
+  pointer-events: none;
+}
+
+/* Inner content */
+.backInner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ================================
+   BREADCRUMB
+================================ */
+
+.backCrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  margin-bottom: 20px;
+
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+.backCrumbLink {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.backCrumbLink:hover {
+  color: #1eb2a6;
+}
+
+.backCrumbSep {
+  opacity: 0.5;
+}
+
+.backCrumbCurrent {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ================================
+   TITLE & SUBTITLE
+================================ */
 
 .back h1 {
   font-family: "Scheherazade New", serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  line-height: 1.25;
   margin-bottom: 12px;
+  letter-spacing: 0.6px;
 }
 
-.back h2 {
-  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
-  opacity: 0.92;
-  letter-spacing: 1.6px;
-  max-width: 900px;
-  padding: 0 12px;
+/* Decorative underline */
+.back h1::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin: 14px auto 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255,255,255,0.8),
+    transparent
+  );
+  border-radius: 2px;
 }
+
+.backSubtitle {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  line-height: 1.7;
+  opacity: 0.9;
+  max-width: 720px;
+  margin: 18px auto 0;
+  letter-spacing: 0.4px;
+}
+
+/* ================================
+   DECORATIVE STICKERS
+================================ */
+
+.backSticker {
+  position: absolute;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  opacity: 0.25;
+  animation: backFloat 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.backStickerLeft {
+  left: 22px;
+  top: 26%;
+}
+
+.backStickerRight {
+  right: 22px;
+  top: 34%;
+  animation-delay: 1.4s;
+}
+
+@keyframes backFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+/* ================================
+   RESPONSIVE POLISH
+================================ */
+
+@media (max-width: 768px) {
+  .back {
+    padding: 64px 14px 72px;
+  }
+
+  .backCrumb {
+    font-size: 0.82rem;
+    padding: 5px 12px;
+  }
+
+  .back h1::after {
+    width: 48px;
+  }
+
+  .backSticker {
+    display: none;
+  }
+}
+
 
 /* Decorative stickers for ANY section wrapper */
 .sectionDecor {

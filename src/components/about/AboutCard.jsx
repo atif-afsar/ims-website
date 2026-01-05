@@ -7,8 +7,11 @@ import "./about.css";
 const AboutCard = () => {
   return (
     <>
-      <section className="aboutHome sectionDecorAbout" aria-labelledby="about-heading">
-        {/* Side stickers (decorations) */}
+      <section
+        className="aboutHome sectionDecorAbout"
+        aria-labelledby="about-heading"
+      >
+        {/* Decorative Stickers */}
         <img
           className="aboutSticker aboutStickerLeft"
           src="/images/stickers/bird.png"
@@ -26,66 +29,131 @@ const AboutCard = () => {
 
         <div className="container flexSB">
           {/* Image Section */}
-          <div className="left row" data-aos="fade-right" data-aos-duration="900">
+          <div
+            className="left row"
+            data-aos="fade-right"
+            data-aos-duration="900"
+          >
             <div className="aboutImgWrap">
               <img
                 src={aboutImg}
-                alt="Islamic Mission School campus with students learning in a beautiful Islamic environment"
+                alt="Islamic Mission School campus fostering academic excellence and moral development"
                 loading="lazy"
                 className="about-img"
               />
             </div>
           </div>
 
-          {/* Text Content Section */}
-          <div className="right row" data-aos="fade-left" data-aos-duration="900">
+          {/* Text Content */}
+          <div
+            className="right row"
+            data-aos="fade-left"
+            data-aos-duration="900"
+          >
             <div data-aos="fade-up" data-aos-delay="100">
-              <Heading subtitle="OVERVIEW" title="Who We Are" />
+              <Heading
+                subtitle="ABOUT IMS"
+                title="Shaping Hearts, Building Minds"
+              />
             </div>
 
             <article className="about-content">
-              <p className="about-desc" data-aos="fade-up" data-aos-delay="150">At, 
-                <span className="highlight"> Islamic Mission School (IMS)</span>
-                 we believe education is more than academic excellence; it is the foundation of character. In a rapidly changing world, we provide a learning environment where timeless values and modern innovation converge. We nurture compassionate, confident, and critical thinkers who are not only prepared for the challenges of tomorrow but are also committed to building a more just and peaceful world. We foster a culture of respect, responsibility, and kindness, where students are encouraged to question, create, and collaborate. Welcome to an education that shapes both the intellect and the soul.
+              <p
+                className="about-desc"
+                data-aos="fade-up"
+                data-aos-delay="150"
+              >
+                Our children are a blessing <strong>(Naemat)</strong> bestowed
+                upon us by the Almighty Allah and a sacred trust{" "}
+                <strong>(Amaanah)</strong> for which we are accountable. At{" "}
+                <span className="highlight">
+                  Islamic Mission School (IMS)
+                </span>
+                , we believe that education is not limited to academic success
+                alone—it is the foundation of strong character, moral integrity,
+                and responsible citizenship.
               </p>
 
-              
-            </article>
-            
-          </div>
-          <div className="features" role="list">
-                <div className="feature-item" role="listitem" data-aos="zoom-in" data-aos-delay="100">
-                  <i className="fas fa-chalkboard-teacher" aria-hidden="true"></i>
-                  <div>
-                    <h3>Experienced Teachers</h3>
-                    <p>
-                      Dedicated educators with strong tarbiyah and modern teaching methods—supporting
-                      every child’s growth.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="feature-item" role="listitem" data-aos="zoom-in" data-aos-delay="180">
-                  <i className="fas fa-mosque" aria-hidden="true"></i>
-                  <div>
-                    <h3>Unique Islamic Approach</h3>
-                    <p>
-                      Authentic Islamic learning with strong academics, focusing on adab, akhlaq, and
-                      excellence in studies.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Use Link if you want (recommended), but keeping your anchor for now */}
-              <a
-                href="/admissions"
-                className="primary-btn aboutCta"
+              <p
+                className="about-desc"
                 data-aos="fade-up"
-                data-aos-delay="250"
+                data-aos-delay="220"
               >
-                Explore Admissions <i className="fa fa-long-arrow-alt-right" aria-hidden="true"></i>
-              </a>
+                Established in <strong>2008</strong>, IMS was founded with a clear
+                vision: to nurture well-rounded individuals who excel in this
+                world through knowledge and succeed in the Hereafter through
+                faith and righteous conduct. We provide a nurturing environment
+                where timeless Islamic values harmoniously blend with modern,
+                future-ready education.
+              </p>
+
+              <p
+                className="about-desc"
+                data-aos="fade-up"
+                data-aos-delay="290"
+              >
+                At IMS, learning goes beyond classrooms. We cultivate curiosity,
+                compassion, confidence, and critical thinking—preparing students
+                to face the challenges of a rapidly changing world while
+                remaining rooted in values of respect, responsibility, and
+                kindness. IMS is not merely a school; it is a{" "}
+                <strong>Madrasat-ul-Hayat</strong> — a school for life.
+              </p>
+            </article>
+          </div>
+
+          {/* Key Highlights */}
+          <div className="features" role="list">
+            <div
+              className="feature-item"
+              role="listitem"
+              data-aos="zoom-in"
+              data-aos-delay="120"
+            >
+              <i
+                className="fas fa-chalkboard-teacher"
+                aria-hidden="true"
+              ></i>
+              <div>
+                <h3>Value-Driven Educators</h3>
+                <p>
+                  Passionate and qualified teachers committed to academic
+                  excellence, strong tarbiyah, and holistic child development.
+                </p>
+              </div>
+            </div>
+
+            <div
+              className="feature-item"
+              role="listitem"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
+              <i className="fas fa-mosque" aria-hidden="true"></i>
+              <div>
+                <h3>Value-Based Education</h3>
+                <p>
+                  A balanced curriculum integrating Islamic morals, character
+                  building, and modern academics to develop beneficial human
+                  beings.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <a
+            href="/admissions"
+            className="primary-btn aboutCta"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            Explore Admissions{" "}
+            <i
+              className="fa fa-long-arrow-alt-right"
+              aria-hidden="true"
+            ></i>
+          </a>
         </div>
       </section>
 

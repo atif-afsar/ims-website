@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { FaGraduationCap, FaUsers, FaTrophy, FaMosque } from "react-icons/fa";
+import { FaGraduationCap, FaUsers, FaMosque, FaBook } from "react-icons/fa";
 import "./about.css";
 
 const Awrapper = () => {
@@ -7,12 +7,33 @@ const Awrapper = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [values, setValues] = useState([0, 0, 0, 0]);
 
+  // IMS-aligned statistics
   const stats = useMemo(
     () => [
-      { icon: <FaGraduationCap />, target: 500, label: "Successful Students", suffix: "+" },
-      { icon: <FaUsers />, target: 50, label: "Qualified Teachers", suffix: "+" },
-      { icon: <FaTrophy />, target: 100, label: "Awards & Recognition", suffix: "+" },
-      { icon: <FaMosque />, target: 20, label: "Years of Excellence", suffix: "+" },
+      {
+        icon: <FaGraduationCap />,
+        target: 1000,
+        label: "Students Nurtured",
+        suffix: "+",
+      },
+      {
+        icon: <FaUsers />,
+        target: 80,
+        label: "Dedicated Educators",
+        suffix: "+",
+      },
+      {
+        icon: <FaBook />,
+        target: 15,
+        label: "Years of Value-Based Education",
+        suffix: "+",
+      },
+      {
+        icon: <FaMosque />,
+        target: 1,
+        label: "Mission: Serving Humanity",
+        suffix: "",
+      },
     ],
     []
   );
@@ -26,12 +47,12 @@ const Awrapper = () => {
         if (!entry.isIntersecting || hasAnimated) return;
         setHasAnimated(true);
 
-        const duration = 1600; // ms
+        const duration = 1600;
         const start = performance.now();
 
         const animate = (now) => {
           const t = Math.min(1, (now - start) / duration);
-          const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic-ish
+          const eased = 1 - Math.pow(1 - t, 3);
 
           setValues(stats.map((s) => Math.floor(s.target * eased)));
 
@@ -49,7 +70,7 @@ const Awrapper = () => {
 
   return (
     <section className="awrapper awrapperDecor" ref={sectionRef}>
-      {/* Decorative stickers on the awrapper background */}
+      {/* Decorative stickers */}
       <img
         className="awSticker awStickerLeft"
         src="/images/stickers/kite.png"
@@ -78,6 +99,7 @@ const Awrapper = () => {
               <div className="awIcon" aria-hidden="true">
                 {stat.icon}
               </div>
+
               <div className="awText">
                 <h1 className="awCount">
                   {values[index]}
