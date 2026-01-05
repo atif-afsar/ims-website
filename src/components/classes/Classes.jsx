@@ -52,7 +52,7 @@ const Classes = () => {
             {/* Put this image in: public/images/classes/admissions-hero.webp */}
             <div className="heroImageWrap">
               <img
-                src="/images/classes/admissions-hero.webp"
+                src="/images/image.png"
                 alt="IMS students learning in a caring environment"
                 loading="lazy"
               />

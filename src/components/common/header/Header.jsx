@@ -13,17 +13,18 @@ const Header = () => {
   const navLinks = [
     { to: "/", label: "Home", end: true },
     { to: "/about", label: "About Us" },
-    {
-      label: "Classes",
-      submenu: [
-        { to: "/classes", label: "All Classes", end: true },
-        { to: "/classes?group=pre-primary", label: "Pre‑Primary" },
-        { to: "/classes?group=primary", label: "Primary" },
-        { to: "/classes?group=middle", label: "Middle" },
-        { to: "/classes?group=secondary", label: "Secondary" },
-        { to: "/classes?group=senior-secondary", label: "Senior Secondary" },
-      ],
-    },
+    // {
+    //   label: "Classes",
+    //   submenu: [
+    //     { to: "/classes", label: "All Classes", end: true },
+    //     { to: "/classes?group=pre-primary", label: "Pre‑Primary" },
+    //     { to: "/classes?group=primary", label: "Primary" },
+    //     { to: "/classes?group=middle", label: "Middle" },
+    //     { to: "/classes?group=secondary", label: "Secondary" },
+    //     { to: "/classes?group=senior-secondary", label: "Senior Secondary" },
+    //   ],
+    // },
+    { to: "/classes", label: "Classes" },
     { to: "/courses", label: "Courses" },
     { to: "/why-ims", label: "Why IMS" },
     {
