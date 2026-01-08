@@ -141,12 +141,119 @@ const AboutCard = () => {
             </div>
           </div>
 
+          {/* Extended About Sections */}
+          <div className="section-extended">
+            <div className="governance" data-aos="fade-up" data-aos-delay="260">
+              <Heading subtitle="GOVERNANCE" title="Office Bearers & Affiliation" />
+
+              <div className="office-bearers">
+                <div className="bearer">
+                  <h4>President</h4>
+                  <p className="name">Prof. Yusuf Ansari <span className="qual">(M.Tech, PhD.)</span></p>
+                </div>
+
+                <div className="bearer">
+                  <h4>Vice-President</h4>
+                  <p className="name">Dr. Misbah Uddin <span className="qual">(MBBS, MD)</span></p>
+                </div>
+
+                <div className="bearer">
+                  <h4>Secretary</h4>
+                  <p className="name">Dr. Kaunain Kausar <span className="qual">(MBBS, DMRT)</span></p>
+                  <p className="muted">Professionally an Oncologist and Passionately an Educationist</p>
+                </div>
+
+                <div className="bearer">
+                  <h4>Joint Secretary</h4>
+                  <p className="name">Md. Kamal Uddin <span className="qual">(Social activist)</span></p>
+                </div>
+
+                <div className="bearer">
+                  <h4>Treasurer</h4>
+                  <p className="name">Dr. Mohd. Suhail Akhter <span className="qual">(PhD)</span></p>
+                </div>
+              </div>
+
+              <div className="affiliation">
+                <strong>Affiliation:</strong>
+                <p>
+                  IMS is affiliated to Council for the Indian School Certificate Examinations (CISCE), New Delhi.
+                </p>
+                <div className="affRow">
+                  <div><strong>Status Of Affiliation</strong></div>
+                  <div><strong>Affiliation Number</strong></div>
+                </div>
+                <div className="affRow muted">
+                  <div>Permanent</div>
+                  <div>UP407</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="values-section" data-aos="fade-up" data-aos-delay="320">
+              <Heading subtitle="IMS — A VALUE BASED SCHOOL" title="The Need For Value Based Schools" />
+
+              <div className="values-content">
+                <p>
+                  The concept of Value Based Schools combines the best of values and academic learning into an integrated model. Values-based education creates a strong learning environment that enhances academic achievement and develops students' social and relationship skills that last throughout their lives.
+                </p>
+
+                <p>
+                  In India, value-based education is the need of the hour. Educational institutions must take the initiative to impart moral values—qualities of good conduct, self-confidence, and high values—that will help students secure a significant place in society.
+                </p>
+
+                <h4>Values in the curriculum</h4>
+                <p>
+                  The first ten years of a child are crucial. Learning in childhood is likened to an engraved mark on rock. This is the time to sow the seeds of moral values. Education without values is like tea without sugar.
+                </p>
+
+                <ul className="values-list">
+                  <li>The quantity of education has increased, but quality must improve.</li>
+                  <li>Degrees are available, yet dignity and sincerity must be restored.</li>
+                  <li>IMS applies a whole-school approach, training staff to be instruments in imparting values.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="curriculum-section" data-aos="fade-up" data-aos-delay="380">
+              <Heading subtitle="CURRICULUM" title="Nurturing Mind, Body, and Soul" />
+
+              <div className="curriculum-grid">
+                <div className="currCol">
+                  <h5>Academic Excellence</h5>
+                  <p>We follow the ICSE & ISC curriculum, offering a strong foundation across languages, sciences, humanities, technology, and arts.</p>
+                  <ul>
+                    <li>Languages: English, Hindi, Urdu, Arabic, Sanskrit</li>
+                    <li>Sciences: Mathematics, Physics, Chemistry, Biology</li>
+                    <li>Humanities & Social Sciences: History, Geography, Civics, Economics, Financial Literacy</li>
+                    <li>Technology & Arts: Computer Science, IT, Art, Physical Education</li>
+                  </ul>
+                </div>
+
+                <div className="currCol">
+                  <h5>21st Century Skills</h5>
+                  <p>We focus on skills that matter: critical thinking, collaboration, creativity, and digital literacy.</p>
+
+                  <div className="skill-paths">
+                    <div><strong>Cognitive & Analytical</strong><p>Critical thinking, problem solving, digital literacy</p></div>
+                    <div><strong>Personal & Intrapersonal</strong><p>Resilience, self-management, curiosity</p></div>
+                    <div><strong>Social & Interpersonal</strong><p>Communication, leadership, cross-cultural competency</p></div>
+                    <div><strong>Creative & Practical</strong><p>Design thinking, project management, public speaking</p></div>
+                  </div>
+
+                  <h5 className="mt20">STEM Education</h5>
+                  <p>IMS integrates a world-class STEM curriculum (partnered with Evan Moor) emphasizing hands-on, inquiry-led learning from Grade 1.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* CTA */}
           <a
             href="/classes"
             className="primary-btn aboutCta"
             data-aos="fade-up"
-            data-aos-delay="300"
+            data-aos-delay="420"
           >
             Explore Admissions{" "}
             <i

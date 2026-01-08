@@ -1,240 +1,693 @@
 @import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@700&display=swap");
 
+/* ============================================
+   ABOUT HOME SECTION - Modern & Spacious
+   ============================================ */
+
 .aboutHome {
-  padding: clamp(48px, 5vw, 90px) 0;
+  padding: clamp(4rem, 8vw, 8rem) 0;
   font-family: "Amiri", serif;
   position: relative;
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 1) 0%,
+    rgba(250, 252, 255, 1) 50%,
+    rgba(245, 248, 252, 1) 100%
+  );
 }
 
 .aboutHome .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
 }
 
-/* Stickers wrapper */
+/* Decorative Elements - Subtle & Elegant */
 .sectionDecorAbout {
   overflow: hidden;
+  position: relative;
 }
 
-/* Decorative stickers (kids themed) */
 .aboutSticker {
   position: absolute;
-  width: clamp(56px, 7vw, 110px);
-  opacity: 0.16;
-  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.18));
+  width: clamp(70px, 8vw, 140px);
+  opacity: 0.08;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.12));
   pointer-events: none;
-  animation: aboutFloat 10s ease-in-out infinite;
+  animation: aboutFloat 12s ease-in-out infinite;
   z-index: 0;
 }
 
 .aboutStickerLeft {
-  left: -14px;
-  top: 18%;
+  left: -20px;
+  top: 15%;
 }
 
 .aboutStickerRight {
-  right: -14px;
-  top: 32%;
-  animation-delay: 0.8s;
+  right: -20px;
+  top: 35%;
+  animation-delay: 1.2s;
 }
 
 @keyframes aboutFloat {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-18px) rotate(3deg); }
+  0%, 100% { 
+    transform: translateY(0) rotate(-3deg); 
+  }
+  50% { 
+    transform: translateY(-24px) rotate(3deg); 
+  }
 }
 
-/* Layout */
+/* Layout - Flexible & Responsive */
 .aboutHome .flexSB {
   display: flex;
   align-items: center;
-  gap: clamp(22px, 4vw, 60px);
+  gap: clamp(2.5rem, 6vw, 5rem);
   flex-wrap: wrap;
   position: relative;
-  z-index: 1; /* above stickers */
+  z-index: 1;
 }
 
 .aboutHome .left,
 .aboutHome .right {
   flex: 1;
-  min-width: 280px;
+  min-width: min(100%, 320px);
 }
 
+/* Image Container - Enhanced Visual Appeal */
 .aboutImgWrap {
   position: relative;
-  border-radius: 22px;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 
+    0 4px 12px rgba(28, 31, 67, 0.08),
+    0 16px 48px rgba(28, 31, 67, 0.12);
+  transform: translateZ(0);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Soft shine overlay on image */
+.aboutImgWrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 178, 166, 0.15) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.aboutImgWrap:hover::before {
+  opacity: 1;
+}
+
 .aboutImgWrap::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.25), transparent 55%);
+  background: radial-gradient(
+    circle at 35% 25%,
+    rgba(255, 255, 255, 0.3),
+    transparent 60%
+  );
   pointer-events: none;
+  z-index: 2;
 }
 
 .aboutHome .left img {
   width: 100%;
-  max-width: 560px;
+  max-width: 600px;
   height: auto;
   display: block;
   margin: 0 auto;
   transform: scale(1);
-  transition: transform 400ms ease;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aboutImgWrap:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 8px 20px rgba(28, 31, 67, 0.12),
+    0 24px 60px rgba(28, 31, 67, 0.16);
 }
 
 .aboutImgWrap:hover img {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
-/* Text */
+/* Typography - Clear Hierarchy */
+.aboutHome h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #1c1f43;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
 .highlight {
   font-family: "Scheherazade New", serif;
-  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
-  color: #1c1f43;
+  font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+  color: #1eb2a6;
   font-weight: 700;
   display: inline-block;
-  margin-right: 8px;
+  margin-right: 0.5rem;
+  position: relative;
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #1eb2a6, transparent);
+  opacity: 0.3;
 }
 
 .about-desc {
-  font-size: clamp(1rem, 1.1vw, 1.1rem);
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
   line-height: 1.9;
-  color: #333;
-  margin: 18px 0 26px;
+  color: #444;
+  margin: 1.5rem 0 2rem;
+  max-width: 65ch;
 }
 
+/* Features - Modern Card Design */
 .features {
-  margin: 28px 0;
+  margin: 2.5rem 0;
+  display: grid;
+  gap: 1.25rem;
 }
 
 .feature-item {
   display: flex;
-  gap: 16px;
-  margin-bottom: 18px;
+  gap: 1.25rem;
   align-items: flex-start;
-  padding: 14px 14px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.7);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: 20px;
+  background: #ffffff;
   border: 1px solid rgba(28, 31, 67, 0.08);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
-  transition: transform 250ms ease, box-shadow 250ms ease;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #1eb2a6, #1c1f43);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.feature-item:hover::before {
+  transform: scaleX(1);
 }
 
 .feature-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 34px rgba(0,0,0,0.08);
+  transform: translateY(-6px);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 16px 40px rgba(28, 31, 67, 0.12);
+  border-color: rgba(30, 178, 166, 0.2);
 }
 
 .feature-item i {
-  font-size: 38px;
-  color: #1c1f43;
+  font-size: clamp(2.25rem, 4vw, 2.75rem);
+  color: #1eb2a6;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 0.25rem;
+  transition: transform 0.3s ease;
+}
+
+.feature-item:hover i {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .feature-item h3 {
   font-family: "Scheherazade New", serif;
-  font-size: clamp(1.25rem, 1.6vw, 1.55rem);
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
   color: #1c1f43;
-  margin: 0 0 6px 0;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
 }
 
 .feature-item p {
   color: #555;
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  line-height: 1.7;
 }
 
 .aboutCta {
   text-decoration: none;
+  display: inline-block;
+  margin-top: 1.5rem;
 }
 
-/* Awrapper */
+/* ============================================
+   AWRAPPER SECTION - Stats Showcase
+   ============================================ */
+
 .awrapper {
   position: relative;
   text-align: center;
   color: white;
-  padding: clamp(64px, 7vw, 110px) 0;
-  background: linear-gradient(rgba(28, 31, 67, 0.85), rgba(28, 31, 67, 0.92)),
+  padding: clamp(5rem, 9vw, 8rem) 0;
+  background: linear-gradient(
+      rgba(28, 31, 67, 0.88), 
+      rgba(30, 178, 166, 0.75)
+    ),
     url("../../assets/images/about/about-bg.jpg") center/cover no-repeat;
   background-attachment: fixed;
   overflow: hidden;
 }
 
-/* Mobile fix: background-attachment fixed is inconsistent on many phones */
+.awrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(30, 178, 166, 0.2),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
 @media (max-width: 768px) {
   .awrapper {
     background-attachment: scroll;
   }
 }
 
-/* Awrapper stickers */
+/* Awrapper decorative stickers */
 .awSticker {
   position: absolute;
-  width: clamp(56px, 7vw, 120px);
-  opacity: 0.16;
+  width: clamp(70px, 9vw, 140px);
+  opacity: 0.1;
   pointer-events: none;
-  filter: drop-shadow(0 14px 22px rgba(0,0,0,0.22));
-  animation: aboutFloat 11s ease-in-out infinite;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+  animation: aboutFloat 13s ease-in-out infinite;
 }
 
-.awStickerLeft { left: -18px; top: 18%; }
-.awStickerRight { right: -18px; top: 32%; animation-delay: 1s; }
+.awStickerLeft { 
+  left: -25px; 
+  top: 20%; 
+}
+
+.awStickerRight { 
+  right: -25px; 
+  top: 40%; 
+  animation-delay: 1.5s; 
+}
+
+.awrapper .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+}
 
 .awGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
-  z-index: 1; /* above stickers */
+  z-index: 1;
 }
 
 .awCard {
-  background: rgba(255, 255, 255, 0.10);
-  border: 1px solid rgba(255,255,255,0.16);
-  border-radius: 20px;
-  padding: 28px 18px;
-  backdrop-filter: blur(10px);
-  transition: transform 280ms ease, background 280ms ease, border-color 280ms ease;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: clamp(2rem, 4vw, 2.5rem) clamp(1.25rem, 3vw, 1.75rem);
+  backdrop-filter: blur(12px);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.awCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 178, 166, 0.15),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.awCard:hover::before {
+  opacity: 1;
 }
 
 .awCard:hover {
-  transform: translateY(-10px);
-  background: rgba(30, 178, 166, 0.22);
-  border-color: rgba(30, 178, 166, 0.35);
+  transform: translateY(-12px) scale(1.02);
+  background: rgba(30, 178, 166, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.2),
+    0 16px 48px rgba(30, 178, 166, 0.3);
 }
 
 .awIcon {
-  font-size: 3.2rem;
-  margin-bottom: 10px;
+  font-size: clamp(3rem, 5vw, 3.75rem);
+  margin-bottom: 1rem;
   color: #1eb2a6;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  transition: transform 0.35s ease;
+}
+
+.awCard:hover .awIcon {
+  transform: scale(1.15) rotate(-5deg);
 }
 
 .awCount {
   font-family: "Scheherazade New", serif;
-  font-size: clamp(2.2rem, 3.2vw, 3.3rem);
+  font-size: clamp(2.5rem, 4.5vw, 3.75rem);
   font-weight: 700;
-  margin: 6px 0 4px;
+  margin: 0.5rem 0 0.25rem;
   color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
 }
 
 .awLabel {
-  font-size: 1.05rem;
-  opacity: 0.92;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  opacity: 0.95;
   margin: 0;
+  font-weight: 500;
 }
 
-/* Responsive */
+/* ============================================
+   EXTENDED ABOUT SECTIONS
+   ============================================ */
+
+.section-extended {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 2px solid rgba(28, 31, 67, 0.08);
+}
+
+/* Governance Section */
+.governance {
+  margin: 2.5rem 0 3rem;
+}
+
+.governance h3 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  color: #1c1f43;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.office-bearers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.bearer {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(28, 31, 67, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.bearer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #1eb2a6, #1c1f43);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.bearer:hover::before {
+  transform: scaleX(1);
+}
+
+.bearer:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 16px 40px rgba(28, 31, 67, 0.12);
+}
+
+.bearer h4 {
+  margin: 0 0 0.75rem;
+  font-family: "Scheherazade New", serif;
+  color: #1eb2a6;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 700;
+}
+
+.bearer .name {
+  font-weight: 700;
+  color: #1c1f43;
+  margin: 0;
+  font-size: clamp(1.05rem, 1.5vw, 1.15rem);
+}
+
+.bearer .qual {
+  font-weight: 600;
+  color: #666;
+  font-size: clamp(0.9rem, 1.2vw, 0.95rem);
+  margin-left: 0.5rem;
+}
+
+.bearer .muted {
+  margin-top: 0.75rem;
+  color: #666;
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  line-height: 1.6;
+}
+
+/* Affiliation Section */
+.affiliation {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, rgba(30, 178, 166, 0.05), rgba(28, 31, 67, 0.03));
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: 16px;
+  border: 1px solid rgba(28, 31, 67, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.affiliation h4 {
+  color: #1c1f43;
+  margin-bottom: 1rem;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+}
+
+.affRow {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.affRow strong {
+  color: #1c1f43;
+  min-width: 120px;
+}
+
+.muted { 
+  color: #666; 
+  line-height: 1.6;
+}
+
+/* Values Section */
+.values-section {
+  margin: 3rem 0;
+  background: linear-gradient(
+    135deg,
+    rgba(250, 252, 255, 1),
+    rgba(240, 248, 255, 1)
+  );
+  padding: clamp(2rem, 4vw, 3rem);
+  border-radius: 20px;
+  border: 1px solid rgba(28, 31, 67, 0.08);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.04),
+    0 8px 32px rgba(28, 31, 67, 0.06);
+}
+
+.values-section h3 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  color: #1c1f43;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.values-content p {
+  color: #444;
+  margin: 1rem 0;
+  line-height: 1.9;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+}
+
+.values-list {
+  margin: 1.5rem 0 1rem 2rem;
+  color: #444;
+}
+
+.values-list li {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.values-list li::marker {
+  color: #1eb2a6;
+  font-weight: 700;
+}
+
+/* Curriculum Section */
+.curriculum-section {
+  margin: 3rem 0 2rem;
+}
+
+.curriculum-section h3 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  color: #1c1f43;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(1.5rem, 3vw, 2rem);
+  margin-top: 1.5rem;
+}
+
+.currCol {
+  background: #ffffff;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: 16px;
+  border: 1px solid rgba(28, 31, 67, 0.08);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.currCol:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 16px 40px rgba(28, 31, 67, 0.12);
+}
+
+.currCol h5 {
+  margin: 0 0 1rem 0;
+  color: #1c1f43;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-weight: 700;
+}
+
+.currCol ul {
+  margin-left: 1.5rem;
+  color: #555;
+}
+
+.currCol li {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+}
+
+/* Skill Paths */
+.skill-paths {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.skill-paths div {
+  background: linear-gradient(135deg, rgba(30, 178, 166, 0.08), rgba(28, 31, 67, 0.05));
+  padding: clamp(1rem, 2vw, 1.25rem);
+  border-radius: 12px;
+  border: 1px solid rgba(30, 178, 166, 0.15);
+  transition: all 0.3s ease;
+}
+
+.skill-paths div:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(30, 178, 166, 0.12), rgba(28, 31, 67, 0.08));
+  border-color: rgba(30, 178, 166, 0.25);
+}
+
+.skill-paths strong {
+  display: block;
+  color: #1c1f43;
+  margin-bottom: 0.5rem;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+}
+
+.skill-paths p {
+  color: #555;
+  margin: 0;
+  font-size: clamp(0.9rem, 1.2vw, 0.95rem);
+  line-height: 1.6;
+}
+
+.mt20 {
+  margin-top: 2rem;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .aboutHome .flexSB {
+    gap: 3rem;
+  }
+  
+  .curriculum-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .aboutHome .flexSB {
-    flex-direction: column-reverse; /* text first on mobile */
+    flex-direction: column-reverse;
     text-align: left;
+    gap: 2.5rem;
   }
 
   .aboutSticker,
@@ -243,13 +696,86 @@
   }
 
   .feature-item {
-    padding: 12px 12px;
+    padding: 1.25rem;
+  }
+  
+  .awGrid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: 1.25rem;
+  }
+  
+  .office-bearers {
+    grid-template-columns: 1fr;
+  }
+  
+  .affRow {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .skill-paths {
+    grid-template-columns: 1fr;
   }
 }
 
-
 @media (max-width: 480px) {
+  .aboutHome {
+    padding: 3rem 0;
+  }
+  
+  .feature-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+  
   .feature-item i {
-    font-size: 34px;
+    font-size: 2.5rem;
+  }
+  
+  .awrapper {
+    padding: 4rem 0;
+  }
+  
+  .awGrid {
+    gap: 1rem;
+  }
+  
+  .section-extended {
+    margin-top: 2rem;
+    padding-top: 2rem;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .aboutHome,
+  .awrapper,
+  .section-extended {
+    padding: 1rem 0;
+  }
+  
+  .aboutSticker,
+  .awSticker {
+    display: none;
+  }
+  
+  .feature-item,
+  .bearer,
+  .currCol {
+    break-inside: avoid;
+    box-shadow: none;
   }
 }
