@@ -12,6 +12,7 @@ import About from "./components/about/About";
 import CourseHome from "./components/allcourses/CourseHome";
 import Classes from "./components/classes/Classes";
 import WhyIMS from "./components/whychoose/WhyIMS";
+import Vision from "./components/vision/Vision";
 import Team from "./components/team/Team";
 import Pricing from "./components/pricing/Pricing";
 import Blog from "./components/blog/Blog";
@@ -48,6 +49,7 @@ function App() {
           <Route path="/classes" element={<Classes />} />
           <Route path="/courses" element={<CourseHome />} />
           <Route path="/why-ims" element={<WhyIMS />} />
+          <Route path="/vision" element={<Vision />} />
           <Route path="/team" element={<Team />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/journal" element={<Blog />} />

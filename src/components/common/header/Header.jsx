@@ -13,6 +13,7 @@ const Header = () => {
   const navLinks = [
     { to: "/", label: "Home", end: true },
     { to: "/about", label: "About Us" },
+    { to: "/vision", label: "Vision & Mission" },
     // {
     //   label: "Classes",
     //   submenu: [
@@ -26,7 +27,7 @@ const Header = () => {
     // },
     { to: "/classes", label: "Classes" },
     { to: "/courses", label: "Courses" },
-    { to: "/why-ims", label: "Why IMS" },
+    // { to: "/why-ims", label: "Why IMS" },
     {
       label: "Infrastructure",
       submenu: [

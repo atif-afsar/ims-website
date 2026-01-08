@@ -71,39 +71,81 @@
 }
 
 .heroImageWrap{
-  position:relative;
+  position: relative;
+  width: 85%;                 /* 👈 reduces image size */
+  max-width: 520px;           /* 👈 prevents it from being huge */
+  margin: 0 auto;             /* 👈 centers the image */
   border-radius: 26px;
-  overflow:hidden;
-  box-shadow: 0 28px 80px rgba(0,0,0,0.18);
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    rgba(30,178,166,0.08),
+    rgba(30,178,166,0.02)
+  );
 }
 
+/* IMAGE */
 .heroImageWrap img{
-  width:100%;
-  display:block;
-  transform: scale(1);
-  transition: transform 600ms ease;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  filter: 
+    saturate(1.05)
+    contrast(0.95)
+    brightness(0.97);         
+  transition: 
+    transform 600ms ease,
+    filter 400ms ease;
 }
 
-.heroImageWrap:hover img{ transform: scale(1.04); }
+.heroImageWrap:hover img{
+  transform: scale(1.03);
+  filter: 
+    saturate(1.1)
+    contrast(1)
+    brightness(1);
+}
 
+/* SOFT EDGE BLEND */
+.heroImageWrap::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 55%,
+    rgba(30,178,166,0.15) 100%
+  );
+  pointer-events: none;
+}
 .heroImageOverlay{
-  position:absolute;
+  position: absolute;
   inset: auto 0 0 0;
-  padding: 36px 20px 18px;
-  background: linear-gradient(transparent, rgba(30,178,166,0.92));
-  color:#fff;
-  text-align:center;
+  padding: 28px 20px 18px;
+  background: linear-gradient(
+    to top,
+    rgba(30,178,166,0.88),
+    rgba(30,178,166,0.55),
+    transparent
+  );
+  color: #fff;
+  text-align: center;
 }
+
 
 .heroOverlayTitle{
   font-family: 'Amiri', serif;
-  font-size: 1.8rem;
-  color: black;
+  font-size: 1.9rem;           /* 👈 slightly reduced */
   font-weight: 900;
-  display:block;
+  color: #0f3f3a;
+  display: block;
 }
-.heroOverlaySub{ opacity:0.96; }
 
+.heroOverlaySub{
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
 /* Highlights */
 .classesHighlights{ padding: 70px 0; background:#fff; }
 
