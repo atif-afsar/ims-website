@@ -14,19 +14,15 @@ const Header = () => {
     { to: "/", label: "Home", end: true },
     { to: "/about", label: "About Us" },
     { to: "/vision", label: "Vision & Mission" },
-    // {
-    //   label: "Classes",
-    //   submenu: [
-    //     { to: "/classes", label: "All Classes", end: true },
-    //     { to: "/classes?group=pre-primary", label: "Pre‑Primary" },
-    //     { to: "/classes?group=primary", label: "Primary" },
-    //     { to: "/classes?group=middle", label: "Middle" },
-    //     { to: "/classes?group=secondary", label: "Secondary" },
-    //     { to: "/classes?group=senior-secondary", label: "Senior Secondary" },
-    //   ],
-    // },
-    { to: "/classes", label: "Classes" },
-    { to: "/courses", label: "Courses" },
+    {
+      label: "Programs",
+      submenu: [
+        { to: "/classes", label: "Classes" },
+        { to: "/courses", label: "Courses" },
+        { to: "/programs", label: "Programs Overview", end: true },
+
+      ],
+    },
     // { to: "/why-ims", label: "Why IMS" },
     {
       label: "Infrastructure",
