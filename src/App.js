@@ -12,6 +12,10 @@ import About from "./components/about/About";
 import CourseHome from "./components/allcourses/CourseHome";
 import Classes from "./components/classes/Classes";
 import Programs from "./components/programs/Programs";
+import CoCurricular from "./components/programs/CoCurricular";
+import EnglishCommunication from "./components/programs/EnglishCommunication";
+import ArabicCommunication from "./components/programs/ArabicCommunication";
+import NeetJee from "./components/programs/NeetJee";
 import WhyIMS from "./components/whychoose/WhyIMS";
 import Vision from "./components/vision/Vision";
 import Team from "./components/team/Team";
@@ -50,6 +54,10 @@ function App() {
           <Route path="/classes" element={<Classes />} />
           <Route path="/courses" element={<CourseHome />} />
           <Route path="/programs" element={<Programs />} />
+          <Route path="/programs/co-curricular" element={<CoCurricular />} />
+          <Route path="/programs/english-communication" element={<EnglishCommunication />} />
+          <Route path="/programs/arabic-communication" element={<ArabicCommunication />} />
+          <Route path="/programs/neet-jee" element={<NeetJee />} />
           {/* <Route path="/why-ims" element={<WhyIMS />} /> */}
           <Route path="/vision" element={<Vision />} />
           <Route path="/team" element={<Team />} />

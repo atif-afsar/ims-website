@@ -17,10 +17,13 @@ const Header = () => {
     {
       label: "Programs",
       submenu: [
-        { to: "/classes", label: "Classes" },
-        { to: "/courses", label: "Courses" },
+        {to: "/classes", label: "Classes Overview", end: true },
+        {to: "/courses", label: "Courses Overview", end: true },
+        { to: "/programs/co-curricular", label: "Co-Curricular" },
+        { to: "/programs/english-communication", label: "English Program" },
+        { to: "/programs/arabic-communication", label: "Arabic Program" },
+        { to: "/programs/neet-jee", label: "NEET / JEE Program" },
         { to: "/programs", label: "Programs Overview", end: true },
-
       ],
     },
     // { to: "/why-ims", label: "Why IMS" },
