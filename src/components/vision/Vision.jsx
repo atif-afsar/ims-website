@@ -3,9 +3,18 @@ import Heading from "../common/heading/Heading";
 import "./vision.css";
 
 const Vision = () => {
+  const heroBg = (process.env.PUBLIC_URL || '') + '/images/visionBanner.jpg';
   return (
     <>
-      <section className="vision-hero">
+      <section
+        className="vision-hero"
+        style={{
+          backgroundImage: `linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(250,250,250,1) 50%, rgba(245,247,246,1) 100%), url(${heroBg})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'right bottom',
+          backgroundSize: 'contain',
+        }}
+      >
         <div className="container hero-inner">
           <Heading title="Vision & Mission" subtitle="Our Purpose and Story" />
           <p className="hero-lead">
@@ -130,6 +139,101 @@ const Vision = () => {
           </div>
         </div>
       </section>
+            {/* CORE VALUES */}
+      <section className="values-section">
+        <div className="container">
+          <h2>Our Core Values</h2>
+          <p className="section-intro">
+            At Islamic Mission School, our values form the moral compass that
+            guides every child’s journey of learning and growth.
+          </p>
+
+          <div className="values-grid">
+            <div className="value-card">
+              <h4>Faith & Integrity</h4>
+              <p>
+                We nurture strong faith, honesty, and moral responsibility,
+                ensuring that students grow with a clear sense of right and
+                wrong.
+              </p>
+            </div>
+
+            <div className="value-card">
+              <h4>Respect & Compassion</h4>
+              <p>
+                Every child is taught to respect others, appreciate diversity,
+                and develop empathy for all of humanity.
+              </p>
+            </div>
+
+            <div className="value-card">
+              <h4>Excellence in Learning</h4>
+              <p>
+                We encourage curiosity, critical thinking, and a love for
+                knowledge that extends beyond classrooms and textbooks.
+              </p>
+            </div>
+
+            <div className="value-card">
+              <h4>Responsibility & Leadership</h4>
+              <p>
+                Students are empowered to take responsibility for their actions
+                and develop leadership qualities from an early age.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* EDUCATIONAL PHILOSOPHY */}
+      <section className="philosophy-section">
+        <div className="container">
+          <h2>Our Educational Philosophy</h2>
+          <p>
+            IMS follows a child-centered educational approach that balances
+            academic rigor with emotional, social, and spiritual development.
+            Learning is designed to be engaging, meaningful, and connected to
+            real life.
+          </p>
+
+          <p>
+            Our teaching methodology emphasizes conceptual clarity, practical
+            application, and continuous assessment. Teachers act not only as
+            instructors but also as mentors who guide students to discover
+            their strengths and purpose.
+          </p>
+        </div>
+      </section>
+
+      {/* DISTINCTIVENESS */}
+      <section className="distinct-section">
+        <div className="container">
+          <h2>What Makes IMS Unique</h2>
+
+          <ul className="distinct-list">
+            <li>Balanced integration of modern education with Islamic values</li>
+            <li>Focus on character-building alongside academics</li>
+            <li>Small class sizes for personalized attention</li>
+            <li>Well-equipped labs and technology-enabled classrooms</li>
+            <li>Strong emphasis on life skills and communication</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* FUTURE OUTLOOK */}
+      <section className="future-section">
+        <div className="container">
+          <h2>Looking Ahead</h2>
+          <p>
+            As IMS moves forward, our vision is to expand educational horizons
+            while remaining deeply rooted in our values. We aspire to prepare
+            students not only for academic success but also for meaningful
+            roles in society as ethical professionals, thoughtful leaders, and
+            responsible global citizens.
+          </p>
+        </div>
+      </section>
+
     </>
   );
 };

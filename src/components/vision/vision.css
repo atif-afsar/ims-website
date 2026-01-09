@@ -23,6 +23,9 @@
   background: radial-gradient(circle at 30% 20%, rgba(11, 74, 59, 0.03) 0%, transparent 50%);
   pointer-events: none;
 }
+/* Decorative image is applied from the React component to avoid
+   webpack/css-loader resolving paths to /images in CSS when using
+   files from `public/`. */
 
 .hero-inner {
   text-align: center;
@@ -307,4 +310,115 @@
     box-shadow: none;
     border: 1px solid #ddd;
   }
+}
+/* ===== COMMON SECTION STYLES ===== */
+.section-intro {
+  max-width: 760px;
+  margin: 0 auto 40px;
+  text-align: center;
+  font-size: 1.05rem;
+  color: #555;
+}
+
+/* ===== CORE VALUES ===== */
+.values-section {
+  padding: 80px 0;
+  background: #fafafa;
+}
+
+.values-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.value-card {
+  background: #fff;
+  padding: 26px 24px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+}
+
+.value-card h4 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #0b4a3b;
+}
+
+/* ===== PHILOSOPHY ===== */
+.philosophy-section {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.philosophy-section h2 {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.philosophy-section p {
+  max-width: 850px;
+  margin: 0 auto 18px;
+  line-height: 1.7;
+  color: #444;
+  font-size: 1.05rem;
+}
+
+/* ===== DISTINCTIVENESS ===== */
+.distinct-section {
+  padding: 80px 0;
+  background: #f4f8f7;
+}
+
+.distinct-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.distinct-list {
+  max-width: 720px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+.distinct-list li {
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  background: #ffffff;
+  border-left: 5px solid #1eb2a6;
+  border-radius: 8px;
+  font-size: 1.02rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+/* ===== FUTURE OUTLOOK ===== */
+.future-section {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.future-section h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.future-section p {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: #444;
 }
