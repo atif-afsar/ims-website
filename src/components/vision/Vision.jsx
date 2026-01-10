@@ -9,10 +9,10 @@ const Vision = () => {
       <section
         className="vision-hero"
         style={{
-          backgroundImage: `linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(250,250,250,1) 50%, rgba(245,247,246,1) 100%), url(${heroBg})`,
+          backgroundImage: `linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(250,250,250,0.25) 50%, rgba(245,247,246,0.15) 100%), url("${heroBg}")`,
           backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'right bottom',
-          backgroundSize: 'contain',
+          backgroundPosition: 'center center',
+          backgroundSize: 'cover',
         }}
       >
         <div className="container hero-inner">
@@ -23,7 +23,6 @@ const Vision = () => {
           </p>
         </div>
       </section>
-
       <section className="vm-section">
         <div className="container">
           <div className="vm-grid">
