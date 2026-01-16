@@ -40,7 +40,7 @@ const ScrollAndLoader = ({ setLoading }) => {
 
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 700); // loader duration
+    }, 800); // loader duration
 
     return () => clearTimeout(timer);
   }, [pathname, setLoading]);
