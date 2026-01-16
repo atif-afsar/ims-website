@@ -60,7 +60,7 @@ const Header = () => {
           />
           <div className="logo-text">
             <h1>Islamic Mission School</h1>
-            <span>Excellence in Deen &amp; Dunya</span>
+            <span>Shaping Hearts, Building Minds</span>
           </div>
         </Link>
 

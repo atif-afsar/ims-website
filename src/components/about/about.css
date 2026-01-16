@@ -546,12 +546,20 @@
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   color: #1c1f43;
   margin-bottom: 1.5rem;
+  margin: 1rem;
+  font-weight: 700;
+}
+.values-section h4 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  color: #1c1f43;
+  margin-bottom: 1.5rem;
+  margin: 1rem;
   font-weight: 700;
 }
 
 .values-content p {
   color: #444;
-  margin: 1rem 0;
+  margin: 1rem;
   line-height: 1.9;
   font-size: clamp(1rem, 1.5vw, 1.1rem);
 }

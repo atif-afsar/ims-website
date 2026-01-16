@@ -1,0 +1,39 @@
+/* Full screen background */
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Central container to hold rings */
+.loader-container {
+  display: flex;
+  gap: 16px;
+}
+
+/* Individual rings */
+.loader-ring {
+  width: 18px;
+  height: 18px;
+  border: 3px solid transparent;
+  border-top-color: var(--clr);
+  border-radius: 50%;
+  animation: spin 1.2s ease infinite;
+}
+
+/* Distinct colors */
+.loader-ring:nth-child(1) { --clr: #0228FF; animation-delay: -0.24s; }
+.loader-ring:nth-child(2) { --clr: #088858; animation-delay: -0.12s; }
+.loader-ring:nth-child(3) { --clr: #FCAE0D; animation-delay: 0s; }
+.loader-ring:nth-child(4) { --clr: #2157F1; animation-delay: 0.12s; }
+
+/* Spin animation */
+@keyframes spin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.4); }
+  100% { transform: rotate(360deg) scale(1); }
+}
