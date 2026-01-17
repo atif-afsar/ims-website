@@ -14,8 +14,18 @@ const BookLoader = () => {
           <div className="book__pg book__pg--5"></div>
         </div>
 
-        {/* Heading */}
-        <h2 className="loader-heading">Loading<span className="dots">...</span></h2>
+        {/* School Name */}
+        <h1 className="school-name">Islamic Mission School</h1>
+
+        {/* Tagline */}
+        <p className="school-tagline">
+          Nurturing Knowledge • Building Character
+        </p>
+
+        {/* Loading Text */}
+        <h2 className="loader-heading">
+          Loading<span className="dots">...</span>
+        </h2>
       </div>
     </div>
   );

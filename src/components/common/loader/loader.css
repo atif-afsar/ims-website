@@ -15,7 +15,7 @@
   position: relative;
   width: 8em;
   height: 6em;
-  transform: translate3d(0, 0, 0);
+  transform: scale(1.8) translate3d(0, 0, 0);
   transform-style: preserve-3d;
 }
 .book__pg-shadow,
@@ -320,11 +320,35 @@
     transform: translate3d(0, 0, 1px) rotateY(0);
   }
 }
-/* Center loader */
-/* Full screen – light & minimal */
+
+/* Animated dots */
+@keyframes dots {
+  0% {
+    content: '';
+  }
+  25% {
+    content: '.';
+  }
+  50% {
+    content: '..';
+  }
+  75% {
+    content: '...';
+  }
+  100% {
+    content: '';
+  }
+}
+
+/* ============================================
+   LOADER WRAPPER - Full Screen Centered
+   ============================================ */
 .book-loader-wrapper {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(
     180deg,
     #ffffff 0%,
@@ -332,60 +356,163 @@
     #f2f7f4 100%
   );
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 99999;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-
-/* Make loader large */
-.book {
-  transform: scale(1.8) translate3d(0, 0, 0);
+/* ============================================
+   CONTENT CONTAINER - Proper Spacing
+   ============================================ */
+.book-loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
 }
-/* Heading style */
-.loader-heading {
-  margin-top: 40px;
-  font-size: 25px;
+
+/* ============================================
+   BOOK LOADER - Centered with spacing
+   ============================================ */
+.book-loader-content .book {
+  margin: 0 0 40px 0;
+}
+
+/* ============================================
+   SCHOOL NAME
+   ============================================ */
+.school-name {
+  font-size: 32px;
   font-weight: 700;
-  color: #000000; /* calm green */
+  color: #14532d;
+  font-family: "Playfair Display", "Georgia", serif;
+  letter-spacing: 0.04em;
+  text-align: center;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+/* ============================================
+   SCHOOL TAGLINE
+   ============================================ */
+.school-tagline {
+  font-size: 14px;
+  color: #4b5563;
+  font-family: "Inter", -apple-system, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+}
+
+/* ============================================
+   BOOK LOADER CONTAINER
+   ============================================ */
+.book-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 32px 0;
+  min-height: 140px;
+}
+
+/* ============================================
+   LOADING HEADING
+   ============================================ */
+.loader-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #166534;
   letter-spacing: 0.08em;
-  font-family: "Inter", "Poppins", sans-serif;
+  font-family: "Inter", -apple-system, sans-serif;
+  margin: 0;
+  line-height: 1.5;
 }
 
 /* Animated dots */
 .dots {
   display: inline-block;
-  animation: dots 1.5s steps(4, end) infinite;
+  animation: dotsAnimation 1.5s infinite;
 }
 
-/* Dots animation */
-@keyframes dots {
-  0% {
-    width: 0;
+@keyframes dotsAnimation {
+  0%, 100% {
+    opacity: 0;
   }
-  100% {
-    width: 1.5em;
+  50% {
+    opacity: 1;
   }
 }
 
-/* Responsive */
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablets */
 @media (max-width: 768px) {
-  .book {
-    transform: scale(1.4);
+  .book-loader-content .book {
+    transform: scale(1.5) translate3d(0, 0, 0);
+    margin-bottom: 36px;
+  }
+
+  .school-name {
+    font-size: 26px;
+  }
+
+  .school-tagline {
+    font-size: 13px;
+    margin-bottom: 20px;
   }
 
   .loader-heading {
-    font-size: 18px;
-    margin-top: 30px;
+    font-size: 16px;
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
-  .book {
-    transform: scale(1.2);
+  .book-loader-content .book {
+    transform: scale(1.3) translate3d(0, 0, 0);
+    margin-bottom: 32px;
+  }
+
+  .school-name {
+    font-size: 22px;
+  }
+
+  .school-tagline {
+    font-size: 12px;
+    margin-bottom: 18px;
   }
 
   .loader-heading {
     font-size: 15px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+  .book-loader-content .book {
+    transform: scale(1.1) translate3d(0, 0, 0);
+    margin-bottom: 28px;
+  }
+
+  .school-name {
+    font-size: 20px;
+  }
+
+  .school-tagline {
+    font-size: 11px;
+  }
+
+  .loader-heading {
+    font-size: 14px;
   }
 }
