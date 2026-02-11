@@ -45,11 +45,11 @@ export const awrapper = [
 export const coursesCard = [
   {
     id: 1,
-    cover: "/images/courses/quran.jpg",
+    icon: "quran",
     coursesName: "Hifz-ul-Quran (Memorization)",
     courTeacher: [
       {
-        dcover: "/images/teacher/teacher1.jpg",
+        teacherIcon: "user-tie",
         name: "Qari Muhammad Ahmed",
         totalTime: "3 Years Program",
       },
@@ -59,11 +59,11 @@ export const coursesCard = [
   },
   {
     id: 2,
-    cover: "/images/courses/icse-science.jpg",
+    icon: "flask",
     coursesName: "ICSE Class X Science Stream",
     courTeacher: [
       {
-        dcover: "/images/teacher/teacher2.jpg",
+        teacherIcon: "user-tie",
         name: "Mrs. Fatima Khan",
         totalTime: "Full Academic Year",
       },
@@ -73,11 +73,11 @@ export const coursesCard = [
   },
   {
     id: 3,
-    cover: "/images/courses/islamic-studies.jpg",
+    icon: "book-open",
     coursesName: "Advanced Islamic Studies & Fiqh",
     courTeacher: [
       {
-        dcover: "/images/teacher/teacher3.jpg",
+        teacherIcon: "user-tie",
         name: "Mufti Abdullah Siddiqui",
         totalTime: "Daily after school",
       },
@@ -87,11 +87,11 @@ export const coursesCard = [
   },
   {
     id: 4,
-    cover: "/images/courses/arabic.jpg",
+    icon: "language",
     coursesName: "Arabic Language & Tajweed",
     courTeacher: [
       {
-        dcover: "/images/teacher/teacher4.jpg",
+        teacherIcon: "user-tie",
         name: "Ustadha Ayesha Rahman",
         totalTime: "2 Hours Daily",
       },
@@ -101,11 +101,11 @@ export const coursesCard = [
   },
   {
     id: 5,
-    cover: "/images/courses/icse-commerce.jpg",
+    icon: "calculator",
     coursesName: "ICSE Class X Commerce Stream",
     courTeacher: [
       {
-        dcover: "/images/teacher/teacher5.jpg",
+        teacherIcon: "user-tie",
         name: "Mr. Zaid Merchant",
         totalTime: "Full Academic Year",
       },
@@ -115,11 +115,11 @@ export const coursesCard = [
   },
   {
     id: 6,
-    cover: "/images/courses/nazra.jpg",
+    icon: "book",
     coursesName: "Nazra Quran with Tajweed",
     courTeacher: [
       {
-        dcover: "/images/teacher/teacher6.jpg",
+        teacherIcon: "user-tie",
         name: "Hafizah Sara Ahmed",
         totalTime: "For Classes 1–5",
       },

@@ -30,6 +30,17 @@ import Library from "./components/infrastructure/Library";
 import Laboratories from "./components/infrastructure/Laboratories";
 import SportsComplex from "./components/infrastructure/SportsComplex";
 
+import { AuthProvider } from "./context/AuthContext";
+import Login from "./admin/Login";
+import AdminLayout from "./admin/AdminLayout";
+import Dashboard from "./admin/Dashboard";
+import ManageNotices from "./admin/ManageNotices";
+import ManageGovernance from "./admin/ManageGovernance";
+import ManageFooter from "./admin/ManageFooter";
+import ManagePrograms from "./admin/ManagePrograms";
+import ManageClasses from "./admin/ManageClasses";
+import ProtectedRoute from "./admin/ProtectedRoute";
+
 /* Scroll + Loader handler */
 const ScrollAndLoader = ({ setLoading }) => {
   const { pathname } = useLocation();
@@ -48,6 +59,7 @@ const ScrollAndLoader = ({ setLoading }) => {
   return null;
 };
 
+
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -58,47 +70,78 @@ function App() {
   }, []);
 
   return (
-    <HelmetProvider>
-      <Router>
-        {loading && <Loader />}
+    <AuthProvider>
+      <HelmetProvider>
+        <Router>
+          {loading && <Loader />}
 
-        <ScrollAndLoader setLoading={setLoading} />
+          <ScrollAndLoader setLoading={setLoading} />
 
-        {!loading && (
-          <>
-            <Header />
-            <FloatingButtons />
+          {!loading && (
+            <>
+              {/* Reset floating buttons or header logic if needed for admin */}
+              <Routes>
+                {/* Public Routes */}
+                <Route
+                  path="/*"
+                  element={
+                    <>
+                      <Header />
+                      <FloatingButtons />
+                      <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/classes" element={<Classes />} />
+                        <Route path="/courses" element={<CourseHome />} />
+                        <Route path="/programs" element={<Programs />} />
+                        <Route path="/programs/co-curricular" element={<CoCurricular />} />
+                        <Route path="/programs/english-communication" element={<EnglishCommunication />} />
+                        <Route path="/programs/arabic-communication" element={<ArabicCommunication />} />
+                        <Route path="/programs/neet-jee" element={<NeetJee />} />
+                        <Route path="/vision" element={<Vision />} />
+                        <Route path="/team" element={<Team />} />
+                        <Route path="/pricing" element={<Pricing />} />
+                        <Route path="/journal" element={<Blog />} />
+                        <Route path="/contact" element={<Contact />} />
 
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/classes" element={<Classes />} />
-              <Route path="/courses" element={<CourseHome />} />
-              <Route path="/programs" element={<Programs />} />
-              <Route path="/programs/co-curricular" element={<CoCurricular />} />
-              <Route path="/programs/english-communication" element={<EnglishCommunication />} />
-              <Route path="/programs/arabic-communication" element={<ArabicCommunication />} />
-              <Route path="/programs/neet-jee" element={<NeetJee />} />
-              <Route path="/vision" element={<Vision />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/pricing" element={<Pricing />} />
-              <Route path="/journal" element={<Blog />} />
-              <Route path="/contact" element={<Contact />} />
+                        <Route path="/infrastructure" element={<Infrastructure />} />
+                        <Route path="/infrastructure/computer-lab" element={<ComputerLab />} />
+                        <Route path="/infrastructure/library" element={<Library />} />
+                        <Route path="/infrastructure/laboratories" element={<Laboratories />} />
+                        <Route path="/infrastructure/sports-complex" element={<SportsComplex />} />
+                        
+                        <Route path="*" element={<Home />} />
+                      </Routes>
+                      <Footer />
+                    </>
+                  }
+                />
 
-              <Route path="/infrastructure" element={<Infrastructure />} />
-              <Route path="/infrastructure/computer-lab" element={<ComputerLab />} />
-              <Route path="/infrastructure/library" element={<Library />} />
-              <Route path="/infrastructure/laboratories" element={<Laboratories />} />
-              <Route path="/infrastructure/sports-complex" element={<SportsComplex />} />
-
-              <Route path="*" element={<Home />} />
-            </Routes>
-
-            <Footer />
-          </>
-        )}
-      </Router>
-    </HelmetProvider>
+                {/* Admin Routes */}
+                <Route path="/admin/login" element={<Login />} />
+                <Route
+                  path="/admin/*"
+                  element={
+                    <ProtectedRoute>
+                      <AdminLayout />
+                    </ProtectedRoute>
+                  }
+                >
+                  <Route path="dashboard" element={<Dashboard />} />
+                  <Route path="notices" element={<ManageNotices />} />
+                  <Route path="governance" element={<ManageGovernance />} />
+                  <Route path="footer" element={<ManageFooter />} />
+                  <Route path="programs" element={<ManagePrograms />} />
+                  <Route path="classes" element={<ManageClasses />} />
+                  {/* We will add other admin routes here */}
+                  <Route path="*" element={<Dashboard />} />
+                </Route>
+              </Routes>
+            </>
+          )}
+        </Router>
+      </HelmetProvider>
+    </AuthProvider>
   );
 }
 

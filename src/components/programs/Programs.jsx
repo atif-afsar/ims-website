@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useLocation, Link } from "react-router-dom";
+import OnlineCourses from "../allcourses/OnlineCourses";
 import "./programs.css";
 
 const Programs = () => {
@@ -20,6 +21,9 @@ const Programs = () => {
   return (
     <main className="programs-page container" ref={topRef}>
       <h1>Programs</h1>
+      
+      {/* Dynamic Programs List from Admin */}
+      <OnlineCourses />
 
       <section id="co-curricular">
         <h2>Co-Curricular & Extra Curricular</h2>

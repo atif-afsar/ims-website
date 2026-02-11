@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Back from "../common/back/Back";
 import Heading from "../common/heading/Heading";
-import { classesData, admissionNote } from "../../dummydata";
+import { admissionNote } from "../../dummydata"; // removed classesData import
 import ClassGroupsPaginated from "./ClassGroupsPaginated";
 import "./classes.css";
 import { FaSchool, FaBookOpen, FaHeart, FaUserShield, FaClipboardList, FaPhoneAlt } from "react-icons/fa";
+import { supabase } from "../../supabaseClient";
 
 const groups = [
   { key: "pre-primary", title: "Pre‑Primary (Play Group to K.G.)", shortTitle: "Pre‑Primary" },
@@ -15,6 +16,26 @@ const groups = [
 ];
 
 const Classes = () => {
+  const [allClasses, setAllClasses] = useState([]);
+
+  useEffect(() => {
+    const fetchClasses = async () => {
+      const { data, error } = await supabase
+        .from('classes')
+        .select('*')
+        .order('sort_order', { ascending: true });
+      
+      if (data) {
+        // Map group_category to group for compatibility with ClassGroupsPaginated
+        const formatted = data.map(c => ({
+          ...c,
+          group: c.group_category // map database column to component prop
+        }));
+        setAllClasses(formatted);
+      }
+    };
+    fetchClasses();
+  }, []);
   return (
     <>
       <Back title="Classes & Admissions" />
@@ -136,7 +157,7 @@ const Classes = () => {
             <Heading subtitle="AVAILABLE CLASSES" title="Choose a Group" />
           </div>
 
-          <ClassGroupsPaginated groups={groups} allClasses={classesData} />
+          <ClassGroupsPaginated groups={groups} allClasses={allClasses} />
 
           <div className="classesCtaStrip" data-aos="fade-up" data-aos-delay="160">
             <div className="ctaLeft">

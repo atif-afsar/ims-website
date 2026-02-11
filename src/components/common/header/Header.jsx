@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import "./head.css";
 import "./header.css";
 import logo from "../../../assets/images/logo/logo.jpg";
+import Notices from "../Notices";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -42,6 +43,8 @@ const Header = () => {
   ];
 
   return (
+    <>
+    <Notices />
     <header className="header" data-aos="fade-down" data-aos-duration="700">
       <div className="container headerRow">
         <Link
@@ -245,6 +248,7 @@ const Header = () => {
         </div>
       </nav>
     </header>
+    </>
   );
 };
 

@@ -1,10 +1,23 @@
-import React from "react";
-import aboutImg from "../../assets/images/about/ims-about.png";
 import Heading from "../common/heading/Heading";
 import Awrapper from "./Awrapper";
 import "./about.css";
+import { supabase } from "../../supabaseClient";
+import React, { useState, useEffect } from "react";
+import aboutImg from "../../assets/images/about/ims-about.png";
 
 const AboutCard = () => {
+  const [members, setMembers] = useState([]);
+
+  useEffect(() => {
+    const fetchMembers = async () => {
+      const { data } = await supabase
+        .from('governance')
+        .select('*')
+        .order('sort_order', { ascending: true });
+      if (data) setMembers(data);
+    };
+    fetchMembers();
+  }, []);
   return (
     <>
       <section
@@ -143,35 +156,24 @@ const AboutCard = () => {
 
           {/* Extended About Sections */}
           <div className="section-extended">
-            <div className="governance" data-aos="fade-up" data-aos-delay="260">
+              <div className="governance" data-aos="fade-up" data-aos-delay="260">
               <Heading subtitle="GOVERNANCE" title="Office Bearers & Affiliation" />
 
               <div className="office-bearers">
-                <div className="bearer">
-                  <h4>President</h4>
-                  <p className="name">Prof. Yusuf Ansari <span className="qual">(M.Tech, PhD.)</span></p>
-                </div>
-
-                <div className="bearer">
-                  <h4>Vice-President</h4>
-                  <p className="name">Dr. Misbah Uddin <span className="qual">(MBBS, MD)</span></p>
-                </div>
-
-                <div className="bearer">
-                  <h4>Secretary</h4>
-                  <p className="name">Dr. Kaunain Kausar <span className="qual">(MBBS, DMRT)</span></p>
-                  <p className="muted">Professionally an Oncologist and Passionately an Educationist</p>
-                </div>
-
-                <div className="bearer">
-                  <h4>Joint Secretary</h4>
-                  <p className="name">Md. Kamal Uddin <span className="qual">(Social activist)</span></p>
-                </div>
-
-                <div className="bearer">
-                  <h4>Treasurer</h4>
-                  <p className="name">Dr. Mohd. Suhail Akhter <span className="qual">(PhD)</span></p>
-                </div>
+                {members.length > 0 ? (
+                  members.map((m) => (
+                    <div className="bearer" key={m.id}>
+                      {m.image_url && <img src={m.image_url} alt={m.name} className="bearer-img" style={{width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', marginBottom: '10px'}} />}
+                      <h4>{m.role}</h4>
+                      <p className="name">
+                        {m.name} {m.qualification && <span className="qual">({m.qualification})</span>}
+                      </p>
+                      {m.profession && <p className="muted">{m.profession}</p>}
+                    </div>
+                  ))
+                ) : (
+                  <p>Loading office bearers...</p>
+                )}
               </div>
 
               <div className="affiliation">

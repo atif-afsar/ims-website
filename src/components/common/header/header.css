@@ -5,7 +5,7 @@
   background: #fff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   position: fixed;
-  top: 0;
+  top: 40px; /* Space for Notices ticker */
   left: 0;
   right: 0;
   width: 100%;
@@ -393,7 +393,7 @@ i.fa.fa-chevron-down{
 /* Ensure page content is not hidden under the fixed header.
    Use a CSS variable so we can tweak values per breakpoint. */
 :root{
-  --header-height: 88px; /* default desktop header height */
+  --header-height: 128px; /* 88px header + 40px ticker */
 }
 
 body{
@@ -401,13 +401,13 @@ body{
 }
 
 @media (max-width: 900px){
-  :root{ --header-height: 78px; }
+  :root{ --header-height: 118px; }
 }
 
 @media (max-width: 600px){
-  :root{ --header-height: 78px; }
+  :root{ --header-height: 118px; }
 }
 
 @media (max-width: 400px){
-  :root{ --header-height: 72px; }
+  :root{ --header-height: 112px; }
 }

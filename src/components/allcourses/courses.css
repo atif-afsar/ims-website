@@ -46,6 +46,21 @@
   overflow: hidden;
   border: 6px solid #1eb2a6;
   box-shadow: 0 10px 30px rgba(30, 178, 166, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(30, 178, 166, 0.1), rgba(22, 160, 133, 0.1));
+}
+
+.islamic-courses .left .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.islamic-courses .left .img.course-icon {
+  font-size: 48px;
+  color: #1eb2a6;
 }
 
 .islamic-courses .text h1 {
@@ -69,6 +84,20 @@
   height: 50px;
   border-radius: 50%;
   border: 3px solid #1eb2a6;
+}
+
+.islamic-courses .details .dimg.teacher-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #1eb2a6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(30, 178, 166, 0.15), rgba(22, 160, 133, 0.15));
+  font-size: 24px;
+  color: #1eb2a6;
+  flex-shrink: 0;
 }
 
 .islamic-courses .details h4 {
@@ -209,14 +238,306 @@
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .coursesCard {
+    padding: 80px 0;
+  }
+
+  .islamic-courses .content {
+    padding: 25px;
+  }
+
+  .islamic-courses .text h1 {
+    font-size: 22px;
+  }
+
+  .islamic-courses .left .img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .islamic-courses .left .img.course-icon {
+    font-size: 42px;
+  }
+
+  .islamic-courses .price {
+    margin: 20px 25px 0;
+  }
+
+  .islamic-courses .outline-btn {
+    margin: 20px 25px 25px;
+    width: calc(100% - 50px);
+  }
+}
+
 @media (max-width: 768px) {
-  .coursesCard { padding: 60px 0; }
-  .islamic-courses .items:hover { transform: translateY(-10px); }
-  .islamic-programs { padding: 80px 0; }
-  .grid2 { grid-template-columns: 1fr !important; }
-  .grid3 { grid-template-columns: repeat(2, 1fr); }
+  .coursesCard {
+    padding: 60px 0;
+  }
+
+  .grid2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .islamic-courses .items {
+    border-radius: 18px;
+  }
+
+  .islamic-courses .items:hover {
+    transform: translateY(-10px) scale(1.01);
+  }
+
+  .islamic-courses .content {
+    padding: 20px;
+  }
+
+  .islamic-courses .text h1 {
+    font-size: 20px;
+    margin: 15px 0 12px;
+  }
+
+  .islamic-courses .left .img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .islamic-courses .left .img.course-icon {
+    font-size: 38px;
+  }
+
+  .islamic-courses .details .box {
+    margin-top: 12px;
+    gap: 10px;
+  }
+
+  .islamic-courses .details h4 {
+    font-size: 15px;
+  }
+
+  .islamic-courses .details span {
+    font-size: 13px;
+  }
+
+  .islamic-courses .price {
+    padding: 15px;
+    margin: 15px 20px 0;
+    border-radius: 12px;
+  }
+
+  .islamic-courses .price h3 {
+    font-size: 18px;
+  }
+
+  .islamic-courses .price span {
+    font-size: 12px;
+  }
+
+  .islamic-courses .outline-btn {
+    margin: 18px 20px 20px;
+    width: calc(100% - 40px);
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  .islamic-programs {
+    padding: 80px 0;
+  }
+
+  .islamic-programs h1 {
+    font-size: 20px;
+    padding: 18px 12px 8px;
+  }
+
+  .islamic-programs span {
+    padding: 6px 16px;
+    font-size: 12px;
+  }
+
+  .grid3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .coursesCard {
+    padding: 50px 0;
+  }
+
+  .coursesCard .container {
+    padding: 0 12px;
+  }
+
+  .islamic-courses .items {
+    border-radius: 16px;
+  }
+
+  .islamic-courses .content {
+    padding: 18px;
+  }
+
+  .islamic-courses .text h1 {
+    font-size: 18px;
+    margin: 12px 0 10px;
+  }
+
+  .islamic-courses .left .img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .islamic-courses .left .img.course-icon {
+    font-size: 34px;
+  }
+
+  .islamic-courses .details .box {
+    margin-top: 10px;
+    gap: 8px;
+  }
+
+  .islamic-courses .details .dimg.teacher-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .islamic-courses .details h4 {
+    font-size: 14px;
+  }
+
+  .islamic-courses .details span {
+    font-size: 12px;
+  }
+
+  .islamic-courses .price {
+    padding: 12px;
+    margin: 12px 18px 0;
+  }
+
+  .islamic-courses .price h3 {
+    font-size: 16px;
+  }
+
+  .islamic-courses .price span {
+    font-size: 11px;
+  }
+
+  .islamic-courses .outline-btn {
+    margin: 15px 18px 18px;
+    width: calc(100% - 36px);
+    padding: 12px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+
+  .islamic-programs {
+    padding: 60px 0;
+  }
+
+  .islamic-programs .img {
+    height: 100px;
+  }
+
+  .islamic-programs h1 {
+    font-size: 18px;
+    padding: 15px 10px 6px;
+  }
+
+  .islamic-programs span {
+    padding: 5px 14px;
+    font-size: 11px;
+  }
+
+  .grid3 {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
-  .grid3 { grid-template-columns: 1fr; }
+  .coursesCard {
+    padding: 40px 0;
+  }
+
+  .coursesCard .container {
+    padding: 0 10px;
+  }
+
+  .islamic-courses .items {
+    border-radius: 14px;
+  }
+
+  .islamic-courses .content {
+    padding: 16px;
+  }
+
+  .islamic-courses .text h1 {
+    font-size: 16px;
+    margin: 10px 0 8px;
+  }
+
+  .islamic-courses .left .img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .islamic-courses .left .img.course-icon {
+    font-size: 30px;
+  }
+
+  .islamic-courses .details .box {
+    margin-top: 8px;
+    gap: 6px;
+  }
+
+  .islamic-courses .details .dimg.teacher-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+
+  .islamic-courses .details h4 {
+    font-size: 13px;
+  }
+
+  .islamic-courses .details span {
+    font-size: 11px;
+  }
+
+  .islamic-courses .price {
+    padding: 10px;
+    margin: 10px 16px 0;
+  }
+
+  .islamic-courses .price h3 {
+    font-size: 14px;
+  }
+
+  .islamic-courses .price span {
+    font-size: 10px;
+  }
+
+  .islamic-courses .outline-btn {
+    margin: 12px 16px 16px;
+    width: calc(100% - 32px);
+    padding: 10px;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+
+  .islamic-programs {
+    padding: 50px 0;
+  }
+
+  .islamic-programs .img {
+    height: 90px;
+  }
+
+  .islamic-programs h1 {
+    font-size: 16px;
+    padding: 12px 8px 5px;
+  }
+
+  .islamic-programs span {
+    padding: 4px 12px;
+    font-size: 10px;
+  }
 }

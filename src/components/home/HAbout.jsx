@@ -1,8 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import OnlineCourses from "../allcourses/OnlineCourses";
 import Heading from "../common/heading/Heading";
 import "../allcourses/courses.css";
 import { coursesCard } from "../../dummydata";
+import { FaQuran, FaFlask, FaBookOpen, FaLanguage, FaCalculator, FaBook, FaUserTie } from "react-icons/fa"
+
+const iconMap = {
+  quran: <FaQuran />,
+  flask: <FaFlask />,
+  "book-open": <FaBookOpen />,
+  language: <FaLanguage />,
+  calculator: <FaCalculator />,
+  book: <FaBook />,
+}
+
+const teacherIconMap = {
+  "user-tie": <FaUserTie />,
+}
 
 const HAbout = () => {
   return (
@@ -29,8 +44,8 @@ const HAbout = () => {
                 >
                   <div className="content flex">
                     <div className="left">
-                      <div className="img">
-                        <img src={val.cover} alt={val.coursesName} loading="lazy" />
+                      <div className="img course-icon">
+                        {iconMap[val.icon] || <FaBook />}
                       </div>
                     </div>
 
@@ -50,8 +65,8 @@ const HAbout = () => {
                         {val.courTeacher.map((t, tIdx) => (
                           <div className="teacherRow" key={`${val.id}-${tIdx}`}>
                             <div className="box">
-                              <div className="dimg">
-                                <img src={t.dcover} alt={t.name} loading="lazy" />
+                              <div className="dimg teacher-icon">
+                                {teacherIconMap[t.teacherIcon] || <FaUserTie />}
                               </div>
                               <div className="para">
                                 <h4>{t.name}</h4>
@@ -72,9 +87,9 @@ const HAbout = () => {
                     </h3>
                   </div>
 
-                  <button className="outline-btn">
+                  <Link to="/contact" className="outline-btn">
                     ENROLL NOW <i className="fa fa-arrow-right" aria-hidden="true"></i>
-                  </button>
+                  </Link>
                 </div>
               ))}
             </div>

@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { blog } from "../../../dummydata";
 import "./footer.css";
+import { supabase } from "../../../supabaseClient";
 
 const Footer = () => {
+  const [socialLinks, setSocialLinks] = useState([]);
+  const [contactInfo, setContactInfo] = useState({
+    address: 'Aligarh (UP), India',
+    phone: '+91 9800000000',
+    email: 'info@imschool.in'
+  });
+
+  useEffect(() => {
+    const fetchFooterData = async () => {
+      const { data: contact } = await supabase.from('contact_info').select('*').single();
+      if (contact) setContactInfo(contact);
+
+      const { data: social } = await supabase.from('social_links').select('*');
+      if (social) setSocialLinks(social);
+    };
+    fetchFooterData();
+  }, []);
 
   const quickLinks = [
     { to: "/pricing", label: "Pricing" },
@@ -11,12 +29,7 @@ const Footer = () => {
     { to: "/contact", label: "Help / Contact" },
   ];
 
-  const socialLinks = [
-    { href: "https://facebook.com", icon: "fab fa-facebook-f", label: "Facebook" },
-    { href: "https://instagram.com", icon: "fab fa-instagram", label: "Instagram" },
-    { href: "https://twitter.com", icon: "fab fa-twitter", label: "Twitter/X" },
-    { href: "https://youtube.com", icon: "fab fa-youtube", label: "YouTube" },
-  ];
+
 
   return (
     <>
@@ -60,14 +73,14 @@ const Footer = () => {
             <div className="footerSocial">
               {socialLinks.map((s) => (
                 <a
-                  key={s.label}
-                  href={s.href}
+                  key={s.id || s.label}
+                  href={s.url || s.href}
                   className="socialBtn"
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={s.label}
+                  aria-label={s.platform || s.label}
                 >
-                  <i className={s.icon} aria-hidden="true"></i>
+                  <i className={s.icon_class || s.icon} aria-hidden="true"></i>
                 </a>
               ))}
             </div>
@@ -129,15 +142,15 @@ const Footer = () => {
             <ul className="footerContactList">
               <li>
                 <i className="fa fa-map" aria-hidden="true"></i>
-                <span>Aligarh (UP), India</span>
+                <span>{contactInfo.address}</span>
               </li>
               <li>
                 <i className="fa fa-phone-alt" aria-hidden="true"></i>
-                <a href="tel:+919800000000" className="footerLink">+91 98XX‑XXX‑XXX</a>
+                <a href={`tel:${contactInfo.phone}`} className="footerLink">{contactInfo.phone}</a>
               </li>
               <li>
                 <i className="fa fa-paper-plane" aria-hidden="true"></i>
-                <a href="mailto:info@imschool.in" className="footerLink">info@imschool.in</a>
+                <a href={`mailto:${contactInfo.email}`} className="footerLink">{contactInfo.email}</a>
               </li>
             </ul>
 
