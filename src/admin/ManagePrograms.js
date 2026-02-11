@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
+import { uploadFile } from '../utils/uploadFile';
 import { FaTrash, FaEdit, FaPlus } from 'react-icons/fa';
 
 const ManagePrograms = () => {
@@ -15,6 +16,7 @@ const ManagePrograms = () => {
   });
   const [editingId, setEditingId] = useState(null);
   const [message, setMessage] = useState(null);
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     fetchPrograms();
@@ -85,6 +87,46 @@ const ManagePrograms = () => {
     }
   };
 
+  const handleCoverImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploading(true);
+    try {
+      const url = await uploadFile(file, 'programs');
+      if (url) {
+        setFormData({ ...formData, cover_image: url });
+        setMessage('Image uploaded successfully!');
+      } else {
+        setMessage('Error uploading image');
+      }
+    } catch (error) {
+      setMessage('Error: ' + error.message);
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const handleHoverImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploading(true);
+    try {
+      const url = await uploadFile(file, 'programs');
+      if (url) {
+        setFormData({ ...formData, hover_image: url });
+        setMessage('Image uploaded successfully!');
+      } else {
+        setMessage('Error uploading image');
+      }
+    } catch (error) {
+      setMessage('Error: ' + error.message);
+    } finally {
+      setUploading(false);
+    }
+  };
+
   return (
     <div className="admin-section">
       <h3>Manage Programs (Beyond Academics)</h3>
@@ -124,27 +166,29 @@ const ManagePrograms = () => {
 
           <div className="form-group-row">
              <div className="form-group half">
-              <label>Cover Image URL</label>
+              <label>Cover Image</label>
               <input 
-                type="text" 
-                value={formData.cover_image} 
-                onChange={(e) => setFormData({...formData, cover_image: e.target.value})}
-                placeholder="Image URL"
+                type="file" 
+                accept="image/*"
+                onChange={handleCoverImageUpload}
+                disabled={uploading}
               />
+              {formData.cover_image && <p style={{fontSize: '12px', color: '#666', marginTop: '5px'}}>✓ Image selected</p>}
             </div>
             <div className="form-group half">
-              <label>Hover Image URL</label>
+              <label>Hover Image</label>
               <input 
-                type="text" 
-                value={formData.hover_image} 
-                onChange={(e) => setFormData({...formData, hover_image: e.target.value})}
-                placeholder="Image URL (on hover)"
+                type="file" 
+                accept="image/*"
+                onChange={handleHoverImageUpload}
+                disabled={uploading}
               />
+              {formData.hover_image && <p style={{fontSize: '12px', color: '#666', marginTop: '5px'}}>✓ Image selected</p>}
             </div>
           </div>
 
-          <button type="submit" className="save-btn">
-            {editingId ? 'Update Program' : 'Add Program'}
+          <button type="submit" className="save-btn" disabled={uploading}>
+            {uploading ? 'Uploading...' : (editingId ? 'Update Program' : 'Add Program')}
           </button>
           
           {editingId && (
