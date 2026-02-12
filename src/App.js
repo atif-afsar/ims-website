@@ -41,20 +41,13 @@ import ManagePrograms from "./admin/ManagePrograms";
 import ManageClasses from "./admin/ManageClasses";
 import ProtectedRoute from "./admin/ProtectedRoute";
 
-/* Scroll + Loader handler */
-const ScrollAndLoader = ({ setLoading }) => {
+/* Scroll handler - only scroll on route change, no loader */
+const ScrollHandler = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    setLoading(true);
     window.scrollTo(0, 0);
-
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 800); // loader duration
-
-    return () => clearTimeout(timer);
-  }, [pathname, setLoading]);
+  }, [pathname]);
 
   return null;
 };
@@ -63,7 +56,7 @@ const ScrollAndLoader = ({ setLoading }) => {
 function App() {
   const [loading, setLoading] = useState(true);
 
-  // Initial load
+  // Initial load only - loader shows only on page refresh
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
@@ -75,70 +68,65 @@ function App() {
         <Router>
           {loading && <Loader />}
 
-          <ScrollAndLoader setLoading={setLoading} />
+          <ScrollHandler />
 
-          {!loading && (
-            <>
-              {/* Reset floating buttons or header logic if needed for admin */}
-              <Routes>
-                {/* Public Routes */}
-                <Route
-                  path="/*"
-                  element={
-                    <>
-                      <Header />
-                      <FloatingButtons />
-                      <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/classes" element={<Classes />} />
-                        <Route path="/courses" element={<CourseHome />} />
-                        <Route path="/programs" element={<Programs />} />
-                        <Route path="/programs/co-curricular" element={<CoCurricular />} />
-                        <Route path="/programs/english-communication" element={<EnglishCommunication />} />
-                        <Route path="/programs/arabic-communication" element={<ArabicCommunication />} />
-                        <Route path="/programs/neet-jee" element={<NeetJee />} />
-                        <Route path="/vision" element={<Vision />} />
-                        <Route path="/team" element={<Team />} />
-                        <Route path="/pricing" element={<Pricing />} />
-                        <Route path="/journal" element={<Blog />} />
-                        <Route path="/contact" element={<Contact />} />
+          <Routes>
+            {/* Public Routes */}
+            <Route
+              path="/*"
+              element={
+                <>
+                  <Header />
+                  <FloatingButtons />
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/classes" element={<Classes />} />
+                    <Route path="/courses" element={<CourseHome />} />
+                    <Route path="/programs" element={<Programs />} />
+                    <Route path="/programs/co-curricular" element={<CoCurricular />} />
+                    <Route path="/programs/english-communication" element={<EnglishCommunication />} />
+                    <Route path="/programs/arabic-communication" element={<ArabicCommunication />} />
+                    <Route path="/programs/neet-jee" element={<NeetJee />} />
+                    <Route path="/vision" element={<Vision />} />
+                    <Route path="/team" element={<Team />} />
+                    <Route path="/pricing" element={<Pricing />} />
+                    <Route path="/journal" element={<Blog />} />
+                    <Route path="/contact" element={<Contact />} />
 
-                        <Route path="/infrastructure" element={<Infrastructure />} />
-                        <Route path="/infrastructure/computer-lab" element={<ComputerLab />} />
-                        <Route path="/infrastructure/library" element={<Library />} />
-                        <Route path="/infrastructure/laboratories" element={<Laboratories />} />
-                        <Route path="/infrastructure/sports-complex" element={<SportsComplex />} />
-                        
-                        <Route path="*" element={<Home />} />
-                      </Routes>
-                      <Footer />
-                    </>
-                  }
-                />
+                    <Route path="/infrastructure" element={<Infrastructure />} />
+                    <Route path="/infrastructure/computer-lab" element={<ComputerLab />} />
+                    <Route path="/infrastructure/library" element={<Library />} />
+                    <Route path="/infrastructure/laboratories" element={<Laboratories />} />
+                    <Route path="/infrastructure/sports-complex" element={<SportsComplex />} />
+                    
+                    <Route path="*" element={<Home />} />
+                  </Routes>
+                  <Footer />
+                </>
+              }
+            />
 
-                {/* Admin Routes */}
-                <Route path="/admin/login" element={<Login />} />
-                <Route
-                  path="/admin/*"
-                  element={
-                    <ProtectedRoute>
-                      <AdminLayout />
-                    </ProtectedRoute>
-                  }
-                >
-                  <Route path="dashboard" element={<Dashboard />} />
-                  <Route path="notices" element={<ManageNotices />} />
-                  <Route path="governance" element={<ManageGovernance />} />
-                  <Route path="footer" element={<ManageFooter />} />
-                  <Route path="programs" element={<ManagePrograms />} />
-                  <Route path="classes" element={<ManageClasses />} />
-                  {/* We will add other admin routes here */}
-                  <Route path="*" element={<Dashboard />} />
-                </Route>
-              </Routes>
-            </>
-          )}
+            {/* Admin Routes */}
+            <Route path="/admin/login" element={<Login />} />
+            <Route
+              path="/admin/*"
+              element={
+                <ProtectedRoute>
+                  <AdminLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="notices" element={<ManageNotices />} />
+              <Route path="governance" element={<ManageGovernance />} />
+              <Route path="footer" element={<ManageFooter />} />
+              <Route path="programs" element={<ManagePrograms />} />
+              <Route path="classes" element={<ManageClasses />} />
+              {/* We will add other admin routes here */}
+              <Route path="*" element={<Dashboard />} />
+            </Route>
+          </Routes>
         </Router>
       </HelmetProvider>
     </AuthProvider>
