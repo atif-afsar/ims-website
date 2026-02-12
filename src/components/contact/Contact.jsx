@@ -5,7 +5,7 @@ import "./contact.css";
 const Contact = () => {
   // IMPORTANT: put only the URL here (not the whole iframe HTML)
   const mapSrc =
-    "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d904726.6131739549!2d85.24565535!3d27.65273865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1652535615693!5m2!1sen!2snp";
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3525.0386844567934!2d78.05525770000001!3d27.931459300000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974a5a5186542b7%3A0x23cf8c5f2a591d8c!2sISLAMIC%20MISSION%20SCHOOL!5e0!3m2!1sen!2sin!4v1770882617094!5m2!1sen!2sin";
 
   return (
     <>
@@ -95,16 +95,13 @@ const Contact = () => {
             <div className="contactSocial" data-aos="fade-up" data-aos-delay="260">
               <h3>Follow us</h3>
               <div className="contactSocialRow">
-                <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
+                <a href="https://www.facebook.com/share/1DAEaEk3rR/" target="_blank" rel="noreferrer" aria-label="Facebook">
                   <i className="fab fa-facebook-f" aria-hidden="true"></i>
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+                <a href="https://www.instagram.com/islamicmissionschoolaligarh?igsh=dDZ5ejEyaHM1c2I3" target="_blank" rel="noreferrer" aria-label="Instagram">
                   <i className="fab fa-instagram" aria-hidden="true"></i>
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter">
-                  <i className="fab fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube">
+                <a href="https://www.youtube.com/results?search_query=islamic+mission+school+aligarh" target="_blank" rel="noreferrer" aria-label="YouTube">
                   <i className="fab fa-youtube" aria-hidden="true"></i>
                 </a>
               </div>

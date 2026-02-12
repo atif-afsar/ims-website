@@ -14,6 +14,18 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+@media (max-width: 768px) {
+  .header {
+    top: 32px; /* Reduced ticker height on tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    top: 28px; /* Reduced ticker height on mobile */
+  }
+}
+
 /* Optional: Hide header on scroll down, show on scroll up */
 .header.scrolled{
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
@@ -145,6 +157,18 @@
   transform: translate(-50%, 0);
   opacity: 1;
   visibility: visible;
+}
+
+@media (max-width: 768px) {
+  .mobile-nav {
+    top: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-nav {
+    top: 76px;
+  }
 }
 
 .mobile-nav .nav-link{
@@ -404,10 +428,14 @@ body{
   :root{ --header-height: 118px; }
 }
 
+@media (max-width: 768px){
+  :root{ --header-height: 110px; } /* 78px header + 32px ticker */
+}
+
 @media (max-width: 600px){
-  :root{ --header-height: 118px; }
+  :root{ --header-height: 106px; } /* 78px header + 28px ticker */
 }
 
 @media (max-width: 400px){
-  :root{ --header-height: 112px; }
+  :root{ --header-height: 104px; } /* 76px header + 28px ticker */
 }

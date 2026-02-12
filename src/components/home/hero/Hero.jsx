@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "./Hero.css";
 import hero_img from "../../../assets/images/hero/hero-img.png";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const dynamicWords = useMemo(() => ["Hafiz", "Leaders", "Professionals", "Scholars"], []);
@@ -65,15 +66,15 @@ const Hero = () => {
               </p>
 
               <div className="hero-buttons" data-aos="fade-up" data-aos-delay="350">
-                <a className="primary-btn hero-btn" href="/admissions">
+                <Link className="primary-btn hero-btn" to={"/contact"}>
                   <span>GET STARTED NOW</span>
                   <i className="fa fa-long-arrow-alt-right" aria-hidden="true"></i>
-                </a>
+                </Link>
 
-                <a className="secondary-btn hero-btn" href="/courses">
+                <Link className="secondary-btn hero-btn" to={"/courses"}>
                   <span>VIEW PROGRAMS</span>
                   <i className="fa fa-long-arrow-alt-right" aria-hidden="true"></i>
-                </a>
+                </Link>
               </div>
 
               {/* Quick badges (icons) */}

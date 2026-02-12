@@ -4,6 +4,7 @@ import "./about.css";
 import { supabase } from "../../supabaseClient";
 import React, { useState, useEffect } from "react";
 import aboutImg from "../../assets/images/about/ims-about.png";
+import { Link } from "react-router-dom";
 
 const AboutCard = () => {
   const [members, setMembers] = useState([]);
@@ -251,8 +252,8 @@ const AboutCard = () => {
           </div>
 
           {/* CTA */}
-          <a
-            href="/classes"
+          <Link
+            to={"/contact"}
             className="primary-btn aboutCta"
             data-aos="fade-up"
             data-aos-delay="420"
@@ -262,7 +263,7 @@ const AboutCard = () => {
               className="fa fa-long-arrow-alt-right"
               aria-hidden="true"
             ></i>
-          </a>
+          </Link>
         </div>
       </section>
 

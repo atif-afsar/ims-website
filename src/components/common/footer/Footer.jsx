@@ -24,7 +24,6 @@ const Footer = () => {
   }, []);
 
   const quickLinks = [
-    { to: "/pricing", label: "Pricing" },
     { to: "/admissions", label: "Admissions" },
     { to: "/contact", label: "Help / Contact" },
   ];
