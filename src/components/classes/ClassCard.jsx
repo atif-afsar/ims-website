@@ -26,7 +26,7 @@ const ClassCard = ({ item }) => {
         <div className="classIcon" aria-hidden="true">
           {groupIcon(item.group)}
         </div>
-        <div className="classBadge">{item.age}</div>
+        <div className="classBadge">{item.age_criteria || item.age}</div>
       </div>
 
       <h3 className="className">{item.name}</h3>

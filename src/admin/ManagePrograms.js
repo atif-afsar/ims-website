@@ -175,16 +175,6 @@ const ManagePrograms = () => {
               />
               {formData.cover_image && <p style={{fontSize: '12px', color: '#666', marginTop: '5px'}}>✓ Image selected</p>}
             </div>
-            <div className="form-group half">
-              <label>Hover Image</label>
-              <input 
-                type="file" 
-                accept="image/*"
-                onChange={handleHoverImageUpload}
-                disabled={uploading}
-              />
-              {formData.hover_image && <p style={{fontSize: '12px', color: '#666', marginTop: '5px'}}>✓ Image selected</p>}
-            </div>
           </div>
 
           <button type="submit" className="save-btn" disabled={uploading}>

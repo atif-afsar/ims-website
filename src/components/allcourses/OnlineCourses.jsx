@@ -33,9 +33,8 @@ const OnlineCourses = () => {
           <div className='content grid3'>
             {programs.map((val, i) => (
               <div className='box' key={val.id}>
-                <div className='img'>
+                <div className='img-circle'>
                   <img src={val.cover_image} alt={val.name} />
-                  <img src={val.hover_image} alt="" className='show' />
                 </div>
                 <h1>{val.name}</h1>
                 <span>{val.description}</span>

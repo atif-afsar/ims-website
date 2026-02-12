@@ -183,20 +183,64 @@
   height: 100%;
   transition: all 0.5s ease;
   box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .islamic-programs .box:hover {
   transform: translateY(-15px);
   background: linear-gradient(135deg, #1eb2a6, #16a085);
+  box-shadow: 0 25px 60px rgba(30, 178, 166, 0.3);
 }
 
 .islamic-programs .img {
-  height: 120px;
+  height: 180px;
   overflow: hidden;
+  position: relative;
+  background: #f0f8f7;
 }
 
 .islamic-programs .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: all 0.5s ease;
+}
+
+.islamic-programs .img img.show {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+/* Circular Image Container */
+.islamic-programs .img-circle {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 20px auto;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease;
+}
+
+.islamic-programs .box:hover .img-circle {
+  border-color: white;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.islamic-programs .img-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.islamic-programs .box:hover .img-circle img {
+  transform: scale(1.1);
 }
 
 .islamic-programs .box:hover img:first-child {
@@ -212,9 +256,12 @@
 .islamic-programs h1 {
   font-family: 'Amiri', serif;
   font-size: 22px;
-  padding: 20px 15px 10px;
+  padding: 20px 20px 10px;
   color: #1eb2a6;
   transition: color 0.4s;
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 .islamic-programs .box:hover h1 {
@@ -225,11 +272,13 @@
   display: inline-block;
   background: #f0f8f7;
   color: #1eb2a6;
-  padding: 8px 20px;
+  padding: 10px 20px;
+  margin: 0 20px 20px;
   border-radius: 30px;
   font-weight: 600;
   font-size: 14px;
   transition: all 0.4s;
+  line-height: 1.4;
 }
 
 .islamic-programs .box:hover span {
@@ -343,14 +392,26 @@
     padding: 80px 0;
   }
 
+  .islamic-programs .img {
+    height: 150px;
+  }
+
+  .islamic-programs .img-circle {
+    width: 150px;
+    height: 150px;
+    margin: 15px auto;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+  }
+
   .islamic-programs h1 {
     font-size: 20px;
-    padding: 18px 12px 8px;
+    padding: 18px 18px 8px;
   }
 
   .islamic-programs span {
-    padding: 6px 16px;
-    font-size: 12px;
+    padding: 8px 18px;
+    margin: 0 18px 18px;
+    font-size: 13px;
   }
 
   .grid3 {
@@ -434,17 +495,25 @@
   }
 
   .islamic-programs .img {
-    height: 100px;
+    height: 130px;
+  }
+
+  .islamic-programs .img-circle {
+    width: 130px;
+    height: 130px;
+    margin: 12px auto;
+    border: 3px solid rgba(255, 255, 255, 0.3);
   }
 
   .islamic-programs h1 {
     font-size: 18px;
-    padding: 15px 10px 6px;
+    padding: 15px 15px 6px;
   }
 
   .islamic-programs span {
-    padding: 5px 14px;
-    font-size: 11px;
+    padding: 6px 15px;
+    margin: 0 15px 15px;
+    font-size: 12px;
   }
 
   .grid3 {
@@ -528,16 +597,24 @@
   }
 
   .islamic-programs .img {
-    height: 90px;
+    height: 110px;
+  }
+
+  .islamic-programs .img-circle {
+    width: 110px;
+    height: 110px;
+    margin: 10px auto;
+    border: 2px solid rgba(255, 255, 255, 0.3);
   }
 
   .islamic-programs h1 {
     font-size: 16px;
-    padding: 12px 8px 5px;
+    padding: 12px 12px 5px;
   }
 
   .islamic-programs span {
-    padding: 4px 12px;
-    font-size: 10px;
+    padding: 5px 12px;
+    margin: 0 12px 12px;
+    font-size: 11px;
   }
 }

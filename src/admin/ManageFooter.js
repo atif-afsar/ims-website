@@ -12,9 +12,21 @@ const ManageFooter = () => {
   });
   
   const [socialLinks, setSocialLinks] = useState([]);
-  const [newLink, setNewLink] = useState({ platform: '', url: '', icon_class: 'fab fa-facebook-f' });
+  const [newLink, setNewLink] = useState({ platform: 'facebook', url: '' });
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState('');
+
+  // Predefined social media platforms with their icons
+  const socialPlatforms = [
+    { key: 'facebook', label: 'Facebook', icon: 'fab fa-facebook-f' },
+    { key: 'twitter', label: 'Twitter', icon: 'fab fa-twitter' },
+    { key: 'instagram', label: 'Instagram', icon: 'fab fa-instagram' },
+    { key: 'linkedin', label: 'LinkedIn', icon: 'fab fa-linkedin-in' },
+    { key: 'youtube', label: 'YouTube', icon: 'fab fa-youtube' },
+    { key: 'whatsapp', label: 'WhatsApp', icon: 'fab fa-whatsapp' },
+    { key: 'telegram', label: 'Telegram', icon: 'fab fa-telegram' },
+    { key: 'pinterest', label: 'Pinterest', icon: 'fab fa-pinterest-p' },
+  ];
 
   useEffect(() => {
     fetchData();
@@ -73,9 +85,16 @@ const ManageFooter = () => {
   const handleAddLink = async (e) => {
     e.preventDefault();
     try {
-      const { error } = await supabase.from('social_links').insert([newLink]);
+      const selectedPlatform = socialPlatforms.find(p => p.key === newLink.platform);
+      const linkData = {
+        platform: selectedPlatform.label,
+        url: newLink.url,
+        icon_class: selectedPlatform.icon
+      };
+      
+      const { error } = await supabase.from('social_links').insert([linkData]);
       if (error) throw error;
-      setNewLink({ platform: '', url: '', icon_class: 'fab fa-facebook-f' });
+      setNewLink({ platform: 'facebook', url: '' });
       fetchData();
       setMessage('Link added!');
     } catch (error) {
@@ -159,38 +178,32 @@ const ManageFooter = () => {
           </table>
         </div>
 
-        <h5 style={{marginTop: '20px'}}>Add New Link</h5>
+        <h5 style={{marginTop: '20px'}}>Add New Social Link</h5>
         <form onSubmit={handleAddLink} className="form-group-row" style={{alignItems: 'flex-end'}}>
           <div className="form-group">
             <label>Platform</label>
-            <input 
-              type="text" 
-              placeholder="Facebook"
+            <select 
               value={newLink.platform} 
               onChange={(e) => setNewLink({...newLink, platform: e.target.value})}
               required
-            />
+            >
+              <option value="">Select Platform</option>
+              {socialPlatforms.map(p => (
+                <option key={p.key} value={p.key}>{p.label}</option>
+              ))}
+            </select>
           </div>
           <div className="form-group" style={{flex: 2}}>
             <label>URL</label>
             <input 
-              type="text" 
-              placeholder="https://facebook.com/..."
+              type="url" 
+              placeholder="https://facebook.com/yourpage"
               value={newLink.url} 
               onChange={(e) => setNewLink({...newLink, url: e.target.value})}
               required
             />
           </div>
-          <div className="form-group">
-            <label>Icon Class (FontAwesome)</label>
-            <input 
-              type="text" 
-              placeholder="fab fa-facebook-f"
-              value={newLink.icon_class} 
-              onChange={(e) => setNewLink({...newLink, icon_class: e.target.value})}
-            />
-          </div>
-          <button type="submit" className="save-btn" style={{marginBottom: '16px'}}>Add</button>
+          <button type="submit" className="save-btn" style={{marginBottom: '16px'}}>Add Link</button>
         </form>
       </div>
     </div>
