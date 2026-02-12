@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import SEOHelmet from "../common/SEO/SEOHelmet";
 import Back from "../common/back/Back";
 import Heading from "../common/heading/Heading";
-import { admissionNote } from "../../dummydata"; // removed classesData import
+import { admissionNote } from "../../dummydata";
 import ClassGroupsPaginated from "./ClassGroupsPaginated";
 import "./classes.css";
 import { FaSchool, FaBookOpen, FaHeart, FaUserShield, FaClipboardList, FaPhoneAlt } from "react-icons/fa";
@@ -26,18 +27,38 @@ const Classes = () => {
         .order('sort_order', { ascending: true });
       
       if (data) {
-        // Map group_category to group for compatibility with ClassGroupsPaginated
         const formatted = data.map(c => ({
           ...c,
-          group: c.group_category // map database column to component prop
+          group: c.group_category
         }));
         setAllClasses(formatted);
       }
     };
     fetchClasses();
   }, []);
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Islamic Mission School - Classes & Admissions",
+    "description": "Admissions open for Pre-Primary to Senior Secondary classes at IMS Aligarh",
+    "url": "https://www.imschool.in/classes",
+    "educationalLevel": ["Pre-Primary", "Primary", "Middle", "Secondary", "Senior Secondary"]
+  };
+
   return (
     <>
+      <SEOHelmet
+        title="Classes & Admissions | Islamic Mission School Aligarh"
+        description="Admissions open at IMS for Pre-Primary to Senior Secondary. Value-based education, strong academics, and character development. Call now for admission details."
+        keywords="school admissions Aligarh, classes in Aligarh, Pre-Primary school, Primary school, Secondary school, best school admissions, IMS admissions"
+        canonical="https://islamicmissionschool.org/classes"
+        ogTitle="Classes & Admissions - Islamic Mission School"
+        ogDescription="Join IMS for quality education from Pre-Primary to Senior Secondary. Admissions open now!"
+        ogUrl="https://islamicmissionschool.org/classes"
+        structuredData={structuredData}
+      />
+
       <Back title="Classes & Admissions" />
 
       <section className="classesHero">
@@ -70,7 +91,6 @@ const Classes = () => {
           </div>
 
           <div className="classesHeroMedia" data-aos="fade-left" data-aos-duration="900">
-            {/* Put this image in: public/images/classes/admissions-hero.webp */}
             <div className="heroImageWrap">
               <img
                 src="/images/image.png"
@@ -130,7 +150,7 @@ const Classes = () => {
             <div className="stepCard">
               <div className="stepNum">1</div>
               <h4>Enquiry</h4>
-              <p>Call/WhatsApp and share child’s class & age.</p>
+              <p>Call/WhatsApp and share child's class & age.</p>
             </div>
             <div className="stepCard">
               <div className="stepNum">2</div>
@@ -162,7 +182,7 @@ const Classes = () => {
           <div className="classesCtaStrip" data-aos="fade-up" data-aos-delay="160">
             <div className="ctaLeft">
               <h3>Need help choosing the right class?</h3>
-              <p>Send child’s age + previous class on WhatsApp and get guidance.</p>
+              <p>Send child's age + previous class on WhatsApp and get guidance.</p>
             </div>
             <div className="ctaRight">
               <a className="primary-btn" href="https://wa.me/919876543210" target="_blank" rel="noreferrer">

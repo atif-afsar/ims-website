@@ -36,6 +36,7 @@ img, video {
   max-width: 100%;
   height: auto;
   display: block;
+  aspect-ratio: auto; /* Preserve aspect ratio - prevents CLS */
 }
 
 /* Fluid typography (prevents huge text on small phones) */

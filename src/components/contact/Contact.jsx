@@ -1,23 +1,42 @@
 import React from "react";
+import SEOHelmet from "../common/SEO/SEOHelmet";
 import Back from "../common/back/Back";
 import "./contact.css";
 
 const Contact = () => {
-  // IMPORTANT: put only the URL here (not the whole iframe HTML)
   const mapSrc =
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3525.0386844567934!2d78.05525770000001!3d27.931459300000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974a5a5186542b7%3A0x23cf8c5f2a591d8c!2sISLAMIC%20MISSION%20SCHOOL!5e0!3m2!1sen!2sin!4v1770882617094!5m2!1sen!2sin";
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "telephone": "+91-98XX-XXX-XXX",
+    "email": "info@imschool.in",
+    "areaServed": "IN",
+    "availableLanguage": ["en", "ur", "hi"]
+  };
+
   return (
     <>
+      <SEOHelmet
+        title="Contact Islamic Mission School | Get in Touch"
+        description="Contact IMS Aligarh for admissions, queries, or collaborations. Phone, email, WhatsApp, and location details. We're here to help!"
+        keywords="contact school, IMS contact, school admissions contact, Aligarh school contact, school phone number"
+        canonical="https://islamicmissionschool.org/contact"
+        ogTitle="Contact Us - Islamic Mission School"
+        ogDescription="Reach out to IMS for admissions, queries, or any information. Multiple contact options available."
+        ogUrl="https://islamicmissionschool.org/contact"
+        structuredData={structuredData}
+      />
+
       <Back title="Contact Us" />
 
       <section className="contactSection">
-        {/* decorative stickers */}
         <span className="contactSticker contactStickerLeft" aria-hidden="true">📍</span>
         <span className="contactSticker contactStickerRight" aria-hidden="true">✨</span>
 
         <div className="container contactCard shadow" data-aos="fade-up" data-aos-duration="900">
-          {/* Map */}
           <div className="contactMap" data-aos="fade-right" data-aos-duration="900">
             <iframe
               title="Islamic Mission School Location Map"
@@ -28,11 +47,10 @@ const Contact = () => {
             />
           </div>
 
-          {/* Content */}
           <div className="contactInfo" data-aos="fade-left" data-aos-duration="900">
             <div className="contactHeader">
               <h1>Contact us</h1>
-              <p>We’re open for suggestions, admissions queries, and collaborations.</p>
+              <p>We're open for suggestions, admissions queries, and collaborations.</p>
             </div>
 
             <div className="contactInfoGrid" data-aos="fade-up" data-aos-delay="120">
