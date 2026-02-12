@@ -98,11 +98,14 @@ const ManageNotices = () => {
           <div className="form-group">
             <label>Link (Optional)</label>
             <input 
-              type="text" 
+              type="url" 
               value={formData.link} 
               onChange={(e) => setFormData({...formData, link: e.target.value})}
-              placeholder="e.g. /files/circular.pdf"
+              placeholder="e.g. https://example.com or /files/circular.pdf"
             />
+            <small style={{color: '#666', marginTop: '5px', display: 'block'}}>
+              Enter a full URL (https://...) or relative path (/files/...)
+            </small>
           </div>
           <div className="form-group checkbox">
             <label>
@@ -141,6 +144,7 @@ const ManageNotices = () => {
               <tr>
                 <th>Date</th>
                 <th>Title</th>
+                <th>Link</th>
                 <th>Status</th>
                 <th>Actions</th>
               </tr>
@@ -150,6 +154,15 @@ const ManageNotices = () => {
                 <tr key={n.id}>
                   <td>{new Date(n.created_at).toLocaleDateString()}</td>
                   <td>{n.title}</td>
+                  <td>
+                    {n.link ? (
+                      <a href={n.link} target="_blank" rel="noreferrer" style={{color: '#0066cc', textDecoration: 'underline', fontSize: '12px'}}>
+                        {n.link.length > 40 ? n.link.substring(0, 40) + '...' : n.link}
+                      </a>
+                    ) : (
+                      <span style={{color: '#999'}}>No link</span>
+                    )}
+                  </td>
                   <td>
                     <span className={`status-badge ${n.is_active ? 'active' : 'inactive'}`}>
                       {n.is_active ? 'Active' : 'Inactive'}

@@ -2,10 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
 import { FaTrash, FaEdit } from 'react-icons/fa';
+import { uploadFile } from '../utils/uploadFile';
 
 const ManageGovernance = () => {
   const [members, setMembers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [uploading, setUploading] = useState(false);
   const [formData, setFormData] = useState({ name: '', role: '', qualification: '', profession: '', image_url: '', sort_order: 0 });
   const [editingId, setEditingId] = useState(null);
   const [message, setMessage] = useState(null);
@@ -80,6 +82,26 @@ const ManageGovernance = () => {
     }
   };
 
+  const handleImageUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploading(true);
+    try {
+      const url = await uploadFile(file, 'governance');
+      if (url) {
+        setFormData({...formData, image_url: url});
+        setMessage('Image uploaded successfully!');
+      } else {
+        setMessage('Error uploading image');
+      }
+    } catch (error) {
+      setMessage('Error: ' + error.message);
+    } finally {
+      setUploading(false);
+    }
+  };
+
   return (
     <div className="admin-section">
       <h3>Manage Governance (Faculty/Office Bearers)</h3>
@@ -134,13 +156,26 @@ const ManageGovernance = () => {
 
            <div className="form-group-row">
             <div className="form-group half">
-              <label>Image URL</label>
-               <input 
-                type="text" 
-                value={formData.image_url} 
-                onChange={(e) => setFormData({...formData, image_url: e.target.value})}
-                placeholder="Paste image link"
+              <label>Member Image</label>
+              <input 
+                type="file" 
+                accept="image/*"
+                onChange={handleImageUpload}
+                disabled={uploading}
               />
+              {formData.image_url && (
+                <div style={{marginTop: '10px'}}>
+                  <img src={formData.image_url} alt="Preview" style={{maxWidth: '100px', maxHeight: '100px', borderRadius: '4px'}} />
+                  <button 
+                    type="button" 
+                    onClick={() => setFormData({...formData, image_url: ''})}
+                    style={{marginLeft: '10px', padding: '5px 10px', background: '#ff6b6b', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer'}}
+                  >
+                    Remove
+                  </button>
+                </div>
+              )}
+              {uploading && <p style={{color: '#0066cc', marginTop: '5px'}}>Uploading...</p>}
             </div>
             <div className="form-group half">
               <label>Sort Order</label>
