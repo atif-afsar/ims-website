@@ -285,6 +285,8 @@
 
 .hero-btn .fa-long-arrow-alt-right{ transition: transform 220ms ease; }
 
+.hero-btn svg { transition: transform 220ms ease; }
+
 .hero-btn:hover{
   transform: translateY(-4px) scale(1.01);
   filter: saturate(1.08);
@@ -294,6 +296,8 @@
 }
 
 .hero-btn:hover .fa-long-arrow-alt-right{ transform: translateX(4px); }
+
+.hero-btn:hover svg { transform: translateX(4px); }
 
 .hero-btn:hover::after{
   background:
@@ -389,6 +393,13 @@
   color: rgba(0, 128, 0, 0.687);
 
   box-shadow: 0 10px 18px rgba(0,0,0,0.18);
+}
+
+.hero-badge svg{
+  width: clamp(16px, 3vw, 20px);
+  height: clamp(16px, 3vw, 20px);
+  display: block;
+  color: rgba(0, 128, 0, 0.687);
 }
 
 .hero-badge:hover{

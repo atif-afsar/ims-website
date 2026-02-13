@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { FaFacebook, FaInstagram, FaYoutube, FaCalendarAlt, FaUser, FaMapMarkerAlt, FaPhone, FaPaperPlane, FaHeart } from "react-icons/fa";
 import { blog } from "../../../dummydata";
 import "./footer.css";
 import { supabase } from "../../../supabaseClient";
@@ -8,7 +9,7 @@ const Footer = () => {
   const [socialLinks, setSocialLinks] = useState([]);
   const [contactInfo, setContactInfo] = useState({
     address: 'Aligarh (UP), India',
-    phone: '+91 9800000000',
+    phone: '+91 7417914164',
     email: 'info@imschool.in'
   });
 
@@ -70,18 +71,33 @@ const Footer = () => {
             </p>
 
             <div className="footerSocial">
-              {socialLinks.map((s) => (
-                <a
-                  key={s.id || s.label}
-                  href={s.url || s.href}
-                  className="socialBtn"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={s.platform || s.label}
-                >
-                  <i className={s.icon_class || s.icon} aria-hidden="true"></i>
-                </a>
-              ))}
+              <a
+                href="https://www.facebook.com/islamicmissionschool"
+                className="socialBtn"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+              >
+                <FaFacebook />
+              </a>
+              <a
+                href="https://www.instagram.com/islamicmissionschoolaligarh"
+                className="socialBtn"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="https://www.youtube.com/@islamicmissionschool"
+                className="socialBtn"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="YouTube"
+              >
+                <FaYoutube />
+              </a>
             </div>
 
             <div className="footerSticker" aria-hidden="true">🌙📚✨</div>
@@ -101,7 +117,7 @@ const Footer = () => {
               <li>
                 <a
                   className="footerLink"
-                  href="https://wa.me/919876543210"
+                  href="https://wa.me/919219401623"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -124,8 +140,8 @@ const Footer = () => {
 
                   <div className="footerPostText">
                     <div className="footerMeta">
-                      <span><i className="fa fa-calendar-alt" aria-hidden="true"></i> {val.date}</span>
-                      <span><i className="fa fa-user" aria-hidden="true"></i> {val.type}</span>
+                      <span><FaCalendarAlt /> {val.date}</span>
+                      <span><FaUser /> {val.type}</span>
                     </div>
                     <div className="footerPostTitle">{val.title.slice(0, 44)}…</div>
                   </div>
@@ -140,21 +156,21 @@ const Footer = () => {
 
             <ul className="footerContactList">
               <li>
-                <i className="fa fa-map" aria-hidden="true"></i>
+                <FaMapMarkerAlt />
                 <span>{contactInfo.address}</span>
               </li>
               <li>
-                <i className="fa fa-phone-alt" aria-hidden="true"></i>
+                <FaPhone />
                 <a href={`tel:${contactInfo.phone}`} className="footerLink">{contactInfo.phone}</a>
               </li>
               <li>
-                <i className="fa fa-paper-plane" aria-hidden="true"></i>
+                <FaPaperPlane />
                 <a href={`mailto:${contactInfo.email}`} className="footerLink">{contactInfo.email}</a>
               </li>
             </ul>
 
             <div className="footerNote">
-              <i className="fa fa-heart" aria-hidden="true"></i> Building character before career.
+              <FaHeart /> Building character before career.
             </div>
           </div>
         </div>

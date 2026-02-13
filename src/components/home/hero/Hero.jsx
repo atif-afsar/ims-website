@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import "./Hero.css";
 import hero_img from "../../../assets/images/hero/hero-img.png";
 import { Link } from "react-router-dom";
+import { FaLongArrowAltRight, FaStar, FaHeart } from "react-icons/fa";
 
 const Hero = () => {
   const dynamicWords = useMemo(() => ["Hafiz", "Leaders", "Professionals", "Scholars"], []);
@@ -68,26 +69,23 @@ const Hero = () => {
               <div className="hero-buttons" data-aos="fade-up" data-aos-delay="350">
                 <Link className="primary-btn hero-btn" to={"/contact"}>
                   <span>GET STARTED NOW</span>
-                  <i className="fa fa-long-arrow-alt-right" aria-hidden="true"></i>
+                  <FaLongArrowAltRight />
                 </Link>
 
                 <Link className="secondary-btn hero-btn" to={"/courses"}>
                   <span>VIEW PROGRAMS</span>
-                  <i className="fa fa-long-arrow-alt-right" aria-hidden="true"></i>
+                  <FaLongArrowAltRight />
                 </Link>
               </div>
 
               {/* Quick badges (icons) */}
               <div className="hero-badges" data-aos="fade-up" data-aos-delay="450">
                 <span className="hero-badge">
-                  <i className="fa fa-star" aria-hidden="true"></i> ICSE + Islamic Excellence
+                  <FaStar /> ICSE + Islamic Excellence
                 </span>
                 <span className="hero-badge">
-                  <i className="fa fa-heart" aria-hidden="true"></i> Tarbiyah & Akhlaq First
+                  <FaHeart /> Tarbiyah & Akhlaq First
                 </span>
-                {/* <span className="hero-badge">
-                  <i className="fa fa-flask" aria-hidden="true"></i> STEM + Robotics
-                </span> */}
               </div>
             </div>
 

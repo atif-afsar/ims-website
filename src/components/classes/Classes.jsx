@@ -76,10 +76,10 @@ const Classes = () => {
             </p>
 
             <div className="classesHeroCtas">
-              <a className="primary-btn heroBtn" href="tel:+919800000000">
+              <a className="primary-btn heroBtn" href="tel:+917417914164">
                 <FaPhoneAlt /> Call for Admission
               </a>
-              <a className="outline-btn heroBtnOutline" href="https://wa.me/919876543210" target="_blank" rel="noreferrer">
+              <a className="outline-btn heroBtnOutline" href="https://wa.me/919219401623" target="_blank" rel="noreferrer">
                 WhatsApp Now
               </a>
             </div>
@@ -185,7 +185,7 @@ const Classes = () => {
               <p>Send child's age + previous class on WhatsApp and get guidance.</p>
             </div>
             <div className="ctaRight">
-              <a className="primary-btn" href="https://wa.me/919876543210" target="_blank" rel="noreferrer">
+              <a className="primary-btn" href="https://wa.me/919219401623" target="_blank" rel="noreferrer">
                 <FaClipboardList /> WhatsApp Details
               </a>
             </div>

@@ -1,18 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import SEOHelmet from "../common/SEO/SEOHelmet";
+import { FaArrowRight, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import Back from "../common/back/Back";
 import "./contact.css";
 
 const Contact = () => {
   const mapSrc =
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3525.0386844567934!2d78.05525770000001!3d27.931459300000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974a5a5186542b7%3A0x23cf8c5f2a591d8c!2sISLAMIC%20MISSION%20SCHOOL!5e0!3m2!1sen!2sin!4v1770882617094!5m2!1sen!2sin";
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3525.038684456793!2d78.0552577!3d27.9314593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974a5a5186542b7%3A0x23cf8c5f2a591d8c!2sIslamic%20Mission%20School!5e0!3m2!1sen!2sin!4v1707830000000";
+
+  const [result, setResult] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    console.log("Form submitted!");
+    setIsLoading(true);
+    setResult("Sending....");
+    setShowPopup(true);
+    
+    const formData = new FormData(event.target);
+    formData.append("access_key", "55a7d4ae-4830-4d4e-b4c5-654918d61b87");
+    formData.append("from_name", "IMS Contact Form");
+    
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+        
+        const data = await response.json();
+        console.log("Web3Forms Response:", data);
+        
+        if (data.success) {
+            setResult("✓ Form Submitted Successfully!");
+            event.target.reset();
+            setTimeout(() => setShowPopup(false), 4000);
+        } else {
+            setResult("✕ Error: " + (data.message || "Please try again"));
+            setTimeout(() => setShowPopup(false), 4000);
+        }
+    } catch (error) {
+        console.error("Submission Error:", error);
+        setResult("✕ Network Error: " + error.message);
+        setTimeout(() => setShowPopup(false), 4000);
+    } finally {
+        setIsLoading(false);
+    }
+  };
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ContactPoint",
     "contactType": "Customer Service",
-    "telephone": "+91-98XX-XXX-XXX",
-    "email": "info@imschool.in",
+    "telephone": "+91-7417914164",
+    "email": "info@islamicmissionschool.org",
     "areaServed": "IN",
     "availableLanguage": ["en", "ur", "hi"]
   };
@@ -58,7 +100,7 @@ const Contact = () => {
                 <h4>
                   <i className="fa fa-map" aria-hidden="true"></i> Address
                 </h4>
-                <p>Islamic Mission School, Aligarh (UP), India</p>
+                <p>Fort Green City, Near AMU Fort, Aligarh-202001</p>
               </div>
 
               <div className="infoBox">
@@ -66,7 +108,7 @@ const Contact = () => {
                   <i className="fa fa-paper-plane" aria-hidden="true"></i> Email
                 </h4>
                 <p>
-                  <a href="mailto:info@imschool.in">info@imschool.in</a>
+                  <a href="mailto:info@imschool.in">info.imsaligarh@gmail.com</a>
                 </p>
               </div>
 
@@ -75,7 +117,7 @@ const Contact = () => {
                   <i className="fa fa-phone-alt" aria-hidden="true"></i> Phone
                 </h4>
                 <p>
-                  <a href="tel:+919800000000">+91 98XX‑XXX‑XXX</a>
+                  <a href="tel:+917417914164">+91 7417914164</a>
                 </p>
               </div>
 
@@ -84,43 +126,56 @@ const Contact = () => {
                   <i className="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
                 </h4>
                 <p>
-                  <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer">
+                  <a href="https://wa.me/9109219401623" target="_blank" rel="noreferrer">
                     Chat on WhatsApp
                   </a>
                 </p>
               </div>
             </div>
 
-            <form className="contactForm" onSubmit={(e) => e.preventDefault()} data-aos="fade-up" data-aos-delay="200">
+            <form className="contactForm" onSubmit={onSubmit} data-aos="fade-up" data-aos-delay="200">
               <div className="contactRow">
-                <input type="text" placeholder="Name" aria-label="Name" />
-                <input type="email" placeholder="Email" aria-label="Email" />
+                <input type="text" name="name" placeholder="Name" aria-label="Name" required />
+                <input type="email" name="email" placeholder="Email" aria-label="Email" required />
               </div>
 
-              <input type="text" placeholder="Subject" aria-label="Subject" />
+              <input type="text" name="subject" placeholder="Subject" aria-label="Subject" required />
 
               <textarea
+                name="message"
                 rows="7"
                 placeholder="Create a message here..."
                 aria-label="Message"
+                required
               />
 
-              <button className="primary-btn contactBtn" type="submit">
-                SEND MESSAGE <i className="fa fa-arrow-right" aria-hidden="true"></i>
+              <button className="primary-btn contactBtn" type="submit" disabled={isLoading}>
+                {isLoading ? "SENDING..." : "SEND MESSAGE"} <FaArrowRight />
               </button>
             </form>
+
+            {showPopup && (
+              <div className="submissionPopup" role="alert">
+                <div className="popupContent">
+                  <div className="popupIcon">
+                    {result.includes("✓") ? "✓" : "✕"}
+                  </div>
+                  <p>{result}</p>
+                </div>
+              </div>
+            )}
 
             <div className="contactSocial" data-aos="fade-up" data-aos-delay="260">
               <h3>Follow us</h3>
               <div className="contactSocialRow">
-                <a href="https://www.facebook.com/share/1DAEaEk3rR/" target="_blank" rel="noreferrer" aria-label="Facebook">
-                  <i className="fab fa-facebook-f" aria-hidden="true"></i>
+                <a href="https://www.facebook.com/islamicmissionschool" target="_blank" rel="noreferrer" aria-label="Facebook">
+                  <FaFacebook />
                 </a>
-                <a href="https://www.instagram.com/islamicmissionschoolaligarh?igsh=dDZ5ejEyaHM1c2I3" target="_blank" rel="noreferrer" aria-label="Instagram">
-                  <i className="fab fa-instagram" aria-hidden="true"></i>
+                <a href="https://www.instagram.com/islamicmissionschoolaligarh" target="_blank" rel="noreferrer" aria-label="Instagram">
+                  <FaInstagram />
                 </a>
-                <a href="https://www.youtube.com/results?search_query=islamic+mission+school+aligarh" target="_blank" rel="noreferrer" aria-label="YouTube">
-                  <i className="fab fa-youtube" aria-hidden="true"></i>
+                <a href="https://www.youtube.com/@islamicmissionschool" target="_blank" rel="noreferrer" aria-label="YouTube">
+                  <FaYoutube />
                 </a>
               </div>
 
