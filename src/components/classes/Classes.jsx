@@ -21,7 +21,7 @@ const Classes = () => {
 
   useEffect(() => {
     const fetchClasses = async () => {
-      const { data, error } = await supabase
+      const { data } = await supabase
         .from('classes')
         .select('*')
         .order('sort_order', { ascending: true });

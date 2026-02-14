@@ -13,7 +13,6 @@ const ManageFooter = () => {
   
   const [socialLinks, setSocialLinks] = useState([]);
   const [newLink, setNewLink] = useState({ platform: 'facebook', url: '' });
-  const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState('');
 
   // Predefined social media platforms with their icons
@@ -33,7 +32,6 @@ const ManageFooter = () => {
   }, []);
 
   const fetchData = async () => {
-    setLoading(true);
     try {
       // Fetch Contact Info
       const { data: contactData } = await supabase.from('contact_info').select('*').single();
@@ -44,8 +42,6 @@ const ManageFooter = () => {
       setSocialLinks(socialData || []);
     } catch (error) {
       console.error('Error fetching data:', error);
-    } finally {
-      setLoading(false);
     }
   };
 

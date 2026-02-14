@@ -6,7 +6,6 @@ import "./footer.css";
 import { supabase } from "../../../supabaseClient";
 
 const Footer = () => {
-  const [socialLinks, setSocialLinks] = useState([]);
   const [contactInfo, setContactInfo] = useState({
     address: 'Aligarh (UP), India',
     phone: '+91 7417914164',
@@ -17,9 +16,6 @@ const Footer = () => {
     const fetchFooterData = async () => {
       const { data: contact } = await supabase.from('contact_info').select('*').single();
       if (contact) setContactInfo(contact);
-
-      const { data: social } = await supabase.from('social_links').select('*');
-      if (social) setSocialLinks(social);
     };
     fetchFooterData();
   }, []);

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
 import { uploadFile } from '../utils/uploadFile';
-import { FaTrash, FaEdit, FaPlus } from 'react-icons/fa';
+import { FaTrash, FaEdit } from 'react-icons/fa';
 
 const ManagePrograms = () => {
   const [programs, setPrograms] = useState([]);
@@ -96,26 +96,6 @@ const ManagePrograms = () => {
       const url = await uploadFile(file, 'programs');
       if (url) {
         setFormData({ ...formData, cover_image: url });
-        setMessage('Image uploaded successfully!');
-      } else {
-        setMessage('Error uploading image');
-      }
-    } catch (error) {
-      setMessage('Error: ' + error.message);
-    } finally {
-      setUploading(false);
-    }
-  };
-
-  const handleHoverImageUpload = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    setUploading(true);
-    try {
-      const url = await uploadFile(file, 'programs');
-      if (url) {
-        setFormData({ ...formData, hover_image: url });
         setMessage('Image uploaded successfully!');
       } else {
         setMessage('Error uploading image');
