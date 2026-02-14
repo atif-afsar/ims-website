@@ -30,7 +30,7 @@ export const uploadFile = async (file, folderName) => {
     const filePath = `${folderName}/${fileName}`
 
     // Upload file to 'uploads' bucket
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from('uploads')
       .upload(filePath, file)
 

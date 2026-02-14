@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import OnlineCourses from "../allcourses/OnlineCourses";
 import "./programs.css";
 
