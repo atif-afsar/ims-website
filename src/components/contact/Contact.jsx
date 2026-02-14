@@ -107,7 +107,7 @@ const Contact = () => {
                 <h4>
                   <i className="fa fa-paper-plane" aria-hidden="true"></i> Email
                 </h4>
-                <p>
+                <p className="email">
                   <a href="mailto:info@imschool.in">info.imsaligarh@gmail.com</a>
                 </p>
               </div>

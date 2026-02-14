@@ -71,9 +71,13 @@
 
 .infoBox {
   background: rgba(30,178,166,0.07);
-  border: 1px solid rgba(30,178,166,0.12);
+  border: 2px solid rgba(30,178,166,0.12);
   border-radius: 16px;
-  padding: 14px;
+  padding: 14px
+}
+
+.email {
+  font-size: 15px;
 }
 
 .infoBox h4 {
@@ -93,7 +97,7 @@
 
 .infoBox a {
   color: #1eb2a6;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
 }
 
