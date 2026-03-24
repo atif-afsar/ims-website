@@ -10,7 +10,6 @@ const Carousel = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [pageDataUrl, setPageDataUrl] = useState(null);
-  const [scale, setScale] = useState(1.5);
   
   const [isFullscreen, setIsFullscreen] = useState(false);
   
@@ -21,9 +20,10 @@ const Carousel = () => {
   
   // Cleanup cache on unmount
   useEffect(() => {
+    const currentCache = pageCache.current;
     return () => {
-      pageCache.current.forEach((url) => URL.revokeObjectURL(url));
-      pageCache.current.clear();
+      currentCache.forEach((url) => URL.revokeObjectURL(url));
+      currentCache.clear();
     };
   }, []);
 
@@ -61,7 +61,7 @@ const Carousel = () => {
     };
 
     loadPdfDoc();
-  }, []);
+  }, [PDF_PATH]); // Added PDF_PATH as dependency
 
   // The core rendering function that populates the cache
   const renderPageToCache = useCallback(async (pageNum, force = false) => {
@@ -143,17 +143,17 @@ const Carousel = () => {
     showPage();
   }, [pdf, currentPage, renderPageToCache]);
 
-  // Handle scale change (needs cache reset to update quality)
+  // Handle auto-clear cache when coming out of fullscreen so we re-render at right scale
   useEffect(() => {
     if (pdf) {
-      // Clear cache to re-render pages with new scale
       pageCache.current.forEach((url) => URL.revokeObjectURL(url));
       pageCache.current.clear();
       renderPageToCache(currentPage, true).then(url => {
         if (url) setPageDataUrl(url);
       });
     }
-  }, [scale]); // Re-render when manual scale changes
+    // Only reacting to fullscreen changes to optimize quality
+  }, [isFullscreen, pdf, currentPage, renderPageToCache]);
 
   // Actions
   const nextPage = () => setCurrentPage(prev => (prev < numPages ? prev + 1 : 1));
