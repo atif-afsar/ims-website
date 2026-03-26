@@ -35,11 +35,11 @@
 .headerRow{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 16px;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 8px;
 }
 
 /* Logo */
@@ -79,6 +79,7 @@
   display: flex;
   gap: 26px;
   align-items: center;
+  margin-left: auto;
 }
 
 .nav-link{
@@ -100,6 +101,29 @@
   color: #2a106e;
 }
 
+/* Special styling for Contact link */
+.nav-link[href="/contact"]{
+  background: linear-gradient(135deg, #1eb2a6, #16a085);
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: all 180ms ease;
+  box-shadow: 0 4px 12px rgba(30, 178, 166, 0.25);
+}
+
+.nav-link[href="/contact"]:hover{
+  background: linear-gradient(135deg, #16a085, #1eb2a6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 178, 166, 0.35);
+  color: #fff !important;
+}
+
+.nav-link[href="/contact"].active{
+  background: linear-gradient(135deg, #16a085, #1eb2a6);
+  color: #fff !important;
+}
+
 /* Mobile Toggle Button */
 .mobile-toggle{
   display: none;
@@ -110,6 +134,7 @@
   cursor: pointer;
   padding: 8px;
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 /* Overlay */
@@ -337,7 +362,7 @@ i.fa.fa-chevron-down{
 
 @media (max-width: 1200px){
   .headerRow{
-    padding: 0 16px;
+    padding: 0 8px;
   }
   
   .nav-links{
@@ -367,7 +392,7 @@ i.fa.fa-chevron-down{
   }
   
   .headerRow{
-    padding: 0 12px;
+    padding: 0 8px;
   }
 }
 
@@ -410,7 +435,7 @@ i.fa.fa-chevron-down{
   }
   
   .headerRow{
-    padding: 0 10px;
+    padding: 0 6px;
   }
 }
 
