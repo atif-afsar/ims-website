@@ -17,61 +17,58 @@ const NeetJee = () => {
 
      <article className="program-content">
 
-  <p>
-    Our Integrated NEET / JEE Schooling Program is designed for students who
-    aspire to become successful doctors and engineers. The program seamlessly
-    blends the ICSE school curriculum with focused competitive exam preparation,
-    ensuring students are fully prepared to succeed in their first attempt.
-  </p>
+  <div className="intro-text">
+    <p>
+      The journey to premier institutions like IITs and AIIMS demands a strong foundation, unwavering discipline, and a strategic approach from an early age.
+    </p>
+    <p>
+      Our Integrated NEET/JEE Schooling Program is a unique educational model that seamlessly blends the rigor of the ICSE curriculum with the intensive preparation required for competitive exams. We don't just teach students; we mentor future innovators and healthcare leaders, ensuring they are exam-ready, confident, and successful in their very first attempt.
+    </p>
+  </div>
 
-  <h3>Program Highlights</h3>
-  <ul>
-    <li>Integrated ICSE + NEET / JEE preparation</li>
-    <li>Concept-based teaching with strong fundamentals</li>
-    <li>Regular assessments and performance tracking</li>
-    <li>Experienced faculty for Physics, Chemistry & Mathematics / Biology</li>
+  <h3>Program Structure & Details</h3>
+
+  <div className="program-track">
+    <h4><span className="track-number">1.</span> The Foundation Program (4-Year Program from Class IX)</h4>
+    <p className="track-subtitle">Build an Unshakable Foundation for Success.</p>
+    <p>
+      This program is designed for young, determined students who are clear about their career goals in medicine or engineering. Starting from Class IX, we lay a robust foundation in core subjects (Physics, Chemistry, Biology & Mathematics), ensuring conceptual clarity and mastery.
+    </p>
+  </div>
+
+  <div className="program-track">
+    <h4><span className="track-number">2.</span> The Intensive Accelerator Program (2-Year Program from Class XI)</h4>
+    <p className="track-subtitle">Fast-Track Your Dream with Focused Intensity.</p>
+    <p>
+      For students who crystallize their ambition to pursue NEET/JEE after Class X, this program offers a powerful and focused two-year journey. We provide an immersive learning environment that accelerates preparation, covering both board and competitive exam syllabi with precision.
+    </p>
+  </div>
+
+  <h3>Special Features</h3>
+  <ul className="special-features">
+    <li>Efficient and committed Faculties</li>
+    <li>Daily Practice Test</li>
+    <li>Weekly Test</li>
+    <li>Regular doubt classes</li>
+    <li>Teaching by experienced Faculties during school time</li>
+    <li>No requirement of coaching which saves more than a lac per annum and 7-8 hours per day for self-study.</li>
   </ul>
 
-  <h3>The Foundation Program (4-Year | From Class IX)</h3>
-  <p><strong>Build an Unshakable Academic & Conceptual Base</strong></p>
-  <ul>
-    <li>Early exposure to NEET / JEE concepts</li>
-    <li>Strong focus on fundamentals of Physics, Chemistry, Maths & Biology</li>
-    <li>Gradual increase in difficulty aligned with student growth</li>
-    <li>Balanced preparation for school exams and competitive tests</li>
-  </ul>
-
-  <h3>The Intensive Accelerator Program (2-Year | From Class XI)</h3>
-  <p><strong>Fast-Track Preparation for Top Medical & Engineering Colleges</strong></p>
-  <ul>
-    <li>In-depth coverage of board and competitive syllabi</li>
-    <li>Daily practice problems and assignment sheets</li>
-    <li>Weekly mock tests and full-length examinations</li>
-    <li>Dedicated doubt-clearing and revision sessions</li>
-  </ul>
-
-  <h3>Teaching Methodology</h3>
-  <ul>
-    <li>Concept-first approach with real-life applications</li>
-    <li>Problem-solving focused classroom sessions</li>
-    <li>Regular revision cycles and exam-oriented strategies</li>
-    <li>Personalized mentoring and academic guidance</li>
-  </ul>
-
-  <h3>Student Support & Mentorship</h3>
-  <ul>
-    <li>One-on-one mentoring and performance counseling</li>
-    <li>Stress management and exam readiness support</li>
-    <li>Parent-teacher academic progress discussions</li>
-  </ul>
-
-  <h3>Learning Outcomes</h3>
-  <ul>
-    <li>Strong command over core science subjects</li>
-    <li>Confidence to handle high-pressure competitive exams</li>
-    <li>Improved accuracy, speed, and exam temperament</li>
-    <li>Readiness for NEET / JEE and board examinations</li>
-  </ul>
+  <h3>Comparison: IMS NEET/JEE Integrated Schooling vs Conventional Schooling</h3>
+  <div className="comparison-table">
+    <div className="comparison-row header-row">
+      <div className="comparison-cell">IMS NEET/JEE Integrated Schooling</div>
+      <div className="comparison-cell">Conventional Schooling</div>
+    </div>
+    <div className="comparison-row">
+      <div className="comparison-cell highlight-cell">
+        The entire ecosystem is built around a singular goal: cracking JEE/NEET in the first attempt.
+      </div>
+      <div className="comparison-cell">
+        Aims to deliver a general board education only.
+      </div>
+    </div>
+  </div>
 
 </article>
 

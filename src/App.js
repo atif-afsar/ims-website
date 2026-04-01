@@ -27,6 +27,7 @@ const Programs = lazy(() => import("./components/programs/Programs"));
 const CoCurricular = lazy(() => import("./components/programs/CoCurricular"));
 const EnglishCommunication = lazy(() => import("./components/programs/EnglishCommunication"));
 const ArabicCommunication = lazy(() => import("./components/programs/ArabicCommunication"));
+const RoboticsAI = lazy(() => import("./components/programs/RoboticsAI"));
 const NeetJee = lazy(() => import("./components/programs/NeetJee"));
 const Vision = lazy(() => import("./components/vision/Vision"));
 const Team = lazy(() => import("./components/team/Team"));
@@ -92,6 +93,7 @@ function App() {
                       <Route path="/programs/co-curricular" element={<CoCurricular />} />
                       <Route path="/programs/english-communication" element={<EnglishCommunication />} />
                       <Route path="/programs/arabic-communication" element={<ArabicCommunication />} />
+                      <Route path="/programs/robotics-ai" element={<RoboticsAI />} />
                       <Route path="/programs/neet-jee" element={<NeetJee />} />
                       <Route path="/vision" element={<Vision />} />
                       <Route path="/team" element={<Team />} />

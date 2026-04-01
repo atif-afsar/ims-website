@@ -233,6 +233,98 @@ const Vision = () => {
         </div>
       </section>
 
+      {/* STEM EDUCATION */}
+      <section className="stem-section">
+        <div className="container">
+          <h2>STEM Education</h2>
+          <p className="stem-tagline">
+            Where Innovation Meets Insight, and Discovery Deepens Faith.
+          </p>
+
+          <div className="stem-intro">
+            <p>
+              STEM is more than an acronym for Science, Technology, Engineering, and Math. It's a transformative educational philosophy that integrates these four disciplines into a cohesive learning paradigm based on real-world applications. We empower students to become the next generation of innovators, problem-solvers, and ethical leaders, equipped to tackle global challenges with both technical expertise and Islamic moral integrity.
+            </p>
+          </div>
+
+          <article className="stem-partner">
+            <h3>Our STEM Partner: A World-Class Curriculum from Evan Moor</h3>
+            <p className="partner-subtitle">Bringing Global Standards of STEM Excellence to Our Classrooms.</p>
+            
+            <p>
+              At IMS, we are committed to providing an education that meets the highest international benchmarks. That's why we have proudly integrated the globally recognized STEM curriculum from <strong>Evan Moor</strong>, a leading USA-based educational publisher, into our learning framework from Grade 1. This partnership ensures that our students benefit from a rigorous, research-backed, and engaging approach to Science, Technology, Engineering, and Mathematics, right here in India.
+            </p>
+
+            <h4>Why We Chose Evan Moor</h4>
+            <p>We selected Evan Moor after a thorough review of international STEM resources. It stood out for its unique ability to align with our educational goals:</p>
+
+            <div className="evan-moor-features">
+              <div className="feature-box">
+                <h5>Proven, Research-Backed Methodology</h5>
+                <p>Evan Moor's materials are developed by educational experts and are used in thousands of schools across the United States and other countries, ensuring our students receive a world-class foundation.</p>
+              </div>
+
+              <div className="feature-box">
+                <h5>Focus on Hands-On, Inquiry-Based Learning</h5>
+                <p>This curriculum moves beyond theory. It emphasizes the "E" in STEM (Engineering) through practical, project-based activities that challenge students to think creatively and solve problems—a perfect match for our pedagogical philosophy.</p>
+              </div>
+
+              <div className="feature-box">
+                <h5>Systematic and Scaffolded Design</h5>
+                <p>The curriculum is carefully structured to build skills progressively. Each unit scaffolds knowledge, ensuring students develop deep conceptual understanding and confidence as they advance.</p>
+              </div>
+
+              <div className="feature-box">
+                <h5>Engaging and Accessible Content</h5>
+                <p>Evan Moor's resources are designed to make complex STEM concepts accessible and exciting for all age groups, fostering a genuine and lasting love for discovery.</p>
+              </div>
+            </div>
+
+            <h4>The Evan Moor Advantage in Our Classrooms</h4>
+            <p>By incorporating Evan Moor, we enhance our STEM program with:</p>
+
+            <div className="advantage-list">
+              <div className="advantage-item">
+                <span className="advantage-number">(i)</span>
+                <div>
+                  <h5>Real-World Problem Solving</h5>
+                  <p>Students don't just learn facts; they apply them. They might design a simple machine, conduct a detailed scientific investigation, or create a model to solve an environmental challenge, just like real engineers and scientists.</p>
+                </div>
+              </div>
+
+              <div className="advantage-item">
+                <span className="advantage-number">(ii)</span>
+                <div>
+                  <h5>Development of Critical 21st-Century Skills</h5>
+                  <p>Each project is designed to naturally cultivate collaboration, communication, creativity, and critical thinking—the essential skills for success in higher education and future careers.</p>
+                </div>
+              </div>
+
+              <div className="advantage-item">
+                <span className="advantage-number">(iii)</span>
+                <div>
+                  <h5>Structured Creativity</h5>
+                  <p>The curriculum provides a clear framework that guides students through the engineering design process—asking, imagining, planning, creating, and improving—which empowers them to innovate systematically.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="stem-example">
+              <h4>A Glimpse into Learning: What an Evan Moor Unit Looks Like</h4>
+              <p>A typical unit in our younger grades might challenge students to <strong>"Design a Sunshade"</strong> to understand the effects of sunlight. Through this Evan Moor activity, they will:</p>
+              
+              <ul className="example-steps">
+                <li><strong>(Science)</strong> Learn about the sun and shade.</li>
+                <li><strong>(Technology/Engineering)</strong> Design, build, and test a model sunshade.</li>
+                <li><strong>(Math)</strong> Measure and compare the temperature and area covered.</li>
+              </ul>
+
+              <p className="example-conclusion">This hands-on, integrated approach makes learning memorable and profoundly effective.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
     </>
   );
 };

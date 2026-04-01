@@ -23,6 +23,7 @@ const Header = () => {
         { to: "/programs/co-curricular", label: "Co-Curricular" },
         { to: "/programs/english-communication", label: "English Program" },
         { to: "/programs/arabic-communication", label: "Arabic Program" },
+        { to: "/programs/robotics-ai", label: "Robotics & AI" },
         { to: "/programs/neet-jee", label: "NEET / JEE Program" },
         { to: "/programs", label: "Programs Overview", end: true },
       ],

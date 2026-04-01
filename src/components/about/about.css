@@ -418,6 +418,19 @@
   font-weight: 700;
 }
 
+.governance-intro {
+  font-size: clamp(1.05rem, 1.5vw, 1.15rem);
+  line-height: 1.9;
+  color: #444;
+  margin: 1.5rem 0 2.5rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  background: linear-gradient(135deg, rgba(30, 178, 166, 0.05), rgba(28, 31, 67, 0.03));
+  border-left: 4px solid #1eb2a6;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  max-width: 100%;
+}
+
 .office-bearers {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
@@ -546,40 +559,105 @@
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   color: #1c1f43;
   margin-bottom: 1.5rem;
-  margin: 1rem;
   font-weight: 700;
 }
+
 .values-section h4 {
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
-  color: #1c1f43;
-  margin-bottom: 1.5rem;
-  margin: 1rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  color: #1eb2a6;
+  margin: 2rem 0 1rem;
   font-weight: 700;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.values-section h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 70%;
+  background: linear-gradient(180deg, #1eb2a6, #1c1f43);
+  border-radius: 2px;
+}
+
+.values-content {
+  max-width: 100%;
 }
 
 .values-content p {
   color: #444;
-  margin: 1rem;
+  margin: 1.25rem 0;
   line-height: 1.9;
   font-size: clamp(1rem, 1.5vw, 1.1rem);
+  text-align: justify;
+}
+
+.values-content p strong {
+  color: #1eb2a6;
+  font-weight: 700;
 }
 
 .values-list {
-  margin: 1.5rem 0 1rem 2rem;
+  margin: 1.5rem 0 1.5rem 0;
+  padding-left: clamp(1.5rem, 3vw, 2rem);
   color: #444;
+  list-style: none;
 }
 
 .values-list li {
   margin-bottom: 1rem;
-  line-height: 1.7;
+  line-height: 1.8;
   font-size: clamp(0.95rem, 1.5vw, 1.05rem);
   position: relative;
-  padding-left: 0.5rem;
+  padding-left: 1.75rem;
+  text-align: left;
 }
 
-.values-list li::marker {
+.values-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
   color: #1eb2a6;
   font-weight: 700;
+  font-size: 1.2em;
+}
+
+/* Responsive adjustments for values section */
+@media (max-width: 768px) {
+  .values-section {
+    padding: clamp(1.5rem, 4vw, 2rem);
+    margin: 2rem 0;
+  }
+  
+  .values-section h4 {
+    padding-left: 0.75rem;
+  }
+  
+  .values-content p {
+    text-align: left;
+  }
+  
+  .values-list {
+    padding-left: 1rem;
+  }
+  
+  .values-list li {
+    padding-left: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .values-section {
+    border-radius: 16px;
+  }
+  
+  .values-list li {
+    margin-bottom: 0.875rem;
+  }
 }
 
 /* Curriculum Section */
@@ -592,6 +670,22 @@
   color: #1c1f43;
   margin-bottom: 1.5rem;
   font-weight: 700;
+}
+
+.curriculum-intro {
+  margin-bottom: 2.5rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  background: linear-gradient(135deg, rgba(30, 178, 166, 0.05), rgba(28, 31, 67, 0.03));
+  border-left: 4px solid #1eb2a6;
+  border-radius: 12px;
+}
+
+.curriculum-intro p {
+  font-size: clamp(1.05rem, 1.5vw, 1.15rem);
+  line-height: 1.9;
+  color: #444;
+  margin: 0;
+  text-align: justify;
 }
 
 .curriculum-grid {
@@ -622,30 +716,89 @@
 .currCol h5 {
   margin: 0 0 1rem 0;
   color: #1c1f43;
-  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-size: clamp(1.3rem, 2vw, 1.5rem);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.curr-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(32px, 4vw, 40px);
+  height: clamp(32px, 4vw, 40px);
+  background: linear-gradient(135deg, #1eb2a6, #1c1f43);
+  color: white;
+  border-radius: 50%;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  flex-shrink: 0;
+}
+
+.currCol > p {
+  color: #555;
+  line-height: 1.8;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  margin-bottom: 1.5rem;
+}
+
+.curr-subsection {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(28, 31, 67, 0.08);
+}
+
+.curr-subsection h6 {
+  font-size: clamp(1.1rem, 1.8vw, 1.25rem);
+  color: #1eb2a6;
+  margin: 0 0 0.75rem 0;
   font-weight: 700;
 }
 
-.currCol ul {
-  margin-left: 1.5rem;
+.curr-subsection p {
+  color: #555;
+  line-height: 1.8;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  margin-bottom: 1rem;
+}
+
+.curr-subsection ul {
+  margin: 1rem 0 1rem 1.5rem;
   color: #555;
 }
 
-.currCol li {
+.curr-subsection li {
   margin-bottom: 0.75rem;
   line-height: 1.7;
   font-size: clamp(0.95rem, 1.5vw, 1.05rem);
 }
 
+.curr-subsection li strong {
+  color: #1c1f43;
+}
+
+.highlight-text {
+  background: linear-gradient(135deg, rgba(30, 178, 166, 0.08), rgba(28, 31, 67, 0.05));
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border-left: 3px solid #1eb2a6;
+}
+
+.highlight-text strong {
+  color: #1eb2a6;
+}
+
 /* Skill Paths */
 .skill-paths {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 1rem;
   margin-top: 1.25rem;
 }
 
-.skill-paths div {
+.skill-path-card {
   background: linear-gradient(135deg, rgba(30, 178, 166, 0.08), rgba(28, 31, 67, 0.05));
   padding: clamp(1rem, 2vw, 1.25rem);
   border-radius: 12px;
@@ -653,28 +806,106 @@
   transition: all 0.3s ease;
 }
 
-.skill-paths div:hover {
+.skill-path-card:hover {
   transform: translateY(-2px);
   background: linear-gradient(135deg, rgba(30, 178, 166, 0.12), rgba(28, 31, 67, 0.08));
   border-color: rgba(30, 178, 166, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.skill-paths strong {
+.skill-path-card strong {
   display: block;
   color: #1c1f43;
   margin-bottom: 0.5rem;
   font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.4;
 }
 
-.skill-paths p {
+.skill-subtitle {
+  color: #1eb2a6;
+  font-style: italic;
+  font-size: clamp(0.9rem, 1.3vw, 0.95rem);
+  margin: 0.5rem 0 0.75rem 0;
+  font-weight: 600;
+}
+
+.skill-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.75rem 0 0 0;
+}
+
+.skill-list li {
   color: #555;
-  margin: 0;
-  font-size: clamp(0.9rem, 1.2vw, 0.95rem);
+  font-size: clamp(0.9rem, 1.3vw, 0.95rem);
   line-height: 1.6;
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.skill-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #1eb2a6;
+  font-weight: 700;
+  font-size: 1.2em;
 }
 
 .mt20 {
   margin-top: 2rem;
+}
+
+/* Responsive adjustments for curriculum */
+@media (max-width: 1024px) {
+  .curriculum-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skill-paths {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .curriculum-intro {
+    padding: 1.25rem;
+  }
+  
+  .curriculum-intro p {
+    text-align: left;
+  }
+  
+  .currCol {
+    padding: 1.5rem;
+  }
+  
+  .skill-paths {
+    grid-template-columns: 1fr;
+  }
+  
+  .curr-subsection {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .curriculum-section {
+    margin: 2rem 0 1.5rem;
+  }
+  
+  .currCol h5 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .curr-number {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 /* ============================================

@@ -77,15 +77,14 @@ const AboutCard = () => {
                 data-aos="fade-up"
                 data-aos-delay="150"
               >
-                Our children are a blessing <strong>(Naemat)</strong> bestowed
-                upon us by the Almighty Allah and a sacred trust{" "}
-                <strong>(Amaanah)</strong> for which we are accountable. At{" "}
-                <span className="highlight">
-                  Islamic Mission School (IMS)
-                </span>
-                , we believe that education is not limited to academic success
-                alone—it is the foundation of strong character, moral integrity,
-                and responsible citizenship.
+                Our children are a blessing <strong>(naemat)</strong> bestowed
+                on us by The Almighty God, and also a trust{" "}
+                <strong>(amaanah)</strong> He has made us responsible for. It is
+                God's universal law to accompany every blessing with responsibility.
+                He then blessed parents by placing tremendous love in their hearts
+                for their children, and He made every parent responsible for
+                providing his child with the best 'Tarbiyah' in order to ensure
+                their success in this world as well as in the world to come.
               </p>
 
               <p
@@ -93,12 +92,13 @@ const AboutCard = () => {
                 data-aos="fade-up"
                 data-aos-delay="220"
               >
-                Established in <strong>2008</strong>, IMS was founded with a clear
-                vision: to nurture well-rounded individuals who excel in this
-                world through knowledge and succeed in the Hereafter through
-                faith and righteous conduct. We provide a nurturing environment
-                where timeless Islamic values harmoniously blend with modern,
-                future-ready education.
+                At <span className="highlight">Islamic Mission School (IMS)</span>,
+                we believe education is more than academic excellence; it is the
+                foundation of character. In a rapidly changing world, we provide
+                a learning environment where timeless values and modern innovation
+                converge. We nurture compassionate, confident, and critical thinkers
+                who are not only prepared for the challenges of tomorrow but are
+                also committed to building a more just and peaceful world.
               </p>
 
               <p
@@ -106,12 +106,9 @@ const AboutCard = () => {
                 data-aos="fade-up"
                 data-aos-delay="290"
               >
-                At IMS, learning goes beyond classrooms. We cultivate curiosity,
-                compassion, confidence, and critical thinking—preparing students
-                to face the challenges of a rapidly changing world while
-                remaining rooted in values of respect, responsibility, and
-                kindness. IMS is not merely a school; it is a{" "}
-                <strong>Madrasat-ul-Hayat</strong> — a school for life.
+                We foster a culture of respect, responsibility, and kindness,
+                where students are encouraged to question, create, and collaborate.
+                Welcome to an education that shapes both the intellect and the soul.
               </p>
             </article>
           </div>
@@ -160,6 +157,10 @@ const AboutCard = () => {
               <div className="governance" data-aos="fade-up" data-aos-delay="260">
               <Heading subtitle="GOVERNANCE" title="Office Bearers & Affiliation" />
 
+              <p className="governance-intro">
+                Islamic Mission School is a private, non-profit institution operated under the aegis of the Society for Moral Education and Social Development. It is overseen by an independent Board of Trustees tasked with advancing the school's mission and safeguarding its future success. The Trustees believe in the significant value of IMS education for students, their families, and the wider community and nation, and are committed to collaborating with faculty, staff, and administration to ensure the school's continuous and successful operation.
+              </p>
+
               <div className="office-bearers">
                 {members.length > 0 ? (
                   members.map((m) => (
@@ -198,54 +199,137 @@ const AboutCard = () => {
 
               <div className="values-content">
                 <p>
-                  The concept of Value Based Schools combines the best of values and academic learning into an integrated model. Values-based education creates a strong learning environment that enhances academic achievement and develops students' social and relationship skills that last throughout their lives.
+                  The first ten years of a child are very crucial and important in his life as whatever he is exposed to during this period has a serious and lasting effect on him in the future. Learning in childhood is likened to an engraved mark on rock, which it is difficult to rub off. Rightly said: <strong>"Knowledge at young age is like engraving on a stone."</strong>
                 </p>
 
                 <p>
-                  In India, value-based education is the need of the hour. Educational institutions must take the initiative to impart moral values—qualities of good conduct, self-confidence, and high values—that will help students secure a significant place in society.
+                  This is high time to sow the seeds of moral values in the hearts of children. Education without values is like tea without sugar, or a body without soul.
                 </p>
 
-                <h4>Values in the curriculum</h4>
+                <h4>Values in Educational Institutions</h4>
                 <p>
-                  The first ten years of a child are crucial. Learning in childhood is likened to an engraved mark on rock. This is the time to sow the seeds of moral values. Education without values is like tea without sugar.
+                  Values in an educational institution are the need of the hour. The severe deterioration in the conduct of India's youth is a matter of concern. The paradigm shift in the perception of education and the role of schools is a major factor negatively impacting the conduct and behaviour of Indian youth. Today we can see:
                 </p>
 
                 <ul className="values-list">
-                  <li>The quantity of education has increased, but quality must improve.</li>
-                  <li>Degrees are available, yet dignity and sincerity must be restored.</li>
-                  <li>IMS applies a whole-school approach, training staff to be instruments in imparting values.</li>
+                  <li>The quantity of education has considerably increased, but the quality has decreased.</li>
+                  <li>The number of educated people has reached a high level, yet murder, hatred, and selfishness have spread everywhere.</li>
+                  <li>Many institutions have opened, but only a few civilized people are produced.</li>
+                  <li>Degrees are available for all, but dignity has gone down.</li>
+                  <li>Trained people are produced by many institutions, but sincere people are very few.</li>
+                  <li>Technologically we have become advanced, but humanity is threatened.</li>
                 </ul>
+
+                <p>
+                  <strong>Alhamdulillah</strong>, IMS has taken the initiative to impart value-based education to this new generation. Imbibing the qualities of good conduct, self-confidence, and high moral values will help students earn a respected place in society.
+                </p>
+
+                <p>
+                  Value-based education is most effective when every staff member engages with it. So at IMS, <strong>Alhamdulillah</strong>, we apply a whole-school approach, training our staff to be instruments in imparting values. There is a marked difference in the focus and outcomes of simple education and value-based education.
+                </p>
               </div>
             </div>
 
             <div className="curriculum-section" data-aos="fade-up" data-aos-delay="380">
               <Heading subtitle="CURRICULUM" title="Nurturing Mind, Body, and Soul" />
 
+              <div className="curriculum-intro">
+                <p>
+                  At Islamic Mission School, we believe that a truly transformative education harmonizes intellectual excellence with spiritual and moral growth. Our curriculum is thoughtfully designed to empower students with the knowledge and skills to thrive in the modern world, while firmly grounding them in the ethical and spiritual framework also. We foster a learning environment that encourages curiosity, critical thinking, and compassion, preparing students to be confident, contributing citizens of both India and the global community.
+                </p>
+              </div>
+
               <div className="curriculum-grid">
                 <div className="currCol">
-                  <h5>Academic Excellence</h5>
-                  <p>We follow the ICSE & ISC curriculum, offering a strong foundation across languages, sciences, humanities, technology, and arts.</p>
-                  <ul>
-                    <li>Languages: English, Hindi, Urdu, Arabic, Sanskrit</li>
-                    <li>Sciences: Mathematics, Physics, Chemistry, Biology</li>
-                    <li>Humanities & Social Sciences: History, Geography, Civics, Economics, Financial Literacy</li>
-                    <li>Technology & Arts: Computer Science, IT, Art, Physical Education</li>
-                  </ul>
+                  <h5><span className="curr-number">1.</span> Academic Excellence: The National Framework</h5>
+                  <p>We follow the ICSE & ISC curriculum, known for its strong foundation in core subjects and its national recognition, ensuring a smooth academic pathway for higher education anywhere in India and abroad.</p>
+                  
+                  <div className="curr-subsection">
+                    <h6>Core Subjects</h6>
+                    <p>We teach a comprehensive range of subjects including:</p>
+                    <ul>
+                      <li><strong>Languages:</strong> English, Hindi, Urdu, Arabic, Sanskrit</li>
+                      <li><strong>Sciences:</strong> Mathematics, Physics, Chemistry, Biology</li>
+                      <li><strong>Humanities & Social Sciences:</strong> History, Geography, Civics, Economics, Financial Literacy</li>
+                      <li><strong>Technology & Arts:</strong> Computer Science, Information Technology, Art, and Physical Education</li>
+                    </ul>
+                    <p className="highlight-text">Moreover, for minority students IMS also provides <strong>Nazira & Hifz</strong>. Islamic Studies, Seerah and Life of the Prophets are instrumental in developing morals.</p>
+                  </div>
+
+                  <div className="curr-subsection">
+                    <h6>Pedagogy</h6>
+                    <p>Our teaching methodology moves beyond rote learning. We emphasize:</p>
+                    <ul>
+                      <li><strong>Inquiry-Based Learning:</strong> Encouraging students to ask questions and discover knowledge.</li>
+                      <li><strong>Critical Thinking & Problem Solving:</strong> Applying classroom concepts to real-world challenges.</li>
+                      <li><strong>Collaborative Projects:</strong> Fostering teamwork and communication skills.</li>
+                    </ul>
+                  </div>
                 </div>
 
                 <div className="currCol">
-                  <h5>21st Century Skills</h5>
-                  <p>We focus on skills that matter: critical thinking, collaboration, creativity, and digital literacy.</p>
+                  <h5><span className="curr-number">2.</span> 21st Century Skills</h5>
+                  <p>In a world of constant change, knowledge alone is not enough. At Islamic Mission School, we believe that skills are the bridge between potential and achievement. Our dedicated focus on Skills Development ensures that every student doesn't just learn what to think, but how to think, adapt, and lead.</p>
 
-                  <div className="skill-paths">
-                    <div><strong>Cognitive & Analytical</strong><p>Critical thinking, problem solving, digital literacy</p></div>
-                    <div><strong>Personal & Intrapersonal</strong><p>Resilience, self-management, curiosity</p></div>
-                    <div><strong>Social & Interpersonal</strong><p>Communication, leadership, cross-cultural competency</p></div>
-                    <div><strong>Creative & Practical</strong><p>Design thinking, project management, public speaking</p></div>
+                  <div className="curr-subsection">
+                    <h6>Our Core Skill Pathways</h6>
+                    <p>We structure our skills development into four interconnected pathways:</p>
                   </div>
 
-                  <h5 className="mt20">STEM Education</h5>
-                  <p>IMS integrates a world-class STEM curriculum (partnered with Evan Moor) emphasizing hands-on, inquiry-led learning from Grade 1.</p>
+                  <div className="skill-paths">
+                    <div className="skill-path-card">
+                      <strong>(i) Cognitive & Analytical Skills</strong>
+                      <p className="skill-subtitle">Mastering how to think.</p>
+                      <ul className="skill-list">
+                        <li>Critical Thinking & Problem Solving</li>
+                        <li>Digital Literacy & Computational Thinking</li>
+                      </ul>
+                    </div>
+
+                    <div className="skill-path-card">
+                      <strong>(ii) Personal & Intrapersonal Skills</strong>
+                      <p className="skill-subtitle">Mastering how to be.</p>
+                      <ul className="skill-list">
+                        <li>Resilience & Adaptability</li>
+                        <li>Self-Management & Metacognition</li>
+                        <li>Curiosity & Lifelong Learning</li>
+                      </ul>
+                    </div>
+
+                    <div className="skill-path-card">
+                      <strong>(iii) Social & Interpersonal Skills</strong>
+                      <p className="skill-subtitle">Mastering how to work with others.</p>
+                      <ul className="skill-list">
+                        <li>Communication & Collaboration</li>
+                        <li>Leadership & Influence</li>
+                        <li>Cross-Cultural Competency</li>
+                        <li>Conflict Resolution & Negotiation</li>
+                      </ul>
+                    </div>
+
+                    <div className="skill-path-card">
+                      <strong>(iv) Creative & Practical Skills</strong>
+                      <p className="skill-subtitle">Mastering how to create and execute.</p>
+                      <ul className="skill-list">
+                        <li>Creativity & Innovation</li>
+                        <li>Design Thinking</li>
+                        <li>Project Management</li>
+                        <li>Public Speaking & Presentation</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="curr-subsection">
+                    <h6>How We Develop These Skills</h6>
+                    <p>Our commitment is brought to life through a multi-faceted approach:</p>
+                    <ul>
+                      <li>Project-Based Learning (PBL)</li>
+                      <li>Dedicated Workshops & Masterclasses</li>
+                      <li>Special curriculum on Life Skills from Grade 1</li>
+                      <li>Leadership Roles & Student Houses</li>
+                      <li>Educational Excursions</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
