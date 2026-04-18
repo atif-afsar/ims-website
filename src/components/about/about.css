@@ -433,7 +433,7 @@
 
 .office-bearers {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 1.5rem;
   margin-top: 1.5rem;
 }
@@ -441,7 +441,7 @@
 .bearer {
   background: #ffffff;
   border-radius: 16px;
-  padding: clamp(1.25rem, 3vw, 1.75rem);
+  padding: clamp(1.5rem, 3vw, 1.75rem);
   box-shadow: 
     0 2px 8px rgba(0, 0, 0, 0.04),
     0 8px 24px rgba(0, 0, 0, 0.06);
@@ -449,6 +449,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  min-height: 200px;
 }
 
 .bearer::before {
@@ -547,7 +548,7 @@
     rgba(250, 252, 255, 1),
     rgba(240, 248, 255, 1)
   );
-  padding: clamp(2rem, 4vw, 3rem);
+  padding: clamp(3rem, 5vw, 4rem);
   border-radius: 20px;
   border: 1px solid rgba(28, 31, 67, 0.08);
   box-shadow: 
@@ -556,7 +557,7 @@
 }
 
 .values-section h3 {
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-size: clamp(1.70rem, 3vw, 2.25rem);
   color: #1c1f43;
   margin-bottom: 1.5rem;
   font-weight: 700;
@@ -589,8 +590,8 @@
 
 .values-content p {
   color: #444;
-  margin: 1.25rem 0;
-  line-height: 1.9;
+  margin: 1.5rem 0;
+  line-height: 2;
   font-size: clamp(1rem, 1.5vw, 1.1rem);
   text-align: justify;
 }
@@ -608,11 +609,11 @@
 }
 
 .values-list li {
-  margin-bottom: 1rem;
-  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  line-height: 1.9;
   font-size: clamp(0.95rem, 1.5vw, 1.05rem);
   position: relative;
-  padding-left: 1.75rem;
+  padding-left: 2rem;
   text-align: left;
 }
 
@@ -690,20 +691,21 @@
 
 .curriculum-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: clamp(1.5rem, 3vw, 2rem);
   margin-top: 1.5rem;
 }
 
 .currCol {
   background: #ffffff;
-  padding: clamp(1.5rem, 3vw, 2rem);
+  padding: clamp(1.75rem, 3vw, 2rem);
   border-radius: 16px;
   border: 1px solid rgba(28, 31, 67, 0.08);
   box-shadow: 
     0 2px 8px rgba(0, 0, 0, 0.04),
     0 8px 24px rgba(0, 0, 0, 0.06);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 300px;
 }
 
 .currCol:hover {
@@ -769,9 +771,10 @@
 }
 
 .curr-subsection li {
-  margin-bottom: 0.75rem;
-  line-height: 1.7;
+  margin-bottom: 1rem;
+  line-height: 1.9;
   font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  padding-left: 0.5rem;
 }
 
 .curr-subsection li strong {
@@ -793,17 +796,18 @@
 /* Skill Paths */
 .skill-paths {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 1rem;
   margin-top: 1.25rem;
 }
 
 .skill-path-card {
   background: linear-gradient(135deg, rgba(30, 178, 166, 0.08), rgba(28, 31, 67, 0.05));
-  padding: clamp(1rem, 2vw, 1.25rem);
+  padding: clamp(1.25rem, 2vw, 1.5rem);
   border-radius: 12px;
   border: 1px solid rgba(30, 178, 166, 0.15);
   transition: all 0.3s ease;
+  min-height: 180px;
 }
 
 .skill-path-card:hover {
@@ -838,9 +842,9 @@
 .skill-list li {
   color: #555;
   font-size: clamp(0.9rem, 1.3vw, 0.95rem);
-  line-height: 1.6;
-  margin-bottom: 0.5rem;
-  padding-left: 1.25rem;
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
   position: relative;
 }
 
@@ -935,16 +939,47 @@
   }
 
   .feature-item {
-    padding: 1.25rem;
+    padding: 2rem 1.5rem;
   }
   
   .awGrid {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-    gap: 1.25rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
   .office-bearers {
     grid-template-columns: 1fr;
+  }
+  
+  .bearer {
+    padding: 2.5rem 2rem;
+    min-height: auto;
+  }
+  
+  .currCol {
+    padding: 2.5rem 2rem;
+    min-height: auto;
+  }
+  
+  .skill-path-card {
+    padding: 2rem 1.5rem;
+    min-height: auto;
+  }
+  
+  .values-section {
+    padding: 2.5rem 2rem;
+  }
+  
+  .governance-intro {
+    padding: 2rem 1.5rem;
+  }
+  
+  .curriculum-intro {
+    padding: 2rem 1.5rem;
+  }
+  
+  .affiliation {
+    padding: 2rem 1.5rem;
   }
   
   .affRow {
@@ -962,15 +997,47 @@
     padding: 3rem 0;
   }
   
+  .aboutHome .container {
+    padding: 0 1.25rem;
+  }
+  
   .feature-item {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 1.5rem 1rem;
+    padding: 2.5rem 2rem;
   }
   
   .feature-item i {
     font-size: 2.5rem;
+  }
+  
+  .bearer {
+    padding: 3rem 2rem;
+  }
+  
+  .currCol {
+    padding: 3rem 2rem;
+  }
+  
+  .skill-path-card {
+    padding: 2.5rem 2rem;
+  }
+  
+  .values-section {
+    padding: 3rem 2rem;
+  }
+  
+  .governance-intro {
+    padding: 2.5rem 2rem;
+  }
+  
+  .curriculum-intro {
+    padding: 2.5rem 2rem;
+  }
+  
+  .affiliation {
+    padding: 2.5rem 2rem;
   }
   
   .awrapper {

@@ -356,3 +356,337 @@ header.infraTop {
 .infra-card-link i{
   font-size: 0.9rem;
 }
+
+/* Infrastructure Sections */
+.infra-section {
+  margin-top: 4rem;
+  padding: clamp(2rem, 4vw, 3rem);
+  background: linear-gradient(135deg, rgba(250, 252, 255, 1), rgba(240, 248, 255, 1));
+  border-radius: 20px;
+  border: 1px solid rgba(28, 31, 67, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04), 0 8px 32px rgba(28, 31, 67, 0.06);
+}
+
+.infra-section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.infra-section-number {
+  width: clamp(48px, 6vw, 60px);
+  height: clamp(48px, 6vw, 60px);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1eb2a6, #1c1f43);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(30, 178, 166, 0.3);
+}
+
+.infra-section h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  color: #1c1f43;
+  margin: 0;
+  font-weight: 700;
+}
+
+.infra-section-subtitle {
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  color: #1eb2a6;
+  margin: 1rem 0 1.5rem;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.infra-section-intro {
+  font-size: clamp(1.05rem, 1.5vw, 1.15rem);
+  line-height: 1.9;
+  color: #444;
+  margin: 1.5rem 0;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  background: rgba(30, 178, 166, 0.05);
+  border-left: 4px solid #1eb2a6;
+  border-radius: 12px;
+}
+
+.infra-section-text {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.9;
+  color: #555;
+  margin: 1.25rem 0;
+}
+
+/* Lab Cards Grid */
+.lab-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.lab-card {
+  background: #ffffff;
+  padding: clamp(1.75rem, 3vw, 2rem);
+  border-radius: 16px;
+  border: 1px solid rgba(28, 31, 67, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.lab-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #1eb2a6, #1c1f43);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.lab-card:hover::before {
+  transform: scaleX(1);
+}
+
+.lab-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 16px 40px rgba(28, 31, 67, 0.12);
+  border-color: rgba(30, 178, 166, 0.2);
+}
+
+.lab-card-icon {
+  width: clamp(56px, 7vw, 70px);
+  height: clamp(56px, 7vw, 70px);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1eb2a6, #167d74);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(30, 178, 166, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.lab-card:hover .lab-card-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.lab-card h4 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  color: #1c1f43;
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+}
+
+.lab-card-subtitle {
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+  color: #1eb2a6;
+  font-style: italic;
+  margin: 0.5rem 0 1rem;
+  font-weight: 600;
+}
+
+.lab-card p {
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  line-height: 1.8;
+  color: #555;
+  margin: 0;
+}
+
+/* Facilities Grid */
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.facility-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid rgba(28, 31, 67, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.facility-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 16px 40px rgba(28, 31, 67, 0.12);
+  border-color: rgba(30, 178, 166, 0.2);
+}
+
+.facility-icon {
+  width: clamp(48px, 6vw, 56px);
+  height: clamp(48px, 6vw, 56px);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1eb2a6, #167d74);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.5rem, 2.5vw, 1.75rem);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.facility-item:hover .facility-icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.facility-item h4 {
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  color: #1c1f43;
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+}
+
+.facility-item p {
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  line-height: 1.7;
+  color: #555;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .lab-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .infra-section {
+    margin-top: 3rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .infra-section-header {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .lab-cards-grid,
+  .facilities-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .lab-card,
+  .facility-item {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .infra-section {
+    margin-top: 2rem;
+    padding: 2rem 1.25rem;
+  }
+
+  .facility-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .lab-card,
+  .facility-item {
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+/* Additional styles for explore more section */
+.infra-section:first-of-type {
+  margin-top: 2rem;
+}
+
+.explore-more-section {
+  background: linear-gradient(135deg, rgba(30, 178, 166, 0.03), rgba(28, 31, 67, 0.02));
+}
+
+.explore-more-section .infra-section-header {
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.explore-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  margin-bottom: 2rem;
+}
+
+.explore-more-section .infra-overview-grid {
+  margin-top: 1.5rem;
+}
+
+.lab-card {
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lab-card > p:last-child {
+  flex-grow: 1;
+}
+
+/* Better responsive for facilities */
+@media (max-width: 1200px) {
+  .lab-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  }
+  
+  .facilities-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .infra-section:first-of-type {
+    margin-top: 1.5rem;
+  }
+
+  .lab-card {
+    padding: 2.5rem 2rem;
+    min-height: auto;
+  }
+  
+  .facility-item {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .infra-section {
+    border-radius: 16px;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .facility-item {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .lab-card {
+    padding: 3rem 2rem;
+  }
+}
