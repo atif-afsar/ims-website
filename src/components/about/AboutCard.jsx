@@ -335,19 +335,6 @@ const AboutCard = () => {
             </div>
           </div>
 
-          {/* CTA */}
-          <Link
-            to={"/contact"}
-            className="primary-btn aboutCta"
-            data-aos="fade-up"
-            data-aos-delay="420"
-          >
-            Explore Admissions{" "}
-            <i
-              className="fa fa-long-arrow-alt-right"
-              aria-hidden="true"
-            ></i>
-          </Link>
         </div>
       </section>
 

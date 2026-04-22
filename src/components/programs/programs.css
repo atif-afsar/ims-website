@@ -1096,3 +1096,211 @@
     padding: 1.25rem;
   }
 }
+
+/* ===== NEET/JEE PAGE REDESIGN ===== */
+.neetjee-page {
+  background: #f6f8fb;
+  color: #1f2e43;
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+.neetjee-page .program-hero {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 1.4rem;
+  align-items: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f2f5f9 100%);
+  border: 1px solid rgba(44, 62, 80, 0.12);
+  border-radius: 18px;
+  padding: clamp(1.1rem, 2.2vw, 1.8rem);
+  margin-top: 0.5rem;
+  box-shadow: 0 12px 26px rgba(31, 46, 67, 0.08);
+}
+
+.neetjee-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #2c3e50;
+  background: rgba(44, 62, 80, 0.1);
+  border: 1px solid rgba(44, 62, 80, 0.2);
+  padding: 5px 10px;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.neetjee-page .program-hero-text {
+  text-align: left;
+}
+
+.neetjee-page .program-hero-text h1 {
+  border: none;
+  margin: 0 0 0.55rem;
+  padding: 0;
+  color: #22364b;
+  text-align: left;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+.neetjee-page .program-hero-text .lead {
+  color: #4b6076;
+  font-size: clamp(1.02rem, 2vw, 1.2rem);
+  margin: 0 0 1.1rem;
+}
+
+.neetjee-page .program-hero-placeholder {
+  max-width: 100%;
+  height: 100%;
+  min-height: 280px;
+}
+
+.neetjee-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.neetjee-btn-primary,
+.neetjee-btn-secondary {
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+}
+
+.neetjee-page .neetjee-btn-primary {
+  background: #21405d;
+  color: #fff;
+}
+
+.neetjee-page .neetjee-btn-secondary {
+  background: #ffffff;
+  color: #21405d;
+  border-color: rgba(33, 64, 93, 0.3);
+}
+
+.neetjee-page .program-content {
+  margin-top: 1.6rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  gap: 1.25rem;
+}
+
+.neetjee-card,
+.neetjee-page .program-track,
+.neetjee-page .comparison-table,
+.neetjee-bottom-cta {
+  background: #fff;
+  border: 1px solid rgba(44, 62, 80, 0.1);
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(31, 46, 67, 0.06);
+}
+
+.neetjee-page .intro-text {
+  margin: 0;
+  border: none;
+  padding: 1.05rem 1.1rem;
+}
+
+.neetjee-page .intro-text p {
+  margin-bottom: 0.75rem;
+}
+
+.neetjee-page .program-content h3 {
+  margin: 1rem 0 0.35rem;
+}
+
+.neetjee-track-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.neetjee-page .program-track {
+  margin: 0;
+  padding: 1rem 1rem 1.1rem;
+}
+
+.neetjee-page .special-features {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.35rem;
+}
+
+.neetjee-page .special-features li {
+  margin: 0;
+}
+
+.neetjee-roadmap {
+  background: #274867;
+  border-radius: 14px;
+  padding: 1rem;
+  color: #eaf2f8;
+}
+
+.neetjee-roadmap h3 {
+  color: #fff;
+  margin-top: 0;
+}
+
+.neetjee-roadmap h3::before {
+  background: linear-gradient(180deg, #b5d7f5, #ffffff);
+}
+
+.neetjee-roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.neetjee-roadmap-item {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 10px;
+  padding: 0.75rem;
+  font-size: 0.87rem;
+  line-height: 1.45;
+}
+
+.neetjee-page .comparison-table {
+  margin-bottom: 0.2rem;
+}
+
+.neetjee-bottom-cta {
+  margin-top: 1.25rem;
+  padding: 1.1rem;
+  text-align: center;
+}
+
+.neetjee-bottom-cta h3 {
+  margin: 0 0 0.45rem;
+  color: #1f2e43;
+}
+
+.neetjee-bottom-cta p {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.neetjee-bottom-cta .neetjee-hero-actions {
+  justify-content: center;
+}
+
+@media (max-width: 980px) {
+  .neetjee-page .program-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .neetjee-track-grid,
+  .neetjee-page .special-features,
+  .neetjee-roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+}

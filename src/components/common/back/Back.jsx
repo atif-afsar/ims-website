@@ -45,7 +45,7 @@ const Back = ({ title, subtitle }) => {
             Home
           </Link>
           <span className="backCrumbSep" aria-hidden="true">
-            /
+            &gt;
           </span>
           <span className="backCrumbCurrent" aria-current="page">
             {crumb}

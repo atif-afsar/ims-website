@@ -14,6 +14,7 @@ const Header = () => {
   const navLinks = [
     { to: "/", label: "Home", end: true },
     { to: "/about", label: "About Us" },
+    { to: "/programs/neet-jee", label: "NEET/JEE" },
     { to: "/vision", label: "Vision & Mission" },
     {
       label: "Programs",
@@ -24,7 +25,6 @@ const Header = () => {
         { to: "/programs/english-communication", label: "English Program" },
         { to: "/programs/arabic-communication", label: "Arabic Program" },
         { to: "/programs/robotics-ai", label: "Robotics & AI" },
-        { to: "/programs/neet-jee", label: "NEET / JEE Program" },
         { to: "/programs", label: "Programs Overview", end: true },
       ],
     },
@@ -170,6 +170,19 @@ const Header = () => {
         className={`mobile-nav ${mobileMenuOpen ? "open" : ""}`}
         aria-label="Mobile navigation"
       >
+        <button
+          type="button"
+          className="mobile-nav-back"
+          onClick={() => {
+            setMobileMenuOpen(false);
+            setOpenMobileMenu(null);
+          }}
+          aria-label="Close mobile navigation"
+        >
+          <i className="fa fa-arrow-left" aria-hidden="true" />
+          Back
+        </button>
+
         {navLinks.map((l) => {
           if (!l.submenu) {
             return (
@@ -235,15 +248,6 @@ const Header = () => {
             </div>
           );
         })}
-
-        <a
-          href="https://wa.me/919219401623"
-          className="whatsapp-mobile"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <i className="fab fa-whatsapp" aria-hidden="true" /> WhatsApp Us
-        </a>
 
         <div className="mobileMiniSticker" aria-hidden="true">
           🌙📚✨

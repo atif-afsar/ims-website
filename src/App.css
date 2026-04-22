@@ -167,16 +167,18 @@ p  { font-size: clamp(0.98rem, 1.2vw, 1.1rem); }
 
 .back {
   position: relative;
-  padding: clamp(72px, 10vw, 120px) 16px
-           clamp(56px, 8vw, 90px);
+  min-height: 100vh;
+  padding: clamp(84px, 9vw, 120px) 16px;
+  display: grid;
+  place-items: center;
   text-align: center;
   color: #fff;
 
   background: linear-gradient(
-      rgba(28, 31, 67, 0.88),
-      rgba(28, 31, 67, 0.95)
+      rgba(16, 44, 70, 0.72),
+      rgba(16, 44, 70, 0.72)
     ),
-    url("./assets/images/about/about-bg.jpg") center / cover no-repeat;
+    url("./assets/images/about/about-hero-school.png") center center / cover no-repeat;
 
   overflow: hidden;
 }
@@ -186,10 +188,10 @@ p  { font-size: clamp(0.98rem, 1.2vw, 1.1rem); }
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at 50% 20%,
-    rgba(255,255,255,0.08),
-    transparent 60%
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 28, 48, 0.24) 0%,
+    rgba(10, 28, 48, 0.48) 100%
   );
   pointer-events: none;
 }
@@ -199,12 +201,7 @@ p  { font-size: clamp(0.98rem, 1.2vw, 1.1rem); }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(28,31,67,0.25) 70%,
-    rgba(28,31,67,0.45) 100%
-  );
+  background: none;
   pointer-events: none;
 }
 
@@ -212,7 +209,7 @@ p  { font-size: clamp(0.98rem, 1.2vw, 1.1rem); }
 .backInner {
   position: relative;
   z-index: 1;
-  max-width: 900px;
+  max-width: 980px;
   margin: 0 auto;
 }
 
@@ -224,31 +221,32 @@ p  { font-size: clamp(0.98rem, 1.2vw, 1.1rem); }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 6px 14px;
-  margin-bottom: 20px;
+  padding: 0;
+  margin-bottom: 18px;
 
-  font-size: 0.9rem;
-  letter-spacing: 1px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
 
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 999px;
-  backdrop-filter: blur(6px);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  backdrop-filter: none;
 }
 
 .backCrumbLink {
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.96);
   text-decoration: none;
   transition: color 200ms ease;
 }
 
 .backCrumbLink:hover {
-  color: #1eb2a6;
+  color: #ffffff;
 }
 
 .backCrumbSep {
-  opacity: 0.5;
+  opacity: 0.72;
 }
 
 .backCrumbCurrent {
@@ -261,36 +259,28 @@ p  { font-size: clamp(0.98rem, 1.2vw, 1.1rem); }
 ================================ */
 
 .back h1 {
-  font-family: "Scheherazade New", serif;
-  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-  line-height: 1.25;
-  margin-bottom: 12px;
-  letter-spacing: 0.6px;
+  font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  letter-spacing: 0.2px;
+  text-shadow: 0 6px 26px rgba(0, 0, 0, 0.35);
 }
 
 /* Decorative underline */
 .back h1::after {
-  content: "";
-  display: block;
-  width: 64px;
-  height: 3px;
-  margin: 14px auto 0;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255,255,255,0.8),
-    transparent
-  );
-  border-radius: 2px;
+  content: none;
 }
 
 .backSubtitle {
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-  line-height: 1.7;
-  opacity: 0.9;
+  font-size: clamp(1rem, 2vw, 2rem);
+  line-height: 1.45;
+  opacity: 0.95;
   max-width: 720px;
-  margin: 18px auto 0;
-  letter-spacing: 0.4px;
+  margin: 6px auto 0;
+  letter-spacing: 0.2px;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.34);
 }
 
 /* ================================
@@ -298,11 +288,7 @@ p  { font-size: clamp(0.98rem, 1.2vw, 1.1rem); }
 ================================ */
 
 .backSticker {
-  position: absolute;
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  opacity: 0.25;
-  animation: backFloat 10s ease-in-out infinite;
-  pointer-events: none;
+  display: none;
 }
 
 .backStickerLeft {
@@ -327,20 +313,12 @@ p  { font-size: clamp(0.98rem, 1.2vw, 1.1rem); }
 
 @media (max-width: 768px) {
   .back {
-    padding: 64px 14px 72px;
+    min-height: 100vh;
+    padding: 80px 14px;
   }
 
   .backCrumb {
-    font-size: 0.82rem;
-    padding: 5px 12px;
-  }
-
-  .back h1::after {
-    width: 48px;
-  }
-
-  .backSticker {
-    display: none;
+    font-size: 0.8rem;
   }
 }
 
