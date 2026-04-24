@@ -45,12 +45,33 @@
 
 .intro-text {
   font-size: clamp(1.1rem, 1.5vw, 1.5rem);
-  color: #1eb2a6;
+  color: #194c62;
   font-weight: 600;
-  font-style: italic;
-  line-height: 1.8;
-  max-width: 900px;
+  line-height: 1.75;
+  max-width: 980px;
   margin: 0 auto;
+}
+
+.neet-vision {
+  background: #ffffff;
+  border: 1px solid rgba(30, 178, 166, 0.2);
+  border-radius: 22px;
+  padding: clamp(24px, 3vw, 36px);
+  box-shadow: 0 18px 55px rgba(30, 178, 166, 0.1);
+  margin: 0 auto clamp(30px, 4vw, 55px);
+  max-width: 980px;
+  text-align: center;
+}
+
+.neet-vision h3 {
+  color: #12384a;
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  margin-bottom: 12px;
+}
+
+.neet-vision p {
+  color: #3f4a58;
+  line-height: 1.75;
 }
 
 /* Two Programs */
@@ -83,7 +104,7 @@
 }
 
 .neet-card:hover {
-  transform: translateY(-18px) 3s;
+  transform: translateY(-18px);
   border-color: #1eb2a6;
   box-shadow: 0 40px 100px rgba(30,178,166,0.28);
 }
@@ -133,6 +154,78 @@
 /* Features */
 .neet-features {
   margin-top: clamp(60px, 7vw, 120px);
+}
+
+.neet-comparison {
+  margin-top: clamp(50px, 6vw, 90px);
+}
+
+.comparison-title {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: 20px;
+}
+
+.comparison-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid rgba(30, 178, 166, 0.2);
+  box-shadow: 0 12px 30px rgba(18, 56, 74, 0.08);
+}
+
+.comparison-card h4 {
+  font-size: 1.05rem;
+  color: #12384a;
+  margin-bottom: 14px;
+}
+
+.comparison-col {
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.comparison-col + .comparison-col {
+  margin-top: 10px;
+}
+
+.comparison-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.comparison-col p {
+  margin: 0;
+  line-height: 1.55;
+  color: #3f4a58;
+  font-size: 0.95rem;
+}
+
+.integrated-col {
+  background: rgba(30, 178, 166, 0.12);
+}
+
+.integrated-col .comparison-label {
+  color: #0f6f67;
+}
+
+.conventional-col {
+  background: rgba(252, 105, 61, 0.1);
+}
+
+.conventional-col .comparison-label {
+  color: #b34a2a;
 }
 
 .features-with-image {

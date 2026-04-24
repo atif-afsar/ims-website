@@ -16,6 +16,7 @@ import ManageGovernance from "./admin/ManageGovernance";
 import ManageFooter from "./admin/ManageFooter";
 import ManagePrograms from "./admin/ManagePrograms";
 import ManageClasses from "./admin/ManageClasses";
+import ManageCalendar from "./admin/ManageCalendar";
 import ProtectedRoute from "./admin/ProtectedRoute";
 
 // Lazy load pages for code splitting
@@ -35,6 +36,7 @@ const Pricing = lazy(() => import("./components/pricing/Pricing"));
 const Blog = lazy(() => import("./components/blog/Blog"));
 const Contact = lazy(() => import("./components/contact/Contact"));
 const Carousel = lazy(() => import("./components/carousel/Carousel"));
+const Calendar = lazy(() => import("./components/calendar/Calendar"));
 
 // Infrastructure
 const Infrastructure = lazy(() => import("./components/infrastructure/Infrastructure"));
@@ -100,6 +102,7 @@ function App() {
                       <Route path="/pricing" element={<Pricing />} />
                       <Route path="/journal" element={<Blog />} />
                       <Route path="/brochure" element={<Carousel />} />
+                      <Route path="/calendar" element={<Calendar />} />
                       <Route path="/contact" element={<Contact />} />
 
                       <Route path="/infrastructure" element={<Infrastructure />} />
@@ -132,6 +135,7 @@ function App() {
               <Route path="footer" element={<ManageFooter />} />
               <Route path="programs" element={<ManagePrograms />} />
               <Route path="classes" element={<ManageClasses />} />
+              <Route path="calendar" element={<ManageCalendar />} />
               {/* We will add other admin routes here */}
               <Route path="*" element={<Dashboard />} />
             </Route>

@@ -464,33 +464,64 @@ export const testimonial = [
 // ——————— NEET PROGRAM DATA ———————
 // ——————— NEET PROGRAM DATA ———————
 export const neetProgram = {
-  title: "NEET Integrated Program",
-  subtitle: "Alhamdulillah, IMS offers a proven path to medical excellence",
+  title: "NEET/JEE Program",
+  subtitle:
+    "Redefining schooling for aspiring doctors and engineers through integrated ICSE + competitive exam preparation.",
+  visionTitle: "One Campus. One Strategy. One Goal.",
+  visionDescription:
+    "The journey to premier institutions like IITs and AIIMS demands strong fundamentals, disciplined effort, and the right academic environment from an early stage. At IMS, students receive structured mentoring, rigorous practice, and confidence-building support to become first-attempt ready.",
   
   foundation: {
-    name: "Foundation Program",
-    for: "Class IX & X Students",
+    name: "Foundation Program (4-Year Track)",
+    for: "Starts from Class IX",
     duration: "4 Years Integrated",
-    desc: "Starts early to build strong concepts. ICSE syllabus covers 30% of NEET — giving our students a massive advantage!",
-    highlight: "Best time to begin NEET preparation"
+    desc: "Designed for students with clear goals in medicine or engineering. We build concept mastery in Physics, Chemistry, Biology, and Mathematics to create an unshakable base.",
+    highlight: "Build early, build strong, stay ahead."
   },
   
   target: {
-    name: "Target Program",
-    for: "Class XI & XII Students",
+    name: "Intensive Accelerator Program (2-Year Track)",
+    for: "Starts from Class XI",
     duration: "2 Years Intensive",
-    desc: "Perfect synchronization between ICSE Board + NEET syllabus. No need for external coaching!",
-    highlight: "Excel in Boards + Crack NEET in First Attempt"
+    desc: "A focused two-year journey for students who finalize NEET/JEE after Class X. Board and competitive syllabi are covered in a synchronized, high-intensity format.",
+    highlight: "Fast-track preparation with precision."
   },
   
   features: [
-    "NEET-experienced & dedicated faculty",
-    "Comprehensive study packages provided",
-    "Daily doubt clearing sessions",
-    "Weekly NEET-pattern tests",
-    "Monthly full-syllabus exams",
-    "Personalized mentoring & progress tracking",
-    // "Saves time, money & energy — no external coaching needed"
+    "Efficient and committed faculty team",
+    "Daily practice tests for consistency",
+    "Weekly assessment and analysis",
+    "Regular doubt-clearing classes",
+    "Experienced teachers during school hours",
+    "No external coaching required",
+    "Save over Rs. 1 lakh per year in coaching costs",
+    "Save 7-8 hours daily for focused self-study",
+  ],
+  comparison: [
+    {
+      point: "Primary Focus",
+      integrated:
+        "Entire ecosystem aligned to one target: cracking JEE/NEET in the first attempt.",
+      conventional: "General board-focused schooling only.",
+    },
+    {
+      point: "Syllabus Design",
+      integrated:
+        "ICSE board syllabus is synchronized with JEE/NEET requirements.",
+      conventional:
+        "School and coaching follow separate and often disconnected plans.",
+    },
+    {
+      point: "Coaching Dependency",
+      integrated:
+        "No need for after-school coaching, reducing pressure and commute time.",
+      conventional: "Students generally require external coaching after school.",
+    },
+    {
+      point: "Self-Study Time",
+      integrated: "Students gain about 6-7 extra hours daily for self-study.",
+      conventional: "Limited time remains for quality self-study.",
+    },
   ],
   
   results: [

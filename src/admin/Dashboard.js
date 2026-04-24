@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { FaBullhorn, FaUserTie, FaShareAlt, FaBook, FaChalkboardTeacher } from 'react-icons/fa';
+import { FaBullhorn, FaUserTie, FaShareAlt, FaBook, FaChalkboardTeacher, FaCalendarAlt } from 'react-icons/fa';
 
 const Dashboard = () => {
   return (
@@ -31,6 +31,12 @@ const Dashboard = () => {
           <div className="dash-icon"><FaChalkboardTeacher /></div>
           <h3>Classes</h3>
           <p>Manage Admission classes.</p>
+        </Link>
+
+        <Link to="/admin/calendar" className="dash-card">
+          <div className="dash-icon"><FaCalendarAlt /></div>
+          <h3>Calendar</h3>
+          <p>Manage public events and holidays.</p>
         </Link>
         
         <Link to="/admin/footer" className="dash-card">

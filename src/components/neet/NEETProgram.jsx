@@ -13,6 +13,7 @@ import {
   FaFileAlt,
   FaChalkboardTeacher,
   FaHeart,
+  FaBalanceScale,
 } from "react-icons/fa";
 
 const NEETProgram = () => {
@@ -38,6 +39,11 @@ const NEETProgram = () => {
 
         <div className="neet-intro" data-aos="fade-up" data-aos-delay="120" data-aos-duration="900">
           <p className="intro-text">{neetProgram.subtitle}</p>
+        </div>
+
+        <div className="neet-vision" data-aos="fade-up" data-aos-delay="140" data-aos-duration="900">
+          <h3>{neetProgram.visionTitle}</h3>
+          <p>{neetProgram.visionDescription}</p>
         </div>
 
         {/* Two Programs */}
@@ -111,6 +117,28 @@ const NEETProgram = () => {
           </div>
         </div>
 
+        <div className="neet-comparison" data-aos="fade-up" data-aos-duration="900">
+          <h3 className="section-mini-title comparison-title">
+            <FaBalanceScale /> IMS NEET/JEE Integrated Schooling vs Conventional Schooling
+          </h3>
+
+          <div className="comparison-grid">
+            {neetProgram.comparison.map((item, i) => (
+              <div className="comparison-card" key={i}>
+                <h4>{item.point}</h4>
+                <div className="comparison-col integrated-col">
+                  <span className="comparison-label">IMS Integrated Schooling</span>
+                  <p>{item.integrated}</p>
+                </div>
+                <div className="comparison-col conventional-col">
+                  <span className="comparison-label">Conventional Schooling</span>
+                  <p>{item.conventional}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Top Results */}
         <div className="neet-results" data-aos="fade-up" data-aos-duration="900">
           <h3 className="section-mini-title">
@@ -160,9 +188,9 @@ const NEETProgram = () => {
 
         {/* CTA */}
         <div className="neet-cta" data-aos="fade-up" data-aos-delay="150" data-aos-duration="900">
-          <h3>Give Your Child the Best Chance to Become a Doctor</h3>
+          <h3>Give Your Child the Best Chance to Become a Doctor or Engineer</h3>
           <button className="primary-btn neet-cta-btn" type="button">
-            Enroll in NEET Program Now
+            Enroll in NEET/JEE Program Now
           </button>
         </div>
       </div>

@@ -41,6 +41,7 @@ const Header = () => {
     },
     // { to: "/team", label: "Our Team" },
     { to: "/brochure", label: "Digital Brochure" },
+    { to: "/calendar", label: "Calendar" },
     { to: "/contact", label: "Contact" },
   ];
 
