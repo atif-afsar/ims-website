@@ -27,17 +27,7 @@
   margin-bottom: 1.5rem;
 }
 
-.program-hero-placeholder {
-  width: 240px;
-  height: 160px;
-  background: linear-gradient(135deg,#e6f2ea,#f7faf7);
-  border: 2px dashed #2d5f3f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  border-radius: 8px;
-}
+/* .program-hero-placeholder — unified styles later in this file (aspect-ratio + image contain) */
 
 .program-hero-text .lead {
   margin-top: 0.25rem;
@@ -346,7 +336,6 @@
 
 .program-hero-placeholder {
   width: 100%;
-  height: 300px;
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   display: flex;
   align-items: center;
@@ -424,8 +413,11 @@
 
   .program-hero-placeholder {
     width: 45%;
-    height: 400px;
-    flex-shrink: 0;
+    flex: 0 1 45%;
+    max-width: 520px;
+    flex-shrink: 1;
+    min-width: 0;
+    align-self: center;
   }
 
   .program-hero-text {
@@ -457,7 +449,6 @@
   }
 
   .program-hero-placeholder {
-    height: 250px;
     font-size: 1.5rem;
   }
 
@@ -498,9 +489,14 @@
 }
 .program-hero-placeholder {
   position: relative;
+  display: block;
   width: 100%;
   max-width: 520px;
+  margin-inline: auto;
   aspect-ratio: 4 / 3;
+  min-height: 200px;
+  height: auto;
+  max-height: min(52vh, 480px);
   border-radius: 22px;
   overflow: hidden;
 
@@ -517,13 +513,16 @@
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-/* Image */
-.program-hero-placeholder img {
+/* Full image visible inside aspect-ratio frame; beats global `img { height: auto }` in App.css */
+.programs-page .program-hero .program-hero-placeholder img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
   display: block;
-
   transform: scale(1);
   transition: transform 0.6s ease, filter 0.6s ease;
 }
@@ -534,9 +533,9 @@
   box-shadow: 0 28px 60px rgba(0, 0, 0, 0.25);
 }
 
-.program-hero-placeholder:hover img {
-  transform: scale(1.06);
-  filter: brightness(1.05) saturate(1.1);
+.programs-page .program-hero .program-hero-placeholder:hover img {
+  transform: scale(1.04);
+  filter: brightness(1.05) saturate(1.08);
 }
 
 /* Mobile optimization */
@@ -704,7 +703,7 @@
   
   .program-hero-placeholder {
     width: 100%;
-    height: 250px;
+    max-height: min(48vh, 420px);
   }
   
   .program-hero-text {
@@ -1154,8 +1153,12 @@
 
 .neetjee-page .program-hero-placeholder {
   max-width: 100%;
-  height: 100%;
-  min-height: 280px;
+  width: 100%;
+  min-height: 220px;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  max-height: min(48vh, 440px);
+  align-self: center;
 }
 
 .neetjee-hero-actions {
@@ -1238,20 +1241,29 @@
   margin: 0;
 }
 
-.neetjee-roadmap {
-  background: #274867;
+/* Roadmap: must beat `.programs-page section { background: #f9f9f9 }` or text looks “blank” (light on light) */
+.programs-page.neetjee-page section.neetjee-roadmap {
+  margin-bottom: 1.25rem;
+  padding: clamp(1.1rem, 2.5vw, 1.5rem);
+  background: linear-gradient(145deg, #1a334d 0%, #274867 48%, #1e4a6e 100%);
   border-radius: 14px;
-  padding: 1rem;
-  color: #eaf2f8;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 44px rgba(20, 40, 62, 0.28);
+  color: #f0f5fa;
+  position: relative;
+  overflow: hidden;
 }
 
-.neetjee-roadmap h3 {
-  color: #fff;
+.programs-page.neetjee-page section.neetjee-roadmap h3 {
+  color: #ffffff;
   margin-top: 0;
+  margin-bottom: 0.75rem;
+  opacity: 1;
+  animation: none;
 }
 
-.neetjee-roadmap h3::before {
-  background: linear-gradient(180deg, #b5d7f5, #ffffff);
+.programs-page.neetjee-page section.neetjee-roadmap h3::before {
+  background: linear-gradient(180deg, #ffd34d, #1eb2a6);
 }
 
 .neetjee-roadmap-grid {
@@ -1267,6 +1279,31 @@
   padding: 0.75rem;
   font-size: 0.87rem;
   line-height: 1.45;
+  color: #f0f5fa;
+}
+
+.neetjee-roadmap-phase {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #ffd34d;
+  margin-bottom: 0.35rem;
+}
+
+.neetjee-roadmap-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: inherit;
+}
+
+/* Override global `.programs-page p { opacity: 0; animation: fadeIn }` — roadmap looked empty */
+.programs-page.neetjee-page section.neetjee-roadmap p {
+  opacity: 1;
+  animation: none;
+  text-align: left;
 }
 
 .neetjee-page .comparison-table {

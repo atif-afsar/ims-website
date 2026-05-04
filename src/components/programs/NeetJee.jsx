@@ -66,13 +66,25 @@ const NeetJee = () => {
           <li>No requirement of coaching which saves more than a lac per annum and 7-8 hours per day for self-study.</li>
         </ul>
 
-        <section className="neetjee-roadmap">
-          <h3>The 24-Month Roadmap</h3>
+        <section className="neetjee-roadmap" aria-labelledby="neetjee-roadmap-title">
+          <h3 id="neetjee-roadmap-title">The 24-Month Roadmap</h3>
           <div className="neetjee-roadmap-grid">
-            <div className="neetjee-roadmap-item">Phase 1: Foundation Building & Concept Mastery</div>
-            <div className="neetjee-roadmap-item">Phase 2: Subject Strengthening & Topic Integration</div>
-            <div className="neetjee-roadmap-item">Phase 3: Exam-Oriented Drills, Speed & Accuracy</div>
-            <div className="neetjee-roadmap-item">Final Phase: Full-Length Tests, Revision & Strategy</div>
+            <div className="neetjee-roadmap-item">
+              <span className="neetjee-roadmap-phase">Phase 1</span>
+              <p>Foundation Building &amp; Concept Mastery</p>
+            </div>
+            <div className="neetjee-roadmap-item">
+              <span className="neetjee-roadmap-phase">Phase 2</span>
+              <p>Subject Strengthening &amp; Topic Integration</p>
+            </div>
+            <div className="neetjee-roadmap-item">
+              <span className="neetjee-roadmap-phase">Phase 3</span>
+              <p>Exam-Oriented Drills, Speed &amp; Accuracy</p>
+            </div>
+            <div className="neetjee-roadmap-item">
+              <span className="neetjee-roadmap-phase">Final phase</span>
+              <p>Full-Length Tests, Revision &amp; Strategy</p>
+            </div>
           </div>
         </section>
 

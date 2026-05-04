@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import logo from "../../../assets/images/logo/logo.jpg";
 import "./loader.css";
 
 const BookLoader = () => {
@@ -40,35 +41,46 @@ const BookLoader = () => {
       <motion.div className="loader-glow-container" aria-hidden="true">
         <motion.div
           className="loader-glow"
-          animate={{ scale: [1, 1.03, 1], opacity: [0.14, 0.22, 0.14] }}
+          animate={{ scale: [1, 1.03, 1], opacity: [0.12, 0.2, 0.12] }}
           transition={{ duration: 1.1, repeat: Infinity, ease: "linear" }}
         />
       </motion.div>
 
-      <motion.div
-        className="school-name-container"
-        variants={containerVariants}
-        initial="initial"
-        animate="animate"
-      >
-        {words.map((word, index) => (
-          <div key={index} className="word-group">
-            <motion.span className="lead-letter" variants={leadVariants}>
-              {word.lead}
-            </motion.span>
-            <motion.span className="rest-letters" variants={restVariants}>
-              {word.rest}
-            </motion.span>
-          </div>
-        ))}
-      </motion.div>
-      
-      <motion.div
-        className="loading-bar-line"
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 0.55, ease: "easeOut" }}
-      />
+      <div className="book-loader-content">
+        <motion.img
+          src={logo}
+          alt="Islamic Mission School"
+          className="loader-logo"
+          initial={{ opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
+        />
+
+        <motion.div
+          className="school-name-container"
+          variants={containerVariants}
+          initial="initial"
+          animate="animate"
+        >
+          {words.map((word, index) => (
+            <div key={index} className="word-group">
+              <motion.span className="lead-letter" variants={leadVariants}>
+                {word.lead}
+              </motion.span>
+              <motion.span className="rest-letters" variants={restVariants}>
+                {word.rest}
+              </motion.span>
+            </div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          className="loading-bar-line"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.55, ease: "easeOut" }}
+        />
+      </div>
     </div>
   );
 };

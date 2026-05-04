@@ -9,6 +9,21 @@ const Back = ({ title, subtitle }) => {
     ? pathSegment.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
     : "Home";
 
+  const renderTitle = () => {
+    if (typeof title !== "string") return title;
+    const phrase = "Islamic Mission";
+    if (!title.includes(phrase)) return title;
+
+    const [before, after] = title.split(phrase);
+    return (
+      <>
+        {before}
+        <span className="backTitleHighlight">{phrase}</span>
+        {after}
+      </>
+    );
+  };
+
   return (
     <section
       className="back sectionDecorBack"
@@ -58,7 +73,7 @@ const Back = ({ title, subtitle }) => {
           data-aos="fade-up"
           data-aos-delay="150"
         >
-          {title}
+          {renderTitle()}
         </h1>
 
         {/* Optional subtitle */}

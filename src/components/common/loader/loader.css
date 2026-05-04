@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at center, #ffffff 0%, #f4f7f9 100%);
+  background: #1eb2a6;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,6 +13,27 @@
   overflow: hidden;
   transform: translateZ(0);
   padding: 16px;
+}
+
+.book-loader-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 2.5vw, 1.15rem);
+  text-align: center;
+}
+
+.loader-logo {
+  width: clamp(56px, 16vw, 100px);
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 .school-name-container {
@@ -37,8 +58,8 @@
   font-family: "Playfair Display", "Georgia", serif;
   font-size: clamp(2.5rem, 8vw, 4.5rem);
   font-weight: 800;
-  color: #1a2a3a; /* Deep Navy */
-  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
   backface-visibility: hidden;
 }
 
@@ -46,15 +67,21 @@
   font-family: "Playfair Display", "Georgia", serif;
   font-size: clamp(1.9rem, 6vw, 3.2rem);
   font-weight: 700;
-  color: #1f3346;
+  color: #ffffff;
   white-space: nowrap;
   display: inline-block;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
   backface-visibility: hidden;
 }
 
 .loader-glow-container {
   position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1;
+  pointer-events: none;
 }
 
 .loader-glow {
@@ -62,22 +89,23 @@
   height: 150px;
   background: radial-gradient(
     circle,
-    rgba(44, 62, 80, 0.1) 0%,
-    rgba(44, 62, 80, 0) 70%
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(30, 178, 166, 0) 70%
   );
   filter: blur(24px);
   will-change: transform, opacity;
 }
 
 .loading-bar-line {
-  margin-top: 20px;
+  margin-top: 0;
   width: 120px;
   height: 2px;
-  background: #1a2a3a;
+  background: rgba(255, 255, 255, 0.92);
   transform-origin: left;
   border-radius: 2px;
-  opacity: 0.85;
+  opacity: 0.95;
   will-change: transform;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
 }
 
 @media (max-width: 1024px) {
@@ -102,7 +130,7 @@
   }
 
   .loading-bar-line {
-    margin-top: 16px;
+    margin-top: 0;
     width: 100px;
   }
 }
@@ -127,7 +155,7 @@
 
   .loading-bar-line {
     width: 88px;
-    margin-top: 14px;
+    margin-top: 0;
   }
 }
 
@@ -152,6 +180,6 @@
   .loading-bar-line {
     width: 74px;
     height: 1.8px;
-    margin-top: 12px;
+    margin-top: 0;
   }
 }
