@@ -4,7 +4,6 @@ import "./about.css";
 import { supabase } from "../../supabaseClient";
 import React, { useState, useEffect } from "react";
 import aboutImg from "../../assets/images/about/ims-about.png";
-import { Link } from "react-router-dom";
 
 const AboutCard = () => {
   const [members, setMembers] = useState([]);

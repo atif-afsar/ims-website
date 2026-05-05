@@ -29,6 +29,10 @@ const Back = ({ title, subtitle }) => {
       className="back sectionDecorBack"
       aria-labelledby="page-title"
       role="banner"
+      style={{
+        /* Same as Home Hero — public URL so css-loader does not resolve it in App.css */
+        backgroundImage: "url('/images/hero/hero-bg-new-2.png')",
+      }}
     >
       {/* Decorative elements */}
       <span

@@ -26,9 +26,13 @@ const Hero = () => {
       <section
         className="hero"
         aria-label="Islamic Mission School hero section"
-        style={{ backgroundImage: "url('/images/hero/hero-bg-new-2.png')" }}
       >
-        <div className="hero-overlay" aria-hidden="true"></div>
+        <div
+          className="hero-bg"
+          aria-hidden="true"
+          style={{ backgroundImage: "url('/images/hero/hero-bg-new-2.png')" }}
+        />
+        <div className="hero-overlay" aria-hidden="true" />
         <div className="hero-inner">
           <div className="hero-content" data-aos="zoom-in" data-aos-duration="900">
             <h1 className="hero-title" data-aos="fade-up" data-aos-delay="120">

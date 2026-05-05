@@ -18,11 +18,19 @@
 }
 
 .vision-hero::after {
-  /* Subtle dark overlay to improve text contrast over images */
+  /* Dark wash — aligned with Home `.hero-overlay` / `.back` readability */
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.18) 50%, rgba(0,0,0,0.12) 100%);
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255, 214, 102, 0.12), transparent 38%),
+    radial-gradient(circle at 82% 65%, rgba(30, 178, 166, 0.14), transparent 42%),
+    linear-gradient(
+      180deg,
+      rgba(10, 28, 48, 0.45) 0%,
+      rgba(16, 44, 70, 0.58) 45%,
+      rgba(10, 28, 48, 0.52) 100%
+    );
   z-index: 0;
   pointer-events: none;
 }
@@ -53,22 +61,43 @@
   width: 100%;
 }
 
+/* Overrides global App.css `#heading h1` gradient text so banner stays readable */
 .vision-hero #heading h1 {
   margin: 0;
-  color: #ffffff;
-  font-size: clamp(2rem, 6vw, 4rem);
-  line-height: 1.05;
+  font-family: "Montserrat", "Poppins", "Segoe UI", sans-serif;
+  font-size: clamp(1.75rem, 5vw, 3.2rem);
+  line-height: 1.12;
   font-weight: 800;
-  text-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #f7f9ff;
+  background: none !important;
+  -webkit-text-fill-color: #f7f9ff;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  text-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.55),
+    0 2px 8px rgba(0, 0, 0, 0.38);
+}
+
+.vision-hero #heading h1 .heading-ampersand {
+  color: #ffd34d;
+  -webkit-text-fill-color: #ffd34d;
+  text-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.45),
+    0 0 14px rgba(255, 211, 77, 0.45);
 }
 
 .vision-hero #heading h3 {
-  margin: 0 0 0.75rem 0;
-  color: rgba(255,255,255,0.9);
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  font-weight: 600;
-  text-transform: none;
-  opacity: 0.95;
+  margin: 0 0 0.65rem 0;
+  font-family: "Montserrat", "Poppins", sans-serif;
+  font-size: clamp(0.78rem, 1.8vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+  opacity: 1;
 }
 
 .vision-hero .hero-lead {
