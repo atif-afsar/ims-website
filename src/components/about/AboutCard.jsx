@@ -1,23 +1,39 @@
 import Heading from "../common/heading/Heading";
 import Awrapper from "./Awrapper";
 import "./about.css";
-import { supabase } from "../../supabaseClient";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import aboutImg from "../../assets/images/about/ims-about.png";
 
-const AboutCard = () => {
-  const [members, setMembers] = useState([]);
+const boardMembers = [
+  {
+    role: "President",
+    name: "Prof. Yusuf Ansari",
+    qualification: "M.Tech, PhD.",
+  },
+  {
+    role: "Vice-President",
+    name: "Dr. Misbah Uddin",
+    qualification: "MBBS, MD",
+  },
+  {
+    role: "Secretary",
+    name: "Dr. Kaunain Kausar",
+    qualification: "MBBS, DMRT",
+    profession: "Professionally an Oncologist and Passionately an Educationist",
+  },
+  {
+    role: "Joint Secretary",
+    name: "Md. Kamal Uddin",
+    qualification: "Social activist",
+  },
+  {
+    role: "Treasurer",
+    name: "Dr. Mohd. Suhail Akhter",
+    qualification: "PhD",
+  },
+];
 
-  useEffect(() => {
-    const fetchMembers = async () => {
-      const { data } = await supabase
-        .from('governance')
-        .select('*')
-        .order('sort_order', { ascending: true });
-      if (data) setMembers(data);
-    };
-    fetchMembers();
-  }, []);
+const AboutCard = () => {
   return (
     <>
       <section
@@ -70,20 +86,23 @@ const AboutCard = () => {
               />
             </div>
 
-            <article className="about-content">
+            <article className="about-content" id="introduction">
+              <h4 className="about-section-subtitle">1. Introduction</h4>
+              <p className="about-section-text">
+                <strong>Shaping Hearts, Building Minds: The IMS Way</strong>
+              </p>
               <p
                 className="about-desc"
                 data-aos="fade-up"
                 data-aos-delay="150"
               >
-                Our children are a blessing <strong>(naemat)</strong> bestowed
-                on us by The Almighty God, and also a trust{" "}
-                <strong>(amaanah)</strong> He has made us responsible for. It is
-                God's universal law to accompany every blessing with responsibility.
+                Our children are a blessing (naemat) bestowed on us by The Almighty
+                God, and also a trust (amaanah) He has made us responsible for. It
+                is God's universal law to accompany every blessing with responsibility.
                 He then blessed parents by placing tremendous love in their hearts
-                for their children, and He made every parent responsible for
-                providing his child with the best 'Tarbiyah' in order to ensure
-                their success in this world as well as in the world to come.
+                for their children, and He made every parent responsible for providing
+                his child with the best 'Tarbiyah' in order to ensure their success
+                in this world as well as in the world to come.
               </p>
 
               <p
@@ -91,247 +110,188 @@ const AboutCard = () => {
                 data-aos="fade-up"
                 data-aos-delay="220"
               >
-                At <span className="highlight">Islamic Mission School (IMS)</span>,
-                we believe education is more than academic excellence; it is the
-                foundation of character. In a rapidly changing world, we provide
+                At IMS, we believe education is more than academic excellence; it
+                is the foundation of character. In a rapidly changing world, we provide
                 a learning environment where timeless values and modern innovation
                 converge. We nurture compassionate, confident, and critical thinkers
                 who are not only prepared for the challenges of tomorrow but are
-                also committed to building a more just and peaceful world.
-              </p>
-
-              <p
-                className="about-desc"
-                data-aos="fade-up"
-                data-aos-delay="290"
-              >
-                We foster a culture of respect, responsibility, and kindness,
-                where students are encouraged to question, create, and collaborate.
-                Welcome to an education that shapes both the intellect and the soul.
+                also committed to building a more just and peaceful world. We foster
+                a culture of respect, responsibility, and kindness, where students
+                are encouraged to question, create, and collaborate. Welcome to an
+                education that shapes both the intellect and the soul.
               </p>
             </article>
           </div>
 
-          {/* Key Highlights */}
-          <div className="features" role="list">
-            <div
-              className="feature-item"
-              role="listitem"
-              data-aos="zoom-in"
-              data-aos-delay="120"
-            >
-              <i
-                className="fas fa-chalkboard-teacher"
-                aria-hidden="true"
-              ></i>
-              <div>
-                <h3>Value-Driven Educators</h3>
-                <p>
-                  Passionate and qualified teachers committed to academic
-                  excellence, strong tarbiyah, and holistic child development.
-                </p>
-              </div>
-            </div>
-
-            <div
-              className="feature-item"
-              role="listitem"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            >
-              <i className="fas fa-mosque" aria-hidden="true"></i>
-              <div>
-                <h3>Value-Based Education</h3>
-                <p>
-                  A balanced curriculum integrating Islamic morals, character
-                  building, and modern academics to develop beneficial human
-                  beings.
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* Extended About Sections */}
           <div className="section-extended">
-              <div className="governance" data-aos="fade-up" data-aos-delay="260">
-              <Heading subtitle="GOVERNANCE" title="Office Bearers & Affiliation" />
+            <section
+              id="vision-mission"
+              className="about-section-card about-anchor-section"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <Heading subtitle="2. VISION & MISSION" title="IMS Vision and Mission" />
+              <p className="about-section-text">
+                <strong>IMS VISION</strong>
+                <br />
+                To transform the tiny tots into the most beneficial human beings
+                so that they can serve the humanity.
+              </p>
+              <p className="about-section-text">
+                The vision of IMS is inspired by the saying of our beloved Prophet ﷺ
+              </p>
+              <p className="about-quote" lang="ar">
+                أَحَبُّ النَّاسِ إِلَى اللَّهِ أَنْفَعُهُمْ لِلنَّاسِ
+              </p>
+              <p className="about-section-text">
+                "The most beloved people to Allah are those who are most beneficial
+                to people."
+              </p>
+              <p className="about-section-text">
+                <strong>IMS MISSION</strong>
+                <br />
+                The tiny tots of today will be the leaders of tomorrow. The very
+                mission of Islamic Mission School is to provide these tiny tots with
+                the best material and spiritual means to become most beneficial human
+                beings, enabling them to serve the humanity.
+              </p>
+            </section>
 
+            <section
+              id="brief-history"
+              className="about-section-card about-anchor-section"
+              data-aos="fade-up"
+              data-aos-delay="260"
+            >
+              <Heading subtitle="3. BRIEF HISTORY" title="From Small Seeds, Great Trees Grow" />
+              <p className="about-section-text">
+                Islamic Mission School was founded in 2008 by a small group of educators
+                and parents who believed that modern education was becoming overly focused
+                on rote learning and examination results. Their vision was to create a
+                learning environment where academic excellence and strong ethical character
+                were given equal importance.
+              </p>
+              <h4 className="about-section-subtitle">The Early Years: Sowing the seeds</h4>
+              <p className="about-section-text">
+                The school began humbly in a rented building with just 18 students.
+                Three classes (pre-nursery, nursery and kindergarten) were started.
+                The curriculum was a unique blend of the academic excellence and a bespoke
+                "Values in Action" program, which integrated core principles like integrity,
+                compassion, respect, and responsibility into every subject and activity.
+              </p>
+              <h4 className="about-section-subtitle">Early Middle Phase: The Establishing Roots</h4>
+              <p className="about-section-text">
+                By the Grace of Almighty the school added one class every year. As the
+                school's reputation for nurturing well-rounded, confident, and kind-hearted
+                children grew, so did its numbers.
+              </p>
+              <h4 className="about-section-subtitle">Late Middle Phase: Flourishing and Recognition</h4>
+              <p className="about-section-text">
+                Alhumdulillah, this period marked a transformative era of divine blessing
+                and institutional solidification for the school.
+              </p>
+              <p className="about-section-text">
+                <strong>A Permanent Home:</strong> In a milestone achievement, the school
+                shifted to its own dedicated campus. Sprawling over two acres of land in
+                close proximity to the esteemed Aligarh Muslim University, the new location
+                provided an ideal environment for holistic learning, blending academic aspiration
+                with a serene, spacious setting.
+              </p>
+              <p className="about-section-text">
+                <strong>Academic Credibility:</strong> A significant leap in academic stature
+                was achieved in 2020 when the school received affiliation from the Council
+                for the Indian School Certificate Examinations (CISCE), New Delhi. This affiliation
+                placed the school within a nationally recognized framework of academic excellence,
+                while still allowing the flexibility to enrich the curriculum with its core value-based
+                teachings.
+              </p>
+              <h4 className="about-section-subtitle">A Portrait of Excellence: IMS in 2025</h4>
+              <p className="about-section-text">
+                Today, IMS has blossomed from a sapling of an idea into a mighty, fruit-bearing
+                tree, deeply rooted in its values and branching out towards academic excellence and
+                global citizenship. Our campus houses well-equipped, modern laboratories for Physics,
+                Chemistry, Biology, Computer Science, Robotics & STEM, fostering a spirit of inquiry
+                and innovation.
+              </p>
+              <p className="about-section-text">
+                Beyond the standard curriculum, we offer enhancement classes in English communication,
+                Arabic Communication, Financial Literacy, Life Skills Robotics & STEM.
+              </p>
+              <p className="about-section-text">
+                As we write this chapter in 2025, IMS is not merely an educational institution; it is
+                a dynamic and beloved madrasat al-hayat-a school for life. We remain steadfast in our
+                mission to nurture well-rounded individuals who are prepared to excel in this world with
+                knowledge and in the Hereafter with faith and righteous deeds, ready to contribute
+                meaningfully to a global society.
+              </p>
+            </section>
+
+            <section
+              id="board-members"
+              className="about-section-card about-anchor-section"
+              data-aos="fade-up"
+              data-aos-delay="320"
+            >
+              <Heading subtitle="4. BOARD MEMBERS" title="Office Bearers" />
               <p className="governance-intro">
-                Islamic Mission School is a private, non-profit institution operated under the aegis of the Society for Moral Education and Social Development. It is overseen by an independent Board of Trustees tasked with advancing the school's mission and safeguarding its future success. The Trustees believe in the significant value of IMS education for students, their families, and the wider community and nation, and are committed to collaborating with faculty, staff, and administration to ensure the school's continuous and successful operation.
+                Islamic Mission School is a private, non-profit institution operated
+                under the aegis of the Society for Moral Education and Social Development.
+                It is overseen by an independent Board of Trustees tasked with advancing
+                the school's mission and safeguarding its future success. The Trustees
+                believe in the significant value of IMS education for students, their
+                families, and the wider community and nation, and are committed to
+                collaborating with faculty, staff, and administration to ensure the school's
+                continuous and successful operation.
               </p>
 
+              <p className="about-section-text">
+                <strong>The office Bearers include:</strong>
+              </p>
               <div className="office-bearers">
-                {members.length > 0 ? (
-                  members.map((m) => (
-                    <div className="bearer" key={m.id}>
-                      {m.image_url && <img src={m.image_url} alt={m.name} className="bearer-img" style={{width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', marginBottom: '10px'}} />}
-                      <h4>{m.role}</h4>
-                      <p className="name">
-                        {m.name} {m.qualification && <span className="qual">({m.qualification})</span>}
-                      </p>
-                      {m.profession && <p className="muted">{m.profession}</p>}
-                    </div>
-                  ))
-                ) : (
-                  <p>Loading office bearers...</p>
-                )}
+                {boardMembers.map((member, index) => (
+                  <div className="bearer" key={member.role}>
+                    <h4>
+                      {index + 1}. {member.role}
+                    </h4>
+                    <p className="name">
+                      {member.name}{" "}
+                      {member.qualification && (
+                        <span className="qual">({member.qualification})</span>
+                      )}
+                    </p>
+                    {member.profession && <p className="muted">{member.profession}</p>}
+                  </div>
+                ))}
               </div>
+            </section>
 
+            <section
+              id="affiliation"
+              className="about-section-card about-anchor-section"
+              data-aos="fade-up"
+              data-aos-delay="380"
+            >
+              <Heading subtitle="5. AFFILIATION" title="Affiliation" />
               <div className="affiliation">
-                <strong>Affiliation:</strong>
-                <p>
-                  IMS is affiliated to Council for the Indian School Certificate Examinations (CISCE), New Delhi.
+                <p className="about-section-text">
+                  IMS is affiliated to Council for the Indian School Certificate
+                  Examinations (CISCE), New Delhi.
                 </p>
                 <div className="affRow">
-                  <div><strong>Status Of Affiliation</strong></div>
-                  <div><strong>Affiliation Number</strong></div>
+                  <div>
+                    <strong>Status Of Affiliation</strong>
+                  </div>
+                  <div>
+                    <strong>Affiliation Number</strong>
+                  </div>
                 </div>
                 <div className="affRow muted">
                   <div>Permanent</div>
                   <div>UP407</div>
                 </div>
               </div>
-            </div>
-
-            <div className="values-section" data-aos="fade-up" data-aos-delay="320">
-              <Heading subtitle="IMS — A VALUE BASED SCHOOL" title="The Need For Value Based Schools" />
-
-              <div className="values-content">
-                <p>
-                  The first ten years of a child are very crucial and important in his life as whatever he is exposed to during this period has a serious and lasting effect on him in the future. Learning in childhood is likened to an engraved mark on rock, which it is difficult to rub off. Rightly said: <strong>"Knowledge at young age is like engraving on a stone."</strong>
-                </p>
-
-                <p>
-                  This is high time to sow the seeds of moral values in the hearts of children. Education without values is like tea without sugar, or a body without soul.
-                </p>
-
-                <h4>Values in Educational Institutions</h4>
-                <p>
-                  Values in an educational institution are the need of the hour. The severe deterioration in the conduct of India's youth is a matter of concern. The paradigm shift in the perception of education and the role of schools is a major factor negatively impacting the conduct and behaviour of Indian youth. Today we can see:
-                </p>
-
-                <ul className="values-list">
-                  <li>The quantity of education has considerably increased, but the quality has decreased.</li>
-                  <li>The number of educated people has reached a high level, yet murder, hatred, and selfishness have spread everywhere.</li>
-                  <li>Many institutions have opened, but only a few civilized people are produced.</li>
-                  <li>Degrees are available for all, but dignity has gone down.</li>
-                  <li>Trained people are produced by many institutions, but sincere people are very few.</li>
-                  <li>Technologically we have become advanced, but humanity is threatened.</li>
-                </ul>
-
-                <p>
-                  <strong>Alhamdulillah</strong>, IMS has taken the initiative to impart value-based education to this new generation. Imbibing the qualities of good conduct, self-confidence, and high moral values will help students earn a respected place in society.
-                </p>
-
-                <p>
-                  Value-based education is most effective when every staff member engages with it. So at IMS, <strong>Alhamdulillah</strong>, we apply a whole-school approach, training our staff to be instruments in imparting values. There is a marked difference in the focus and outcomes of simple education and value-based education.
-                </p>
-              </div>
-            </div>
-
-            <div className="curriculum-section" data-aos="fade-up" data-aos-delay="380">
-              <Heading subtitle="CURRICULUM" title="Nurturing Mind, Body, and Soul" />
-
-              <div className="curriculum-intro">
-                <p>
-                  At Islamic Mission School, we believe that a truly transformative education harmonizes intellectual excellence with spiritual and moral growth. Our curriculum is thoughtfully designed to empower students with the knowledge and skills to thrive in the modern world, while firmly grounding them in the ethical and spiritual framework also. We foster a learning environment that encourages curiosity, critical thinking, and compassion, preparing students to be confident, contributing citizens of both India and the global community.
-                </p>
-              </div>
-
-              <div className="curriculum-grid">
-                <div className="currCol">
-                  <h5><span className="curr-number">1.</span> Academic Excellence: The National Framework</h5>
-                  <p>We follow the ICSE & ISC curriculum, known for its strong foundation in core subjects and its national recognition, ensuring a smooth academic pathway for higher education anywhere in India and abroad.</p>
-                  
-                  <div className="curr-subsection">
-                    <h6>Core Subjects</h6>
-                    <p>We teach a comprehensive range of subjects including:</p>
-                    <ul>
-                      <li><strong>Languages:</strong> English, Hindi, Urdu, Arabic, Sanskrit</li>
-                      <li><strong>Sciences:</strong> Mathematics, Physics, Chemistry, Biology</li>
-                      <li><strong>Humanities & Social Sciences:</strong> History, Geography, Civics, Economics, Financial Literacy</li>
-                      <li><strong>Technology & Arts:</strong> Computer Science, Information Technology, Art, and Physical Education</li>
-                    </ul>
-                    <p className="highlight-text">Moreover, for minority students IMS also provides <strong>Nazira & Hifz</strong>. Islamic Studies, Seerah and Life of the Prophets are instrumental in developing morals.</p>
-                  </div>
-
-                  <div className="curr-subsection">
-                    <h6>Pedagogy</h6>
-                    <p>Our teaching methodology moves beyond rote learning. We emphasize:</p>
-                    <ul>
-                      <li><strong>Inquiry-Based Learning:</strong> Encouraging students to ask questions and discover knowledge.</li>
-                      <li><strong>Critical Thinking & Problem Solving:</strong> Applying classroom concepts to real-world challenges.</li>
-                      <li><strong>Collaborative Projects:</strong> Fostering teamwork and communication skills.</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="currCol">
-                  <h5><span className="curr-number">2.</span> 21st Century Skills</h5>
-                  <p>In a world of constant change, knowledge alone is not enough. At Islamic Mission School, we believe that skills are the bridge between potential and achievement. Our dedicated focus on Skills Development ensures that every student doesn't just learn what to think, but how to think, adapt, and lead.</p>
-
-                  <div className="curr-subsection">
-                    <h6>Our Core Skill Pathways</h6>
-                    <p>We structure our skills development into four interconnected pathways:</p>
-                  </div>
-
-                  <div className="skill-paths">
-                    <div className="skill-path-card">
-                      <strong>(i) Cognitive & Analytical Skills</strong>
-                      <p className="skill-subtitle">Mastering how to think.</p>
-                      <ul className="skill-list">
-                        <li>Critical Thinking & Problem Solving</li>
-                        <li>Digital Literacy & Computational Thinking</li>
-                      </ul>
-                    </div>
-
-                    <div className="skill-path-card">
-                      <strong>(ii) Personal & Intrapersonal Skills</strong>
-                      <p className="skill-subtitle">Mastering how to be.</p>
-                      <ul className="skill-list">
-                        <li>Resilience & Adaptability</li>
-                        <li>Self-Management & Metacognition</li>
-                        <li>Curiosity & Lifelong Learning</li>
-                      </ul>
-                    </div>
-
-                    <div className="skill-path-card">
-                      <strong>(iii) Social & Interpersonal Skills</strong>
-                      <p className="skill-subtitle">Mastering how to work with others.</p>
-                      <ul className="skill-list">
-                        <li>Communication & Collaboration</li>
-                        <li>Leadership & Influence</li>
-                        <li>Cross-Cultural Competency</li>
-                        <li>Conflict Resolution & Negotiation</li>
-                      </ul>
-                    </div>
-
-                    <div className="skill-path-card">
-                      <strong>(iv) Creative & Practical Skills</strong>
-                      <p className="skill-subtitle">Mastering how to create and execute.</p>
-                      <ul className="skill-list">
-                        <li>Creativity & Innovation</li>
-                        <li>Design Thinking</li>
-                        <li>Project Management</li>
-                        <li>Public Speaking & Presentation</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="curr-subsection">
-                    <h6>How We Develop These Skills</h6>
-                    <p>Our commitment is brought to life through a multi-faceted approach:</p>
-                    <ul>
-                      <li>Project-Based Learning (PBL)</li>
-                      <li>Dedicated Workshops & Masterclasses</li>
-                      <li>Special curriculum on Life Skills from Grade 1</li>
-                      <li>Leadership Roles & Student Houses</li>
-                      <li>Educational Excursions</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </section>
           </div>
 
         </div>

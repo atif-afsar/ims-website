@@ -1,0 +1,78 @@
+.fac-pageWrap {
+  padding: clamp(2.75rem, 6vw, 4.5rem) 0 clamp(4rem, 9vw, 6rem);
+  background: linear-gradient(180deg, #fafcff 0%, #f5f8fc 45%, #fcfeff 100%);
+}
+
+.fac-pageInner {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.fac-jump-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 1.8rem;
+}
+
+.fac-jump-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #0f4e78;
+  background: #fff;
+  border: 1px solid rgba(15, 78, 120, 0.16);
+  box-shadow: 0 4px 14px rgba(11, 30, 52, 0.06);
+}
+
+.fac-section {
+  margin-bottom: clamp(1.8rem, 4vw, 2.4rem);
+  padding: clamp(1.4rem, 3vw, 2rem);
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid rgba(28, 31, 67, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.fac-anchor-section,
+#fac-overview {
+  scroll-margin-top: 130px;
+}
+
+.fac-section-title {
+  font-size: clamp(1.14rem, 2vw, 1.4rem);
+  color: #1c1f43;
+  margin: 0 0 0.7rem;
+  font-weight: 800;
+}
+
+.fac-tagline {
+  color: #167d74;
+  font-style: italic;
+  margin: 0 0 0.8rem;
+  font-weight: 700;
+}
+
+.fac-h3 {
+  font-size: clamp(1.02rem, 1.6vw, 1.14rem);
+  color: #1eb2a6;
+  margin: 1.2rem 0 0.5rem;
+}
+
+.fac-p {
+  font-size: clamp(0.98rem, 1.4vw, 1.05rem);
+  color: #444;
+  line-height: 1.82;
+  margin: 0 0 0.8rem;
+}
+
+.fac-list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  color: #444;
+  line-height: 1.8;
+}

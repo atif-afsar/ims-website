@@ -1,13 +1,15 @@
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
 
-const Back = ({ title, subtitle }) => {
+const Back = ({ title, subtitle, crumbLabel }) => {
   const location = useLocation();
 
   const pathSegment = location.pathname.split("/")[1];
-  const crumb = pathSegment
-    ? pathSegment.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
-    : "Home";
+  const crumb =
+    crumbLabel ??
+    (pathSegment
+      ? pathSegment.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
+      : "Home");
 
   const renderTitle = () => {
     if (typeof title !== "string") return title;
