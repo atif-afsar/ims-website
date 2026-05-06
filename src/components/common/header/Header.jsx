@@ -119,6 +119,29 @@ const Header = () => {
         { to: "/facilities#fac-other", label: "Additional Facilities" },
       ],
     },
+    {
+      label: "Assessments at IMS",
+      to: "/assessments",
+      submenu: [
+        { to: "/assessments", label: "Overview", end: true },
+        {
+          to: "/assessments#asm-summative-formative",
+          label: "1. Summative & Formative Assessments",
+        },
+        {
+          to: "/assessments#asm-chapter",
+          label: "2. Chapter Assessments",
+        },
+        {
+          to: "/assessments#asm-olympiad",
+          label: "3. Olympiad Exams",
+        },
+        {
+          to: "/assessments#asm-future",
+          label: "IMS For a Better Future",
+        },
+      ],
+    },
     { to: "/programs/neet-jee", label: "NEET/JEE" },
     // { to: "/team", label: "Our Team" },
     { to: "/brochure", label: "Brochure" },

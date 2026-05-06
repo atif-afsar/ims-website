@@ -36,6 +36,7 @@ const CoCurricularExtraPage = lazy(() =>
   import("./components/cocurricular/CoCurricularExtraPage")
 );
 const FacilitiesPage = lazy(() => import("./components/facilities/FacilitiesPage"));
+const Assessments = lazy(() => import("./components/assessments/Assessments"));
 const CourseHome = lazy(() => import("./components/allcourses/CourseHome"));
 const Classes = lazy(() => import("./components/classes/Classes"));
 const Programs = lazy(() => import("./components/programs/Programs"));
@@ -130,6 +131,7 @@ function App() {
                         element={<CoCurricularExtraPage />}
                       />
                       <Route path="/facilities" element={<FacilitiesPage />} />
+                      <Route path="/assessments" element={<Assessments />} />
                       <Route path="/classes" element={<Classes />} />
                       <Route path="/courses" element={<CourseHome />} />
                       <Route path="/programs" element={<Programs />} />
