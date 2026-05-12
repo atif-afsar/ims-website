@@ -149,7 +149,7 @@ const Gallery = () => {
           <figure className="gallery-lightbox-figure">
             <img
               src={lightbox.src}
-              alt={`Gallery photo ${(lightboxIndex ?? 0) + 1} of ${galleryItems.length}`}
+              alt={`Gallery ${(lightboxIndex ?? 0) + 1} of ${galleryItems.length}`}
             />
             <figcaption>
               Photo {(lightboxIndex ?? 0) + 1} of {galleryItems.length}
