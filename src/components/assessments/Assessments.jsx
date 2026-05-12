@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { siteUrl } from "../../siteMeta";
 import Back from "../common/back/Back";
 import AssessmentsContent from "./AssessmentsContent";
 import "../curriculum/curriculum.css";
@@ -17,7 +18,7 @@ const Assessments = () => {
           name="description"
           content="Assessments at Islamic Mission School: Summative & Formative Assessments, Chapter Assessments, and Olympiad Exams (NCO, NSO, IMO, IEO) — embedded in the learning process to nurture HOTS."
         />
-        <link rel="canonical" href="https://www.imschool.in/assessments" />
+        <link rel="canonical" href={siteUrl("/assessments")} />
         <meta
           property="og:title"
           content="Assessments at IMS | Islamic Mission School"
@@ -27,7 +28,8 @@ const Assessments = () => {
           content="How IMS evaluates learning: Formative & Summative assessments, Chapter assessments, and Olympiads."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.imschool.in/assessments" />
+        <meta property="og:url" content={siteUrl("/assessments")} />
+        <meta property="og:image" content={siteUrl("/images/logo/logo.webp")} />
       </Helmet>
 
       <div data-aos="fade-down" data-aos-duration="900">

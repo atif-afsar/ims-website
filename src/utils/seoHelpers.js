@@ -1,12 +1,26 @@
 // SEO Helper Functions
+import { SITE_ORIGIN } from "../siteMeta";
+
+export const webSiteSchema = {
+  "@type": "WebSite",
+  name: "Islamic Mission School",
+  alternateName: "IMS Aligarh",
+  url: SITE_ORIGIN,
+  inLanguage: "en-IN",
+  publisher: {
+    "@type": "Organization",
+    name: "Islamic Mission School",
+    url: SITE_ORIGIN,
+  },
+};
 
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
   "name": "Islamic Mission School",
   "alternateName": "IMS",
-  "url": "https://islamicmissionschool.org",
-  "logo": "https://islamicmissionschool.org/images/logo/logo.webp",
+  "url": SITE_ORIGIN,
+  "logo": `${SITE_ORIGIN}/images/logo/logo.webp`,
   "description": "Islamic Mission School (IMS) is a CISCE-affiliated, value-based educational institution in Aligarh, India, dedicated to academic excellence and character development.",
   "foundingDate": "2008",
   "address": {
@@ -43,7 +57,7 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Islamic Mission School",
-  "image": "https://islamicmissionschool.org/images/logo/logo.webp",
+  "image": `${SITE_ORIGIN}/images/logo/logo.webp`,
   "description": "Best school in Aligarh for value-based education and academic excellence",
   "address": {
     "@type": "PostalAddress",
@@ -54,7 +68,7 @@ export const localBusinessSchema = {
     "addressCountry": "IN"
   },
   "telephone": "+91-XXXXXXXXXX",
-  "url": "https://islamicmissionschool.org",
+  "url": SITE_ORIGIN,
   "priceRange": "₹₹",
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -82,7 +96,7 @@ export const courseSchema = (course) => ({
   "provider": {
     "@type": "Organization",
     "name": "Islamic Mission School",
-    "url": "https://www.imschool.in"
+    url: SITE_ORIGIN,
   },
   "image": course.image,
   "aggregateRating": {

@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { SITE_ORIGIN, siteUrl } from "../../../siteMeta";
 
 const SEOHelmet = ({
   title,
@@ -16,8 +17,8 @@ const SEOHelmet = ({
   structuredData,
   children
 }) => {
-  const defaultOgImage = "https://www.imschool.in/images/logo/logo.webp";
-  const defaultOgUrl = "https://www.imschool.in";
+  const defaultOgImage = siteUrl("/images/logo/logo.webp");
+  const defaultOgUrl = SITE_ORIGIN;
 
   return (
     <Helmet>
@@ -34,6 +35,7 @@ const SEOHelmet = ({
       <meta property="og:image" content={ogImage || defaultOgImage} />
       <meta property="og:url" content={ogUrl || defaultOgUrl} />
       <meta property="og:site_name" content="Islamic Mission School" />
+      <meta property="og:locale" content="en_IN" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -43,9 +45,9 @@ const SEOHelmet = ({
       <meta name="twitter:creator" content="@imschool" />
 
       {/* Additional SEO */}
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="googlebot" content="index, follow" />
       <meta name="language" content="English" />
-      <meta name="revisit-after" content="7 days" />
       <meta name="author" content="Islamic Mission School" />
 
       {/* Structured Data */}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { siteUrl } from "../../siteMeta";
 import Back from "../common/back/Back";
 import CoCurricularExtraContent from "./CoCurricularExtraContent";
 import "./coCurricularExtra.css";
@@ -15,7 +16,7 @@ const CoCurricularExtraPage = () => {
           name="description"
           content="Discover IMS co-curricular and extra-curricular life: English and Arabic communication, project-based learning, Taekwondo, Sports Day, Annual Function, competitions, and more."
         />
-        <link rel="canonical" href="https://www.imschool.in/co-curricular-extracurricular" />
+        <link rel="canonical" href={siteUrl("/co-curricular-extracurricular")} />
         <meta
           property="og:title"
           content="Co-Curricular &amp; Extra Curricular | IMS"
@@ -27,8 +28,9 @@ const CoCurricularExtraPage = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content="https://www.imschool.in/co-curricular-extracurricular"
+          content={siteUrl("/co-curricular-extracurricular")}
         />
+        <meta property="og:image" content={siteUrl("/images/logo/logo.webp")} />
       </Helmet>
 
       <div data-aos="fade-down" data-aos-duration="900">

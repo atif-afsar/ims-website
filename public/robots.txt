@@ -4,6 +4,3 @@ Disallow: /admin/
 Disallow: /admin/*
 
 Sitemap: https://islamicmissionschool.org/sitemap.xml
-
-# Crawl delay to be respectful
-Crawl-delay: 1

@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { siteUrl } from "../../siteMeta";
 import Back from "../common/back/Back";
 import CurriculumContent from "./CurriculumContent";
 import "./curriculum.css";
@@ -15,14 +16,15 @@ const CurriculumPage = () => {
           name="description"
           content="IMS curriculum: ICSE &amp; ISC academic framework, 21st century skills pathways, Evan Moor STEM from Grade 1, and Eduvate Robotics &amp; AI—nurturing mind, body, and soul."
         />
-        <link rel="canonical" href="https://www.imschool.in/curriculum" />
+        <link rel="canonical" href={siteUrl("/curriculum")} />
         <meta property="og:title" content="Curriculum | Islamic Mission School" />
         <meta
           property="og:description"
           content="National framework academics, skills for life, world-class STEM, and Robotics &amp; AI at IMS."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.imschool.in/curriculum" />
+        <meta property="og:url" content={siteUrl("/curriculum")} />
+        <meta property="og:image" content={siteUrl("/images/logo/logo.webp")} />
       </Helmet>
 
       <div data-aos="fade-down" data-aos-duration="900">

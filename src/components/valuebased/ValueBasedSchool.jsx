@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { siteUrl } from "../../siteMeta";
 import Back from "../common/back/Back";
 import ValueBasedSchoolContent from "./ValueBasedSchoolContent";
 import "../about/about.css";
@@ -16,7 +17,7 @@ const ValueBasedSchool = () => {
           name="description"
           content="Discover how Islamic Mission School integrates values with academics: why value-based schools matter, how values live in the curriculum, and education compared with value-based education."
         />
-        <link rel="canonical" href="https://www.imschool.in/ims-value-based-school" />
+        <link rel="canonical" href={siteUrl("/ims-value-based-school")} />
         <meta
           property="og:title"
           content="IMS, A Value Based School | Islamic Mission School"
@@ -28,8 +29,9 @@ const ValueBasedSchool = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content="https://www.imschool.in/ims-value-based-school"
+          content={siteUrl("/ims-value-based-school")}
         />
+        <meta property="og:image" content={siteUrl("/images/logo/logo.webp")} />
       </Helmet>
 
       <div data-aos="fade-down" data-aos-duration="900">

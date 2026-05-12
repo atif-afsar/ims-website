@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaCalendarCheck, FaStar } from "react-icons/fa";
 import { supabase } from "../../supabaseClient";
+import SEOHelmet from "../common/SEO/SEOHelmet";
+import { siteUrl } from "../../siteMeta";
 import "./calendar.css";
 
 const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -108,6 +110,16 @@ const Calendar = () => {
   }, [currentDate, events]);
 
   return (
+    <>
+      <SEOHelmet
+        title="School Calendar | Islamic Mission School"
+        description="View IMS academic calendar — term dates, events, and holidays kept up to date for families."
+        keywords="IMS school calendar, Islamic Mission School events, academic calendar Aligarh"
+        canonical={siteUrl("/calendar")}
+        ogTitle="School Calendar | Islamic Mission School"
+        ogDescription="Academic planner with events and holidays for Islamic Mission School."
+        ogUrl={siteUrl("/calendar")}
+      />
     <section className="public-calendar-page">
       <div className="container">
         <div className="public-calendar-head">
@@ -314,6 +326,7 @@ const Calendar = () => {
         </div>
       )}
     </section>
+    </>
   );
 };
 

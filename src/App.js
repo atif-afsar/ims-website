@@ -51,6 +51,7 @@ const Blog = lazy(() => import("./components/blog/Blog"));
 const Contact = lazy(() => import("./components/contact/Contact"));
 const Carousel = lazy(() => import("./components/carousel/Carousel"));
 const Calendar = lazy(() => import("./components/calendar/Calendar"));
+const Gallery = lazy(() => import("./components/gallery/Gallery"));
 
 // Infrastructure
 const Infrastructure = lazy(() => import("./components/infrastructure/Infrastructure"));
@@ -97,7 +98,7 @@ function App() {
 
   // Initial load only - loader shows only on page refresh
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1000);
+    const timer = setTimeout(() => setLoading(false), 200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -149,6 +150,7 @@ function App() {
                       <Route path="/journal" element={<Blog />} />
                       <Route path="/brochure" element={<Carousel />} />
                       <Route path="/calendar" element={<Calendar />} />
+                      <Route path="/gallery" element={<Gallery />} />
                       <Route path="/contact" element={<Contact />} />
 
                       <Route path="/infrastructure" element={<Infrastructure />} />

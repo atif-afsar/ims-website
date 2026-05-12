@@ -7,6 +7,7 @@ import ClassGroupsPaginated from "./ClassGroupsPaginated";
 import "./classes.css";
 import { FaSchool, FaBookOpen, FaHeart, FaUserShield, FaClipboardList, FaPhoneAlt } from "react-icons/fa";
 import { supabase } from "../../supabaseClient";
+import { siteUrl } from "../../siteMeta";
 
 const groups = [
   { key: "pre-primary", title: "Pre‑Primary (Play Group to K.G.)", shortTitle: "Pre‑Primary" },
@@ -42,7 +43,7 @@ const Classes = () => {
     "@type": "EducationalOrganization",
     "name": "Islamic Mission School - Classes & Admissions",
     "description": "Admissions open for Pre-Primary to Senior Secondary classes at IMS Aligarh",
-    "url": "https://www.imschool.in/classes",
+    "url": siteUrl("/classes"),
     "educationalLevel": ["Pre-Primary", "Primary", "Middle", "Secondary", "Senior Secondary"]
   };
 
@@ -52,10 +53,10 @@ const Classes = () => {
         title="Classes & Admissions | Islamic Mission School Aligarh"
         description="Admissions open at IMS for Pre-Primary to Senior Secondary. Value-based education, strong academics, and character development. Call now for admission details."
         keywords="school admissions Aligarh, classes in Aligarh, Pre-Primary school, Primary school, Secondary school, best school admissions, IMS admissions"
-        canonical="https://islamicmissionschool.org/classes"
+        canonical={siteUrl("/classes")}
         ogTitle="Classes & Admissions - Islamic Mission School"
         ogDescription="Join IMS for quality education from Pre-Primary to Senior Secondary. Admissions open now!"
-        ogUrl="https://islamicmissionschool.org/classes"
+        ogUrl={siteUrl("/classes")}
         structuredData={structuredData}
       />
 

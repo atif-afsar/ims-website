@@ -3,6 +3,7 @@ import SEOHelmet from "../common/SEO/SEOHelmet";
 import { FaArrowRight, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import Back from "../common/back/Back";
 import "./contact.css";
+import { siteUrl } from "../../siteMeta";
 
 const Contact = () => {
   const mapSrc =
@@ -65,10 +66,10 @@ const Contact = () => {
         title="Contact Islamic Mission School | Get in Touch"
         description="Contact IMS Aligarh for admissions, queries, or collaborations. Phone, email, WhatsApp, and location details. We're here to help!"
         keywords="contact school, IMS contact, school admissions contact, Aligarh school contact, school phone number"
-        canonical="https://islamicmissionschool.org/contact"
+        canonical={siteUrl("/contact")}
         ogTitle="Contact Us - Islamic Mission School"
         ogDescription="Reach out to IMS for admissions, queries, or any information. Multiple contact options available."
-        ogUrl="https://islamicmissionschool.org/contact"
+        ogUrl={siteUrl("/contact")}
         structuredData={structuredData}
       />
 

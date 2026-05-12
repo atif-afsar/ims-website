@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { siteUrl } from "../../siteMeta";
 import Back from "../common/back/Back";
 import AboutCard from "./AboutCard";
 import "./about.css";
@@ -23,7 +24,7 @@ const About = () => {
           content="Islamic Mission School, IMS Aligarh, value based education, CISCE school Aligarh, Islamic school India, character building school, moral education, STEM education school"
         />
 
-        <link rel="canonical" href="https://www.imschool.in/about" />
+        <link rel="canonical" href={siteUrl("/about")} />
 
         {/* Open Graph */}
         <meta
@@ -34,12 +35,13 @@ const About = () => {
           property="og:description"
           content="At Islamic Mission School, education goes beyond academics. We nurture intellect, character, and faith through a value-based, future-ready curriculum."
         />
-        <meta property="og:image" content="/images/about/ims-about.png" />
-        <meta property="og:url" content="https://www.imschool.in/about" />
+        <meta property="og:image" content={siteUrl("/images/about/ims-about.png")} />
+        <meta property="og:url" content={siteUrl("/about")} />
         <meta property="og:type" content="website" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={siteUrl("/images/about/ims-about.png")} />
         <meta
           name="twitter:title"
           content="About Islamic Mission School | Value-Based Education"

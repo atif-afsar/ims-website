@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./Hero.css";
 import { Link } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { motion } from "framer-motion";
+
+const publicBase = (process.env.PUBLIC_URL || "").replace(/\/$/, "");
+const HERO_VIDEO_FILE = "DJI_20240518070739_0008_D (1).mp4";
+const HERO_VIDEO_SRC = `${publicBase}/images/videos/${encodeURIComponent(HERO_VIDEO_FILE)}`;
+const HERO_POSTER = `${publicBase}/images/hero/hero-bg-new-2.png`;
 
 const MotionLink = motion(Link);
 
@@ -21,17 +26,53 @@ const heroButtonMotion = {
 };
 
 const Hero = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return undefined;
+
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncMotion = () => {
+      if (mq.matches) {
+        video.pause();
+      } else {
+        const p = video.play();
+        if (p !== undefined && typeof p.catch === "function") {
+          p.catch(() => {});
+        }
+      }
+    };
+
+    syncMotion();
+    mq.addEventListener("change", syncMotion);
+    return () => mq.removeEventListener("change", syncMotion);
+  }, []);
+
   return (
     <>
       <section
         className="hero"
         aria-label="Islamic Mission School hero section"
       >
-        <div
-          className="hero-bg"
-          aria-hidden="true"
-          style={{ backgroundImage: "url('/images/hero/hero-bg-new-2.png')" }}
-        />
+        <div className="hero-media" aria-hidden="true">
+          <div
+            className="hero-static-fallback"
+            style={{ backgroundImage: `url(${HERO_POSTER})` }}
+          />
+          <video
+            ref={videoRef}
+            className="hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={HERO_POSTER}
+          >
+            <source src={HERO_VIDEO_SRC} type="video/mp4" />
+          </video>
+        </div>
         <div className="hero-overlay" aria-hidden="true" />
         <div className="hero-inner">
           <div className="hero-content" data-aos="zoom-in" data-aos-duration="900">

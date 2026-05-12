@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./carousel.css";
+import SEOHelmet from "../common/SEO/SEOHelmet";
+import { siteUrl } from "../../siteMeta";
 import { FaChevronLeft, FaChevronRight, FaDownload, FaExpand, FaCompress } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -207,6 +209,16 @@ const Carousel = () => {
   }
 
   return (
+    <>
+      <SEOHelmet
+        title="Digital Brochure | Islamic Mission School"
+        description="Browse the Islamic Mission School digital brochure — programmes, campus, and admissions highlights in an interactive flipbook-style view."
+        keywords="Islamic Mission School brochure, IMS digital brochure, school prospectus Aligarh"
+        canonical={siteUrl("/brochure")}
+        ogTitle="Digital Brochure | Islamic Mission School"
+        ogDescription="Explore IMS through our interactive digital brochure."
+        ogUrl={siteUrl("/brochure")}
+      />
     <section className="carousel-section" id="magazine-view">
       <div className="container">
         <motion.div 
@@ -264,6 +276,7 @@ const Carousel = () => {
 
       </div>
     </section>
+    </>
   );
 };
 

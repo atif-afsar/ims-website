@@ -145,6 +145,7 @@ const Header = () => {
     { to: "/programs/neet-jee", label: "NEET/JEE" },
     // { to: "/team", label: "Our Team" },
     { to: "/brochure", label: "Brochure" },
+    { to: "/gallery", label: "Gallery" },
     { to: "/calendar", label: "Calendar" },
     { to: "/contact", label: "Contact" },
   ];

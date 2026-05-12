@@ -1,5 +1,6 @@
 import SEOHelmet from "../common/SEO/SEOHelmet";
-import { organizationSchema, localBusinessSchema } from "../../utils/seoHelpers";
+import { organizationSchema, localBusinessSchema, webSiteSchema } from "../../utils/seoHelpers";
+import { SITE_ORIGIN, siteUrl } from "../../siteMeta";
 import Hero from "./hero/Hero";
 import AboutCard from "../about/AboutCard";
 import WhyIMS from "../whychoose/WhyIMS";
@@ -10,7 +11,7 @@ import CoCurricular from "../cocurricular/CoCurricular";
 const Home = () => {
   const structuredData = {
     "@context": "https://schema.org",
-    "@graph": [organizationSchema, localBusinessSchema]
+    "@graph": [webSiteSchema, organizationSchema, localBusinessSchema],
   };
 
   return (
@@ -19,11 +20,11 @@ const Home = () => {
         title="Islamic Mission School - Best School in Aligarh | Value-Based Education"
         description="Islamic Mission School (IMS) is the best school in Aligarh offering value-based education, academic excellence, NEET/JEE programs, and character development. CISCE-affiliated institution established in 2008."
         keywords="best school in Aligarh, Islamic school, CISCE school, value-based education, academic excellence, NEET coaching, character development, co-curricular activities"
-        canonical="https://islamicmissionschool.org/"
+        canonical={siteUrl("/")}
         ogTitle="Islamic Mission School - Best School in Aligarh"
         ogDescription="Discover why IMS is the best choice for your child's education. Value-based learning, academic excellence, and holistic development."
-        ogImage="https://islamicmissionschool.org/images/logo/logo.webp"
-        ogUrl="https://islamicmissionschool.org/"
+        ogImage={siteUrl("/images/logo/logo.webp")}
+        ogUrl={SITE_ORIGIN}
         twitterTitle="Best School in Aligarh - Islamic Mission School"
         twitterDescription="Join IMS for value-based education and academic excellence"
         structuredData={structuredData}
