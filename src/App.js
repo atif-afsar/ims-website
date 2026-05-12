@@ -7,6 +7,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { AnimatePresence } from "framer-motion";
 
 import Header from "./components/common/header/Header";
 import Footer from "./components/common/footer/Footer";
@@ -98,7 +99,7 @@ function App() {
 
   // Initial load only - loader shows only on page refresh
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 200);
+    const timer = setTimeout(() => setLoading(false), 1200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -106,7 +107,7 @@ function App() {
     <AuthProvider>
       <HelmetProvider>
         <Router>
-          {loading && <Loader />}
+          <AnimatePresence>{loading && <Loader />}</AnimatePresence>
 
           <ScrollHandler />
 
