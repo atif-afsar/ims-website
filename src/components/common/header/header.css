@@ -742,7 +742,26 @@ body{
   align-items: center;
   column-gap: 16px;
   row-gap: 6px;
-  padding: 0 12px;
+  padding: 0 18px;
+}
+
+@media (max-width: 1100px) {
+  .header .headerRow {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header .headerRow {
+    padding: 0 14px;
+    column-gap: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .header .headerRow {
+    padding: 0 12px;
+  }
 }
 
 .header .logo {
@@ -876,8 +895,21 @@ body{
   }
 
   .header .mobile-toggle {
-    display: block !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
     margin-left: auto;
+    margin-right: 2px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .header .mobile-toggle i {
+    line-height: 1;
   }
 
   .header .mobileOverlay.open {
@@ -956,16 +988,19 @@ body{
   }
 
   .header .mobile-nav {
+    overflow-x: hidden;
     overflow-y: auto;
-    padding-bottom: 18px;
+    padding-bottom: 32px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-gutter: stable;
   }
 
   /* Standalone nav links (Home, Brochure, Gallery, Calendar, Contact, NEET/JEE) */
   .header .mobile-nav > .nav-link {
     display: flex;
     width: auto;
-    margin: 2px 12px;
-    padding: 13px 14px;
+    margin: 3px 14px;
+    padding: 12px 14px;
     border-radius: 12px;
     font-size: var(--mobile-nav-font-size);
     font-weight: var(--mobile-nav-weight);
@@ -1010,8 +1045,8 @@ body{
 
   /* Contact CTA in drawer — same text size; slightly heavier for emphasis */
   .header .mobile-nav > .nav-link[href="/contact"] {
-    margin-top: 10px;
-    padding: 13px 18px;
+    margin: 12px 14px 14px;
+    padding: 13px 16px;
     border-radius: 12px;
     color: #ffffff !important;
     background: linear-gradient(135deg, #103a5a, #0c2740);
@@ -1020,7 +1055,7 @@ body{
     font-weight: 800;
     line-height: var(--mobile-nav-line-height);
     justify-content: center;
-    box-shadow: 0 10px 22px rgba(12, 39, 64, 0.22);
+    box-shadow: 0 6px 14px rgba(12, 39, 64, 0.2);
   }
 
   .header .mobile-nav > .nav-link[href="/contact"]:hover {
@@ -1029,7 +1064,7 @@ body{
 
   /* Collapsible group */
   .header .mobile-group {
-    margin: 2px 12px;
+    margin: 3px 14px;
     border-radius: 12px;
     background: #ffffff;
     border: 1px solid transparent;
@@ -1089,13 +1124,25 @@ body{
 
   /* Submenu container */
   .header .mobile-group-menu {
-    margin: 2px 8px 10px;
-    padding: 6px;
+    margin: 0 8px;
+    padding: 0 6px;
+    max-height: 0;
+    overflow: hidden;
     border-radius: 10px;
     background: rgba(15, 78, 120, 0.04);
-    border: 1px solid rgba(15, 78, 120, 0.08);
+    border: 1px solid transparent;
     display: grid;
     gap: 2px;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.25s ease, margin 0.25s ease, padding 0.25s ease, border-color 0.25s ease;
+  }
+
+  .header .mobile-group-menu.open {
+    margin: 4px 8px 8px;
+    padding: 6px;
+    max-height: 80vh;
+    opacity: 1;
+    border-color: rgba(15, 78, 120, 0.08);
   }
 
   /* Submenu links - same size/weight as parent rows; indent + dot for hierarchy only */
