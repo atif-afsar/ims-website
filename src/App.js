@@ -24,6 +24,7 @@ import ManageFooter from "./admin/ManageFooter";
 import ManagePrograms from "./admin/ManagePrograms";
 import ManageClasses from "./admin/ManageClasses";
 import ManageCalendar from "./admin/ManageCalendar";
+import ManageNeetJee from "./admin/ManageNeetJee";
 import ProtectedRoute from "./admin/ProtectedRoute";
 
 // Lazy load pages for code splitting
@@ -185,7 +186,7 @@ function App() {
               <Route path="programs" element={<ManagePrograms />} />
               <Route path="classes" element={<ManageClasses />} />
               <Route path="calendar" element={<ManageCalendar />} />
-              {/* We will add other admin routes here */}
+              <Route path="neet-jee" element={<ManageNeetJee />} />
               <Route path="*" element={<Dashboard />} />
             </Route>
           </Routes>

@@ -525,13 +525,104 @@ export const neetProgram = {
   ],
   
   results: [
-  { name: "Farah Khan", arabicName: "فرح خان", score: "682/720", year: "NEET 2023" },
-  { name: "Talha Noman", arabicName: "طلحة نعمان", score: "647/720", year: "NEET 2023" },
-  { name: "Rooshan Aslam", arabicName: "روشن اسلام", score: "625/720", year: "NEET 2023" },
-  { name: "Zaid Khan", arabicName: "زيد خان", score: "610/720", year: "NEET 2023" },
-  { name: "Areeb Shahid Rao", arabicName: "عريب شاهد راؤ", score: "640/720", year: "NEET 2021" },
-  { name: "Sidra Khan", arabicName: "سدرة خان", score: "621/720", year: "NEET 2023" }
-]
+    {
+      name: "Ibrahim Faisal",
+      rank: 1,
+      score: "95%",
+      year: "District Rank - 1",
+      classGroup: "Class X",
+      photo: "/images/results/ibrahim_faisal.png"
+    },
+    {
+      name: "Abdul Rehman",
+      rank: 2,
+      score: "94.8%",
+      year: "District Rank - 2",
+      classGroup: "Class X",
+      photo: "/images/results/abdul_rehman.png"
+    },
+    {
+      name: "Nehdiya Qudsi",
+      rank: 3,
+      score: "94.6%",
+      year: "District Rank - 3",
+      classGroup: "Class X",
+      photo: "/images/results/nehdiya_qudsi.png"
+    },
+    {
+      name: "Ahmad Misbah",
+      rank: 1,
+      score: "94%",
+      year: "District Rank - 1",
+      classGroup: "Class XII",
+      photo: "/images/results/ahmad_misbah.png"
+    },
+    {
+      name: "Shaikh Fidyan Shayan",
+      rank: 3,
+      score: "93%",
+      year: "District Rank - 3",
+      classGroup: "Class XII",
+      photo: "/images/results/shaikh_fidyan_shayan.png"
+    }
+  ],
+
+  faculty: [
+    {
+      name: "Dr. Kaunain Kausar",
+      subject: "Biology",
+      qualification: "",
+      bio: "Founder and Director, Islamic Mission School"
+    },
+    {
+      name: "Mr. Shakir Sir",
+      subject: "Physics",
+      qualification: "M.Phil., M.Sc. Gold Medalist",
+      bio: "Founder & Director, Shakir Sir Classes, Aligarh"
+    },
+    {
+      name: "Dr. R Malik Sir",
+      subject: "Chemistry",
+      qualification: "Ph.D. Chemistry",
+      bio: "Ex-Faculty FIIT JEE, Ex-Faculty Shakir Sir Classes"
+    },
+    {
+      name: "Mr. Malik Azeem",
+      subject: "Biology",
+      qualification: "B.Sc.(Zoo.), M.Sc.(Zoo.), Triple Gold Medalist, M.Ed.(STEM), OSU, USA",
+      bio: ""
+    },
+    {
+      name: "Mr. Yasir Mumtaz",
+      subject: "Chemistry",
+      qualification: "B.Sc., M.Sc. (Chem), JMI",
+      bio: "Ex-Faculty Allen, Noida"
+    },
+    {
+      name: "Er. Saquib Hayat",
+      subject: "Physics",
+      qualification: "B.Tech., M.Tech., AMU",
+      bio: "Ex-Faculty Aakash, Ex-Faculty GCI, Sikar"
+    },
+    {
+      name: "Er. Kush Varshney",
+      subject: "Mathematics",
+      qualification: "B.Tech., M.Tech. (AMU)",
+      bio: "Director Kush Classes"
+    },
+    {
+      name: "Er. Syed Aley Haider",
+      subject: "Physics",
+      qualification: "B.Tech., M.Tech., AMU",
+      bio: "Ex-Faculty PW Lucknow"
+    },
+    {
+      name: "Er. Malik Faheem",
+      subject: "Mathematics",
+      qualification: "B.Tech., M.Tech., AMU",
+      bio: "Ex-Faculty Duty Society"
+    }
+  ]
 }
 
 // ---------classes----------

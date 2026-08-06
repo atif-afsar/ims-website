@@ -1330,8 +1330,205 @@
   justify-content: center;
 }
 
+/* ─── Redesigned NEET/JEE Hero ─── */
+.neetjee-hero-redesign {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 2.5rem 0 3rem;
+  margin-bottom: 1rem;
+}
+
+.neetjee-hero-content h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.15;
+  margin: 0.75rem 0;
+  color: #0f2d1f;
+}
+
+.neetjee-hero-visual {
+  position: relative;
+}
+
+.neetjee-hero-visual img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(15, 45, 31, 0.15);
+  object-fit: cover;
+  max-height: 420px;
+}
+
+.neetjee-hero-stats {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.neetjee-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f0f7f3;
+  border: 1px solid #d4e8dc;
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  color: #1a5c3a;
+  font-size: 0.9rem;
+}
+
+.neetjee-stat svg {
+  color: #c9a227;
+}
+
+/* ─── Faculty Section ─── */
+.neetjee-faculty-section {
+  margin: 3rem 0;
+}
+
+.neetjee-faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.neetjee-faculty-card {
+  background: #fff;
+  border: 1px solid #e8f0eb;
+  border-radius: 16px;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(15, 45, 31, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.neetjee-faculty-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(15, 45, 31, 0.1);
+}
+
+.neetjee-faculty-photo {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #1a5c3a;
+}
+
+.neetjee-faculty-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.neetjee-faculty-card h4 {
+  margin: 0 0 0.25rem;
+  color: #0f2d1f;
+}
+
+.neetjee-faculty-subject {
+  display: inline-block;
+  background: #e8f5ee;
+  color: #1a5c3a;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+}
+
+.neetjee-faculty-qual {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.25rem 0;
+  text-align: center;
+}
+
+.neetjee-faculty-bio {
+  font-size: 0.82rem;
+  color: #555;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ─── Answer Keys Section ─── */
+.neetjee-answer-keys-section {
+  margin: 3rem 0;
+}
+
+.neetjee-answer-keys-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.neetjee-answer-key-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  border: 1px solid #e0ebe4;
+  border-radius: 14px;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.neetjee-answer-key-card:hover {
+  border-color: #1a5c3a;
+  background: #f8fcf9;
+  transform: translateX(4px);
+}
+
+.neetjee-answer-key-icon {
+  font-size: 1.8rem;
+  color: #1a5c3a;
+  flex-shrink: 0;
+}
+
+.neetjee-answer-key-card h4 {
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+  color: #0f2d1f;
+}
+
+.neetjee-answer-key-card span {
+  font-size: 0.85rem;
+  color: #1a5c3a;
+  font-weight: 500;
+}
+
+.neetjee-answer-key-card small {
+  display: block;
+  font-size: 0.78rem;
+  color: #888;
+  margin-top: 0.15rem;
+}
+
+.neetjee-download-icon {
+  margin-left: auto;
+  color: #c9a227;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.neetjee-features-section {
+  margin: 2rem 0;
+}
+
 @media (max-width: 980px) {
   .neetjee-page .program-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .neetjee-hero-redesign {
     grid-template-columns: 1fr;
   }
 

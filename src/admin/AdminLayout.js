@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './admin.css';
-import { FaTachometerAlt, FaBullhorn, FaUserTie, FaShareAlt, FaBook, FaChalkboardTeacher, FaCalendarAlt, FaBars, FaTimes } from 'react-icons/fa';
+import { FaTachometerAlt, FaBullhorn, FaUserTie, FaShareAlt, FaBook, FaChalkboardTeacher, FaCalendarAlt, FaBars, FaTimes, FaFlask } from 'react-icons/fa';
 
 const AdminLayout = () => {
   const { signOut, user } = useAuth();
@@ -41,6 +41,9 @@ const AdminLayout = () => {
           </NavLink>
           <NavLink to="/admin/programs" className={({ isActive }) => isActive ? "active" : ""} onClick={closeSidebar}>
             <FaBook /> Programs (Courses)
+          </NavLink>
+          <NavLink to="/admin/neet-jee" className={({ isActive }) => isActive ? "active" : ""} onClick={closeSidebar}>
+            <FaFlask /> NEET / JEE
           </NavLink>
           <NavLink to="/admin/classes" className={({ isActive }) => isActive ? "active" : ""} onClick={closeSidebar}>
             <FaChalkboardTeacher /> Classes
