@@ -1,0 +1,12 @@
+{
+  "name": "ims-website",
+  "private": true,
+  "description": "Islamic Mission School website: React frontend (frontend/) served by the Node.js + MySQL backend (backend/).",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "npm ci --include=dev --prefix frontend && npm run build --prefix frontend && npm ci --omit=dev --prefix backend",
+    "start": "node backend/src/server.js"
+  }
+}
