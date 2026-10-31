@@ -56,16 +56,24 @@ router.post("/", (req, res) => {
   });
 });
 
-/* Remove an uploaded file: body { url: "/uploads/..." } */
-router.delete("/", (req, res) => {
-  const url = String(req.body?.url || "");
-  const match = url.match(/^\/uploads\/([a-z0-9-]+(?:\/[a-z0-9-]+)?)\/([a-z0-9.-]+)$/);
-  if (!match) return res.status(400).json({ error: "Invalid file" });
+/*
+ * Deletes a file stored under uploads/ given its public URL ("/uploads/...").
+ * Anything else (library photos, outside links) is ignored. Returns false for invalid URLs.
+ */
+export function removeUploadedFile(url) {
+  const match = String(url || "").match(/^\/uploads\/([a-z0-9-]+(?:\/[a-z0-9-]+)?)\/([a-z0-9.-]+)$/);
+  if (!match) return false;
   try {
     unlinkSync(join(config.uploadsDir, match[1], match[2]));
   } catch {
     /* already gone */
   }
+  return true;
+}
+
+/* Remove an uploaded file: body { url: "/uploads/..." } */
+router.delete("/", (req, res) => {
+  if (!removeUploadedFile(req.body?.url)) return res.status(400).json({ error: "Invalid file" });
   res.json({ ok: true });
 });
 

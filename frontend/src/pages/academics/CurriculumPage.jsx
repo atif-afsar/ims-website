@@ -1,6 +1,4 @@
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { siteUrl } from "../../siteMeta";
-import media from "../../content/media";
 import { overview, academic, skills, stem, robotics } from "../../content/curriculum";
 import PageHero from "../../ui/PageHero";
 import SectionNav from "../../ui/SectionNav";
@@ -42,15 +40,7 @@ const PartnerPanel = ({ label, title, text }) => (
 
 const CurriculumPage = () => (
   <>
-    <SEOHelmet
-      title="Curriculum | Islamic Mission School — ICSE, Skills, STEM & Robotics"
-      description="IMS curriculum: ICSE & ISC academic framework, 21st century skills pathways, Evan Moor STEM from Grade 1, and Eduvate Robotics & AI — nurturing mind, body and soul."
-      canonical={siteUrl("/curriculum")}
-      ogTitle="Curriculum | Islamic Mission School"
-      ogDescription="National framework academics, skills for life, world-class STEM, and Robotics & AI at IMS."
-      ogImage={siteUrl(media["robotics-lab-2"].src)}
-      ogUrl={siteUrl("/curriculum")}
-    />
+    <SEOHelmet />
     <PageHero
       eyebrow="Academics"
       title="Curriculum: Nurturing Mind, Body and Soul"

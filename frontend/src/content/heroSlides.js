@@ -1,11 +1,13 @@
 /*
  * Default hero slides. Shown until the admin adds slides in
  * Admin → Hero Slides, and as a fallback if the database is unreachable.
- * Field names match the hero_slides table.
+ * Field names match the hero_slides table. `label` is the short name in the
+ * slide chooser (falls back to the eyebrow).
  */
 const heroSlides = [
   {
     id: "default-campus",
+    label: "Welcome to IMS",
     eyebrow: "Affiliated to CISCE, New Delhi · Est. 2008",
     title: "Shaping Hearts,",
     highlight: "Building Minds",
@@ -19,6 +21,7 @@ const heroSlides = [
   },
   {
     id: "default-admissions",
+    label: "Admissions 2027–28",
     eyebrow: "Admission Open 2027–28",
     title: "Playgroup to Class IX",
     highlight: "& Class XI",
@@ -30,7 +33,19 @@ const heroSlides = [
     cta2_link: "tel:+917417914164",
   },
   {
+    id: "default-naest",
+    label: "National Finalist",
+    eyebrow: "NAEST 2025 · Physics",
+    title: "A National Finalist",
+    highlight: "from IMS",
+    subtitle: "Areeba Fatima (Class XI-B1) reached the final 10 nationwide in the experimental physics test led by Prof. H.C. Verma.",
+    media_key: "naest-2025-16",
+    cta_text: "Our Achievements",
+    cta_link: "/gallery",
+  },
+  {
     id: "default-robotics",
+    label: "Robotics & AI",
     eyebrow: "Robotics & AI Lab",
     title: "Builders of Tomorrow,",
     highlight: "from Grade 1",
@@ -40,23 +55,25 @@ const heroSlides = [
     cta_link: "/curriculum#curriculum-robotics-ai",
   },
   {
+    id: "default-neet",
+    label: "NEET / JEE",
+    eyebrow: "Integrated NEET / JEE Program",
+    title: "One Campus.",
+    highlight: "One Goal.",
+    subtitle: "ICSE schooling synchronised with NEET/JEE preparation from Class IX. Our first-attempt NEET 2024 top score: 690.",
+    media_key: "chemistry-lab-img-2664",
+    cta_text: "Explore the Program",
+    cta_link: "/programs/neet-jee",
+  },
+  {
     id: "default-results",
+    label: "Board Toppers",
     eyebrow: "ICSE & ISC Results 2026",
     title: "Proud of Our",
     highlight: "District Toppers",
     subtitle: "Ibrahim Faisal topped Class X with 95% and Ahmad Misbah topped Class XII with 94% — both District Rank 1.",
     media_key: "quiz-13-jpeg",
     cta_text: "Meet Our Achievers",
-    cta_link: "/programs/neet-jee",
-  },
-  {
-    id: "default-neet",
-    eyebrow: "Integrated NEET / JEE Program",
-    title: "One Campus.",
-    highlight: "One Goal.",
-    subtitle: "ICSE schooling synchronised with NEET/JEE preparation from Class IX — with no external coaching required.",
-    media_key: "chemistry-lab-img-2664",
-    cta_text: "Explore the Program",
     cta_link: "/programs/neet-jee",
   },
 ];

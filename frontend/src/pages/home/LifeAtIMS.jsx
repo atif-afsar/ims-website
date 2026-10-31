@@ -21,7 +21,7 @@ const LifeAtIMS = ({ content }) => (
       </div>
       <div className="mt-14 grid auto-rows-[180px] grid-cols-2 gap-3 md:auto-rows-[220px] md:grid-cols-4">
         {(content.tiles || []).map((t, i) => (
-          <Reveal key={`${t.label}-${i}`} delay={(i % 4) * 0.06} className={SPANS[i] || ""}>
+          <Reveal variant="wipe" key={`${t.label}-${i}`} delay={(i % 4) * 0.08} className={`overflow-hidden rounded-2xl ${SPANS[i] || ""}`}>
             <Link to="/gallery" className="group relative block h-full overflow-hidden rounded-2xl">
               <SmartImg src={t.image} alt={t.label} sizes="(min-width: 768px) 50vw, 50vw" fill className="transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-transparent to-transparent opacity-80 transition-opacity group-hover:opacity-100" aria-hidden="true" />

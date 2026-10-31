@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { supabase } from '../supabaseClient';
+import { adminDb as db } from "../lib/db";
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import { uploadFile } from '../utils/uploadFile';
 
@@ -19,7 +19,7 @@ const ManageGovernance = () => {
   const fetchMembers = async () => {
     try {
       setLoading(true);
-      const { data, error } = await supabase
+      const { data, error } = await db
         .from('governance')
         .select('*')
         .order('sort_order', { ascending: true });
@@ -37,14 +37,14 @@ const ManageGovernance = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        const { error } = await supabase
+        const { error } = await db
           .from('governance')
           .update(formData)
           .eq('id', editingId);
         if (error) throw error;
         setMessage('Member updated successfully!');
       } else {
-        const { error } = await supabase
+        const { error } = await db
           .from('governance')
           .insert([formData]);
         if (error) throw error;
@@ -74,7 +74,7 @@ const ManageGovernance = () => {
   const handleDelete = async (id) => {
     if(!window.confirm("Are you sure?")) return;
     try {
-      const { error } = await supabase.from('governance').delete().eq('id', id);
+      const { error } = await db.from('governance').delete().eq('id', id);
       if (error) throw error;
       fetchMembers();
     } catch (error) {

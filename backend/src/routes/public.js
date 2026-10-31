@@ -2,14 +2,15 @@
  * Read-only API used by the public website. No login required.
  */
 import { Router } from "express";
+import rateLimit from "express-rate-limit";
 import collections, { SETTINGS_KEYS } from "../collections.js";
 import { query, ident } from "../db.js";
 
 const router = Router();
 
-// Browsers and the CDN may cache public content briefly
+// Browsers and the CDN may cache public content briefly (reads only)
 router.use((req, res, next) => {
-  res.set("Cache-Control", "public, max-age=60");
+  res.set("Cache-Control", req.method === "GET" ? "public, max-age=60" : "no-store");
   next();
 });
 
@@ -56,9 +57,54 @@ router.get("/neet", async (req, res) => {
   res.json({ settings, tracks, features, comparison, roadmap, results, faculty, answerKeys });
 });
 
+/* Gallery: active albums, newest first, each with its photos */
+router.get("/gallery", async (req, res) => {
+  const albums = await listPublic("gallery_albums");
+  if (!albums.length) return res.json([]);
+  const photos = await query(
+    `SELECT id, album_id, url, caption FROM gallery_photos WHERE album_id IN (${albums.map(() => "?").join(", ")}) ORDER BY album_id, sort_order, id`,
+    albums.map((a) => a.id)
+  );
+  const byAlbum = Object.groupBy ? Object.groupBy(photos, (p) => p.album_id) : photos.reduce((m, p) => ((m[p.album_id] ||= []).push(p), m), {});
+  res.json(albums.map((a) => ({ ...a, photos: byAlbum[a.id] || [] })).filter((a) => a.photos.length));
+});
+
+/* Contact form: stored for the admin's Enquiries inbox */
+const enquiryLimiter = rateLimit({
+  windowMs: 10 * 60 * 1000,
+  limit: 5,
+  standardHeaders: "draft-8",
+  legacyHeaders: false,
+  message: { error: "Too many messages from this connection. Please try again in a few minutes, or call us." },
+});
+
+const clip = (v, max) => String(v ?? "").trim().slice(0, max);
+const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+router.post("/enquiries", enquiryLimiter, async (req, res) => {
+  const body = req.body || {};
+  // Honeypot: real visitors never see this field
+  if (body.botcheck) return res.status(201).json({ ok: true });
+  const row = {
+    name: clip(body.name, 150),
+    email: clip(body.email, 190),
+    phone: clip(body.phone, 40),
+    subject: clip(body.subject, 150),
+    message: clip(body.message, 5000),
+    page: clip(body.page, 200),
+  };
+  if (!row.name || !row.message) return res.status(400).json({ error: "Please add your name and a message." });
+  if (!row.email && !row.phone) return res.status(400).json({ error: "Please add an email address or phone number so we can reply." });
+  if (row.email && !EMAIL.test(row.email)) return res.status(400).json({ error: "Please check the email address." });
+  await query("INSERT INTO enquiries (name, email, phone, subject, message, page) VALUES (?, ?, ?, ?, ?, ?)", [
+    row.name, row.email || null, row.phone || null, row.subject || null, row.message, row.page || null,
+  ]);
+  res.status(201).json({ ok: true });
+});
+
 router.get("/:collection", async (req, res) => {
   const name = req.params.collection;
-  if (!collections[name]) return res.status(404).json({ error: "Not found" });
+  if (!collections[name] || collections[name].private) return res.status(404).json({ error: "Not found" });
   res.json(await listPublic(name));
 });
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { supabase } from "../supabaseClient";
+import { adminDb as db } from "../lib/db";
 import { presetEvents2026To2027 } from "../content/calendarPresets";
 
 const initialForm = {
@@ -40,7 +40,7 @@ const ManageCalendar = () => {
   const fetchEvents = async () => {
     try {
       setLoading(true);
-      const { data, error } = await supabase
+      const { data, error } = await db
         .from("calendar_events")
         .select("*")
         .order("event_date", { ascending: true });
@@ -95,14 +95,14 @@ const ManageCalendar = () => {
 
     try {
       if (editingId) {
-        const { error } = await supabase
+        const { error } = await db
           .from("calendar_events")
           .update(formData)
           .eq("id", editingId);
         if (error) throw error;
         setMessage("Calendar event updated successfully.");
       } else {
-        const { error } = await supabase.from("calendar_events").insert([formData]);
+        const { error } = await db.from("calendar_events").insert([formData]);
         if (error) throw error;
         setMessage("Calendar event created successfully.");
       }
@@ -131,7 +131,7 @@ const ManageCalendar = () => {
     if (!isConfirmed) return;
 
     try {
-      const { error } = await supabase.from("calendar_events").delete().eq("id", id);
+      const { error } = await db.from("calendar_events").delete().eq("id", id);
       if (error) throw error;
       setMessage("Calendar event deleted.");
       fetchEvents();
@@ -148,7 +148,7 @@ const ManageCalendar = () => {
 
     setMessage("");
     try {
-      const { error } = await supabase.from("calendar_events").insert(presetEvents2026To2027);
+      const { error } = await db.from("calendar_events").insert(presetEvents2026To2027);
       if (error) throw error;
       setMessage(`Imported ${presetEvents2026To2027.length} events successfully.`);
       fetchEvents();

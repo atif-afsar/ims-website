@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { supabase } from '../supabaseClient';
+import { adminDb as db } from "../lib/db";
 import { FaTrash, FaEdit } from 'react-icons/fa';
 
 const ManageClasses = () => {
@@ -30,7 +30,7 @@ const ManageClasses = () => {
   const fetchClasses = async () => {
     try {
       setLoading(true);
-      const { data, error } = await supabase
+      const { data, error } = await db
         .from('classes')
         .select('*')
         .order('sort_order', { ascending: true });
@@ -48,14 +48,14 @@ const ManageClasses = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        const { error } = await supabase
+        const { error } = await db
           .from('classes')
           .update(formData)
           .eq('id', editingId);
         if (error) throw error;
         setMessage('Class updated successfully!');
       } else {
-        const { error } = await supabase
+        const { error } = await db
           .from('classes')
           .insert([formData]);
         if (error) throw error;
@@ -83,7 +83,7 @@ const ManageClasses = () => {
   const handleDelete = async (id) => {
     if(!window.confirm("Are you sure?")) return;
     try {
-      const { error } = await supabase.from('classes').delete().eq('id', id);
+      const { error } = await db.from('classes').delete().eq('id', id);
       if (error) throw error;
       fetchClasses();
     } catch (error) {

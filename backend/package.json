@@ -14,7 +14,9 @@
     "migrate": "node --env-file-if-exists=.env src/cli/migrate.js",
     "create-admin": "node --env-file-if-exists=.env src/cli/create-admin.js",
     "import-supabase": "node --env-file-if-exists=.env src/cli/import-supabase.js",
-    "test": "node --test test/*.test.js"
+    "test": "node --test test/*.test.js",
+    "backup": "node --env-file-if-exists=.env src/cli/backup.js",
+    "restore": "node --env-file-if-exists=.env src/cli/restore.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

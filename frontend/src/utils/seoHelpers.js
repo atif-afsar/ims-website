@@ -1,120 +1,57 @@
-// SEO Helper Functions
+/*
+ * Structured data (schema.org JSON-LD) built from the site's real details in
+ * content/site.js. Never add ratings or reviews here unless they are real,
+ * collected on this site — Google penalises invented ones.
+ */
 import { SITE_ORIGIN } from "../siteMeta";
+import { school, contact, socials } from "../content/site";
+
+const ID = `${SITE_ORIGIN}/#school`;
+
+export const schoolSchema = {
+  "@type": "School",
+  "@id": ID,
+  name: school.name,
+  alternateName: ["IMS Aligarh", "Islamic Mission School Aligarh"],
+  url: `${SITE_ORIGIN}/`,
+  logo: `${SITE_ORIGIN}/images/logo/logo.webp`,
+  image: `${SITE_ORIGIN}/images/og/home.jpg`,
+  description: school.summary,
+  slogan: school.tagline,
+  foundingDate: String(school.established),
+  telephone: contact.phones.map((p) => p.href.replace("tel:", "")),
+  email: contact.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Fort Green City, Near AMU Fort",
+    addressLocality: "Aligarh",
+    addressRegion: "Uttar Pradesh",
+    postalCode: "202001",
+    addressCountry: "IN",
+  },
+  geo: { "@type": "GeoCoordinates", latitude: 27.9314593, longitude: 78.0552577 },
+  hasMap: contact.mapUrl,
+  areaServed: { "@type": "City", name: "Aligarh" },
+  sameAs: socials.map((s) => s.href),
+};
 
 export const webSiteSchema = {
   "@type": "WebSite",
-  name: "Islamic Mission School",
+  "@id": `${SITE_ORIGIN}/#website`,
+  name: school.name,
   alternateName: "IMS Aligarh",
-  url: SITE_ORIGIN,
+  url: `${SITE_ORIGIN}/`,
   inLanguage: "en-IN",
-  publisher: {
-    "@type": "Organization",
-    name: "Islamic Mission School",
-    url: SITE_ORIGIN,
-  },
+  publisher: { "@id": ID },
 };
 
-export const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "Islamic Mission School",
-  "alternateName": "IMS",
-  "url": SITE_ORIGIN,
-  "logo": `${SITE_ORIGIN}/images/logo/logo.webp`,
-  "description": "Islamic Mission School (IMS) is a CISCE-affiliated, value-based educational institution in Aligarh, India, dedicated to academic excellence and character development.",
-  "foundingDate": "2008",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Aligarh",
-    "addressLocality": "Aligarh",
-    "addressRegion": "Uttar Pradesh",
-    "postalCode": "202001",
-    "addressCountry": "IN"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "Customer Service",
-    "telephone": "+91-XXXXXXXXXX",
-    "email": "info@islamicmissionschool.org"
-  },
-  "sameAs": [
-    "https://www.facebook.com/islamicmissionschool",
-    "https://www.instagram.com/islamicmissionschoolaligarh",
-    "https://www.youtube.com/islamicmissionschool"
-  ],
-  "areaServed": "IN",
-  "educationalCredentialAwarded": "CISCE",
-  "knowsAbout": [
-    "Academic Excellence",
-    "Character Development",
-    "Islamic Values",
-    "STEM Education",
-    "Co-curricular Activities"
-  ]
-};
-
-export const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Islamic Mission School",
-  "image": `${SITE_ORIGIN}/images/logo/logo.webp`,
-  "description": "Best school in Aligarh for value-based education and academic excellence",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Aligarh",
-    "addressLocality": "Aligarh",
-    "addressRegion": "Uttar Pradesh",
-    "postalCode": "202001",
-    "addressCountry": "IN"
-  },
-  "telephone": "+91-XXXXXXXXXX",
-  "url": SITE_ORIGIN,
-  "priceRange": "₹₹",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "150"
-  }
-};
-
+/* Home › Section › Page, from a list of { name, path } */
 export const breadcrumbSchema = (items) => ({
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": items.map((item, index) => ({
+  itemListElement: items.map((item, index) => ({
     "@type": "ListItem",
-    "position": index + 1,
-    "name": item.name,
-    "item": item.url
-  }))
-});
-
-export const courseSchema = (course) => ({
-  "@context": "https://schema.org",
-  "@type": "Course",
-  "name": course.name,
-  "description": course.description,
-  "provider": {
-    "@type": "Organization",
-    "name": "Islamic Mission School",
-    url: SITE_ORIGIN,
-  },
-  "image": course.image,
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": course.rating || "4.5",
-    "reviewCount": course.reviewCount || "50"
-  }
-});
-
-export const faqSchema = (faqs) => ({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": faqs.map(faq => ({
-    "@type": "Question",
-    "name": faq.question,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": faq.answer
-    }
-  }))
+    position: index + 1,
+    name: item.name,
+    item: `${SITE_ORIGIN}${item.path}`,
+  })),
 });

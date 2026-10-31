@@ -33,6 +33,16 @@ The API tests run without a database. The end-to-end tests in `test/db.test.js` 
 | `src/routes/public.js` | Read-only data for the website (`/api/public/...`) |
 | `src/routes/admin.js` | Create, update, reorder and delete, plus the homepage builder (`/api/admin/...`) |
 | `src/routes/uploads.js` | Photo and PDF uploads, stored in `uploads/` |
+| `src/cli/` | Command-line tasks: migrate, create-admin, import-supabase, backup, restore |
+
+## Backups
+
+```bash
+npm run backup                         # → backups/ims-backup-<date>.json (all content, no password hashes)
+npm run restore -- backups/<file>.json # replaces the content with the backup
+```
+
+A backup holds the database only. Copy the uploads folder (`UPLOADS_DIR`) as well — it holds every photo and PDF uploaded through the admin.
 
 ## Deploying on Hostinger (Node.js app)
 
@@ -41,4 +51,5 @@ The API tests run without a database. The end-to-end tests in `test/db.test.js` 
 3. Upload the repository, then set the app root to `backend/` and the start command to `npm start`.
 4. Add the variables from `.env.example` in hPanel, with `NODE_ENV=production` and a fresh `JWT_SECRET`.
 5. Run `npm run migrate` and `npm run create-admin` once over SSH.
-6. Keep `uploads/` between deploys. It holds files uploaded through the admin panel.
+6. Set `UPLOADS_DIR` to an absolute folder outside the app folder (e.g. `/home/<user>/ims-uploads`), so a redeploy can never delete the school's uploads.
+7. Take a backup before every update: `npm run backup`, and download it with the uploads folder.

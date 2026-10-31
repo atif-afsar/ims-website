@@ -1,7 +1,5 @@
 import { PiFilePdf } from "react-icons/pi";
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { siteUrl } from "../../siteMeta";
-import media from "../../content/media";
 import { contact } from "../../content/site";
 import { useNeetJeeData } from "../../hooks/useNeetJeeData";
 import { neet2024, mbbsAlumni } from "../../content/neetAchievers";
@@ -65,16 +63,7 @@ const NeetJeePage = () => {
 
   return (
     <>
-      <SEOHelmet
-        title="NEET / JEE Program | Islamic Mission School Aligarh"
-        description="Integrated NEET/JEE program at Islamic Mission School, Aligarh: ICSE schooling synchronised with competitive-exam preparation from Class IX — daily tests, weekly analysis and expert faculty, with no external coaching required."
-        keywords="NEET JEE integrated school Aligarh, NEET coaching school, JEE foundation Class 9, IMS Aligarh NEET"
-        canonical={siteUrl("/programs/neet-jee")}
-        ogTitle="NEET / JEE Program | Islamic Mission School"
-        ogDescription={settings.hero_subtitle}
-        ogImage={siteUrl(media["science-exhibition-7"].src)}
-        ogUrl={siteUrl("/programs/neet-jee")}
-      />
+      <SEOHelmet />
       <PageHero
         eyebrow={settings.hero_badge}
         title={settings.hero_title}

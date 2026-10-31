@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { api } from "../lib/api";
 import { homeSections, sectionByKey, resolveHomeSections } from "../content/homeSections";
-import { ApiAuthGate, useApiAuth } from "./ApiAuth";
 import SchemaForm from "./home/SchemaForm";
+import SectionPreview from "./home/SectionPreview";
 
 const btn = "rounded-lg px-4 py-2 text-sm font-semibold transition disabled:opacity-50";
 
@@ -12,8 +12,7 @@ const btn = "rounded-lg px-4 py-2 text-sm font-semibold transition disabled:opac
  * content/homeSections.js, so nothing breaks if a field is left empty.
  */
 const Builder = () => {
-  const { user, logout } = useApiAuth();
-  const [sections, setSections] = useState(null); // [{ key, visible, content }]
+    const [sections, setSections] = useState(null); // [{ key, visible, content }]
   const [savedOrder, setSavedOrder] = useState("");
   const [editing, setEditing] = useState(null); // section key
   const [draft, setDraft] = useState(null);
@@ -103,11 +102,10 @@ const Builder = () => {
       <div className="flex flex-wrap items-center gap-3">
         <div>
           <h3 className="text-2xl font-bold text-gray-900">Homepage</h3>
-          <p className="text-sm text-gray-600">Choose which sections appear, their order, and what they say. Signed in as {user?.email}.</p>
+          <p className="text-sm text-gray-600">Choose which sections appear, their order, and what they say. Press <b>Edit</b> on a section to change its text and photos — a live preview shows the result before you save.</p>
         </div>
         <div className="ml-auto flex gap-2">
           <a href="/" target="_blank" rel="noreferrer" className={`${btn} border border-gray-300 bg-white hover:bg-gray-50`}>View homepage ↗</a>
-          <button onClick={logout} className={`${btn} text-gray-600 hover:bg-gray-100`}>Log out</button>
         </div>
       </div>
 
@@ -129,10 +127,17 @@ const Builder = () => {
               <button onClick={saveContent} disabled={busy} className={`${btn} bg-emerald-700 text-white hover:bg-emerald-600`}>{busy ? "Saving…" : "Save section"}</button>
             </div>
           </div>
-          <SchemaForm fields={def.fields} value={draft} onChange={setDraft} />
-          <div className="mt-8 flex justify-end gap-2 border-t pt-4">
-            <button onClick={() => setEditing(null)} disabled={busy} className={`${btn} border border-gray-300 hover:bg-gray-50`}>Cancel</button>
-            <button onClick={saveContent} disabled={busy} className={`${btn} bg-emerald-700 text-white hover:bg-emerald-600`}>{busy ? "Saving…" : "Save section"}</button>
+          <div className="grid gap-8 xl:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
+            <div>
+              <SchemaForm fields={def.fields} value={draft} onChange={setDraft} />
+              <div className="mt-8 flex justify-end gap-2 border-t pt-4">
+                <button onClick={() => setEditing(null)} disabled={busy} className={`${btn} border border-gray-300 hover:bg-gray-50`}>Cancel</button>
+                <button onClick={saveContent} disabled={busy} className={`${btn} bg-emerald-700 text-white hover:bg-emerald-600`}>{busy ? "Saving…" : "Save section"}</button>
+              </div>
+            </div>
+            <div className="xl:sticky xl:top-4 xl:self-start">
+              <SectionPreview sectionKey={editing} content={draft} />
+            </div>
           </div>
         </div>
       ) : (
@@ -177,10 +182,6 @@ const Builder = () => {
   );
 };
 
-const ManageHomepage = () => (
-  <ApiAuthGate>
-    <Builder />
-  </ApiAuthGate>
-);
+const ManageHomepage = Builder;
 
 export default ManageHomepage;

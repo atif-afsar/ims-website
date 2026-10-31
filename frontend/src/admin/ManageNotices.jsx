@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { supabase } from '../supabaseClient';
+import { adminDb as db } from "../lib/db";
 import { FaTrash, FaEdit } from 'react-icons/fa';
 
 const ManageNotices = () => {
@@ -17,7 +17,7 @@ const ManageNotices = () => {
   const fetchNotices = async () => {
     try {
       setLoading(true);
-      const { data, error } = await supabase
+      const { data, error } = await db
         .from('notices')
         .select('*')
         .order('created_at', { ascending: false });
@@ -35,14 +35,14 @@ const ManageNotices = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        const { error } = await supabase
+        const { error } = await db
           .from('notices')
           .update(formData)
           .eq('id', editingId);
         if (error) throw error;
         setMessage('Notice updated successfully!');
       } else {
-        const { error } = await supabase
+        const { error } = await db
           .from('notices')
           .insert([formData]);
         if (error) throw error;
@@ -69,7 +69,7 @@ const ManageNotices = () => {
   const handleDelete = async (id) => {
     if(!window.confirm("Are you sure?")) return;
     try {
-      const { error } = await supabase.from('notices').delete().eq('id', id);
+      const { error } = await db.from('notices').delete().eq('id', id);
       if (error) throw error;
       fetchNotices();
     } catch (error) {

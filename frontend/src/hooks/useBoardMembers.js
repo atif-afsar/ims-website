@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../supabaseClient";
+import { publicDb as db } from "../lib/db";
 import { boardFallback } from "../content/about";
 
 const ORDER = ["President", "Vice-President", "Secretary", "Joint Secretary", "Treasurer"];
@@ -23,7 +23,7 @@ export function useBoardMembers() {
 
   useEffect(() => {
     let cancelled = false;
-    supabase
+    db
       .from("governance")
       .select("*")
       .order("sort_order")

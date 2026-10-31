@@ -12,10 +12,10 @@ import { AnimatePresence } from "framer-motion";
 import SiteHeader from "./layout/SiteHeader";
 import SiteFooter from "./layout/SiteFooter";
 import QuickActions from "./layout/QuickActions";
-import AnnouncementPopup from "./layout/AnnouncementPopup";
+import NewsPanel from "./layout/NewsPanel";
 import Loader from "./components/common/loader/Loader";
+import { HERO_READY } from "./pages/home/heroReady";
 
-import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./admin/ProtectedRoute";
 import { ApiAuthProvider } from "./admin/ApiAuth";
 
@@ -34,6 +34,10 @@ const ManagePrograms = lazy(() => import("./admin/ManagePrograms"));
 const ManageClasses = lazy(() => import("./admin/ManageClasses"));
 const ManageCalendar = lazy(() => import("./admin/ManageCalendar"));
 const ManageNeetJee = lazy(() => import("./admin/ManageNeetJee"));
+const ChangePassword = lazy(() => import("./admin/ChangePassword"));
+const ManageGallery = lazy(() => import("./admin/ManageGallery"));
+const ManageEnquiries = lazy(() => import("./admin/ManageEnquiries"));
+const PreviewFrame = lazy(() => import("./admin/home/PreviewFrame"));
 
 // Lazy load pages for code splitting
 const Home = lazy(() => import("./pages/home/HomePage"));
@@ -91,12 +95,27 @@ const ScrollHandler = () => {
 
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  // The admin panel and its preview skip the splash screen
+  const [loading, setLoading] = useState(() => !window.location.pathname.startsWith("/admin"));
 
-  // Initial load only - loader shows only on page refresh
+  // First visit only. On the homepage, stay until the first hero photo has
+  // loaded (so the slider never appears half-drawn), capped at 4 seconds.
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1200);
-    return () => clearTimeout(timer);
+    const started = Date.now();
+    const MIN_MS = 700;
+    let timer;
+    const done = () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => setLoading(false), Math.max(0, MIN_MS - (Date.now() - started)));
+    };
+    const waitForHero = window.location.pathname === "/";
+    if (waitForHero) window.addEventListener(HERO_READY, done, { once: true });
+    const cap = setTimeout(done, waitForHero ? 4000 : MIN_MS);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(cap);
+      window.removeEventListener(HERO_READY, done);
+    };
   }, []);
 
   return (
@@ -158,7 +177,7 @@ function App() {
               </Suspense>
               <SiteFooter />
               <QuickActions />
-              <AnnouncementPopup />
+              <NewsPanel />
             </>
           }
         />
@@ -166,11 +185,9 @@ function App() {
         {/* Admin Routes: only these need the login session */}
         <Route
           element={
-            <AuthProvider>
-              <ApiAuthProvider>
-                <Outlet />
-              </ApiAuthProvider>
-            </AuthProvider>
+            <ApiAuthProvider>
+              <Outlet />
+            </ApiAuthProvider>
           }
         >
           <Route
@@ -179,6 +196,16 @@ function App() {
               <Suspense fallback={<PageLoader />}>
                 <Login />
               </Suspense>
+            }
+          />
+          <Route
+            path="/admin/preview"
+            element={
+              <ProtectedRoute>
+                <Suspense fallback={<PageLoader />}>
+                  <PreviewFrame />
+                </Suspense>
+              </ProtectedRoute>
             }
           />
           <Route
@@ -203,6 +230,9 @@ function App() {
             <Route path="classes" element={<ManageClasses />} />
             <Route path="calendar" element={<ManageCalendar />} />
             <Route path="neet-jee" element={<ManageNeetJee />} />
+            <Route path="account" element={<ChangePassword />} />
+            <Route path="gallery" element={<ManageGallery />} />
+            <Route path="enquiries" element={<ManageEnquiries />} />
             <Route path="*" element={<Dashboard />} />
           </Route>
         </Route>

@@ -1,5 +1,4 @@
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { siteUrl } from "../../siteMeta";
 import { intro, need, curriculum, comparison } from "../../content/valueBased";
 import PageHero from "../../ui/PageHero";
 import SectionNav from "../../ui/SectionNav";
@@ -16,14 +15,7 @@ const sections = [
 
 const ValueBasedPage = () => (
   <>
-    <SEOHelmet
-      title="IMS, A Value Based School | Islamic Mission School — Character & Curriculum"
-      description="Discover how Islamic Mission School integrates values with academics: why value-based schools matter, how values live in the curriculum, and education compared with value-based education."
-      canonical={siteUrl("/ims-value-based-school")}
-      ogTitle="IMS, A Value Based School | Islamic Mission School"
-      ogDescription="Integrated values and learning at IMS — from classroom culture to cooperation for co-existence."
-      ogUrl={siteUrl("/ims-value-based-school")}
-    />
+    <SEOHelmet />
     <PageHero
       eyebrow="Value-Based Education"
       title="IMS, A Value Based School"

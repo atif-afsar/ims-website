@@ -111,6 +111,46 @@ test("settings round-trip", opts, async () => {
   assert.equal(value.phone, "07417914164");
 });
 
+test("gallery: album with photos is public; hidden or empty albums are not; delete cascades", opts, async () => {
+  const album = await (await send("POST", "/api/admin/gallery_albums", { title: "Sports Day 2026", event_date: "2026-02-10", is_active: true })).json();
+  const empty = await (await send("POST", "/api/admin/gallery_albums", { title: "Empty", is_active: true })).json();
+  const photos = await (await send("POST", "/api/admin/gallery_photos", [
+    { album_id: album.id, url: "/uploads/gallery/a.jpg", caption: "Race" },
+    { album_id: album.id, url: "/uploads/gallery/b.jpg" },
+  ])).json();
+  assert.equal(photos.length, 2);
+
+  let pub = await (await fetch(`${base}/api/public/gallery`)).json();
+  assert.deepEqual(pub.map((a) => a.title), ["Sports Day 2026"]);
+  assert.equal(pub[0].photos[0].caption, "Race");
+
+  await send("PUT", `/api/admin/gallery_albums/${album.id}`, { is_active: false });
+  pub = await (await fetch(`${base}/api/public/gallery`)).json();
+  assert.equal(pub.length, 0);
+
+  assert.equal((await send("DELETE", `/api/admin/gallery_albums/${album.id}`)).status, 200);
+  const left = await (await send("GET", "/api/admin/gallery_photos")).json();
+  assert.equal(left.filter((p) => p.album_id === album.id).length, 0);
+  await send("DELETE", `/api/admin/gallery_albums/${empty.id}`);
+});
+
+test("enquiries: validated, stored, private, honeypot ignored", opts, async () => {
+  const post = (body) => fetch(`${base}/api/public/enquiries`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  assert.equal((await post({ name: "", message: "hi", email: "a@b.co" })).status, 400);
+  assert.equal((await post({ name: "Asha", message: "hi" })).status, 400); // no way to reply
+  assert.equal((await post({ name: "Asha", message: "hi", email: "not-an-email" })).status, 400);
+  assert.equal((await post({ name: "Bot", message: "spam", email: "x@y.co", botcheck: "on" })).status, 201);
+  assert.equal((await post({ name: "Asha", phone: "07417914164", subject: "Admission enquiry", message: "Class 5 seat?" })).status, 201);
+
+  assert.equal((await fetch(`${base}/api/public/enquiries`)).status, 404); // never listed publicly
+  const rows = await (await send("GET", "/api/admin/enquiries")).json();
+  assert.deepEqual(rows.map((r) => r.name), ["Asha"]);
+  assert.equal(rows[0].status, "new");
+  await send("PUT", `/api/admin/enquiries/${rows[0].id}`, { status: "replied", notes: "Called back" });
+  const [updated] = await (await send("GET", "/api/admin/enquiries")).json();
+  assert.equal(updated.status, "replied");
+});
+
 test("logout ends the session", opts, async () => {
   const res = await send("POST", "/api/auth/logout");
   assert.match(res.headers.get("set-cookie"), /ims_admin=;/);

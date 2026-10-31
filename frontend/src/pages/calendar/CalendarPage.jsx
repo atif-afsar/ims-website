@@ -1,8 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { PiCaretLeft, PiCaretRight, PiCalendarBlank, PiListBullets, PiSquaresFour } from "react-icons/pi";
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { siteUrl } from "../../siteMeta";
-import { supabase } from "../../supabaseClient";
+import { publicDb as db } from "../../lib/db";
 import { presetEvents2026To2027 } from "../../content/calendarPresets";
 import PageHero from "../../ui/PageHero";
 
@@ -30,7 +29,7 @@ const useEvents = () => {
   const [events, setEvents] = useState(presetEvents2026To2027);
   useEffect(() => {
     let cancelled = false;
-    supabase
+    db
       .from("calendar_events")
       .select("*")
       .eq("is_active", true)
@@ -108,14 +107,7 @@ const CalendarPage = () => {
 
   return (
     <>
-      <SEOHelmet
-        title="School Calendar | Islamic Mission School"
-        description="Islamic Mission School academic calendar: holidays, examinations, activities and announcements for the 2026–27 session."
-        canonical={siteUrl("/calendar")}
-        ogTitle="School Calendar | Islamic Mission School"
-        ogDescription="Holidays, exams, activities and announcements at IMS Aligarh."
-        ogUrl={siteUrl("/calendar")}
-      />
+      <SEOHelmet />
       <PageHero
         eyebrow="Stay Updated"
         title="School Calendar"

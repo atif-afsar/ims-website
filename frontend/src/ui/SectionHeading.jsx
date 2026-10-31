@@ -7,11 +7,11 @@ const SectionHeading = ({ eyebrow, title, lede, align = "left", tone = "dark", c
   return (
     <div className={`${centered ? "mx-auto text-center" : ""} max-w-2xl ${className}`}>
       {eyebrow && (
-        <p className={`mb-4 text-xs font-semibold uppercase tracking-eyebrow ${dark ? "text-emerald-600" : "text-gold-300"}`}>
+        <p className={`mb-4 text-xs font-bold uppercase tracking-eyebrow ${dark ? "text-emerald-600" : "text-gold-300"}`}>
           {eyebrow}
         </p>
       )}
-      <Tag className={`font-display text-4xl font-bold leading-[1.1] md:text-5xl ${dark ? "text-ink" : "text-ivory-50"}`}>
+      <Tag className={`font-display text-4xl font-bold leading-[1.08] md:text-6xl ${dark ? "text-ink" : "text-ivory-50"}`}>
         {title}
       </Tag>
       <GoldDivider className={`mt-6 ${centered ? "justify-center" : ""}`} tone={dark ? "gold" : "light"} />

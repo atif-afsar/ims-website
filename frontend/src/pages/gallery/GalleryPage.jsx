@@ -2,15 +2,14 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { PiX, PiCaretLeft, PiCaretRight } from "react-icons/pi";
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { siteUrl } from "../../siteMeta";
 import media from "../../content/media";
+import { api } from "../../lib/api";
 import PageHero from "../../ui/PageHero";
 import Img from "../../ui/Img";
 
 /* Albums: media groups, plus a few slug patterns for photos filed under "events" */
 const isScienceFair = (p) => ["science-fair-2023-jan", "science-fair-2023-nov", "science-activities"].includes(p.group) || p.name.startsWith("science-exhibition-");
-const albums = [
-  { key: "all", label: "All Photos", test: () => true },
+const libraryAlbums = [
   { key: "naest", label: "NAEST 2025 · Kanpur", test: (p) => p.group === "naest-2025" },
   { key: "science", label: "Science Fairs", test: isScienceFair },
   { key: "camp", label: "Summer Camp 2025", test: (p) => p.group === "summer-camp-2025" },
@@ -29,9 +28,32 @@ const PAGE = 24;
 // Small 423px crops of rooms the old website photographed in higher resolution
 const LOW_RES_DUPLICATE = /^(computer-lab-old-\d|library-\d|science-lab-\d|sports-ground-\d|assembly-flag)$/;
 
+// Every photo is { key, src, srcSet?, alt, name? } — `name` marks a library photo
 const photos = Object.entries(media)
   .filter(([name, m]) => m.group !== "toppers" && !LOW_RES_DUPLICATE.test(name))
-  .map(([name, m]) => ({ name, ...m }));
+  .map(([name, m]) => ({ key: name, name, ...m }));
+
+const fmtDate = (d) => (d ? new Date(`${String(d).slice(0, 10)}T00:00:00`).toLocaleDateString("en-IN", { month: "long", year: "numeric" }) : "");
+
+/* Albums added in Admin → Gallery (newest events first), followed by the photo library */
+const useAlbums = () => {
+  const [uploaded, setUploaded] = useState([]);
+  useEffect(() => {
+    api.get("/public/gallery").then(setUploaded).catch(() => {});
+  }, []);
+  return useMemo(() => {
+    const fromAdmin = uploaded.map((a) => ({
+      key: `album-${a.id}`,
+      label: a.title,
+      description: a.description,
+      date: a.event_date,
+      items: a.photos.map((p) => ({ key: `photo-${p.id}`, src: p.url, alt: p.caption || a.title })),
+    }));
+    const library = libraryAlbums.map((a) => ({ key: a.key, label: a.label, items: photos.filter(a.test) }));
+    const all = { key: "all", label: "All Photos", items: [...fromAdmin.flatMap((a) => a.items), ...photos] };
+    return [all, ...fromAdmin, ...library].filter((a) => a.items.length);
+  }, [uploaded]);
+};
 
 const Lightbox = ({ items, index, onClose, onMove }) => {
   const item = items[index];
@@ -73,7 +95,7 @@ const Lightbox = ({ items, index, onClose, onMove }) => {
       <div className="relative flex flex-1 items-center justify-center px-4 pb-4 md:px-20">
         <AnimatePresence mode="wait">
           <motion.img
-            key={item.name}
+            key={item.key}
             src={item.src}
             srcSet={item.srcSet}
             sizes="100vw"
@@ -98,7 +120,9 @@ const GalleryPage = () => {
   const [open, setOpen] = useState(null);
   const [shown, setShown] = useState(PAGE);
 
-  const items = useMemo(() => photos.filter(albums.find((a) => a.key === album).test), [album]);
+  const albums = useAlbums();
+  const current = albums.find((a) => a.key === album) || albums[0];
+  const items = current.items;
   const choose = (key) => {
     setAlbum(key);
     setShown(PAGE);
@@ -109,16 +133,7 @@ const GalleryPage = () => {
 
   return (
     <>
-      <SEOHelmet
-        title="Gallery | Islamic Mission School"
-        description="Photo gallery of Islamic Mission School, Aligarh — events, Robotics & AI lab, classrooms, laboratories, campus and sports."
-        keywords="Islamic Mission School gallery, IMS photos, campus, Aligarh school"
-        canonical={siteUrl("/gallery")}
-        ogTitle="Gallery | Islamic Mission School"
-        ogDescription="Explore life at IMS through our photo gallery."
-        ogImage={siteUrl(media["science-exhibition-8"].src)}
-        ogUrl={siteUrl("/gallery")}
-      />
+      <SEOHelmet />
       <PageHero
         eyebrow="Life at IMS"
         title="Gallery"
@@ -131,9 +146,8 @@ const GalleryPage = () => {
         <div className="mx-auto max-w-site px-4 md:px-8">
           <div role="tablist" aria-label="Albums" className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-2 md:mx-0 md:flex-wrap md:px-0">
             {albums.map((a) => {
-              const count = photos.filter(a.test).length;
-              if (!count) return null;
-              const selected = album === a.key;
+              const count = a.items.length;
+              const selected = current.key === a.key;
               return (
                 <button
                   key={a.key}
@@ -150,18 +164,29 @@ const GalleryPage = () => {
             })}
           </div>
 
+          {(current.description || current.date) && (
+            <div className="mt-8 max-w-3xl">
+              {current.date && <p className="text-xs font-bold uppercase tracking-eyebrow text-gold-600">{fmtDate(current.date)}</p>}
+              {current.description && <p className="mt-2 leading-relaxed text-ink/70">{current.description}</p>}
+            </div>
+          )}
+
           <motion.div layout className="mt-10 columns-2 gap-3 md:columns-3 lg:columns-4">
             {items.slice(0, shown).map((p, i) => (
               <motion.button
                 layout
-                key={p.name}
+                key={p.key}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 onClick={() => setOpen(i)}
                 className="group relative mb-3 block w-full break-inside-avoid overflow-hidden rounded-2xl"
                 aria-label={`Open photo: ${p.alt}`}
               >
-                <Img name={p.name} sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw" className="transition-transform duration-700 group-hover:scale-105" />
+                {p.name ? (
+                  <Img name={p.name} sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw" className="transition-transform duration-700 group-hover:scale-105" />
+                ) : (
+                  <img src={p.src} alt="" loading="lazy" decoding="async" className="w-full bg-emerald-50 transition-transform duration-700 group-hover:scale-105" />
+                )}
                 <span className="absolute inset-0 bg-gradient-to-t from-emerald-900/70 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true" />
               </motion.button>
             ))}

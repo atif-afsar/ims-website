@@ -1,8 +1,6 @@
 import { Link } from "react-router";
 import { HiArrowRight } from "react-icons/hi2";
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { siteUrl } from "../../siteMeta";
-import media from "../../content/media";
 import { overview, facilities, facilityOrder } from "../../content/campus";
 import PageHero from "../../ui/PageHero";
 import SectionNav from "../../ui/SectionNav";
@@ -45,15 +43,7 @@ export const FacilityCards = ({ exclude }) => (
 
 const CampusPage = () => (
   <>
-    <SEOHelmet
-      title="Campus & Facilities | Islamic Mission School Aligarh"
-      description="Explore the IMS campus near Aligarh Muslim University: sun-lit classrooms, Physics, Chemistry, Biology, Computer Science and Robotics labs, library, conference hall, medical room and sports grounds."
-      canonical={siteUrl("/facilities")}
-      ogTitle="Campus & Facilities | Islamic Mission School"
-      ogDescription="Campus, labs, library, conference hall and learning spaces at IMS Aligarh."
-      ogImage={siteUrl(media["campus-aerial-front"].src)}
-      ogUrl={siteUrl("/facilities")}
-    />
+    <SEOHelmet />
     <PageHero
       eyebrow="Campus"
       title="A Campus Built for Learning"

@@ -1,16 +1,13 @@
+import { Navigate, useLocation } from "react-router";
+import { AuthStatusScreen, useApiAuth } from "./ApiAuth";
 
-import React from 'react';
-import { Navigate } from 'react-router';
-import { useAuth } from '../context/AuthContext';
-
+/* Every /admin page sits behind this: no session → the login page */
 const ProtectedRoute = ({ children }) => {
-  // AuthProvider only renders children once the session check has finished
-  const { user } = useAuth();
+  const { status } = useApiAuth();
+  const location = useLocation();
 
-  if (!user) {
-    return <Navigate to="/admin/login" replace />;
-  }
-
+  if (status === "checking" || status === "offline") return <AuthStatusScreen />;
+  if (status === "out") return <Navigate to="/admin/login" replace state={{ from: location.pathname }} />;
   return children;
 };
 

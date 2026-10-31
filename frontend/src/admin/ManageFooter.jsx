@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { supabase } from '../supabaseClient';
+import { adminDb as db } from "../lib/db";
 import { FaSave, FaTrash } from 'react-icons/fa';
 
 const ManageFooter = () => {
@@ -34,11 +34,11 @@ const ManageFooter = () => {
   const fetchData = async () => {
     try {
       // Fetch Contact Info
-      const { data: contactData } = await supabase.from('contact_info').select('*').single();
+      const { data: contactData } = await db.from('contact_info').select('*').single();
       if (contactData) setContactInfo(contactData);
 
       // Fetch Social Links
-      const { data: socialData } = await supabase.from('social_links').select('*');
+      const { data: socialData } = await db.from('social_links').select('*');
       setSocialLinks(socialData || []);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -49,7 +49,7 @@ const ManageFooter = () => {
     e.preventDefault();
     try {
       if (contactInfo.id) {
-        const { error } = await supabase
+        const { error } = await db
           .from('contact_info')
           .update({ 
             address: contactInfo.address, 
@@ -59,7 +59,7 @@ const ManageFooter = () => {
           .eq('id', contactInfo.id);
         if (error) throw error;
       } else {
-        const { data, error } = await supabase
+        const { data, error } = await db
           .from('contact_info')
           .insert([{
             address: contactInfo.address,
@@ -88,7 +88,7 @@ const ManageFooter = () => {
         icon_class: selectedPlatform.icon
       };
       
-      const { error } = await supabase.from('social_links').insert([linkData]);
+      const { error } = await db.from('social_links').insert([linkData]);
       if (error) throw error;
       setNewLink({ platform: 'facebook', url: '' });
       fetchData();
@@ -101,7 +101,7 @@ const ManageFooter = () => {
   const handleDeleteLink = async (id) => {
     if (!window.confirm('Delete this link?')) return;
     try {
-      const { error } = await supabase.from('social_links').delete().eq('id', id);
+      const { error } = await db.from('social_links').delete().eq('id', id);
       if (error) throw error;
       fetchData();
     } catch (error) {

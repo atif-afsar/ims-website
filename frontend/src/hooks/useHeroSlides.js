@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../supabaseClient";
+import { publicDb as db } from "../lib/db";
 import defaultSlides from "../content/heroSlides";
 
 const CACHE_KEY = "ims-hero-slides";
@@ -12,11 +12,20 @@ const live = (slides) => {
   return slides.filter((s) => (!s.starts_on || s.starts_on <= d) && (!s.ends_on || s.ends_on >= d));
 };
 
+/*
+ * The slides to show: the admin's active, in-date slides; the built-in
+ * slides only when there are none, so the hero is never empty.
+ */
+export const pickSlides = (rows) => {
+  const current = live((rows || []).filter((s) => s.is_active !== false && s.is_active !== 0));
+  return current.length ? current : defaultSlides;
+};
+
 // Last slides seen by this browser, so returning visitors don't see the defaults flash first
 const readCache = () => {
   try {
     const cached = JSON.parse(localStorage.getItem(CACHE_KEY));
-    return Array.isArray(cached) && live(cached).length ? live(cached) : null;
+    return Array.isArray(cached) ? pickSlides(cached) : null;
   } catch {
     return null;
   }
@@ -32,15 +41,14 @@ export function useHeroSlides() {
 
   useEffect(() => {
     let cancelled = false;
-    supabase
+    db
       .from("hero_slides")
       .select("*")
       .eq("is_active", true)
       .order("sort_order")
       .then(({ data, error }) => {
         if (cancelled || error) return;
-        const current = live(data || []);
-        setSlides(current.length ? current : defaultSlides);
+        setSlides(pickSlides(data));
         try {
           localStorage.setItem(CACHE_KEY, JSON.stringify(data || []));
         } catch {

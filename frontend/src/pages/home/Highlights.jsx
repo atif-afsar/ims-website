@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router";
+import { motion, useInView, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { HiArrowRight } from "react-icons/hi2";
 import Reveal from "../../ui/Reveal";
 import SmartImg from "../../ui/SmartImg";
-import SectionHeading from "../../ui/SectionHeading";
 import IconBadge from "../../ui/IconBadge";
-import Button from "../../ui/Button";
 import { Star8 } from "../../ui/Ornaments";
 
 // Faces sit in different places in each library photo
@@ -14,70 +14,87 @@ const FOCUS = {
   "media:student-speech-2": "50% 30%",
 };
 
-const Highlights = ({ content }) => {
-  const programmes = content.programmes || [];
-  const [activeIndex, setActiveIndex] = useState(0);
-  const active = programmes[Math.min(activeIndex, programmes.length - 1)];
-  if (!active) return null;
+/* One programme: photo with a slow parallax drift, text card beside it */
+const Programme = ({ p, i, onActive }) => {
+  const ref = useRef(null);
+  const reduce = useReducedMotion();
+  const inView = useInView(ref, { margin: "-45% 0px -45% 0px" });
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["-8%", "8%"]);
+
+  useEffect(() => {
+    if (inView) onActive(i);
+  }, [inView, i, onActive]);
 
   return (
-    <section className="relative overflow-hidden bg-ivory-100 py-24 md:py-32">
-      <Star8 className="pointer-events-none absolute -right-28 top-16 h-96 w-96 text-emerald-700/[0.06]" strokeWidth={0.8} />
-      <div className="relative mx-auto max-w-site px-4 md:px-8">
-        <Reveal>
-          <SectionHeading eyebrow={content.eyebrow} title={content.title} />
-        </Reveal>
-
-        <Reveal delay={0.1} className="mt-10">
-          <div role="tablist" aria-label="Programmes" className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-2 md:mx-0 md:flex-wrap md:px-0">
-            {programmes.map((p, i) => {
-              const selected = p === active;
-              return (
-                <button
-                  key={`${p.label}-${i}`}
-                  role="tab"
-                  aria-selected={selected}
-                  aria-controls="programme-panel"
-                  onClick={() => setActiveIndex(i)}
-                  className={`shrink-0 rounded-full border px-5 py-2.5 text-sm font-semibold transition-all ${
-                    selected ? "border-emerald-700 bg-emerald-700 text-ivory-50 shadow-card" : "border-emerald-700/20 text-ink/70 hover:border-emerald-700/60 hover:text-emerald-700"
-                  }`}
-                >
-                  {p.label}
-                </button>
-              );
-            })}
+    <article ref={ref} id={`programme-${i}`} className="scroll-mt-28">
+      <Reveal variant="wipe" className="relative aspect-[16/10] overflow-hidden rounded-3xl">
+        <motion.div className="absolute inset-[-10%_0]" style={{ y }}>
+          <SmartImg src={p.image} position={FOCUS[p.image]} fill sizes="(min-width: 1024px) 60vw, 100vw" />
+        </motion.div>
+        <span className="absolute left-5 top-5 rounded-full bg-ivory-50/95 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-emerald-800 shadow-card">{p.label}</span>
+      </Reveal>
+      <Reveal delay={0.1} className="relative -mt-12 ml-4 mr-4 rounded-3xl bg-ivory-50 p-7 shadow-lift md:ml-10 md:mr-0 md:p-9">
+        <div className="flex items-start gap-5">
+          <IconBadge icon={p.icon} size="lg" className="hidden sm:inline-flex" />
+          <div>
+            {p.kicker && <p className="text-xs font-bold uppercase tracking-[0.14em] text-gold-600">{p.kicker}</p>}
+            <h3 className="mt-2 font-display text-2xl font-bold leading-tight text-ink md:text-3xl">{p.title}</h3>
+            <p className="mt-3 leading-relaxed text-ink/70">{p.text}</p>
+            {p.link && (
+              <Link to={p.link} className="group mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.14em] text-emerald-700">
+                <span className="border-b border-current pb-0.5">Learn more</span>
+                <HiArrowRight className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </Link>
+            )}
           </div>
-        </Reveal>
+        </div>
+      </Reveal>
+    </article>
+  );
+};
 
-        <div id="programme-panel" role="tabpanel" className="relative mt-10 lg:mt-14">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`${active.label}-${activeIndex}`}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="grid items-center lg:grid-cols-12"
-            >
-              <div className="lg:col-start-1 lg:col-end-9 lg:row-start-1">
-                <SmartImg src={active.image} position={FOCUS[active.image]} sizes="(min-width: 1024px) 66vw, 100vw" className="aspect-[16/10] rounded-2xl shadow-lift" />
-              </div>
-              <div className="relative z-10 mx-4 -mt-16 lg:col-start-8 lg:col-end-13 lg:row-start-1 lg:mx-0 lg:mt-0">
-                <div className="rounded-2xl border-t-4 border-gold-400 bg-ivory-50 p-8 shadow-lift md:p-10">
-                  <IconBadge icon={active.icon} size="lg" />
-                  <h3 className="mt-6 font-display text-3xl font-bold leading-tight text-ink">{active.title}</h3>
-                  {active.kicker && (
-                    <p className="mt-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-gold-600">
-                      <span className="h-px w-8 bg-gold-500" aria-hidden="true" /> {active.kicker}
-                    </p>
-                  )}
-                  <p className="mt-5 leading-relaxed text-ink/70">{active.text}</p>
-                  {active.link && <Button to={active.link} variant="emerald" className="mt-8">Learn more</Button>}
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+/*
+ * Programme highlights, ISB "Discover & Experience" style: a sticky list of
+ * programme names on the left that follows the photo cards scrolling on the right.
+ */
+const Highlights = ({ content }) => {
+  const programmes = content.programmes || [];
+  const [active, setActive] = useState(0);
+  if (!programmes.length) return null;
+
+  const jump = (i) => document.getElementById(`programme-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  return (
+    <section className="relative bg-ivory-100 py-24 md:py-32">
+      <Star8 className="pointer-events-none absolute -right-28 top-16 h-96 w-96 text-emerald-700/[0.06]" strokeWidth={0.8} />
+      <div className="relative mx-auto grid max-w-site gap-12 px-4 md:px-8 lg:grid-cols-12">
+        {/* Sticky side */}
+        <div className="lg:col-span-4">
+          <div className="lg:sticky lg:top-32">
+            <Reveal>
+              {content.eyebrow && <p className="mb-4 text-xs font-bold uppercase tracking-eyebrow text-emerald-600">{content.eyebrow}</p>}
+              <h2 className="font-display text-4xl font-bold leading-[1.08] text-ink md:text-5xl">{content.title}</h2>
+            </Reveal>
+            <ol className="mt-10 hidden border-l border-emerald-900/10 lg:block">
+              {programmes.map((p, i) => (
+                <li key={`${p.label}-${i}`}>
+                  <button
+                    onClick={() => jump(i)}
+                    className={`relative -ml-px flex w-full items-baseline gap-4 border-l-2 py-3 pl-6 text-left transition-all duration-500 ${i === active ? "border-gold-500 text-emerald-800" : "border-transparent text-ink/40 hover:text-ink/70"}`}
+                  >
+                    <span className="font-display text-sm">{String(i + 1).padStart(2, "0")}</span>
+                    <span className={`font-display font-bold transition-all duration-500 ${i === active ? "text-2xl" : "text-lg"}`}>{p.label}</span>
+                  </button>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+
+        {/* Scrolling programmes */}
+        <div className="space-y-16 md:space-y-24 lg:col-span-8">
+          {programmes.map((p, i) => <Programme key={`${p.label}-${i}`} p={p} i={i} onActive={setActive} />)}
         </div>
       </div>
     </section>

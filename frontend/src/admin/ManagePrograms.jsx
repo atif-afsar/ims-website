@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { supabase } from '../supabaseClient';
+import { adminDb as db } from "../lib/db";
 import { uploadFile } from '../utils/uploadFile';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 
@@ -25,7 +25,7 @@ const ManagePrograms = () => {
   const fetchPrograms = async () => {
     try {
       setLoading(true);
-      const { data, error } = await supabase
+      const { data, error } = await db
         .from('programs')
         .select('*')
         .order('sort_order', { ascending: true });
@@ -43,14 +43,14 @@ const ManagePrograms = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        const { error } = await supabase
+        const { error } = await db
           .from('programs')
           .update(formData)
           .eq('id', editingId);
         if (error) throw error;
         setMessage('Program updated successfully!');
       } else {
-        const { error } = await supabase
+        const { error } = await db
           .from('programs')
           .insert([formData]);
         if (error) throw error;
@@ -79,7 +79,7 @@ const ManagePrograms = () => {
   const handleDelete = async (id) => {
     if(!window.confirm("Are you sure?")) return;
     try {
-      const { error } = await supabase.from('programs').delete().eq('id', id);
+      const { error } = await db.from('programs').delete().eq('id', id);
       if (error) throw error;
       fetchPrograms();
     } catch (error) {

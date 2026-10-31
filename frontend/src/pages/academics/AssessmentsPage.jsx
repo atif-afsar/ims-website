@@ -1,5 +1,4 @@
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { siteUrl } from "../../siteMeta";
 import { intro, summative, chapter, olympiads, nation } from "../../content/assessments";
 import PageHero from "../../ui/PageHero";
 import SectionNav from "../../ui/SectionNav";
@@ -18,14 +17,7 @@ const sections = [
 
 const AssessmentsPage = () => (
   <>
-    <SEOHelmet
-      title="Assessments at IMS | Islamic Mission School — Formative, Summative & Olympiad"
-      description="Assessments at Islamic Mission School: Summative & Formative Assessments, Chapter Assessments, and Olympiad Exams (NCO, NSO, IMO, IEO) — embedded in the learning process to nurture HOTS."
-      canonical={siteUrl("/assessments")}
-      ogTitle="Assessments at IMS | Islamic Mission School"
-      ogDescription="How IMS evaluates learning: Formative & Summative assessments, Chapter assessments, and Olympiads."
-      ogUrl={siteUrl("/assessments")}
-    />
+    <SEOHelmet />
     <PageHero
       eyebrow="Academics"
       title="Assessments at IMS"

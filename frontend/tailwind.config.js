@@ -10,10 +10,13 @@ export default {
         emerald: {
           50: "#EAF2ED",
           100: "#CFE2D6",
+          400: "#3E8A5E",
+          500: "#1B6B40",
           600: "#0A4E26",
           700: "#003C24",
           800: "#002E1C",
           900: "#002014",
+          950: "#00140C",
         },
         gold: {
           100: "#F8EBC8",
@@ -39,9 +42,10 @@ export default {
       },
       borderRadius: { arch: "999px 999px 24px 24px" },
       keyframes: {
-        "ken-burns": { "0%": { transform: "scale(1.04)" }, "100%": { transform: "scale(1.14)" } },
+        "ken-burns": { "0%": { transform: "scale(1)" }, "100%": { transform: "scale(1.06)" } },
+        "bell-ring": { "0%, 100%": { transform: "rotate(0)" }, "10%, 30%": { transform: "rotate(14deg)" }, "20%, 40%": { transform: "rotate(-12deg)" }, "50%": { transform: "rotate(0)" } },
       },
-      animation: { "ken-burns": "ken-burns 24s ease-out both" },
+      animation: { "ken-burns": "ken-burns 24s ease-out both", "bell-ring": "bell-ring 1.8s ease-in-out 2s 3" },
     },
   },
   plugins: [],

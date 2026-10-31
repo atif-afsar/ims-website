@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { PiCheckCircle, PiWarningCircle, PiPaperPlaneTilt } from "react-icons/pi";
+import { api } from "../lib/api";
 
 // Web3Forms delivers submissions to the school's inbox (same key as the old site)
 const WEB3FORMS_KEY = "55a7d4ae-4830-4d4e-b4c5-654918d61b87";
@@ -17,17 +18,26 @@ const ContactForm = () => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
+    const fields = Object.fromEntries(["name", "phone", "email", "subject", "message", "botcheck"].map((k) => [k, data.get(k) || ""]));
+    setStatus("sending");
+
+    // 1. Save it in the admin's Enquiries inbox  2. Email it to the school (Web3Forms)
     data.append("access_key", WEB3FORMS_KEY);
     data.append("from_name", "IMS Website");
-    setStatus("sending");
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: data });
-      const json = await res.json();
-      if (!json.success) throw new Error(json.message || "Please try again.");
+    const [saved, emailed] = await Promise.allSettled([
+      api.post("/public/enquiries", { ...fields, page: window.location.pathname }),
+      fetch("https://api.web3forms.com/submit", { method: "POST", body: data }).then(async (res) => {
+        const json = await res.json();
+        if (!json.success) throw new Error(json.message || "Please try again.");
+      }),
+    ]);
+
+    if (saved.status === "fulfilled" || emailed.status === "fulfilled") {
       setStatus("sent");
       form.reset();
-    } catch (err) {
-      setError(err.message);
+    } else {
+      // The server's message (e.g. "Please check the email address") is the most useful one
+      setError(saved.reason?.status === 400 || saved.reason?.status === 429 ? saved.reason.message : "Please check your connection, or call us.");
       setStatus("error");
     }
   };

@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import { PiPhone, PiWhatsappLogo } from "react-icons/pi";
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { siteUrl } from "../../siteMeta";
-import { supabase } from "../../supabaseClient";
+import { publicDb as db } from "../../lib/db";
 import { contact, admissions } from "../../content/site";
 import { admissionNote } from "../../dummydata";
 import PageHero from "../../ui/PageHero";
@@ -41,7 +40,7 @@ const useClasses = () => {
   const [classes, setClasses] = useState([]);
   useEffect(() => {
     let cancelled = false;
-    supabase
+    db
       .from("classes")
       .select("name, age_criteria, group_category, sort_order")
       .order("sort_order")
@@ -67,15 +66,7 @@ const ClassesPage = () => {
 
   return (
     <>
-      <SEOHelmet
-        title="Classes & Admissions | Islamic Mission School Aligarh"
-        description={`Admission open ${admissions.session} at Islamic Mission School, Aligarh: ${admissions.classes} and ${admissions.seniorClasses} (${admissions.streams.join(", ")}). Value-based education, strong academics and character development.`}
-        keywords="school admissions Aligarh, IMS admissions, Play Group admission Aligarh, Class XI PCM PCB Commerce Humanities Aligarh"
-        canonical={siteUrl("/classes")}
-        ogTitle="Classes & Admissions | Islamic Mission School"
-        ogDescription={`Admission open for ${admissions.session}.`}
-        ogUrl={siteUrl("/classes")}
-      />
+      <SEOHelmet />
       <PageHero
         eyebrow={`Admission Open ${admissions.session}`}
         title="Classes & Admissions"

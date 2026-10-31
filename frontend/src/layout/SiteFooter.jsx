@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router";
-import { PiMapPin, PiPhone, PiEnvelope, PiWhatsappLogo, PiArrowUp } from "react-icons/pi";
+import { PiMapPin, PiPhone, PiEnvelope, PiWhatsappLogo, PiArrowUp, PiArrowUpRight } from "react-icons/pi";
 import { navigation, contact, school, admissions } from "../content/site";
 import Button from "../ui/Button";
-import { GoldDivider, PatternBg, Star8 } from "../ui/Ornaments";
+import { GoldDivider, PatternBg, Star8, Sparkle } from "../ui/Ornaments";
 import SocialLinks from "./SocialLinks";
 
 const FooterHeading = ({ children }) => (
@@ -110,6 +110,35 @@ const SiteFooter = () => {
           >
             Back to top <PiArrowUp aria-hidden="true" />
           </button>
+        </div>
+      </div>
+
+      {/* Credit */}
+      <div className="relative border-t border-gold-500/15 bg-black/20">
+        <div className="mx-auto flex max-w-site flex-col items-center justify-center gap-2 px-4 py-5 text-center text-[13px] text-ivory-100/55 sm:flex-row sm:gap-3 md:px-8">
+          <span className="flex items-center gap-2 uppercase tracking-[0.2em] text-[10px] font-semibold text-ivory-100/45">
+            <Sparkle className="h-2.5 w-2.5 text-gold-400" /> Designed &amp; built by
+          </span>
+          <span className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+            <a
+              href="https://portfolio-rgzt.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative font-display text-[15px] font-bold italic text-gold-300 transition-colors hover:text-gold-100"
+            >
+              Atif Afsar
+              <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-gold-300 transition-all duration-300 group-hover:w-full" aria-hidden="true" />
+            </a>
+            <span className="text-ivory-100/35" aria-hidden="true">·</span>
+            <a
+              href="https://thebrandsway.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-gold-400/30 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-ivory-50 transition-all hover:border-gold-300 hover:bg-gold-400 hover:text-emerald-900"
+            >
+              BrandsWay <PiArrowUpRight aria-hidden="true" />
+            </a>
+          </span>
         </div>
       </div>
     </footer>

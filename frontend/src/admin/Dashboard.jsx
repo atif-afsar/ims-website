@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router';
-import { FaBullhorn, FaUserTie, FaShareAlt, FaBook, FaChalkboardTeacher, FaCalendarAlt, FaFlask } from 'react-icons/fa';
+import { FaBullhorn, FaUserTie, FaShareAlt, FaBook, FaChalkboardTeacher, FaCalendarAlt, FaFlask, FaHome, FaImages, FaWindowRestore, FaQuoteLeft, FaInbox, FaPhotoVideo } from 'react-icons/fa';
 
 const Dashboard = () => {
   return (
@@ -9,6 +9,42 @@ const Dashboard = () => {
       <p>Select a section to manage content.</p>
       
       <div className="dashboard-grid">
+        <Link to="/admin/enquiries" className="dash-card">
+          <div className="dash-icon"><FaInbox /></div>
+          <h3>Enquiries</h3>
+          <p>Messages from the website’s contact form.</p>
+        </Link>
+
+        <Link to="/admin/gallery" className="dash-card">
+          <div className="dash-icon"><FaPhotoVideo /></div>
+          <h3>Gallery</h3>
+          <p>Albums and photos from school events.</p>
+        </Link>
+
+        <Link to="/admin/homepage" className="dash-card">
+          <div className="dash-icon"><FaHome /></div>
+          <h3>Homepage</h3>
+          <p>Order, show/hide and edit homepage sections.</p>
+        </Link>
+
+        <Link to="/admin/hero-slides" className="dash-card">
+          <div className="dash-icon"><FaImages /></div>
+          <h3>Hero Slides</h3>
+          <p>Photos and headlines at the top of the homepage.</p>
+        </Link>
+
+        <Link to="/admin/popup" className="dash-card">
+          <div className="dash-icon"><FaWindowRestore /></div>
+          <h3>Announcements</h3>
+          <p>News shown in the bell panel on every page.</p>
+        </Link>
+
+        <Link to="/admin/testimonials" className="dash-card">
+          <div className="dash-icon"><FaQuoteLeft /></div>
+          <h3>Testimonials</h3>
+          <p>Quotes from parents, students and alumni.</p>
+        </Link>
+
         <Link to="/admin/notices" className="dash-card">
           <div className="dash-icon"><FaBullhorn /></div>
           <h3>Notices</h3>

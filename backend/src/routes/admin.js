@@ -5,6 +5,7 @@
 import { Router } from "express";
 import collections, { cleanRow, SETTINGS_KEYS } from "../collections.js";
 import { query, ident, pool } from "../db.js";
+import { removeUploadedFile } from "./uploads.js";
 
 const router = Router();
 
@@ -151,11 +152,24 @@ router.put("/:collection/:id", async (req, res) => {
   res.json(await getRow(name, req.params.id));
 });
 
+// Files that belong only to a gallery row are deleted with it
+const filesOf = async (name, id) => {
+  if (name === "gallery_photos") return (await query("SELECT url FROM gallery_photos WHERE id = ?", [id])).map((r) => r.url);
+  if (name === "gallery_albums") {
+    const photos = await query("SELECT url FROM gallery_photos WHERE album_id = ?", [id]);
+    const [album] = await query("SELECT cover_url FROM gallery_albums WHERE id = ?", [id]);
+    return [...photos.map((r) => r.url), album?.cover_url];
+  }
+  return [];
+};
+
 router.delete("/:collection/:id", async (req, res) => {
   const name = req.params.collection;
   load(name);
+  const files = await filesOf(name, req.params.id);
   const result = await query(`DELETE FROM ${ident(name)} WHERE id = ?`, [req.params.id]);
   if (!result.affectedRows) return res.status(404).json({ error: "Not found" });
+  files.forEach(removeUploadedFile);
   res.json({ ok: true });
 });
 

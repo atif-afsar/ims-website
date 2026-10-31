@@ -1,6 +1,4 @@
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { siteUrl } from "../../siteMeta";
-import media from "../../content/media";
 import { introduction, vision, mission, hadith, historyIntro, history, governanceIntro, affiliation } from "../../content/about";
 import { useBoardMembers } from "../../hooks/useBoardMembers";
 import PageHero from "../../ui/PageHero";
@@ -33,16 +31,7 @@ const AboutPage = () => {
 
   return (
     <>
-      <SEOHelmet
-        title="About Islamic Mission School (IMS) | Shaping Hearts, Building Minds"
-        description="Islamic Mission School (IMS), established in 2008, is a CISCE-affiliated, value-based institution in Aligarh. We blend academic excellence with moral, spiritual and character development to nurture compassionate, confident and responsible future leaders."
-        keywords="Islamic Mission School, IMS Aligarh, value based education, CISCE school Aligarh, Islamic school India, character building school, moral education"
-        canonical={siteUrl("/about")}
-        ogTitle="About IMS | Shaping Hearts, Building Minds"
-        ogDescription="At Islamic Mission School, education goes beyond academics. We nurture intellect, character and faith through a value-based, future-ready curriculum."
-        ogImage={siteUrl(media["campus-aerial-front"].src)}
-        ogUrl={siteUrl("/about")}
-      />
+      <SEOHelmet />
       <PageHero
         eyebrow="About IMS · Est. 2008"
         title="Shaping Hearts, Building Minds"

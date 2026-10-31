@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { PiCaretLeft, PiCaretRight, PiDownloadSimple, PiArrowsOut, PiArrowsIn } from "react-icons/pi";
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { siteUrl } from "../../siteMeta";
 import brochure from "../../content/brochure";
 import PageHero from "../../ui/PageHero";
 import Button from "../../ui/Button";
@@ -110,15 +109,7 @@ const BrochurePage = () => {
 
   return (
     <>
-      <SEOHelmet
-        title="Digital Brochure | Islamic Mission School"
-        description="Browse the Islamic Mission School digital brochure — our vision, curriculum, facilities and student life — or download it as a PDF."
-        canonical={siteUrl("/brochure")}
-        ogTitle="Digital Brochure | Islamic Mission School"
-        ogDescription="Discover IMS in our digital brochure."
-        ogImage={siteUrl(pages[0].src)}
-        ogUrl={siteUrl("/brochure")}
-      />
+      <SEOHelmet />
       <PageHero
         eyebrow="Admissions"
         title="Digital Brochure"

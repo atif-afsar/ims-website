@@ -26,6 +26,8 @@ const Field = ({ field, value, onChange }) => {
       );
     case "image":
       return <MediaPicker value={value} onChange={onChange} />;
+    case "date":
+      return <input type="date" value={value ? String(value).slice(0, 10) : ""} onChange={(e) => onChange(e.target.value)} className={`${input} max-w-xs`} />;
     case "link":
       return <input type="text" value={value ?? ""} onChange={(e) => onChange(e.target.value)} placeholder="/classes or https://…" className={input} />;
     case "list":
@@ -88,6 +90,7 @@ const SchemaForm = ({ fields, value, onChange }) => (
     {fields.map((f) => (
       <div key={f.name}>
         <label className="mb-1.5 block text-sm font-semibold text-gray-700">{f.label}</label>
+        {f.help && <p className="-mt-1 mb-2 text-xs text-gray-500">{f.help}</p>}
         <Field field={f} value={value[f.name]} onChange={(v) => onChange({ ...value, [f.name]: v })} />
       </div>
     ))}

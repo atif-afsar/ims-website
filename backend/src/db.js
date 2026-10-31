@@ -10,6 +10,9 @@ export const pool = mysql.createPool({
   multipleStatements: false,
 });
 
+// Timestamps are stored and read as UTC on every server; the admin shows them in local time
+pool.on("connection", (conn) => conn.query("SET time_zone = '+00:00'"));
+
 export const query = async (sql, params = []) => {
   const [rows] = await pool.query(sql, params);
   return rows;

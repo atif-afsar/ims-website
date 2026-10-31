@@ -31,6 +31,44 @@ export const Sparkle = ({ className = "" }) => (
   </svg>
 );
 
+/* Points of a filled eight-point star (viewBox 0 0 200 200) */
+const STAR_POINTS = Array.from({ length: 16 }, (_, i) => {
+  const r = i % 2 ? 62 : 98;
+  const a = (Math.PI / 8) * i - Math.PI / 2;
+  return `${(100 + r * Math.cos(a)).toFixed(1)},${(100 + r * Math.sin(a)).toFixed(1)}`;
+}).join(" ");
+
+/*
+ * Large filled geometric shapes for colour blocks (hero tiles, menu):
+ * "arches" two pointed arches, "star" an eight-point star, "petals" four
+ * quarter-circles, "dome" a dome over a crescent-like circle.
+ */
+export const BlockShape = ({ variant = "arches", className = "" }) => (
+  <svg aria-hidden="true" viewBox="0 0 200 200" className={className} fill="currentColor">
+    {variant === "arches" && (
+      <>
+        <path d="M8 200V112Q8 44 50 6Q92 44 92 112V200Z" />
+        <path d="M108 200V112Q108 44 150 6Q192 44 192 112V200Z" />
+      </>
+    )}
+    {variant === "star" && <polygon points={STAR_POINTS} />}
+    {variant === "petals" && (
+      <>
+        <path d="M100 100H0A100 100 0 0 1 100 0Z" />
+        <path d="M100 100V0A100 100 0 0 1 200 100Z" opacity=".55" />
+        <path d="M100 100H200A100 100 0 0 1 100 200Z" />
+        <path d="M100 100V200A100 100 0 0 1 0 100Z" opacity=".55" />
+      </>
+    )}
+    {variant === "dome" && (
+      <>
+        <path d="M20 200V120A80 80 0 0 1 180 120V200Z" />
+        <circle cx="100" cy="40" r="22" />
+      </>
+    )}
+  </svg>
+);
+
 /* Repeating star lattice used as a faint texture on ivory and emerald blocks */
 export const PatternBg = ({ className = "", opacity = 0.06, color = "#C6A878" }) => (
   <svg aria-hidden="true" className={`pointer-events-none absolute inset-0 h-full w-full ${className}`} style={{ opacity }}>

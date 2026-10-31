@@ -1,7 +1,7 @@
 import { PiMapPin, PiPhone, PiEnvelope, PiWhatsappLogo, PiNavigationArrow } from "react-icons/pi";
+import { schoolSchema } from "../../utils/seoHelpers";
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { siteUrl } from "../../siteMeta";
-import { contact, school } from "../../content/site";
+import { contact } from "../../content/site";
 import PageHero from "../../ui/PageHero";
 import Reveal from "../../ui/Reveal";
 import ContactForm from "../../ui/ContactForm";
@@ -20,22 +20,7 @@ const InfoCard = ({ icon: Icon, label, children }) => (
 
 const ContactPage = () => (
   <>
-    <SEOHelmet
-      title="Contact Islamic Mission School | Get in Touch"
-      description={`Contact IMS Aligarh for admissions, queries or a campus visit. ${contact.addressFull}. Phone ${contact.phones.map((p) => p.label).join(", ")}.`}
-      canonical={siteUrl("/contact")}
-      ogTitle="Contact Us - Islamic Mission School"
-      ogDescription="Admissions, queries and campus visits — we’re here to help."
-      ogUrl={siteUrl("/contact")}
-      structuredData={{
-        "@context": "https://schema.org",
-        "@type": "School",
-        name: school.name,
-        address: { "@type": "PostalAddress", streetAddress: "Fort Green City, AMU Fort", addressLocality: "Aligarh", addressRegion: "Uttar Pradesh", postalCode: "202001", addressCountry: "IN" },
-        telephone: contact.phones.map((p) => p.href.replace("tel:", "")),
-        email: contact.email,
-      }}
-    />
+    <SEOHelmet structuredData={schoolSchema} />
     <PageHero
       eyebrow="We’re here to help"
       title="Contact Us"

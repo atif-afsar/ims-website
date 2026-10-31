@@ -6,6 +6,7 @@ import { existsSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import config from "./config.js";
 import { pool } from "./db.js";
+import { createSeo } from "./seo.js";
 import authRoutes, { requireAdmin } from "./auth.js";
 import publicRoutes from "./routes/public.js";
 import adminRoutes from "./routes/admin.js";
@@ -26,9 +27,8 @@ export function createApp() {
           fontSrc: ["'self'", "data:", "https://fonts.gstatic.com"],
           imgSrc: ["'self'", "data:", "blob:", "https:"],
           mediaSrc: ["'self'", "https:"],
-          // Supabase stays allowed only until every page reads from this API (migration phase)
-          connectSrc: ["'self'", "https://api.web3forms.com", "https://*.supabase.co"],
-          frameSrc: ["https://www.google.com"],
+          connectSrc: ["'self'", "https://api.web3forms.com"],
+          frameSrc: ["'self'", "https://www.google.com"],
           objectSrc: ["'none'"],
           upgradeInsecureRequests: config.production ? [] : null,
         },
@@ -36,6 +36,18 @@ export function createApp() {
       crossOriginEmbedderPolicy: false,
     })
   );
+  // islamicmissionschool.org → www.islamicmissionschool.org (one address for search engines)
+  const canonicalHost = config.canonicalHost;
+  if (canonicalHost) {
+    const bare = canonicalHost.replace(/^www\./, "");
+    app.use((req, res, next) => {
+      if (req.hostname === bare && (req.method === "GET" || req.method === "HEAD")) {
+        return res.redirect(301, `https://${canonicalHost}${req.originalUrl}`);
+      }
+      next();
+    });
+  }
+
   app.use(compression());
   app.use(cookieParser());
   app.use(express.json({ limit: "1mb" }));
@@ -56,11 +68,15 @@ export function createApp() {
     next();
   });
 
-  // Writes must be JSON (or a file upload); a cross-site HTML form can't send either with our cookie
+  // Writes that carry data must be JSON (or a file upload); a cross-site HTML form can't send
+  // either with our cookie. Requests without a body (e.g. most DELETEs) are fine.
   app.use("/api", (req, res, next) => {
-    if (["POST", "PUT", "DELETE"].includes(req.method) && !req.is("application/json") && !req.is("multipart/form-data") && req.headers["content-length"] !== "0") {
-      return res.status(415).json({ error: "Send JSON" });
-    }
+    if (!["POST", "PUT", "DELETE"].includes(req.method)) return next();
+    const type = req.headers["content-type"];
+    const length = req.headers["content-length"];
+    const hasBody = Boolean(req.headers["transfer-encoding"]) || (length !== undefined && length !== "0");
+    const ok = type ? /^(application\/json|multipart\/form-data)\b/i.test(type) : !hasBody;
+    if (!ok) return res.status(415).json({ error: "Send JSON" });
     next();
   });
 
@@ -86,11 +102,20 @@ export function createApp() {
   app.use("/uploads", express.static(config.uploadsDir, { maxAge: "30d", immutable: true, index: false }));
 
   // The built website (production: one Node app serves both site and API)
-  if (existsSync(config.frontendDist)) {
+  if (existsSync(join(config.frontendDist, "index.html"))) {
     app.use("/assets", express.static(join(config.frontendDist, "assets"), { maxAge: "1y", immutable: true }));
     app.use(express.static(config.frontendDist, { maxAge: "1h", index: false }));
+    // Every other page: index.html with that page's title, description and status (see seo.js)
+    const render = createSeo(config.frontendDist);
     app.get(/^(?!\/api\/|\/uploads\/).*/, (req, res) => {
-      res.set("Cache-Control", "no-cache").sendFile(join(config.frontendDist, "index.html"));
+      const result = render(req.path);
+      if (result.redirect) {
+        const query = req.originalUrl.slice(req.path.length);
+        return res.redirect(301, result.redirect + (result.redirect.includes("#") ? "" : query));
+      }
+      res.status(result.status).set("Cache-Control", "no-cache");
+      if (!result.index) res.set("X-Robots-Tag", "noindex");
+      res.type("html").send(result.html);
     });
   }
 

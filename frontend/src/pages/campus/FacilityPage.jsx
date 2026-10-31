@@ -1,6 +1,4 @@
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { siteUrl } from "../../siteMeta";
-import media from "../../content/media";
 import { facilities } from "../../content/campus";
 import PageHero from "../../ui/PageHero";
 import ContentSection from "../../ui/ContentSection";
@@ -12,19 +10,10 @@ import { FacilityCards } from "./CampusPage";
 /* One template for /infrastructure/<slug> */
 const FacilityPage = ({ slug }) => {
   const f = facilities[slug];
-  const path = `/infrastructure/${slug}`;
 
   return (
     <>
-      <SEOHelmet
-        title={`${f.title} | Islamic Mission School Aligarh`}
-        description={f.lede}
-        canonical={siteUrl(path)}
-        ogTitle={`${f.title} | Islamic Mission School`}
-        ogDescription={f.lede}
-        ogImage={siteUrl(media[f.heroImage].src)}
-        ogUrl={siteUrl(path)}
-      />
+      <SEOHelmet />
       <PageHero
         eyebrow={f.eyebrow}
         title={`IMS ${f.title}`}

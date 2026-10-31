@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { api } from "../lib/api";
 import { resolveHomeSections } from "../content/homeSections";
 import { presetEvents2026To2027 } from "../content/calendarPresets";
+import { pickSlides } from "./useHeroSlides";
 
 const today = () => new Date().toLocaleDateString("en-CA");
 
@@ -30,7 +31,7 @@ export function useHomeContent() {
         if (cancelled) return;
         setData({
           sections: resolveHomeSections(res.sections),
-          heroSlides: res.heroSlides?.length ? res.heroSlides : null,
+          heroSlides: pickSlides(res.heroSlides),
           notices: res.notices || [],
           testimonials: res.testimonials || [],
           upcomingEvents: res.upcomingEvents?.length ? res.upcomingEvents : fallback().upcomingEvents,

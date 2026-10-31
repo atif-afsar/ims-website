@@ -10,10 +10,10 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "media": "node scripts/build-media.mjs",
-    "brochure": "python scripts/build-brochure.py"
+    "brochure": "python scripts/build-brochure.py",
+    "og": "node scripts/og-images.mjs"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.95.3",
     "aos": "^2.3.4",
     "framer-motion": "^12.26.2",
     "pdfjs-dist": "^4.10.38",

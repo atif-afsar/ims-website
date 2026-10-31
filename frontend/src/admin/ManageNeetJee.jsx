@@ -1,9 +1,19 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { supabase } from '../supabaseClient';
+import { adminDb as db } from "../lib/db";
 import { uploadFile } from '../utils/uploadFile';
 import { FaTrash, FaEdit } from 'react-icons/fa';
-import { DEFAULT_SETTINGS } from '../hooks/useNeetJeeData';
+import { DEFAULT_SETTINGS, DEFAULT_TRACKS, DEFAULT_FEATURES, DEFAULT_COMPARISON, DEFAULT_ROADMAP, DEFAULT_RESULTS, DEFAULT_FACULTY } from '../hooks/useNeetJeeData';
+
+// What the public page shows while a list is empty; loading it makes each item editable
+const STARTER = {
+  neet_tracks: DEFAULT_TRACKS,
+  neet_features: DEFAULT_FEATURES,
+  neet_comparison: DEFAULT_COMPARISON,
+  neet_roadmap: DEFAULT_ROADMAP,
+  neet_results: DEFAULT_RESULTS,
+  neet_faculty: DEFAULT_FACULTY,
+};
 
 const TABS = [
   { id: 'settings', label: 'Hero & Settings' },
@@ -45,14 +55,14 @@ const ManageNeetJee = () => {
     setLoading(true);
     try {
       const [s, t, f, c, r, res, fac, ak] = await Promise.all([
-        supabase.from('neet_settings').select('*').eq('id', 1).maybeSingle(),
-        supabase.from('neet_tracks').select('*').order('sort_order'),
-        supabase.from('neet_features').select('*').order('sort_order'),
-        supabase.from('neet_comparison').select('*').order('sort_order'),
-        supabase.from('neet_roadmap').select('*').order('sort_order'),
-        supabase.from('neet_results').select('*').order('sort_order'),
-        supabase.from('neet_faculty').select('*').order('sort_order'),
-        supabase.from('neet_answer_keys').select('*').order('sort_order'),
+        db.from('neet_settings').select('*').eq('id', 1).maybeSingle(),
+        db.from('neet_tracks').select('*').order('sort_order'),
+        db.from('neet_features').select('*').order('sort_order'),
+        db.from('neet_comparison').select('*').order('sort_order'),
+        db.from('neet_roadmap').select('*').order('sort_order'),
+        db.from('neet_results').select('*').order('sort_order'),
+        db.from('neet_faculty').select('*').order('sort_order'),
+        db.from('neet_answer_keys').select('*').order('sort_order'),
       ]);
       if (s.data) setSettings({ ...DEFAULT_SETTINGS, ...s.data });
       setTracks(t.data || []);
@@ -107,12 +117,27 @@ const ManageNeetJee = () => {
   const saveSettings = async (e) => {
     e.preventDefault();
     try {
-      const { error } = await supabase.from('neet_settings').upsert({ id: 1, ...settings });
+      const { error } = await db.from('neet_settings').upsert({ id: 1, ...settings });
       if (error) throw error;
       showMsg('Settings saved!');
     } catch (err) {
       showMsg('Error: ' + err.message);
     }
+  };
+
+  // Lists that are empty in the database (the website shows built-in content for them)
+  const listsByTable = { neet_tracks: tracks, neet_features: features, neet_comparison: comparison, neet_roadmap: roadmap, neet_results: results, neet_faculty: faculty };
+  const emptyLists = loading ? [] : Object.keys(STARTER).filter((t) => !listsByTable[t]?.length && STARTER[t]?.length);
+
+  const loadStarter = async () => {
+    if (!window.confirm('Copy the built-in NEET/JEE content into the editor? The website will look the same; you can then edit or delete each item.')) return;
+    for (const table of emptyLists) {
+      const rows = STARTER[table].map((r, i) => ({ ...r, is_active: true, sort_order: r.sort_order ?? i }));
+      const { error } = await db.from(table).insert(rows);
+      if (error) return showMsg('Error: ' + error.message);
+    }
+    showMsg('Built-in content loaded. You can now edit each item.');
+    fetchAll();
   };
 
   const tableMap = {
@@ -148,11 +173,11 @@ const ManageNeetJee = () => {
     if (!table) return;
     try {
       if (editingId) {
-        const { error } = await supabase.from(table).update(formData).eq('id', editingId);
+        const { error } = await db.from(table).update(formData).eq('id', editingId);
         if (error) throw error;
         showMsg('Updated successfully!');
       } else {
-        const { error } = await supabase.from(table).insert([formData]);
+        const { error } = await db.from(table).insert([formData]);
         if (error) throw error;
         showMsg('Added successfully!');
       }
@@ -173,7 +198,7 @@ const ManageNeetJee = () => {
     if (!window.confirm('Are you sure?')) return;
     const table = tableMap[activeTab];
     try {
-      const { error } = await supabase.from(table).delete().eq('id', id);
+      const { error } = await db.from(table).delete().eq('id', id);
       if (error) throw error;
       fetchAll();
     } catch (err) {
@@ -483,8 +508,16 @@ const ManageNeetJee = () => {
       <h3>Manage NEET / JEE Program</h3>
       <p style={{ color: '#666', marginBottom: 16 }}>
         Control hero, tracks, features, results, faculty, answer keys, and all section content.
-        Run <code>supabase/neet-jee-schema.sql</code> in Supabase if tables don&apos;t exist yet.
+        While a list here is empty, the website shows its built-in content for it.
       </p>
+      {emptyLists.length > 0 && (
+        <div className="admin-form-card" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 12 }}>
+          <span style={{ flex: 1, minWidth: 240 }}>
+            {emptyLists.length} list{emptyLists.length === 1 ? ' is' : 's are'} still showing the built-in content. Load it here to edit each item.
+          </span>
+          <button type="button" className="save-btn" onClick={loadStarter}>Load the built-in content</button>
+        </div>
+      )}
       {message && <div className="admin-msg">{message}</div>}
 
       <div className="neet-admin-tabs" style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 20 }}>

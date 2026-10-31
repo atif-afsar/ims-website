@@ -7,6 +7,7 @@
  *   required fields that must be present on create
  *   order    ORDER BY clause (built from our own column names)
  *   publicWhere  extra filter for the public API, e.g. only active rows
+ *   private  never readable through the public API (admin only)
  */
 
 const ACTIVE = "is_active = 1";
@@ -110,6 +111,23 @@ const collections = {
     required: ["title", "pdf_url"],
     order: "sort_order, id",
     publicWhere: "is_published = 1",
+  },
+  gallery_albums: {
+    fields: { title: "text", description: "text", event_date: "date", cover_url: "text", sort_order: "int", is_active: "bool" },
+    required: ["title"],
+    order: "sort_order, event_date DESC, id DESC",
+    publicWhere: ACTIVE,
+  },
+  gallery_photos: {
+    fields: { album_id: "int", url: "text", caption: "text", sort_order: "int" },
+    required: ["album_id", "url"],
+    order: "album_id, sort_order, id",
+  },
+  enquiries: {
+    fields: { name: "text", email: "text", phone: "text", subject: "text", message: "text", page: "text", status: "text", notes: "text" },
+    required: ["name", "message"],
+    order: "created_at DESC, id DESC",
+    private: true,
   },
 };
 

@@ -1,0 +1,163 @@
+{
+  "_about": "One entry per public page: title (aim for under 60 characters), description (aim for 140–160), name for breadcrumbs, photo for the share image (scripts/og-images.mjs). The website (SEOHelmet), the server (backend/src/seo.js) and the sitemap all read this file.",
+  "pages": {
+    "/": {
+      "name": "Home",
+      "title": "Islamic Mission School Aligarh | CISCE School, Play Group–XII",
+      "description": "Islamic Mission School, Aligarh — a CISCE-affiliated, value-based school since 2008. ICSE academics, STEM, Robotics & AI, NEET/JEE and Hifz. Admissions open.",
+      "photo": "campus-aerial-front",
+      "priority": 1.0,
+      "changefreq": "weekly"
+    },
+    "/about": {
+      "name": "About",
+      "title": "About IMS Aligarh | History, Vision & Board Members",
+      "description": "Islamic Mission School, Aligarh: founded in 2008, affiliated to CISCE (UP407). Our history, vision and mission, board members and value-based approach to education.",
+      "photo": "student-speech-1",
+      "priority": 0.9,
+      "changefreq": "monthly"
+    },
+    "/ims-value-based-school": {
+      "name": "Value-Based Education",
+      "title": "Value-Based Education at IMS | Islamic Mission School",
+      "description": "How Islamic Mission School weaves Islamic values into the ICSE curriculum — character before career, cooperation over competition, and education for life.",
+      "photo": "pre-primary-2",
+      "priority": 0.8,
+      "changefreq": "monthly"
+    },
+    "/curriculum": {
+      "name": "Curriculum",
+      "title": "ICSE Curriculum, STEM & Robotics | IMS Aligarh",
+      "description": "The IMS curriculum: ICSE & ISC academics, 21st-century skills, Evan Moor STEM from Grade 1, Robotics & AI, Data and Financial Literacy, Arabic and Islamic Studies.",
+      "photo": "smart-class-1",
+      "priority": 0.85,
+      "changefreq": "monthly"
+    },
+    "/assessments": {
+      "name": "Assessments & Olympiads",
+      "title": "Assessments & Olympiads | Islamic Mission School Aligarh",
+      "description": "How IMS assesses learning: formative and summative assessments, chapter tests and Olympiads (NSO, IMO, IEO, NCO) that build higher-order thinking skills.",
+      "photo": "science-exhibition-12",
+      "priority": 0.7,
+      "changefreq": "monthly"
+    },
+    "/programs/neet-jee": {
+      "name": "NEET / JEE Program",
+      "title": "Integrated NEET / JEE School Program in Aligarh | IMS",
+      "description": "ICSE schooling synchronised with NEET/JEE preparation from Class IX at IMS Aligarh — daily tests, weekly analysis and expert faculty. No outside coaching needed.",
+      "photo": "science-exhibition-7",
+      "priority": 0.9,
+      "changefreq": "monthly"
+    },
+    "/co-curricular-extracurricular": {
+      "name": "Student Life",
+      "title": "Student Life, Sports & Activities | IMS Aligarh",
+      "description": "Student life at IMS Aligarh: English and Arabic communication, project-based learning, the Sciberation science fair, Taekwondo, Sports Day and Annual Function.",
+      "photo": "student-speech-2",
+      "priority": 0.8,
+      "changefreq": "monthly"
+    },
+    "/facilities": {
+      "name": "Campus & Facilities",
+      "title": "Campus & Facilities | Islamic Mission School Aligarh",
+      "description": "Explore the IMS campus near AMU, Aligarh: smart classrooms, physics, chemistry, biology, computer and robotics labs, library, sports grounds and hostel facilities.",
+      "photo": "campus-aerial-front",
+      "priority": 0.8,
+      "changefreq": "monthly"
+    },
+    "/infrastructure/computer-lab": {
+      "name": "Computer Lab",
+      "parent": "/facilities",
+      "title": "Computer Lab | Islamic Mission School Aligarh",
+      "description": "A modern, supervised computer lab at IMS Aligarh where students learn coding, research and digital skills with up-to-date systems and educational software.",
+      "photo": "computer-lab-1",
+      "priority": 0.6,
+      "changefreq": "yearly"
+    },
+    "/infrastructure/library": {
+      "name": "Library",
+      "parent": "/facilities",
+      "title": "School Library | Islamic Mission School Aligarh",
+      "description": "The IMS library: a quiet, welcoming space with Islamic literature, reference books and age-wise story books that nurture a lifelong love of reading.",
+      "photo": "library-2",
+      "priority": 0.6,
+      "changefreq": "yearly"
+    },
+    "/infrastructure/laboratories": {
+      "name": "Science Laboratories",
+      "parent": "/facilities",
+      "title": "Physics, Chemistry & Biology Labs | IMS Aligarh",
+      "description": "Well-equipped physics, chemistry and biology laboratories at Islamic Mission School, where concepts come alive through safe, guided experiments.",
+      "photo": "chemistry-lab-img-2670",
+      "priority": 0.6,
+      "changefreq": "yearly"
+    },
+    "/infrastructure/sports-complex": {
+      "name": "Sports Complex",
+      "parent": "/facilities",
+      "title": "Sports & Playgrounds | Islamic Mission School Aligarh",
+      "description": "Spacious play areas at IMS Aligarh for volleyball, athletics, Taekwondo and team games that build fitness, discipline and teamwork.",
+      "photo": "sports-volleyball",
+      "priority": 0.6,
+      "changefreq": "yearly"
+    },
+    "/classes": {
+      "name": "Classes & Admissions",
+      "title": "Admissions 2027–28 | Islamic Mission School Aligarh",
+      "description": "Admission open 2027–28 at IMS Aligarh for Play Group to Class IX and Class XI (PCM, PCB, Commerce, Humanities). Classes, age criteria and how to apply.",
+      "photo": "pre-primary-1",
+      "priority": 0.95,
+      "changefreq": "weekly"
+    },
+    "/brochure": {
+      "name": "Digital Brochure",
+      "title": "Digital Brochure | Islamic Mission School Aligarh",
+      "description": "Browse the Islamic Mission School brochure — vision, curriculum, facilities and student life — online, or download it as a PDF.",
+      "photo": "campus-aerial-front",
+      "priority": 0.6,
+      "changefreq": "monthly"
+    },
+    "/calendar": {
+      "name": "School Calendar",
+      "title": "School Calendar 2026–27 | Islamic Mission School",
+      "description": "The Islamic Mission School calendar for 2026–27: holidays, examinations, activities and important dates for parents and students.",
+      "photo": "summer-camp-2025-archery-photoes4",
+      "priority": 0.7,
+      "changefreq": "weekly"
+    },
+    "/gallery": {
+      "name": "Gallery",
+      "title": "Photo Gallery | Islamic Mission School Aligarh",
+      "description": "Photos from Islamic Mission School, Aligarh: science fairs, NAEST 2025, summer camp, competitions, educational visits, labs, classrooms and sports.",
+      "photo": "science-exhibition-8",
+      "priority": 0.7,
+      "changefreq": "weekly"
+    },
+    "/contact": {
+      "name": "Contact",
+      "title": "Contact & Visit IMS | Islamic Mission School Aligarh",
+      "description": "Contact Islamic Mission School near AMU Fort, Aligarh for admissions or a campus visit. Call 07417914164 or 09219401623, WhatsApp us or send a message.",
+      "photo": "campus-aerial-front",
+      "priority": 0.9,
+      "changefreq": "monthly"
+    }
+  },
+  "notFound": {
+    "name": "Page not found",
+    "title": "Page Not Found | Islamic Mission School",
+    "description": "The page you are looking for could not be found. Visit the Islamic Mission School homepage."
+  },
+  "redirects": {
+    "/courses": "/co-curricular-extracurricular",
+    "/programs": "/co-curricular-extracurricular",
+    "/programs/co-curricular": "/co-curricular-extracurricular",
+    "/programs/english-communication": "/co-curricular-extracurricular#cc-english",
+    "/programs/arabic-communication": "/co-curricular-extracurricular#cc-arabic",
+    "/programs/robotics-ai": "/curriculum#curriculum-robotics-ai",
+    "/vision": "/about#vision-mission",
+    "/team": "/about#board-members",
+    "/pricing": "/",
+    "/journal": "/",
+    "/infrastructure": "/facilities"
+  }
+}

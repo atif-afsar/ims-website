@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { supabase } from "../../supabaseClient";
-import { siteUrl } from "../../siteMeta";
-import media from "../../content/media";
+import { publicDb as db } from "../../lib/db";
 import { school } from "../../content/site";
 import { intro, english, arabic, pbl, taekwondo, sportsDay, annualFunction, summerCamp, misc } from "../../content/studentLife";
 import PageHero from "../../ui/PageHero";
@@ -58,7 +56,7 @@ const useAdminPrograms = () => {
   const [programs, setPrograms] = useState([]);
   useEffect(() => {
     let cancelled = false;
-    supabase
+    db
       .from("programs")
       .select("*")
       .order("sort_order")
@@ -74,15 +72,7 @@ const StudentLifePage = () => {
   const programs = useAdminPrograms();
   return (
     <>
-      <SEOHelmet
-        title="Student Life | Islamic Mission School — Co-Curricular & Extra-Curricular"
-        description="Student life at IMS Aligarh: English and Arabic communication programmes, project-based learning and Sciberation, Taekwondo, Annual Sports Day, Annual Function and competitions."
-        canonical={siteUrl("/co-curricular-extracurricular")}
-        ogTitle="Student Life | Islamic Mission School"
-        ogDescription="Where passion is discovered, character is built, and talents shine at IMS."
-        ogImage={siteUrl(media["science-exhibition-8"].src)}
-        ogUrl={siteUrl("/co-curricular-extracurricular")}
-      />
+      <SEOHelmet />
       <PageHero
         eyebrow="Co-Curricular & Extra-Curricular"
         title="Where Passion is Discovered, Character is Built and Talents Shine"

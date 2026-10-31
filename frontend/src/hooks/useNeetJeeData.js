@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { supabase } from "../supabaseClient";
+import { publicDb as db } from "../lib/db";
 import { neetProgram } from "../dummydata";
 
 const DEFAULT_SETTINGS = {
@@ -122,14 +122,14 @@ export function useNeetJeeData() {
           facultyRes,
           answerKeysRes,
         ] = await Promise.all([
-          supabase.from("neet_settings").select("*").eq("id", 1).maybeSingle(),
-          supabase.from("neet_tracks").select("*").eq("is_active", true).order("sort_order"),
-          supabase.from("neet_features").select("*").eq("is_active", true).order("sort_order"),
-          supabase.from("neet_comparison").select("*").eq("is_active", true).order("sort_order"),
-          supabase.from("neet_roadmap").select("*").eq("is_active", true).order("sort_order"),
-          supabase.from("neet_results").select("*").eq("is_active", true).order("sort_order"),
-          supabase.from("neet_faculty").select("*").eq("is_active", true).order("sort_order"),
-          supabase.from("neet_answer_keys").select("*").eq("is_published", true).order("sort_order"),
+          db.from("neet_settings").select("*").eq("id", 1).maybeSingle(),
+          db.from("neet_tracks").select("*").eq("is_active", true).order("sort_order"),
+          db.from("neet_features").select("*").eq("is_active", true).order("sort_order"),
+          db.from("neet_comparison").select("*").eq("is_active", true).order("sort_order"),
+          db.from("neet_roadmap").select("*").eq("is_active", true).order("sort_order"),
+          db.from("neet_results").select("*").eq("is_active", true).order("sort_order"),
+          db.from("neet_faculty").select("*").eq("is_active", true).order("sort_order"),
+          db.from("neet_answer_keys").select("*").eq("is_published", true).order("sort_order"),
         ]);
 
         if (cancelled) return;

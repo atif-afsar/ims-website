@@ -27,6 +27,8 @@ const config = {
   maxUploadMb: Number(env.MAX_UPLOAD_MB) || 8,
   // Built frontend served by the same app in production
   frontendDist: resolve(root, env.FRONTEND_DIST || "../frontend/dist"),
+  // In production: www.islamicmissionschool.org — the bare domain redirects here
+  canonicalHost: env.CANONICAL_HOST || "",
   root,
 };
 

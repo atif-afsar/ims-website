@@ -7,7 +7,7 @@ import { PatternBg, Star8 } from "../ui/Ornaments";
 
 const NotFoundPage = () => (
   <>
-    <SEOHelmet title="Page Not Found | Islamic Mission School" description="The page you are looking for could not be found." />
+    <SEOHelmet notFound />
     {/* Keep missing pages out of search results (runs after SEOHelmet, so it wins) */}
     <Helmet>
       <meta name="robots" content="noindex" />

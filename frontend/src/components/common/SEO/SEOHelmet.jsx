@@ -1,63 +1,62 @@
-import React from "react";
+import { useLocation } from "react-router";
 import { Helmet } from "./Helmet";
-import { SITE_ORIGIN, siteUrl } from "../../../siteMeta";
+import { siteUrl, ogImagePath } from "../../../siteMeta";
+import { breadcrumbSchema } from "../../../utils/seoHelpers";
+import seo from "../../../content/seo-pages.json";
 
-const SEOHelmet = ({
-  title,
-  description,
-  keywords,
-  canonical,
-  ogTitle,
-  ogDescription,
-  ogImage,
-  ogUrl,
-  twitterTitle,
-  twitterDescription,
-  twitterImage,
-  structuredData,
-  children
-}) => {
-  const defaultOgImage = siteUrl("/images/logo/logo.webp");
-  const defaultOgUrl = SITE_ORIGIN;
+/* "/about/" → "/about" */
+const normalisePath = (path) => (path.length > 1 ? path.replace(/\/+$/, "") : path);
+
+/*
+ * Head tags for the current page, from content/seo-pages.json (the server
+ * puts the same tags into the HTML before JavaScript runs, see
+ * backend/src/seo.js). Props override the file for pages that need it.
+ *
+ *   <SEOHelmet />                         most pages
+ *   <SEOHelmet structuredData={…} />      extra JSON-LD for this page
+ *   <SEOHelmet notFound />                404 page: noindex
+ */
+const SEOHelmet = ({ title, description, image, structuredData, notFound = false }) => {
+  const path = normalisePath(useLocation().pathname);
+  const page = (notFound ? seo.notFound : seo.pages[path]) || seo.notFound;
+  const known = !notFound && Boolean(seo.pages[path]);
+
+  const finalTitle = title || page.title;
+  const finalDescription = description || page.description;
+  const url = siteUrl(known ? path : "/");
+  const shareImage = siteUrl(image || ogImagePath(known ? path : "/"));
+
+  // Breadcrumbs: Home › (parent) › this page
+  const crumbs = [];
+  if (known && path !== "/") {
+    crumbs.push({ name: "Home", path: "/" });
+    if (page.parent && seo.pages[page.parent]) crumbs.push({ name: seo.pages[page.parent].name, path: page.parent });
+    crumbs.push({ name: page.name, path });
+  }
+  const graph = [
+    ...(crumbs.length ? [breadcrumbSchema(crumbs)] : []),
+    ...(structuredData ? (Array.isArray(structuredData) ? structuredData : [structuredData]) : []),
+  ];
 
   return (
     <Helmet>
-      {/* Primary Meta Tags */}
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords} />}
-      {canonical && <link rel="canonical" href={canonical} />}
+      <title>{finalTitle}</title>
+      <meta name="description" content={finalDescription} />
+      <meta name="robots" content={known ? "index, follow, max-image-preview:large" : "noindex, follow"} />
+      <link rel="canonical" href={url} />
 
-      {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
-      <meta property="og:title" content={ogTitle || title} />
-      <meta property="og:description" content={ogDescription || description} />
-      <meta property="og:image" content={ogImage || defaultOgImage} />
-      <meta property="og:url" content={ogUrl || defaultOgUrl} />
-      <meta property="og:site_name" content="Islamic Mission School" />
-      <meta property="og:locale" content="en_IN" />
+      <meta property="og:title" content={finalTitle} />
+      <meta property="og:description" content={finalDescription} />
+      <meta property="og:url" content={url} />
+      <meta property="og:image" content={shareImage} />
 
-      {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={twitterTitle || ogTitle || title} />
-      <meta name="twitter:description" content={twitterDescription || ogDescription || description} />
-      <meta name="twitter:image" content={twitterImage || ogImage || defaultOgImage} />
-      <meta name="twitter:creator" content="@imschool" />
+      <meta name="twitter:title" content={finalTitle} />
+      <meta name="twitter:description" content={finalDescription} />
+      <meta name="twitter:image" content={shareImage} />
 
-      {/* Additional SEO */}
-      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-      <meta name="googlebot" content="index, follow" />
-      <meta name="language" content="English" />
-      <meta name="author" content="Islamic Mission School" />
-
-      {/* Structured Data */}
-      {structuredData && (
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      )}
-
-      {children}
+      {graph.length > 0 && <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@graph": graph })}</script>}
     </Helmet>
   );
 };
