@@ -5,7 +5,7 @@ import SectionNav from "../../ui/SectionNav";
 import ContentSection, { Prose } from "../../ui/ContentSection";
 import Reveal from "../../ui/Reveal";
 import PhotoStrip from "../../ui/PhotoStrip";
-import { IconList, FactTile } from "../../ui/Blocks";
+import { FactTile } from "../../ui/Blocks";
 import { Sparkle, Star8 } from "../../ui/Ornaments";
 
 const sections = [
@@ -84,8 +84,8 @@ const AssessmentsPage = () => (
       </Reveal>
     </ContentSection>
 
-    <ContentSection id="asm-future" eyebrow="04" title="IMS for a Better Future of Our Country">
-      <IconList items={nation.points} />
+    <ContentSection id="asm-future" eyebrow="04" title={nation.title}>
+      <Reveal className="mt-10"><Prose><p>{nation.text}</p></Prose></Reveal>
       <Reveal className="mt-16 text-center">
         <p className="mx-auto max-w-2xl text-lg text-ink/70">{nation.closing}</p>
         <p className="mt-6 inline-block rounded-full border-2 border-gold-400 bg-emerald-700 px-8 py-4 font-display text-xl font-bold uppercase tracking-[0.12em] text-ivory-50 md:text-2xl">

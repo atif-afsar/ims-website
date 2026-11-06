@@ -69,7 +69,7 @@ const CampusPage = () => (
               <IconBadge icon={lab.icon} />
               <h3 className="mt-5 font-display text-2xl font-bold text-ink md:text-3xl">{lab.title}</h3>
               <p className="mt-1 font-display italic text-gold-600">{lab.tagline}</p>
-              <p className="mt-4 leading-relaxed text-ink/70">{lab.text}</p>
+              {lab.text && <p className="mt-4 leading-relaxed text-ink/70">{lab.text}</p>}
               {lab.to && <Link to={lab.to} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-emerald-700">Learn more <HiArrowRight /></Link>}
             </div>
           </Reveal>
@@ -78,7 +78,7 @@ const CampusPage = () => (
     </ContentSection>
 
     <ContentSection id="fac-other" eyebrow="03" title="Additional Facilities">
-      <IconList items={overview.additional} cols={3} />
+      <IconList items={overview.additional} cols={4} />
     </ContentSection>
 
     <ContentSection id="fac-explore" tone="emerald" eyebrow="04" title="Explore Our Facilities" lede="Step inside each space for photos and details." align="center">

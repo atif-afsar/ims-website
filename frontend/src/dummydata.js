@@ -1,237 +1,61 @@
-// src/dummydata.js (or create a new file: src/data/courses.js)
-// WhyIMS data
+// Fallback content for the NEET/JEE page (until the admin adds its own) and the admission note.
 
-
-export const pillarsData = [
-  {
-    icon: "brain",
-    title: "ICSE + Islamic Excellence",
-    desc: "National curriculum enriched with Arabic, Seerah, Fiqh & Akhlaq"
-  },
-  {
-    icon: "star",
-    title: "World-Class STEM & Robotics",
-    desc: "Evan Moor (USA) + Eduvate Robotics & AI Lab from Grade 1"
-  },
-  {
-    icon: "hands-helping",
-    title: "21st Century + Islamic Skills",
-    desc: "Public speaking, critical thinking, leadership — rooted in adab and ihsan"
-  },
-  {
-    icon: "book-open",           
-    title: "Quranic Foundation",
-    desc: "Daily Nazra, Hifz, Tajweed & Tarbiyah integrated into school life"
-  },
-  {
-    icon: "mosque",
-    title: "Value-Based Education",
-    desc: "Character before career. Cooperation, not competition. Empathy over ego."
-  },
-  {
-    icon: "heart",
-    title: "A School for Life",
-    desc: "We don’t just prepare for exams. We prepare for Jannah and meaningful contribution"
-  },
-]
-export const timelineData = [
-  {
-    year: "2008",
-    icon: "seedling",           
-    title: "The Beginning",
-    desc: "Started humbly with just 18 students in a rented building"
-  },
-  {
-    year: "2010–2018",
-    icon: "users",
-    title: "Growth by Allah's Grace",
-    desc: "Added one class every year • Values in Action program introduced"
-  },
-  {
-    year: "2019",
-    icon: "home",
-    title: "Our Permanent Home",
-    desc: "Shifted to beautiful 3-acre campus near Aligarh Muslim University"
-  },
-  {
-    year: "2020",
-    icon: "graduation-cap",
-    title: "ICSE Affiliation",
-    desc: "Official affiliation granted • Affiliation No. UP407"
-  },
-  {
-    year: "2025",
-    icon: "tree",
-    title: "A Complete School for Life",
-    desc: "Modern labs • Robotics • STEM • Hifz • Arabic • NEET/JEE • Madrasat al-Hayat"
-  },
-]
-
-export const blog = [
-  {
-    id: 1,
-    type: "admin",
-    date: "JAN. 18, 2024",
-    com: "3 COMMENTS ",
-    title: "Nurturing Excellence in Pre-Primary Classes",
-    desc: "Discover how our play-based learning approach builds strong foundations for young learners at IMS.",
-    cover: "../images/blog/b1.webp",
-  },
-  {
-    id: 2,
-    type: "admin",
-    date: "APR. 25, 2024",
-    com: "5 COMMENTS ",
-    title: "Primary Education: Building Strong Academic Roots",
-    desc: "Explore our comprehensive curriculum designed to develop critical thinking and character in Classes 1-5.",
-    cover: "../images/blog/b2.webp",
-  },
-  {
-    id: 3,
-    type: "user",
-    date: "MAY. 15, 2024",
-    com: "10 COMMENTS ",
-    title: "Middle School Success: Preparing for Tomorrow",
-    desc: "Learn how we guide students through Classes 6-8 with balanced academics and holistic development.",
-    cover: "../images/blog/b3.webp",
-  },
-  {
-    id: 4,
-    type: "admin",
-    date: "JUN. 02, 2024",
-    com: "3 COMMENTS ",
-    title: "Secondary Education: Shaping Future Leaders",
-    desc: "Understand our approach to Class 9 education focusing on board preparation and character building.",
-    cover: "../images/blog/b4.webp",
-  },
-  {
-    id: 5,
-    type: "admin",
-    date: "JUL. 14, 2024",
-    com: "3 COMMENTS ",
-    title: "Senior Secondary Excellence: Beyond Academics",
-    desc: "Discover how Classes 11-12 at IMS combine rigorous academics with life skills and Islamic values.",
-    cover: "../images/blog/b5.webp",
-  },
-  {
-    id: 6,
-    type: "user",
-    date: "AUG. 18, 2024",
-    com: "12 COMMENTS ",
-    title: "Co-Curricular Programs: Developing Well-Rounded Students",
-    desc: "Explore our enrichment programs including sports, arts, and Islamic studies that complement classroom learning.",
-    cover: "../images/blog/b6.webp",
-  },
-]
-export const testimonial = [
-  {
-    // cover: "./images/team/t1.webp",
-    name: "Dr. Fatima Ahmed",
-    arabicName: "فاطمة أحمد",
-    post: "Parent of Ibrahim (Class 7)",
-    desc: "Alhamdulillah, IMS is not just a school — it’s a second home. My children wake up excited to go to school every day. They’ve memorized 15 juz of Quran with beautiful tajweed while scoring 90+ in ICSE."
-  },
-  {
-    // cover: "./images/team/t1.webp",
-    name: "Ayesha Siddiqua",
-    arabicName: "عائشة الصديقة",
-    post: "Class 10 Topper • Hifz 2024",
-    desc: "I completed Hifz and scored 96% in ICSE. IMS made me love both Quran and Science. The Robotics lab and Arabic classes are amazing!"
-  },
-  {
-    // cover: "./images/team/t1.webp",
-    name: "Engr. Mohammed Yusuf",
-    arabicName: "محمد يوسف",
-    post: "Parent of Zainab (Class 9)",
-    desc: "My daughter studied here and is now in AMU pursuing medicine. Character comes first here. True tarbiyah + modern education."
-  },
-  {
-    // cover: "./images/team/t1.webp",
-    name: "Hafiz Abdullah Khan",
-    arabicName: "عبدالله خان",
-    post: "Hifz Student • Class 8",
-    desc: "Alhamdulillah, I completed Quran memorization at IMS. The teachers are so kind and patient. I feel so blessed!"
-  },
-  {
-    // cover: "./images/team/t1.webp",
-    name: "Mrs. Sara Rahman",
-    arabicName: "سارة رحمن",
-    post: "Mother of 3 IMS Students",
-    desc: "All my three children study here. From Nazra to ICSE, everything is perfect. The best decision we ever made!"
-  },
-  {
-    // cover: "./images/team/t1.webp",
-    name: "Dr. Zainab IMS Alumnus",
-    arabicName: "زينب",
-    post: "MBBS Student • AMU",
-    desc: "IMS gave me strong imaan and excellent academics. I topped my city in ICSE. Forever grateful!"
-  }
-]
-// ——————— NEET PROGRAM DATA ———————
-// ——————— NEET PROGRAM DATA ———————
 export const neetProgram = {
+  // Text as supplied by the school (IMS Website content, Nov 2026)
   title: "NEET/JEE Program",
-  subtitle:
-    "Redefining schooling for aspiring doctors and engineers through integrated ICSE + competitive exam preparation.",
-  visionTitle: "One Campus. One Strategy. One Goal.",
-  visionDescription:
-    "The journey to premier institutions like IITs and AIIMS demands strong fundamentals, disciplined effort, and the right academic environment from an early stage. At IMS, students receive structured mentoring, rigorous practice, and confidence-building support to become first-attempt ready.",
-  
+  subtitle: "Redefining Schooling for Aspiring Doctors & Engineers",
+  visionTitle: "Redefining Schooling for Aspiring Doctors & Engineers",
+  visionDescription: "",
+
   foundation: {
-    name: "Foundation Program (4-Year Track)",
-    for: "Starts from Class IX",
-    duration: "4 Years Integrated",
-    desc: "Designed for students with clear goals in medicine or engineering. We build concept mastery in Physics, Chemistry, Biology, and Mathematics to create an unshakable base.",
-    highlight: "Build early, build strong, stay ahead."
+    name: "The Foundation Program",
+    for: "4-Year Program from Class IX",
+    duration: "4 Years",
+    subtitle: "Build an Unshakable Foundation for Success.",
+    desc: "This program is designed for young, determined students who are clear about their career goals in medicine or engineering. Starting from Class IX, we lay a robust foundation in core subjects (Physics, Chemistry, Biology & Mathematics), ensuring conceptual clarity and mastery.",
+    highlight: ""
   },
-  
+
   target: {
-    name: "Intensive Accelerator Program (2-Year Track)",
-    for: "Starts from Class XI",
-    duration: "2 Years Intensive",
-    desc: "A focused two-year journey for students who finalize NEET/JEE after Class X. Board and competitive syllabi are covered in a synchronized, high-intensity format.",
-    highlight: "Fast-track preparation with precision."
+    name: "The Intensive Accelerator Program",
+    for: "2-Year Program from Class XI",
+    duration: "2 Years",
+    subtitle: "Fast-Track Your Dream with Focused Intensity.",
+    desc: "For students who crystallize their ambition to pursue NEET/JEE after Class X, this program offers a powerful and focused two-year journey. We provide an immersive learning environment that accelerates preparation, covering both board and competitive exam syllabi with precision.",
+    highlight: ""
   },
-  
+
   features: [
-    "Efficient and committed faculty team",
-    "Daily practice tests for consistency",
-    "Weekly assessment and analysis",
-    "Regular doubt-clearing classes",
-    "Experienced teachers during school hours",
-    "No external coaching required",
-    "Save over Rs. 1 lakh per year in coaching costs",
-    "Save 7-8 hours daily for focused self-study",
-    "Weekly part tests and monthly full-syllabus assessments",
-    "About 30% of the NEET syllabus covered in Classes IX and X",
+    "Efficient and committed Faculties",
+    "Daily Practice Test",
+    "Weekly Test",
+    "Regular doubt classes",
+    "Teaching by experienced Faculties during school time",
+    "No requirement of coaching which saves more than a lac per annum and 7-8 hours per day for self-study.",
   ],
   comparison: [
     {
-      point: "Primary Focus",
-      integrated:
-        "Entire ecosystem aligned to one target: cracking JEE/NEET in the first attempt.",
-      conventional: "General board-focused schooling only.",
+      point: "",
+      integrated: "The entire ecosystem is built around a singular goal: cracking JEE/NEET in the first attempt.",
+      conventional: "Aims to deliver a general board education only.",
     },
     {
-      point: "Syllabus Design",
-      integrated:
-        "ICSE board syllabus is synchronized with JEE/NEET requirements.",
-      conventional:
-        "School and coaching follow separate and often disconnected plans.",
+      point: "",
+      integrated: "The ICSE board syllabus is perfectly synchronized with the JEE/NEET syllabus.",
+      conventional: "Schooling and coaching operate separately.",
     },
     {
-      point: "Coaching Dependency",
-      integrated:
-        "No need for after-school coaching, reducing pressure and commute time.",
-      conventional: "Students generally require external coaching after school.",
+      point: "",
+      integrated: "No need for attending coaching after school. Saves time as well as money.",
+      conventional: "Generally coaching is required after the school.",
     },
     {
-      point: "Self-Study Time",
-      integrated: "Students gain about 6-7 extra hours daily for self-study.",
-      conventional: "Limited time remains for quality self-study.",
+      point: "",
+      integrated: "6-7 hours more time for self-study.",
+      conventional: "Less time for self-study.",
     },
   ],
-  
+
   results: [
     {
       name: "Ibrahim Faisal",

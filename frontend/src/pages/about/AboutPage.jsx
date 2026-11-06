@@ -1,5 +1,5 @@
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { introduction, vision, mission, hadith, historyIntro, history, governanceIntro, affiliation } from "../../content/about";
+import { introduction, vision, mission, historyIntro, history, governanceIntro, affiliation } from "../../content/about";
 import { useBoardMembers } from "../../hooks/useBoardMembers";
 import PageHero from "../../ui/PageHero";
 import SectionNav from "../../ui/SectionNav";
@@ -7,7 +7,7 @@ import ContentSection, { Prose } from "../../ui/ContentSection";
 import ArchFrame from "../../ui/ArchFrame";
 import Reveal from "../../ui/Reveal";
 import Button from "../../ui/Button";
-import { ArabicQuote, Timeline, PersonCard, FactTile } from "../../ui/Blocks";
+import { Timeline, PersonCard, FactTile } from "../../ui/Blocks";
 import { Sparkle } from "../../ui/Ornaments";
 
 const sections = [
@@ -35,7 +35,7 @@ const AboutPage = () => {
       <PageHero
         eyebrow="About IMS · Est. 2008"
         title="Shaping Hearts, Building Minds"
-        lede="A value-based, CISCE-affiliated school in Aligarh — a madrasat al-hayat, a school for life."
+        lede="A value-based, CISCE-affiliated school in Aligarh, nurturing academic excellence and ethical character since 2008."
         crumbs={[{ label: "About" }]}
         image="student-speech-1"
       />
@@ -61,9 +61,6 @@ const AboutPage = () => {
           <StatementCard label="IMS Vision" text={vision} tone="bg-gold-400 text-emerald-800" />
           <StatementCard label="IMS Mission" text={mission} tone="bg-ivory-50 text-emerald-800" />
         </div>
-        <Reveal className="mt-20">
-          <ArabicQuote {...hadith} />
-        </Reveal>
       </ContentSection>
 
       {/* 3. History */}
@@ -80,7 +77,7 @@ const AboutPage = () => {
 
       {/* 4. Board */}
       <ContentSection id="board-members" tone="sand" eyebrow="04 · Governance" title="Board Members" lede={governanceIntro}>
-        <h3 className="mt-14 text-xs font-semibold uppercase tracking-eyebrow text-emerald-700">The Office Bearers</h3>
+        <h3 className="mt-14 text-xs font-semibold uppercase tracking-eyebrow text-emerald-700">The Office Bearers include</h3>
         <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {board.map((m, i) => (
             <PersonCard key={m.name} index={i} name={m.name} role={m.role} detail={m.qualification} note={m.profession} photo={m.photo} />
@@ -94,8 +91,7 @@ const AboutPage = () => {
           <Reveal>
             <Prose>
               <p>
-                IMS is affiliated to the <strong className="text-ink">{affiliation.body}</strong>. Students follow the nationally
-                recognised ICSE and ISC framework, enriched with the school’s value-based teaching.
+                IMS is affiliated to <strong className="text-ink">{affiliation.body}</strong>.
               </p>
             </Prose>
             <Button to="/curriculum" variant="emerald" className="mt-8">Explore our curriculum</Button>

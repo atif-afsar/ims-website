@@ -27,12 +27,13 @@ const SubHeading = ({ children, tone = "dark" }) => (
 );
 
 /* Emerald partner panel used for Evan Moor and Eduvate */
-const PartnerPanel = ({ label, title, text }) => (
+const PartnerPanel = ({ label, title, tagline, text }) => (
   <Reveal className="relative mt-12 overflow-hidden rounded-3xl bg-emerald-700 p-8 text-ivory-50 md:p-12">
     <PatternBg opacity={0.1} />
     <div className="relative">
       <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-eyebrow text-gold-300"><Sparkle className="h-3 w-3" /> {label}</p>
       <p className="mt-4 font-display text-3xl font-bold md:text-4xl">{title}</p>
+      {tagline && <p className="mt-2 font-display text-lg italic text-gold-300">{tagline}</p>}
       <p className="mt-5 max-w-3xl text-lg leading-relaxed text-ivory-100/85">{text}</p>
     </div>
   </Reveal>
@@ -43,7 +44,7 @@ const CurriculumPage = () => (
     <SEOHelmet />
     <PageHero
       eyebrow="Academics"
-      title="Curriculum: Nurturing Mind, Body and Soul"
+      title="Curriculum: Nurturing Mind, Body, and Soul"
       lede={overview}
       crumbs={[{ label: "Academics" }, { label: "Curriculum" }]}
       image="smart-class-1"
@@ -67,21 +68,22 @@ const CurriculumPage = () => (
         ))}
       </div>
       <Reveal className="mt-6 flex items-start gap-4 rounded-2xl bg-gold-100 p-6 md:p-8">
-        <IconBadge icon="quran" />
-        <p className="text-lg leading-relaxed text-emerald-800">{academic.islamic}</p>
+        <IconBadge icon="books" />
+        <div className="space-y-1 text-lg leading-relaxed text-emerald-800">{academic.minority.map((p) => <p key={p}>{p}</p>)}</div>
       </Reveal>
-      <SubHeading>Pedagogy — beyond rote learning</SubHeading>
+      <SubHeading>Pedagogy — our teaching methodology moves beyond rote learning</SubHeading>
       <IconList items={academic.pedagogy} cols={3} />
     </ContentSection>
 
     {/* 2. 21st century skills */}
     <ContentSection id="curriculum-21-skills" tone="sand" eyebrow="02 · Skills for Life" title="21st Century Skills" lede={skills.intro}>
-      <SubHeading>Our Core Skill Pathways</SubHeading>
+      <SubHeading>Four Interconnected Pathways</SubHeading>
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         {skills.pathways.map((p, i) => <TagCard key={p.title} index={i} {...p} />)}
       </div>
       <SubHeading>How We Develop These Skills</SubHeading>
       <IconList items={skills.methods} cols={3} />
+      <Reveal className="mt-10"><Prose><p>{skills.closing}</p></Prose></Reveal>
       <PhotoStrip names={["student-speech-2", "science-exhibition-3", "smart-class-3"]} className="mt-14" />
     </ContentSection>
 
@@ -92,32 +94,7 @@ const CurriculumPage = () => (
         <Reveal><Prose><p>{stem.intro}</p></Prose></Reveal>
         <PhotoStrip names={["science-exhibition-6", "stem-activity"]} className="!my-0" />
       </div>
-      <PartnerPanel label="Our STEM Partner" title="A World-Class Curriculum from Evan Moor" text={stem.partner} />
-      <SubHeading>Why We Chose Evan Moor</SubHeading>
-      <IconList items={stem.why} />
-      <SubHeading>The Evan Moor Advantage</SubHeading>
-      <ol className="mt-6 grid gap-4 md:grid-cols-3">
-        {stem.advantage.map((a, i) => (
-          <Reveal as="li" key={a.title} delay={i * 0.06} className="rounded-2xl border border-gold-500/30 bg-ivory-50 p-7 shadow-card">
-            <span className="font-display text-4xl font-bold text-gold-400">{["i", "ii", "iii"][i]}</span>
-            <h4 className="mt-3 font-display text-xl font-bold text-ink">{a.title}</h4>
-            <p className="mt-2 leading-relaxed text-ink/70">{a.text}</p>
-          </Reveal>
-        ))}
-      </ol>
-      <Reveal className="mt-14 rounded-3xl border-2 border-dashed border-gold-500/60 bg-ivory-100 p-8 md:p-12">
-        <p className="text-xs font-semibold uppercase tracking-eyebrow text-emerald-700">A Glimpse into Learning</p>
-        <p className="mt-3 font-display text-3xl font-bold text-ink">“{stem.unit.title}”</p>
-        <p className="mt-3 text-ink/70">{stem.unit.text}</p>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {stem.unit.parts.map((p) => (
-            <div key={p.subject} className="rounded-2xl bg-ivory-50 p-6">
-              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold-600">{p.subject}</p>
-              <p className="mt-2 text-ink/80">{p.text}</p>
-            </div>
-          ))}
-        </div>
-      </Reveal>
+      <PartnerPanel label="Our STEM Partner" title={stem.partnerTitle} tagline={stem.partnerTagline} text={stem.partner} />
     </ContentSection>
 
     {/* 4. Robotics & AI */}
@@ -127,10 +104,6 @@ const CurriculumPage = () => (
         <Reveal><Prose>{robotics.paragraphs.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}</Prose></Reveal>
         <PhotoStrip names={["robotics-lab-2", "robotics-lab-1"]} className="!my-0" />
       </div>
-      <SubHeading>Why We Partnered with Eduvate</SubHeading>
-      <IconList items={robotics.why} />
-      <SubHeading>Our State-of-the-Art Eduvate Lab</SubHeading>
-      <IconList items={robotics.lab} cols={4} />
       <PhotoStrip names={["robotics-lab-3", "robotics-lab-4", "robotics-lab-5"]} className="mt-14" />
     </ContentSection>
   </>

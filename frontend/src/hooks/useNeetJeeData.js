@@ -10,13 +10,12 @@ const DEFAULT_SETTINGS = {
   banner_title: "NEET / JEE Program",
   banner_subtitle: "Redefining Schooling for Aspiring Doctors & Engineers",
   intro_paragraph_1:
-    "The journey to premier institutions like IITs and AIIMS demands a strong foundation, unwavering discipline, and a strategic approach from an early age.",
-  intro_paragraph_2:
-    "Our Integrated NEET/JEE Schooling Program is a unique educational model that seamlessly blends the rigor of the ICSE curriculum with the intensive preparation required for competitive exams.",
+    "Our Integrated NEET/JEE Schooling Program is a unique model that seamlessly blends the rigor of the ICSE curriculum with the intensive preparation required for competitive exams from an early age. We don't just teach students—we mentor future innovators and healthcare leaders, ensuring they are exam-ready, confident, and successful in their very first attempt.",
+  intro_paragraph_2: "",
   vision_title: neetProgram.visionTitle,
   vision_description: neetProgram.visionDescription,
   features_image_url: "",
-  features_title: "Our Proven Strategy",
+  features_title: "Special Features",
   comparison_title: "IMS NEET/JEE Integrated Schooling vs Conventional Schooling",
   results_title: "Our Proud Achievers",
   faculty_title: "Our Expert Faculty",
@@ -38,7 +37,7 @@ const DEFAULT_SETTINGS = {
 const DEFAULT_TRACKS = [
   {
     name: neetProgram.foundation.name,
-    subtitle: "Build an Unshakable Foundation for Success.",
+    subtitle: neetProgram.foundation.subtitle,
     for_class: neetProgram.foundation.for,
     description: neetProgram.foundation.desc,
     highlight: neetProgram.foundation.highlight,
@@ -47,7 +46,7 @@ const DEFAULT_TRACKS = [
   },
   {
     name: neetProgram.target.name,
-    subtitle: "Fast-Track Your Dream with Focused Intensity.",
+    subtitle: neetProgram.target.subtitle,
     for_class: neetProgram.target.for,
     description: neetProgram.target.desc,
     highlight: neetProgram.target.highlight,
@@ -56,12 +55,7 @@ const DEFAULT_TRACKS = [
   },
 ];
 
-const DEFAULT_ROADMAP = [
-  { phase: "Phase 1", description: "Foundation Building & Concept Mastery", sort_order: 0 },
-  { phase: "Phase 2", description: "Subject Strengthening & Topic Integration", sort_order: 1 },
-  { phase: "Phase 3", description: "Exam-Oriented Drills, Speed & Accuracy", sort_order: 2 },
-  { phase: "Final phase", description: "Full-Length Tests, Revision & Strategy", sort_order: 3 },
-];
+const DEFAULT_ROADMAP = [];
 
 const DEFAULT_FEATURES = neetProgram.features.map((text, i) => ({
   text,

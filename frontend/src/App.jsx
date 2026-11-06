@@ -151,7 +151,7 @@ function App() {
                   <Route path="/programs" element={<Navigate to="/co-curricular-extracurricular" replace />} />
                   <Route path="/programs/co-curricular" element={<Navigate to="/co-curricular-extracurricular" replace />} />
                   <Route path="/programs/english-communication" element={<Navigate to="/co-curricular-extracurricular#cc-english" replace />} />
-                  <Route path="/programs/arabic-communication" element={<Navigate to="/co-curricular-extracurricular#cc-arabic" replace />} />
+                  <Route path="/programs/arabic-communication" element={<Navigate to="/co-curricular-extracurricular#cc-english" replace />} />
                   <Route path="/programs/robotics-ai" element={<Navigate to="/curriculum#curriculum-robotics-ai" replace />} />
                   <Route path="/programs/neet-jee" element={<NeetJee />} />
                   <Route

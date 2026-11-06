@@ -39,20 +39,10 @@ const ValueBasedPage = () => (
     <ContentSection id="vb-curriculum" tone="sand" eyebrow="02" title="Values in the Curriculum">
       <div className="mt-12 grid gap-14 lg:grid-cols-2">
         <Reveal>
-          <Prose>{curriculum.opening.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}</Prose>
-          <PullQuote className="my-10">{curriculum.quote}</PullQuote>
-          <Prose><p>{curriculum.closing}</p></Prose>
+          <Prose>{curriculum.paragraphs.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}</Prose>
         </Reveal>
-        <Reveal delay={0.1}>
-          <p className="font-semibold text-ink">{curriculum.todayIntro}</p>
-          <ul className="mt-6 space-y-3">
-            {curriculum.today.map(([gain, loss]) => (
-              <li key={gain} className="rounded-2xl border border-gold-500/30 bg-ivory-50 px-6 py-4">
-                <span className="text-ink/80">{gain}, </span>
-                <span className="font-semibold text-emerald-700">{loss}</span>
-              </li>
-            ))}
-          </ul>
+        <Reveal delay={0.1} className="flex items-center">
+          <PullQuote>{curriculum.quote}</PullQuote>
         </Reveal>
       </div>
       <Reveal className="mt-16 rounded-3xl bg-emerald-700 p-8 text-ivory-50 md:p-12">
@@ -63,9 +53,10 @@ const ValueBasedPage = () => (
       </Reveal>
     </ContentSection>
 
-    <ContentSection id="vb-vs-education" eyebrow="03" title="Education vs Value-Based Education" lede="There is a marked difference in the focus and outcomes of simple education and value-based education.">
-      <Comparison leftTitle="Education" rightTitle="Value-Based Education" rows={comparison} />
+    <ContentSection id="vb-vs-education" eyebrow="03" title="Education Vs Value Based Education">
+      <Comparison leftTitle="Education" rightTitle="Value Based Education" rows={comparison} />
     </ContentSection>
+
   </>
 );
 

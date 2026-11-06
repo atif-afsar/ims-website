@@ -6,8 +6,6 @@
 export const school = {
   name: "Islamic Mission School",
   short: "IMS",
-  motto: "O My Lord! Advance Me In Knowledge",
-  mottoArabic: "رَّبِّ زِدْنِي عِلْمًا",
   tagline: "Shaping Hearts, Building Minds",
   summary:
     "Established in Aligarh in 2008, IMS integrates academic excellence with moral values to ensure holistic development.",
@@ -52,7 +50,7 @@ export const navigation = [
   {
     label: "About",
     to: "/about",
-    blurb: "A school for life since 2008 — faith, knowledge and character growing together.",
+    blurb: "Shaping hearts, building minds since 2008 — academic excellence and ethical character, given equal importance.",
     image: "campus-aerial-front",
     links: [
       { label: "Introduction", to: "/about#introduction" },
@@ -84,10 +82,10 @@ export const navigation = [
     image: "science-exhibition-8",
     links: [
       { label: "English Communication", to: "/co-curricular-extracurricular#cc-english" },
-      { label: "Arabic Communication", to: "/co-curricular-extracurricular#cc-arabic" },
       { label: "Project-Based Learning", to: "/co-curricular-extracurricular#cc-pbl" },
       { label: "Taekwondo", to: "/co-curricular-extracurricular#cc-taekwondo" },
       { label: "Sports Day & Annual Function", to: "/co-curricular-extracurricular#cc-sports-day" },
+      { label: "Competitions", to: "/co-curricular-extracurricular#cc-misc" },
       { label: "Gallery", to: "/gallery" },
     ],
   },
@@ -118,17 +116,15 @@ export const navigation = [
   },
 ];
 
-/* "Special Features" exactly as listed on the 2027-28 admission poster */
+/* "Special Features" from the 2027-28 admission poster */
 export const specialFeatures = [
   { icon: "stethoscope", title: "NEET–JEE Integrated Batches", detail: "From Class IX" },
-  { icon: "chat", title: "English & Arabic Communication", detail: "Dedicated classes" },
+  { icon: "chat", title: "English Communication", detail: "Dedicated classes" },
   { icon: "flask", title: "STEM Curriculum", detail: "Evan Moor, USA" },
   { icon: "coins", title: "Financial Literacy", detail: "Evan Moor, USA" },
   { icon: "chart", title: "Data Literacy", detail: "From UK" },
   { icon: "brain", title: "Problem Solving & Reasoning", detail: "From UK" },
   { icon: "robot", title: "Robotics & AI", detail: "From Grade 1" },
   { icon: "heart", title: "Social-Emotional Learning", detail: "From Grade 1" },
-  { icon: "mosque", title: "Islamic Studies & Arabic", detail: "Integrated in school life" },
-  { icon: "quran", title: "Hifz", detail: "Qur'an memorisation" },
   { icon: "bed", title: "Hostel Facilities", detail: "For boarding students" },
 ];

@@ -9,27 +9,25 @@ const fromGroups = (...groups) => Object.keys(media).filter((k) => groups.includ
 // 423px "stamp" crops of shots the old site had at higher resolution
 const lowRes = (k) => /^(computer-lab-old-\d|library-\d|science-lab-\d|sports-ground-\d|assembly-flag)$/.test(k);
 
+/* Campus overview text, as supplied by the school (IMS Website content, Nov 2026) */
 export const overview = {
   intro:
-    "A child’s learning environment is a cornerstone of their development. Our campus near Aligarh Muslim University blends modern education with open, natural space — sun-lit classrooms, advanced laboratories and extensive playing fields form an ecosystem of holistic growth.",
+    "IMS is a premier institution set within a sprawling 3-acre campus designed to inspire young minds, offering the perfect blend of modern education and expansive natural space.",
   building:
-    "Our academic block is designed for learning. Every classroom is spacious, well-ventilated and flooded with natural light, creating an alert and positive atmosphere.",
+    "Our academic block features spacious, well-ventilated, sun-lit classrooms alongside advanced labs and extensive playing fields, creating an ecosystem of holistic growth.",
   labsIntro:
-    "True understanding comes from doing. We have invested in distinct, specialised laboratories for Physics, Chemistry, Biology, Robotics & STEM and Computer Science, so every experiment and project receives the focused space and resources it deserves.",
+    "True understanding comes from doing, which is why we have invested in distinct, specialized laboratories for Physics, Chemistry, Biology, Robotics & STEM, and Computer Science. This dedicated approach provides an immersive, hands-on learning environment, ensuring every experiment and project receives the focused space and resources it deserves.",
   labs: [
-    { icon: "atom", title: "The Physics Lab", tagline: "Unravelling the Laws of the Universe", text: "Advanced apparatus for mechanics, optics, electricity and thermodynamics. Students don’t just read about Newton’s laws; they validate them through experiments.", image: "physics-lab-img-2691" },
-    { icon: "flask", title: "The Chemistry Lab", tagline: "A Realm of Molecular Discovery", text: "With fire detection and protection, sinks and eye-wash stations, students learn to handle compounds responsibly while performing titrations, studying reactions and discovering the properties of matter.", image: "chemistry-lab-img-2670" },
-    { icon: "plant", title: "The Biology Lab", tagline: "Exploring the Web of Life", text: "From microscopes revealing the structure of a cell to models of anatomy and ecosystems — dissection, slide preparation and DNA extraction cultivate wonder for the life sciences.", image: "science-exhibition-7" },
-    { icon: "code", title: "The Computer Science Lab", tagline: "Coding the Digital World", text: "High-performance computers and industry-relevant software, where students master programming, develop apps and explore cybersecurity, AI and data science.", image: "computer-lab-1" },
-    { icon: "robot", title: "Robotics & STEM Lab", tagline: "Building the Future", text: "Eduvate robotics kits, sensor arrays and a collaborative innovation zone where students design, build and programme intelligent machines.", image: "robotics-lab-2", to: "/curriculum#curriculum-robotics-ai" },
+    { icon: "atom", title: "The Physics Lab", tagline: "Unraveling the Laws of the Universe", image: "physics-lab-img-2691" },
+    { icon: "flask", title: "The Chemistry Lab", tagline: "A Realm of Molecular Discovery", image: "chemistry-lab-img-2670" },
+    { icon: "plant", title: "The Biology Lab", tagline: "Exploring the Web of Life", image: "science-exhibition-7" },
+    { icon: "code", title: "The Computer Science Lab", tagline: "Coding the Digital World", image: "computer-lab-1" },
   ],
   additional: [
-    { icon: "books", title: "Library", text: "A peaceful reading zone with Islamic books, reference material and age-wise story books." },
-    { icon: "present", title: "Conference Hall", text: "Modern facilities for seminars, workshops and special events, with audio-visual capabilities." },
-    { icon: "users", title: "Separate Sections", text: "Dedicated sections for boys and girls, ensuring a comfortable and focused learning environment." },
-    { icon: "teacher", title: "Audio-Visual System", text: "Smart boards and audio-visual systems in classrooms for interactive, engaging multimedia learning." },
-    { icon: "care", title: "Medical Room", text: "An on-campus medical room where students receive care and health check-ups." },
-    { icon: "bed", title: "Hostel Facilities", text: "Boarding facilities for students, as announced for the 2027–28 session." },
+    { icon: "books", title: "Library" },
+    { icon: "present", title: "Conference Hall" },
+    { icon: "users", title: "Separate sections of Boys and Girls" },
+    { icon: "teacher", title: "Audio-visual system" },
   ],
 };
 
@@ -46,7 +44,7 @@ export const facilities = {
       { icon: "code", title: "Coding from early grades", text: "Age-appropriate coding and logical-thinking activities, so students become creators of technology." },
       { icon: "puzzle", title: "Hands-on projects", text: "Projects that connect computer skills with maths, science and languages." },
       { icon: "present", title: "Multimedia & presentations", text: "Creating slides, posters and multimedia stories builds confidence and creativity." },
-      { icon: "shield", title: "Safe, guided usage", text: "Teacher supervision and regular reminders about Islamic values and online etiquette." },
+      { icon: "shield", title: "Safe, guided usage", text: "Teacher supervision and regular reminders about good values and online etiquette." },
       { icon: "globe", title: "Internet-equipped terminals", text: "Connected workstations for research and collaborative projects." },
     ],
     galleryTitle: "Inside our Computer Lab",
@@ -56,12 +54,12 @@ export const facilities = {
   library: {
     title: "Library",
     eyebrow: "Campus · Reading",
-    lede: "A quiet, welcoming space filled with Islamic literature, reference books and story books that nurture a love for reading.",
+    lede: "A quiet, welcoming space filled with literature, reference books and story books that nurture a love for reading.",
     heroImage: "library-2",
     heroPosition: "35% 40%",
     featuresTitle: "A home for readers",
     features: [
-      { icon: "books", title: "Diverse collection", text: "Islamic studies, tafsir, seerah, reference books and graded readers for all age groups." },
+      { icon: "books", title: "Diverse collection", text: "Literature, reference books, story books and graded readers for all age groups." },
       { icon: "heart", title: "Child-friendly corners", text: "Comfortable reading corners that encourage children to pick up books independently." },
       { icon: "search", title: "Research support", text: "Resources for projects, competitions and self-study beyond the textbook." },
       { icon: "calendar", title: "Reading culture", text: "Regular library periods, book talks and recommendations to build strong reading habits." },
@@ -84,7 +82,7 @@ export const facilities = {
       { icon: "clipboard", title: "Observation & recording", text: "Careful observation, noting results and drawing correct inferences." },
     ],
     galleryTitle: "Inside our Laboratories",
-    galleryText: "Bright, ventilated labs designed to encourage curiosity, careful handling and appreciation of Allah’s creation.",
+    galleryText: "Bright, ventilated labs designed to encourage curiosity, careful handling and appreciation of the natural world.",
     gallery: [...fromGroups("chemistry-lab"), ...fromGroups("physics-lab")],
   },
   "sports-complex": {

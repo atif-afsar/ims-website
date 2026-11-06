@@ -117,6 +117,12 @@ test("uploads store images and serve them", async () => {
   assert.equal((await call(url)).status, 404);
 });
 
+test("a hero slide can be just a photo, with its text switched on separately", () => {
+  const { row, errors } = cleanRow("hero_slides", { image_url: "media:campus-aerial", title: "", show_text: true });
+  assert.deepEqual(errors, []);
+  assert.deepEqual(row, { title: null, image_url: "media:campus-aerial", show_text: 1 });
+});
+
 test("cleanRow keeps only known fields and coerces types", () => {
   const { row, errors } = cleanRow("hero_slides", { title: "Hi", is_active: "true", sort_order: "3", starts_on: "", password_hash: "x" });
   assert.deepEqual(errors, []);

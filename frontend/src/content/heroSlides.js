@@ -1,81 +1,16 @@
 /*
- * Default hero slides. Shown until the admin adds slides in
+ * Built-in hero photos. Shown until the admin sets at least two slides in
  * Admin → Hero Slides, and as a fallback if the database is unreachable.
- * Field names match the hero_slides table. `label` is the short name in the
- * slide chooser (falls back to the eyebrow).
+ * These show the main message from Admin → Homepage → Hero.
+ * `position` optionally sets which part of the photo stays in view when cropped.
  */
 const heroSlides = [
-  {
-    id: "default-campus",
-    label: "Welcome to IMS",
-    eyebrow: "Affiliated to CISCE, New Delhi · Est. 2008",
-    title: "Shaping Hearts,",
-    highlight: "Building Minds",
-    subtitle: "Established in Aligarh in 2008, IMS integrates academic excellence with moral values to ensure holistic development.",
-    media_key: "campus-aerial",
-    video_url: "/media/video/campus-hero.mp4",
-    cta_text: "Apply for 2027–28",
-    cta_link: "/classes",
-    cta2_text: "Discover IMS",
-    cta2_link: "/about",
-  },
-  {
-    id: "default-admissions",
-    label: "Admissions 2027–28",
-    eyebrow: "Admission Open 2027–28",
-    title: "Playgroup to Class IX",
-    highlight: "& Class XI",
-    subtitle: "Class XI streams: PCM, PCB, Commerce and Humanities. Visit the campus or talk to our admissions team today.",
-    media_key: "pre-primary-1",
-    cta_text: "Apply Now",
-    cta_link: "/classes",
-    cta2_text: "Call 07417914164",
-    cta2_link: "tel:+917417914164",
-  },
-  {
-    id: "default-naest",
-    label: "National Finalist",
-    eyebrow: "NAEST 2025 · Physics",
-    title: "A National Finalist",
-    highlight: "from IMS",
-    subtitle: "Areeba Fatima (Class XI-B1) reached the final 10 nationwide in the experimental physics test led by Prof. H.C. Verma.",
-    media_key: "naest-2025-16",
-    cta_text: "Our Achievements",
-    cta_link: "/gallery",
-  },
-  {
-    id: "default-robotics",
-    label: "Robotics & AI",
-    eyebrow: "Robotics & AI Lab",
-    title: "Builders of Tomorrow,",
-    highlight: "from Grade 1",
-    subtitle: "Students learn to understand, design and programme intelligent machines — guided by ethics and purpose.",
-    media_key: "robotics-lab-2",
-    cta_text: "Explore Academics",
-    cta_link: "/curriculum#curriculum-robotics-ai",
-  },
-  {
-    id: "default-neet",
-    label: "NEET / JEE",
-    eyebrow: "Integrated NEET / JEE Program",
-    title: "One Campus.",
-    highlight: "One Goal.",
-    subtitle: "ICSE schooling synchronised with NEET/JEE preparation from Class IX. Our first-attempt NEET 2024 top score: 690.",
-    media_key: "chemistry-lab-img-2664",
-    cta_text: "Explore the Program",
-    cta_link: "/programs/neet-jee",
-  },
-  {
-    id: "default-results",
-    label: "Board Toppers",
-    eyebrow: "ICSE & ISC Results 2026",
-    title: "Proud of Our",
-    highlight: "District Toppers",
-    subtitle: "Ibrahim Faisal topped Class X with 95% and Ahmad Misbah topped Class XII with 94% — both District Rank 1.",
-    media_key: "quiz-13-jpeg",
-    cta_text: "Meet Our Achievers",
-    cta_link: "/programs/neet-jee",
-  },
+  { id: "default-campus", media_key: "campus-aerial", video_url: "/media/video/campus-hero.mp4" },
+  { id: "default-science", media_key: "science-exhibition-1", position: "center 8%" },
+  { id: "default-robotics", media_key: "robotics-lab-2" },
+  { id: "default-sports", media_key: "sports-volleyball" },
+  { id: "default-classroom", media_key: "smart-class-2" },
+  { id: "default-chemistry", media_key: "chemistry-lab-img-2664" },
 ];
 
 export default heroSlides;

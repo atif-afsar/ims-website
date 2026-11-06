@@ -15,7 +15,7 @@ import { PatternBg, Sparkle } from "../../ui/Ornaments";
 
 const sections = [
   { id: "neet-program", label: "The Program" },
-  { id: "neet-strategy", label: "Our Strategy" },
+  { id: "neet-strategy", label: "Special Features" },
   { id: "neet-comparison", label: "Why Integrated" },
   { id: "neet-results", label: "Achievers" },
   { id: "neet-alumni", label: "Our Doctors" },
@@ -81,7 +81,7 @@ const NeetJeePage = () => {
       <SectionNav items={sections} />
 
       {/* Program */}
-      <ContentSection id="neet-program" eyebrow={settings.banner_title} title={settings.vision_title}>
+      <ContentSection id="neet-program" eyebrow={settings.banner_title} title={settings.banner_subtitle}>
         <div className="mt-10 grid items-start gap-12 lg:grid-cols-2">
           <Reveal>
             <Prose>
@@ -93,7 +93,7 @@ const NeetJeePage = () => {
           <Img name="science-exhibition-6" position="50% 60%" sizes="(min-width: 1024px) 50vw, 100vw" className="aspect-[4/3] rounded-t-[160px] rounded-b-2xl shadow-lift" />
         </div>
 
-        <h3 className="mt-20 text-xs font-semibold uppercase tracking-eyebrow text-emerald-700">Program Structure</h3>
+        <h3 className="mt-20 text-xs font-semibold uppercase tracking-eyebrow text-emerald-700">Program Structure &amp; Details</h3>
         <div className="mt-6 grid gap-5 md:grid-cols-2">
           {tracks.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.08} className={`relative overflow-hidden rounded-3xl p-8 md:p-10 ${i === 0 ? "bg-emerald-700 text-ivory-50" : "bg-gold-400 text-emerald-800"}`}>
@@ -111,7 +111,7 @@ const NeetJeePage = () => {
       </ContentSection>
 
       {/* Strategy + roadmap */}
-      <ContentSection id="neet-strategy" tone="sand" eyebrow="How We Prepare" title={settings.features_title}>
+      <ContentSection id="neet-strategy" tone="sand" eyebrow="Special Features" title={settings.features_title}>
         <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((f, i) => (
             <Reveal as="li" key={f.text} delay={(i % 4) * 0.06} className="flex items-start gap-4 rounded-2xl border border-gold-500/30 bg-ivory-50 p-6 shadow-card">
@@ -142,14 +142,14 @@ const NeetJeePage = () => {
           <Comparison
             leftTitle="Conventional Schooling"
             rightTitle="IMS Integrated Schooling"
-            rows={comparison.map((c) => [<><strong className="block text-ink">{c.point}</strong>{c.conventional}</>, <><strong className="block">{c.point}</strong>{c.integrated}</>])}
+            rows={comparison.map((c) => [<>{c.point && <strong className="block text-ink">{c.point}</strong>}{c.conventional}</>, <>{c.point && <strong className="block">{c.point}</strong>}{c.integrated}</>])}
           />
         </ContentSection>
       )}
 
       {/* Results */}
       {results.length > 0 && (
-        <ContentSection id="neet-results" tone="sand" eyebrow="Alhamdulillah" title={settings.results_title}>
+        <ContentSection id="neet-results" tone="sand" eyebrow="Our Results" title={settings.results_title}>
           {groups.map((g) => (
             <div key={g} className="mt-14">
               <h3 className="text-xs font-semibold uppercase tracking-eyebrow text-emerald-700">{g} District Toppers · 2026</h3>

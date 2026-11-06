@@ -16,10 +16,9 @@ const collections = {
   hero_slides: {
     fields: {
       eyebrow: "text", title: "text", highlight: "text", subtitle: "text", image_url: "text", media_key: "text",
-      video_url: "text", cta_text: "text", cta_link: "text", cta2_text: "text", cta2_link: "text",
+      video_url: "text", show_text: "bool", cta_text: "text", cta_link: "text", cta2_text: "text", cta2_link: "text",
       sort_order: "int", is_active: "bool", starts_on: "date", ends_on: "date",
     },
-    required: ["title"],
     order: "sort_order, id",
     publicWhere: ACTIVE,
   },

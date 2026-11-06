@@ -94,7 +94,7 @@ const NewsPanel = () => {
         initial={{ x: -60 }}
         animate={{ x: 0 }}
         transition={{ delay: 1.2, duration: 0.6, ease: EASE }}
-        className="group fixed left-0 top-1/2 z-40 flex -translate-y-1/2 items-center gap-2 rounded-r-2xl bg-emerald-700 py-3 pl-3 pr-3 text-gold-300 shadow-lift transition-all hover:bg-emerald-600 hover:pr-4"
+        className="group fixed left-0 top-[34%] z-40 lg:top-1/2 flex -translate-y-1/2 items-center gap-2 rounded-r-2xl bg-emerald-700 py-3 pl-3 pr-3 text-gold-300 shadow-lift transition-all hover:bg-emerald-600 hover:pr-4"
         aria-label="Open news and events"
       >
         <PiBellSimple className={`text-2xl ${unseen ? "origin-top animate-bell-ring" : ""}`} aria-hidden="true" />

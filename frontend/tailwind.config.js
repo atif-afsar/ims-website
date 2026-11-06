@@ -43,9 +43,11 @@ export default {
       borderRadius: { arch: "999px 999px 24px 24px" },
       keyframes: {
         "ken-burns": { "0%": { transform: "scale(1)" }, "100%": { transform: "scale(1.06)" } },
+        "hero-zoom-in": { "0%": { transform: "scale(1.02)" }, "100%": { transform: "scale(1.14)" } },
+        "hero-zoom-out": { "0%": { transform: "scale(1.14)" }, "100%": { transform: "scale(1.02)" } },
         "bell-ring": { "0%, 100%": { transform: "rotate(0)" }, "10%, 30%": { transform: "rotate(14deg)" }, "20%, 40%": { transform: "rotate(-12deg)" }, "50%": { transform: "rotate(0)" } },
       },
-      animation: { "ken-burns": "ken-burns 24s ease-out both", "bell-ring": "bell-ring 1.8s ease-in-out 2s 3" },
+      animation: { "ken-burns": "ken-burns 24s ease-out both", "hero-zoom-in": "hero-zoom-in 9s linear both", "hero-zoom-out": "hero-zoom-out 9s linear both", "bell-ring": "bell-ring 1.8s ease-in-out 2s 3" },
     },
   },
   plugins: [],

@@ -2,18 +2,19 @@ import { Fragment, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Reveal from "../../ui/Reveal";
 import { Star8, Sparkle } from "../../ui/Ornaments";
-import { PiBookOpenText, PiMosque, PiGraduationCap } from "react-icons/pi";
+import { PiBookOpenText, PiBuildings, PiGraduationCap } from "react-icons/pi";
 
 /* Inline glyph between words, like the shapes in ISB's intro line */
 const GLYPHS = {
-  mosque: { Icon: PiMosque, tone: "bg-emerald-700 text-ivory-50" },
+  school: { Icon: PiBuildings, tone: "bg-emerald-700 text-ivory-50" },
+  mosque: { Icon: PiBuildings, tone: "bg-emerald-700 text-ivory-50" }, // older saved text; shown as the school icon
   book: { Icon: PiBookOpenText, tone: "bg-gold-400 text-emerald-800" },
   cap: { Icon: PiGraduationCap, tone: "bg-navy-900 text-gold-300" },
 };
 
-/* Turns "a *word* {mosque} b" into text, emerald emphasis and round icons */
+/* Turns "a *word* {school} b" into text, emerald emphasis and round icons */
 const renderStatement = (text = "") =>
-  text.split(/(\*[^*]+\*|\{(?:mosque|book|cap)\})/g).map((part, i) => {
+  text.split(/(\*[^*]+\*|\{(?:school|mosque|book|cap)\})/g).map((part, i) => {
     if (part.startsWith("*") && part.endsWith("*")) return <span key={i} className="italic text-emerald-700">{part.slice(1, -1)}</span>;
     const glyph = part.match(/^\{(\w+)\}$/)?.[1];
     if (glyph) {

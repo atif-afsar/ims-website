@@ -46,7 +46,7 @@ const ContactForm = () => {
     return (
       <div className="flex flex-col items-center py-12 text-center" role="status">
         <PiCheckCircle className="text-6xl text-emerald-700" aria-hidden="true" />
-        <h3 className="mt-4 font-display text-2xl font-bold text-ink">JazakAllah Khair!</h3>
+        <h3 className="mt-4 font-display text-2xl font-bold text-ink">Thank you!</h3>
         <p className="mt-2 max-w-sm text-ink/70">Your message has been sent. Our team will get back to you soon.</p>
         <button onClick={() => setStatus("idle")} className="mt-6 text-sm font-semibold uppercase tracking-[0.14em] text-emerald-700">Send another message</button>
       </div>

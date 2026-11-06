@@ -45,8 +45,7 @@ const SiteFooter = () => {
             <img src="/images/logo/logo.webp" alt="" width="56" height="56" className="h-14 w-14" />
             <span className="font-display text-2xl font-bold text-ivory-50">{school.name}</span>
           </Link>
-          <p className="mt-6 font-arabic text-2xl text-gold-300" lang="ar" dir="rtl">{school.mottoArabic}</p>
-          <p className="mt-1 text-sm italic text-ivory-100/60">“{school.motto}”</p>
+          <p className="mt-6 font-display text-2xl italic text-gold-300">{school.tagline}</p>
           <p className="mt-5 max-w-sm leading-relaxed">{school.summary}</p>
           <SocialLinks className="mt-6 gap-5 text-ivory-50" iconClass="h-6 w-6" />
         </div>

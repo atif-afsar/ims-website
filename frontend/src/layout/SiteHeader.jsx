@@ -9,7 +9,7 @@ import SocialLinks from "./SocialLinks";
 
 const EASE = [0.22, 1, 0.36, 1];
 
-/* Header height, shared with the page spacer and the hero tile column */
+/* Header height, shared with the page spacer and the hero tab column */
 export const HEADER_H = "h-20 md:h-24";
 
 const MENU_ITEMS = [...navigation, { label: "Contact", to: "/contact", blurb: "Visit us near AMU Fort, call, or send a message.", links: [] }];
@@ -70,14 +70,12 @@ const Decoration = () => (
       </motion.div>
     ))}
     <motion.p
-      className="absolute bottom-10 left-10 right-10 font-arabic text-3xl text-ivory-50/80"
+      className="absolute bottom-10 left-10 right-10 font-display text-3xl italic text-ivory-50/80"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.5 }}
-      dir="rtl"
-      lang="ar"
     >
-      {school.mottoArabic}
+      {school.tagline}
     </motion.p>
   </div>
 );
@@ -287,13 +285,13 @@ const SiteHeader = () => {
             <Logo light={overHero} />
           </div>
 
-          {/* Right box: on the homepage it caps the hero's tile column */}
-          <div className={`flex items-center justify-end gap-1 pr-3 transition-all duration-500 sm:gap-2 md:pr-6 ${overHero ? "rounded-bl-[1.75rem] bg-ivory-50 pl-4 md:pl-6 lg:w-[22rem] xl:w-[26rem]" : "pl-2"}`}>
-            <a href={contact.phones[0].href} className="hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-emerald-800 hover:bg-emerald-50 xl:flex" aria-label={`Call ${contact.phones[0].label}`}>
+          {/* Right box: on the homepage it caps the hero's tab column */}
+          <div className={`flex items-center justify-end gap-1 pr-3 text-emerald-800 transition-all duration-500 sm:gap-2 md:pr-6 ${overHero ? "rounded-bl-[1.75rem] bg-ivory-50 pl-4 md:pl-6 lg:w-[22rem] xl:w-[26rem]" : "pl-2"}`}>
+            <a href={contact.phones[0].href} className={`hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold hover:bg-emerald-50 xl:flex`} aria-label={`Call ${contact.phones[0].label}`}>
               <PiPhone className="text-lg" aria-hidden="true" /> Call
             </a>
             <span className="hidden h-6 w-px bg-emerald-900/15 xl:block" aria-hidden="true" />
-            <Link to="/classes" className="hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-bold uppercase tracking-[0.14em] text-emerald-800 hover:bg-emerald-50 sm:flex">
+            <Link to="/classes" className={`hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-bold uppercase tracking-[0.14em] hover:bg-emerald-50 sm:flex`}>
               <PiPencilSimpleLine className="text-lg text-gold-600" aria-hidden="true" /> Apply
             </Link>
             <span className="hidden h-6 w-px bg-emerald-900/15 sm:block" aria-hidden="true" />
@@ -301,7 +299,7 @@ const SiteHeader = () => {
               onClick={() => setMenuOpen(true)}
               aria-expanded={menuOpen}
               aria-haspopup="dialog"
-              className="flex items-center gap-3 rounded-full px-4 py-2.5 text-sm font-bold uppercase tracking-[0.18em] text-emerald-900 transition hover:bg-emerald-50"
+              className={`flex items-center gap-3 rounded-full px-4 py-2.5 text-sm font-bold uppercase tracking-[0.18em] transition hover:bg-emerald-50`}
             >
               <MenuIcon open={menuOpen} /> Menu
             </button>

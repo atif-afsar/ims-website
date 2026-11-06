@@ -4,7 +4,7 @@
     "/": {
       "name": "Home",
       "title": "Islamic Mission School Aligarh | CISCE School, Play Group–XII",
-      "description": "Islamic Mission School, Aligarh — a CISCE-affiliated, value-based school since 2008. ICSE academics, STEM, Robotics & AI, NEET/JEE and Hifz. Admissions open.",
+      "description": "Islamic Mission School, Aligarh — a CISCE-affiliated, value-based school since 2008. ICSE academics, STEM, Robotics & AI and NEET/JEE. Admissions open.",
       "photo": "campus-aerial-front",
       "priority": 1.0,
       "changefreq": "weekly"
@@ -20,7 +20,7 @@
     "/ims-value-based-school": {
       "name": "Value-Based Education",
       "title": "Value-Based Education at IMS | Islamic Mission School",
-      "description": "How Islamic Mission School weaves Islamic values into the ICSE curriculum — character before career, cooperation over competition, and education for life.",
+      "description": "Why IMS is a value-based school — academic excellence and ethical character given equal importance, and “cooperation for co-existence” over “survival of the fittest”.",
       "photo": "pre-primary-2",
       "priority": 0.8,
       "changefreq": "monthly"
@@ -28,7 +28,7 @@
     "/curriculum": {
       "name": "Curriculum",
       "title": "ICSE Curriculum, STEM & Robotics | IMS Aligarh",
-      "description": "The IMS curriculum: ICSE & ISC academics, 21st-century skills, Evan Moor STEM from Grade 1, Robotics & AI, Data and Financial Literacy, Arabic and Islamic Studies.",
+      "description": "The IMS curriculum: ICSE & ISC academics, 21st-century skills, Evan Moor STEM from Grade 1, Eduvate Robotics & AI and Financial Literacy.",
       "photo": "smart-class-1",
       "priority": 0.85,
       "changefreq": "monthly"
@@ -52,7 +52,7 @@
     "/co-curricular-extracurricular": {
       "name": "Student Life",
       "title": "Student Life, Sports & Activities | IMS Aligarh",
-      "description": "Student life at IMS Aligarh: English and Arabic communication, project-based learning, the Sciberation science fair, Taekwondo, Sports Day and Annual Function.",
+      "description": "Student life at IMS Aligarh: English communication, project-based learning, the Sciberation science fair, Taekwondo, Sports Day and Annual Function.",
       "photo": "student-speech-2",
       "priority": 0.8,
       "changefreq": "monthly"
@@ -60,7 +60,7 @@
     "/facilities": {
       "name": "Campus & Facilities",
       "title": "Campus & Facilities | Islamic Mission School Aligarh",
-      "description": "Explore the IMS campus near AMU, Aligarh: smart classrooms, physics, chemistry, biology, computer and robotics labs, library, sports grounds and hostel facilities.",
+      "description": "Explore the IMS campus near AMU, Aligarh: smart classrooms, physics, chemistry, biology, computer and robotics labs, library, conference hall and playing fields.",
       "photo": "campus-aerial-front",
       "priority": 0.8,
       "changefreq": "monthly"
@@ -78,7 +78,7 @@
       "name": "Library",
       "parent": "/facilities",
       "title": "School Library | Islamic Mission School Aligarh",
-      "description": "The IMS library: a quiet, welcoming space with Islamic literature, reference books and age-wise story books that nurture a lifelong love of reading.",
+      "description": "The IMS library: a quiet, welcoming space with literature, reference books and age-wise story books that nurture a lifelong love of reading.",
       "photo": "library-2",
       "priority": 0.6,
       "changefreq": "yearly"
@@ -152,7 +152,7 @@
     "/programs": "/co-curricular-extracurricular",
     "/programs/co-curricular": "/co-curricular-extracurricular",
     "/programs/english-communication": "/co-curricular-extracurricular#cc-english",
-    "/programs/arabic-communication": "/co-curricular-extracurricular#cc-arabic",
+    "/programs/arabic-communication": "/co-curricular-extracurricular#cc-english",
     "/programs/robotics-ai": "/curriculum#curriculum-robotics-ai",
     "/vision": "/about#vision-mission",
     "/team": "/about#board-members",

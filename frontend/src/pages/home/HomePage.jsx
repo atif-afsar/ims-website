@@ -16,7 +16,7 @@ const HomePage = () => {
   return (
     <>
       <SEOHelmet structuredData={[webSiteSchema, schoolSchema]} />
-      {/* One stable main heading for search engines and screen readers; the slides below use h2 */}
+      {/* One stable main heading for search engines and screen readers; the hero headline below is an h2 */}
       <h1 className="sr-only">Islamic Mission School, Aligarh — CISCE-affiliated school from Play Group to Class XII</h1>
       {home.sections
         .filter((s) => s.visible && COMPONENTS[s.key])

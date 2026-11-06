@@ -79,6 +79,15 @@ test("hero slides: create, list publicly, reorder, hide, delete", opts, async ()
   list = await (await fetch(`${base}/api/public/hero_slides`)).json();
   assert.deepEqual(list.map((s) => s.title), ["First"]);
 
+  // A slide can be just a photo; its text stays hidden unless switched on
+  const photo = await (await send("POST", "/api/admin/hero_slides", { image_url: "media:campus-aerial", title: "" })).json();
+  assert.equal(photo.title, null);
+  assert.equal(photo.show_text, 0);
+  assert.equal((await send("PUT", `/api/admin/hero_slides/${photo.id}`, { title: "Hello", show_text: true })).status, 200);
+  const shown = (await (await fetch(`${base}/api/public/hero_slides`)).json()).find((s) => s.id === photo.id);
+  assert.equal(shown.show_text, 1);
+  assert.equal((await send("DELETE", `/api/admin/hero_slides/${photo.id}`)).status, 200);
+
   assert.equal((await send("DELETE", `/api/admin/hero_slides/${a.id}`)).status, 200);
   assert.equal((await send("DELETE", `/api/admin/hero_slides/${a.id}`)).status, 404);
 });

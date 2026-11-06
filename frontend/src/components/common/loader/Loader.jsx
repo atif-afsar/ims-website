@@ -50,14 +50,12 @@ const Loader = () => {
         Islamic Mission School
       </motion.p>
       <motion.p
-        lang="ar"
-        dir="rtl"
-        className="mt-2 font-arabic text-xl text-gold-600"
+        className="mt-2 font-display text-lg italic text-gold-600"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.6 }}
       >
-        رَّبِّ زِدْنِي عِلْمًا
+        Shaping Hearts, Building Minds
       </motion.p>
 
       <div className="mt-8 h-[3px] w-48 overflow-hidden rounded-full bg-gold-500/20">

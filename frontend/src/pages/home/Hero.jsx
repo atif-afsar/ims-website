@@ -1,16 +1,18 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { PiPause, PiPlay, PiCaretLeft, PiCaretRight } from "react-icons/pi";
+import { PiPause, PiPlay } from "react-icons/pi";
 import { HiArrowRight } from "react-icons/hi2";
 import media from "../../content/media";
+import defaultSlides from "../../content/heroSlides";
 import { useHeroSlides } from "../../hooks/useHeroSlides";
 import Button from "../../ui/Button";
-import { BlockShape, Sparkle } from "../../ui/Ornaments";
+import { BlockShape } from "../../ui/Ornaments";
 import { HEADER_H } from "../../layout/SiteHeader";
 import { HERO_READY } from "./heroReady";
 
-const SLIDE_MS = 7000;
+const SLIDE_MS = 6000;
+const FADE_S = 1.4;
 const EASE = [0.22, 1, 0.36, 1];
 
 // Lets the page loader wait for the first hero photo (see App.jsx)
@@ -38,7 +40,7 @@ const imageOf = (slide) => {
   return (key && media[key]) || null;
 };
 
-/* Full-bleed photo (or video) for one slide, with a gentle zoom */
+/* Full-bleed photo (or video) for one slide; photos drift slowly in or out */
 const SlideMedia = ({ slide, priority, videoAllowed, zoom }) => {
   const lib = imageOf(slide);
   const src = lib ? lib.src : slide.image_url;
@@ -61,63 +63,56 @@ const SlideMedia = ({ slide, priority, videoAllowed, zoom }) => {
         onLoad={onLoad}
         onError={onLoad}
         ref={(el) => el?.complete && onLoad?.()}
-        className={`h-full w-full object-cover object-[center_35%] ${zoom ? "animate-ken-burns" : ""}`}
+        style={{ objectPosition: slide.position || "center 35%" }}
+        className={`h-full w-full object-cover ${zoom || ""}`}
       />
     </div>
   );
 };
 
-/* Headline: each word rises out of a mask, ISB-style */
-const SlideText = ({ slide, first }) => {
-  // The page's h1 is the school name (HomePage); slide headlines change, so they are h2
-  const Heading = "h2";
-  const base = first ? 0.2 : 0.45;
-  const words = [
-    ...String(slide.title || "").split(/\s+/).filter(Boolean).map((w) => ({ w, gold: false })),
-    ...String(slide.highlight || "").split(/\s+/).filter(Boolean).map((w) => ({ w, gold: true })),
-  ];
-  const fade = (i) => ({
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8, delay: base + words.length * 0.06 + i * 0.1, ease: EASE } },
-    exit: { opacity: 0, transition: { duration: 0.25 } },
-  });
-
-  return (
-    <div className="max-w-[46rem]">
-      {slide.eyebrow && (
-        <motion.p {...fade(-2)} className="mb-5 inline-flex max-w-full items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-gold-300 sm:text-xs">
-          <Sparkle className="h-3 w-3 shrink-0" /> <span className="truncate">{slide.eyebrow}</span>
-        </motion.p>
-      )}
-      <Heading className="text-balance font-display text-[2.4rem] font-bold leading-[1.05] text-ivory-50 sm:text-6xl xl:text-7xl">
-        {words.map(({ w, gold }, i) => (
-          <span key={`${w}-${i}`} className="inline-block overflow-hidden pb-[0.12em] align-bottom">
-            <motion.span
-              className={`inline-block ${gold ? "italic text-gold-400" : ""}`}
-              initial={{ y: "110%" }}
-              animate={{ y: 0, transition: { duration: 0.9, delay: base + i * 0.06, ease: EASE } }}
-              exit={{ y: "-110%", transition: { duration: 0.35, ease: "easeIn" } }}
-            >
-              {w}
-            </motion.span>
-            {i < words.length - 1 && " "}
-          </span>
-        ))}
-      </Heading>
-      {slide.subtitle && (
-        <motion.p {...fade(0)} className="mt-5 line-clamp-3 max-w-xl text-base leading-relaxed text-ivory-100/90 sm:text-lg">
-          {slide.subtitle}
-        </motion.p>
-      )}
-      {(slide.cta_text || slide.cta2_text) && (
-        <motion.div {...fade(1)} className="mt-8 flex flex-wrap items-center gap-3">
-          {slide.cta_text && slide.cta_link && <Button to={slide.cta_link}>{slide.cta_text}</Button>}
-          {slide.cta2_text && slide.cta2_link && <Button to={slide.cta2_link} variant="light" className="backdrop-blur-sm">{slide.cta2_text}</Button>}
-        </motion.div>
-      )}
-    </div>
-  );
+/* What to say over a slide: its own text if the admin switched that on, else the main message */
+const messageFor = (slide, content) => {
+  const own = slide.show_text && (slide.title || slide.highlight || slide.subtitle || slide.eyebrow);
+  if (!own) return { key: "main", ...content };
+  return {
+    key: `slide-${slide.id}`,
+    eyebrow: slide.eyebrow,
+    title: slide.title,
+    highlight: slide.highlight,
+    subtitle: slide.subtitle,
+    primaryText: slide.cta_text || content?.primaryText,
+    primaryLink: slide.cta_text ? slide.cta_link : content?.primaryLink,
+    secondaryText: slide.cta2_text || content?.secondaryText,
+    secondaryLink: slide.cta2_text ? slide.cta2_link : content?.secondaryLink,
+  };
 };
+
+/* Stays still while the photos move; only changes when a slide has its own text */
+const Message = ({ message, reduce }) => (
+  <motion.div
+    initial={reduce ? false : { opacity: 0, y: 24 }}
+    animate={{ opacity: 1, y: 0, transition: { duration: 0.9, delay: 0.15, ease: EASE } }}
+    exit={reduce ? undefined : { opacity: 0, y: -12, transition: { duration: 0.3 } }}
+  >
+    {message.eyebrow && (
+      <p className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-gold-300 sm:text-sm">
+        <span className="h-px w-10 shrink-0 bg-gold-400" aria-hidden="true" /> {message.eyebrow}
+      </p>
+    )}
+    {/* The page's h1 is the school name (HomePage) */}
+    <h2 className="text-balance font-display text-[2.75rem] font-bold leading-[1.04] tracking-tight text-ivory-50 [text-shadow:0_2px_30px_rgba(0,30,20,.45)] sm:text-6xl xl:text-7xl">
+      {message.title}
+      {message.highlight && <span className="block font-semibold italic text-gold-300">{message.highlight}</span>}
+    </h2>
+    {message.subtitle && <p className="mt-5 line-clamp-2 max-w-xl text-base leading-relaxed text-ivory-100/90 sm:text-lg">{message.subtitle}</p>}
+    {(message.primaryText || message.secondaryText) && (
+      <div className="mt-8 flex flex-wrap items-center gap-3">
+        {message.primaryText && message.primaryLink && <Button to={message.primaryLink}>{message.primaryText}</Button>}
+        {message.secondaryText && message.secondaryLink && <Button to={message.secondaryLink} variant="light" className="!hidden backdrop-blur-sm sm:!inline-flex">{message.secondaryText}</Button>}
+      </div>
+    )}
+  </motion.div>
+);
 
 const TILE_TONES = {
   gold: { box: "bg-gold-400 text-emerald-900", shape: "text-emerald-700" },
@@ -126,7 +121,7 @@ const TILE_TONES = {
 };
 const SHAPES = ["arches", "petals", "star"];
 
-/* Colour block with a big geometric shape, beside the slider (editable in Admin → Homepage → Hero) */
+/* Colour block with a big geometric shape, beside the photos (editable in Admin → Homepage → Hero) */
 const Tile = ({ tile, i }) => {
   const tone = TILE_TONES[tile.tone] || TILE_TONES.emerald;
   return (
@@ -153,21 +148,22 @@ const Tile = ({ tile, i }) => {
   );
 };
 
-const CTRL = "grid h-12 w-12 place-items-center rounded-full border border-ivory-50/60 text-lg text-ivory-50 backdrop-blur-sm transition hover:bg-ivory-50 hover:text-emerald-900";
-
-/* `slides` from the backend when available; otherwise the existing slide source */
+/* `slides` from the backend when available; the photos move, the message usually stays put */
 const Hero = ({ content, slides: liveSlides }) => {
   const fallbackSlides = useHeroSlides();
-  const slides = liveSlides?.length ? liveSlides : fallbackSlides;
+  const slides = useMemo(() => {
+    const chosen = (liveSlides?.length ? liveSlides : fallbackSlides).filter((s) => imageOf(s) || s.image_url || s.video_url);
+    // A single photo can't move, so fewer than two falls back to the built-in set
+    return chosen.length >= 2 ? chosen : defaultSlides;
+  }, [liveSlides, fallbackSlides]);
   const tiles = content?.tiles || [];
   const videoAllowed = useVideoAllowed();
   const reduce = useReducedMotion();
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [hovering, setHovering] = useState(false);
   const touchX = useRef(null);
   const count = slides.length;
-  const running = count > 1 && !paused && !hovering && !reduce;
+  const running = !paused && !reduce;
 
   // Slides can change after the database responds
   useEffect(() => setIndex(0), [slides]);
@@ -179,11 +175,6 @@ const Hero = ({ content, slides: liveSlides }) => {
     const timer = setTimeout(() => go(1), SLIDE_MS);
     return () => clearTimeout(timer);
   }, [running, index, go]);
-
-  const onKeyDown = (e) => {
-    if (e.key === "ArrowRight") go(1);
-    if (e.key === "ArrowLeft") go(-1);
-  };
 
   // Warm the cache for the next slide's photo
   useEffect(() => {
@@ -198,86 +189,71 @@ const Hero = ({ content, slides: liveSlides }) => {
   }, [index, slides, count]);
 
   const slide = slides[index] || slides[0];
-  if (!slide) return null;
+  const message = messageFor(slide, content);
 
   return (
-    <section className="bg-ivory-50 lg:flex lg:h-[100svh] lg:min-h-[640px]" aria-roledescription="carousel" aria-label="Highlights">
+    <section className="bg-ivory-50 lg:flex lg:h-[100svh] lg:min-h-[640px]" aria-label="Photos of school life">
       <div
-        className="relative h-[88svh] min-h-[560px] overflow-hidden bg-emerald-900 outline-none lg:h-full lg:min-h-0 lg:flex-1"
-        tabIndex={0}
-        onKeyDown={onKeyDown}
-        onMouseEnter={() => setHovering(true)}
-        onMouseLeave={() => setHovering(false)}
+        className="relative h-[88svh] min-h-[560px] overflow-hidden bg-emerald-900 lg:h-full lg:min-h-0 lg:flex-1"
         onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
         onTouchEnd={(e) => {
           const dx = e.changedTouches[0].clientX - touchX.current;
           if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
         }}
       >
-        {/* Photos: slow crossfade */}
+        {/* The new photo fades in over the old one, which only leaves once covered */}
         <AnimatePresence initial={false}>
-          <motion.div key={slide.id} className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1.2, ease: "easeInOut" }}>
-            <SlideMedia slide={slide} priority={index === 0} videoAllowed={videoAllowed} zoom={!reduce} />
+          <motion.div
+            key={slide.id}
+            className="absolute inset-0"
+            initial={{ opacity: 0, zIndex: 1 }}
+            animate={{ opacity: 1, zIndex: 1 }}
+            exit={{ opacity: 0, zIndex: 0, transition: { opacity: { delay: FADE_S, duration: 0 }, zIndex: { duration: 0 } } }}
+            transition={{ opacity: { duration: FADE_S, ease: "easeInOut" }, zIndex: { duration: 0 } }}
+          >
+            <SlideMedia slide={slide} priority={index === 0} videoAllowed={videoAllowed} zoom={reduce ? null : index % 2 ? "animate-hero-zoom-out" : "animate-hero-zoom-in"} />
           </motion.div>
         </AnimatePresence>
 
-        {/* Legibility: dark at the top (header) and bottom-left (text) */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-emerald-950/60 to-transparent" aria-hidden="true" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-emerald-950/90 via-emerald-900/35 to-transparent" aria-hidden="true" />
+        {/* Legibility: header at the top, message at the bottom */}
+        <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-emerald-950/55 via-transparent via-30% to-transparent" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-t from-emerald-950/90 via-emerald-950/40 via-50% to-transparent" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-r from-emerald-950/60 via-emerald-950/20 via-50% to-transparent" aria-hidden="true" />
 
-        {/* Text + controls */}
-        <div className="absolute inset-0 flex flex-col justify-end px-5 pb-6 sm:px-10 sm:pb-8 lg:px-14 lg:pb-12">
-          <div aria-live={running ? "off" : "polite"}>
-            <AnimatePresence mode="wait">
-              <motion.div key={slide.id} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${count}`}>
-                <SlideText slide={slide} first={index === 0} />
-              </motion.div>
-            </AnimatePresence>
-          </div>
+        <div className="absolute inset-x-0 bottom-0 z-[3] flex flex-col gap-4 px-5 pb-6 sm:gap-8 sm:px-10 sm:pb-8 lg:px-14 lg:pb-12">
+          <AnimatePresence mode="wait">
+            <Message key={message.key} message={message} reduce={reduce} />
+          </AnimatePresence>
 
-          {count > 1 && (
-            <div className="mt-9 flex items-center justify-between gap-4 md:mt-12">
-              <div className="flex min-w-0 items-center gap-4">
-                <button onClick={() => setPaused((p) => !p)} className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-ivory-50/60 text-ivory-50 transition hover:bg-ivory-50 hover:text-emerald-900" aria-label={paused ? "Play slideshow" : "Pause slideshow"}>
-                  {paused ? <PiPlay /> : <PiPause />}
-                </button>
-                <span className="shrink-0 font-display text-sm text-ivory-50">
-                  <span className="text-lg font-bold text-gold-300">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="mx-1 text-ivory-100/40">/</span>
-                  <span className="text-ivory-100/70">{String(count).padStart(2, "0")}</span>
-                </span>
-                <div className="hidden items-center gap-1.5 sm:flex">
-                  {slides.map((s, i) => {
-                    const active = i === index;
-                    const name = s.label || s.eyebrow || s.title;
-                    return (
-                      <button key={s.id} onClick={() => setIndex(i)} className="group py-3" aria-label={`Go to slide ${i + 1}: ${name}`} aria-current={active} title={name}>
-                        <span className={`relative block h-[3px] overflow-hidden rounded-full transition-all duration-500 ${active ? "w-14 bg-ivory-50/25" : "w-5 bg-ivory-50/40 group-hover:bg-ivory-50/80"}`}>
-                          {active && (
-                            <motion.span
-                              key={`${s.id}-${running}`}
-                              className="absolute inset-y-0 left-0 rounded-full bg-gold-400"
-                              initial={{ width: running ? "0%" : "100%" }}
-                              animate={{ width: "100%" }}
-                              transition={{ duration: running ? SLIDE_MS / 1000 : 0, ease: "linear" }}
-                            />
-                          )}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-              <div className="flex shrink-0 gap-3">
-                <button onClick={() => go(-1)} className={`${CTRL} bg-ivory-50 !text-emerald-900 hover:!bg-gold-300`} aria-label="Previous slide"><PiCaretLeft /></button>
-                <button onClick={() => go(1)} className={CTRL} aria-label="Next slide"><PiCaretRight /></button>
-              </div>
+          <div className="flex items-center gap-3">
+            <button onClick={() => setPaused((p) => !p)} className="grid h-10 w-10 shrink-0 place-items-center rounded-full text-ivory-50 transition hover:bg-ivory-50/15" aria-label={paused ? "Play slideshow" : "Pause slideshow"}>
+              {paused ? <PiPlay /> : <PiPause />}
+            </button>
+            <div className="flex items-center gap-1.5">
+              {slides.map((s, i) => {
+                const active = i === index;
+                return (
+                  <button key={s.id} onClick={() => setIndex(i)} className="group py-3" aria-label={`Show photo ${i + 1} of ${count}`} aria-current={active}>
+                    <span className="relative block h-[3px] w-7 overflow-hidden rounded-full bg-ivory-50/35 transition-colors group-hover:bg-ivory-50/70 sm:w-9">
+                      {active && (
+                        <motion.span
+                          key={`${s.id}-${running}`}
+                          className="absolute inset-y-0 left-0 rounded-full bg-gold-300"
+                          initial={{ width: running ? "0%" : "100%" }}
+                          animate={{ width: "100%" }}
+                          transition={{ duration: running ? SLIDE_MS / 1000 : 0, ease: "linear" }}
+                        />
+                      )}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
-          )}
+          </div>
         </div>
       </div>
 
-      {/* Tile column: under the header's white box on desktop, a stack below the photo on phones */}
+      {/* Tile column: under the header's white box on desktop, a row below the photos on phones */}
       {tiles.length > 0 && (
         <div className="flex flex-col lg:w-[22rem] xl:w-[26rem]">
           <div className={`hidden shrink-0 lg:block ${HEADER_H}`} aria-hidden="true" />

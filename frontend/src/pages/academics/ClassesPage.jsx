@@ -22,7 +22,7 @@ const stages = [
 ];
 
 const reasons = [
-  { icon: "mosque", title: "Tarbiyah & Akhlaq", text: "We prioritise manners, character building and a nurturing Islamic environment." },
+  { icon: "heart", title: "Values in Action", text: "We prioritise manners, character building and a caring, values-led environment." },
   { icon: "books", title: "Strong Academics", text: "Concept clarity, regular practice and structured learning from the early classes onwards." },
   { icon: "shield", title: "Safe & Caring", text: "Children flourish when they feel safe, respected and supported by their teachers." },
   { icon: "compass", title: "Clear Progress Path", text: "A smooth, guided journey from Play Group to higher classes with age-wise milestones." },
@@ -82,7 +82,7 @@ const ClassesPage = () => {
         }
       />
 
-      <ContentSection id="why-ims" eyebrow="Why IMS" title="A School Parents Trust" lede="Alhamdulillah — a journey of adab, knowledge and confidence.">
+      <ContentSection id="why-ims" eyebrow="Why IMS" title="A School Parents Trust" lede="A journey of good conduct, knowledge and confidence.">
         <IconList items={reasons} cols={4} />
       </ContentSection>
 
