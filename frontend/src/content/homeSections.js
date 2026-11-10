@@ -19,17 +19,17 @@ export const homeSections = [
   {
     key: "hero",
     label: "Hero slider",
-    help: "The main message on the moving photos and the three tabs beside them. The photos, and any text for a single photo, are in Admin → Hero Slides.",
+    help: "The three tabs beside the moving photos, and an optional message on the photos (leave it blank for photos only). The photos, and text for a single photo, are in Admin → Hero Slides.",
     visible: true,
     locked: true, // always first, always shown
     defaults: {
-      eyebrow: "Aligarh · Since 2008",
-      title: "Shaping Hearts,",
-      highlight: "Building Minds",
-      primaryText: `Apply for ${admissions.session}`,
-      primaryLink: "/classes",
-      secondaryText: "Discover IMS",
-      secondaryLink: "/about",
+      eyebrow: "",
+      title: "",
+      highlight: "",
+      primaryText: "",
+      primaryLink: "",
+      secondaryText: "",
+      secondaryLink: "",
       tiles: [
         { eyebrow: "Admission Open", title: `Session ${admissions.session}`, link: "/classes", tone: "gold" },
         { eyebrow: "Explore IMS", title: "Digital Brochure", link: "/brochure", tone: "emerald" },
@@ -37,9 +37,9 @@ export const homeSections = [
       ],
     },
     fields: [
-      { name: "eyebrow", label: "Small line above the headline", type: "text" },
-      { name: "title", label: "Headline, first line", type: "text" },
-      { name: "highlight", label: "Headline, gold second line", type: "text" },
+      { name: "eyebrow", label: "Message on the photos (optional): small line", type: "text" },
+      { name: "title", label: "Message: headline, first line", type: "text" },
+      { name: "highlight", label: "Message: headline, gold second line", type: "text" },
       { name: "primaryText", label: "Gold button text", type: "text" },
       { name: "primaryLink", label: "Gold button link", type: "link" },
       { name: "secondaryText", label: "Second button text", type: "text" },

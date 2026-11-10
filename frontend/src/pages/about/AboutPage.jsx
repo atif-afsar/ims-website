@@ -1,13 +1,12 @@
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { introduction, vision, mission, historyIntro, history, governanceIntro, affiliation } from "../../content/about";
+import { introduction, vision, mission, historyTitle, history, governanceIntro, affiliation } from "../../content/about";
 import { useBoardMembers } from "../../hooks/useBoardMembers";
 import PageHero from "../../ui/PageHero";
 import SectionNav from "../../ui/SectionNav";
 import ContentSection, { Prose } from "../../ui/ContentSection";
 import ArchFrame from "../../ui/ArchFrame";
 import Reveal from "../../ui/Reveal";
-import Button from "../../ui/Button";
-import { Timeline, PersonCard, FactTile } from "../../ui/Blocks";
+import { PersonCard, FactTile } from "../../ui/Blocks";
 import { Sparkle } from "../../ui/Ornaments";
 
 const sections = [
@@ -33,9 +32,8 @@ const AboutPage = () => {
     <>
       <SEOHelmet />
       <PageHero
-        eyebrow="About IMS · Est. 2008"
+        eyebrow="About Us"
         title="Shaping Hearts, Building Minds"
-        lede="A value-based, CISCE-affiliated school in Aligarh, nurturing academic excellence and ethical character since 2008."
         crumbs={[{ label: "About" }]}
         image="student-speech-1"
       />
@@ -56,7 +54,7 @@ const AboutPage = () => {
       </ContentSection>
 
       {/* 2. Vision & Mission */}
-      <ContentSection id="vision-mission" tone="emerald" eyebrow="02 · Our Purpose" title="Vision & Mission" align="center">
+      <ContentSection id="vision-mission" tone="emerald" eyebrow="02" title="Vision & Mission" align="center">
         <div className="mt-14 grid gap-5 md:grid-cols-2">
           <StatementCard label="IMS Vision" text={vision} tone="bg-gold-400 text-emerald-800" />
           <StatementCard label="IMS Mission" text={mission} tone="bg-ivory-50 text-emerald-800" />
@@ -64,20 +62,19 @@ const AboutPage = () => {
       </ContentSection>
 
       {/* 3. History */}
-      <ContentSection id="brief-history" eyebrow="03 · Brief History" title="From Small Seeds, Great Trees Grow" lede={historyIntro}>
-        <Timeline
-          items={history.map((h) => ({
-            when: h.when,
-            title: h.title,
-            image: h.image,
-            body: h.paragraphs.map((p) => <p key={p.slice(0, 24)}>{p}</p>),
-          }))}
-        />
+      <ContentSection id="brief-history" eyebrow="03 · Brief History" title={historyTitle}>
+        <div className="mt-12 grid items-start gap-14 lg:grid-cols-[1fr_380px]">
+          <Reveal>
+            <Prose><p>{history}</p></Prose>
+          </Reveal>
+          <Reveal delay={0.1} className="mx-auto w-full max-w-sm px-4">
+            <ArchFrame name="campus-aerial-front" position="50% 50%" sizes="380px" />
+          </Reveal>
+        </div>
       </ContentSection>
 
       {/* 4. Board */}
-      <ContentSection id="board-members" tone="sand" eyebrow="04 · Governance" title="Board Members" lede={governanceIntro}>
-        <h3 className="mt-14 text-xs font-semibold uppercase tracking-eyebrow text-emerald-700">The Office Bearers include</h3>
+      <ContentSection id="board-members" tone="sand" eyebrow="04" title="Board Members" lede={governanceIntro}>
         <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {board.map((m, i) => (
             <PersonCard key={m.name} index={i} name={m.name} role={m.role} detail={m.qualification} note={m.profession} photo={m.photo} />
@@ -86,7 +83,7 @@ const AboutPage = () => {
       </ContentSection>
 
       {/* 5. Affiliation */}
-      <ContentSection id="affiliation" eyebrow="05 · Affiliation" title="Affiliated to CISCE, New Delhi">
+      <ContentSection id="affiliation" eyebrow="05" title="Affiliation">
         <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <Reveal>
             <Prose>
@@ -94,12 +91,10 @@ const AboutPage = () => {
                 IMS is affiliated to <strong className="text-ink">{affiliation.body}</strong>.
               </p>
             </Prose>
-            <Button to="/curriculum" variant="emerald" className="mt-8">Explore our curriculum</Button>
           </Reveal>
-          <div className="grid gap-3 sm:grid-cols-3">
-            <FactTile label="Affiliation No." value={affiliation.number} tone="emerald" />
-            <FactTile label="Status" value={affiliation.status} tone="gold" />
-            <FactTile label="Affiliated Since" value={affiliation.since} tone="ivory" />
+          <div className="grid gap-3 sm:grid-cols-2">
+            <FactTile label="Status Of Affiliation" value={affiliation.status} tone="gold" />
+            <FactTile label="Affiliation Number" value={affiliation.number} tone="emerald" />
           </div>
         </div>
       </ContentSection>

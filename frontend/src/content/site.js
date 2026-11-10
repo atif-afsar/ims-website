@@ -50,7 +50,7 @@ export const navigation = [
   {
     label: "About",
     to: "/about",
-    blurb: "Shaping hearts, building minds since 2008 — academic excellence and ethical character, given equal importance.",
+    blurb: "Shaping Hearts, Building Minds: The IMS Way",
     image: "campus-aerial-front",
     links: [
       { label: "Introduction", to: "/about#introduction" },
@@ -82,10 +82,10 @@ export const navigation = [
     image: "science-exhibition-8",
     links: [
       { label: "English Communication", to: "/co-curricular-extracurricular#cc-english" },
-      { label: "Project-Based Learning", to: "/co-curricular-extracurricular#cc-pbl" },
+      { label: "Project Based Learning", to: "/co-curricular-extracurricular#cc-pbl" },
       { label: "Taekwondo", to: "/co-curricular-extracurricular#cc-taekwondo" },
       { label: "Sports Day & Annual Function", to: "/co-curricular-extracurricular#cc-sports-day" },
-      { label: "Competitions", to: "/co-curricular-extracurricular#cc-misc" },
+      { label: "Miscellaneous", to: "/co-curricular-extracurricular#cc-misc" },
       { label: "Gallery", to: "/gallery" },
     ],
   },
@@ -96,10 +96,10 @@ export const navigation = [
     image: "robotics-lab-2",
     links: [
       { label: "Campus Overview", to: "/facilities" },
-      { label: "Science Laboratories", to: "/infrastructure/laboratories" },
-      { label: "Computer Lab", to: "/infrastructure/computer-lab" },
+      { label: "Labs", to: "/infrastructure/laboratories" },
+      { label: "Computer Science Lab", to: "/infrastructure/computer-lab" },
       { label: "Library", to: "/infrastructure/library" },
-      { label: "Sports Complex", to: "/infrastructure/sports-complex" },
+      { label: "Playing Fields", to: "/infrastructure/sports-complex" },
     ],
   },
   {

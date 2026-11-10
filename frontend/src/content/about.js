@@ -12,39 +12,13 @@ export const vision = "To transform the tiny tots into the most beneficial human
 export const mission =
   "The tiny tots of today will be the leaders of tomorrow. The very mission of Islamic Mission School is to provide these tiny tots with the best material and spiritual means to become most beneficial human beings, enabling them to serve the humanity.";
 
-export const historyIntro =
-  "Islamic Mission School was founded in 2008 to give academic excellence and ethical character equal importance, blending a strong curriculum with a \"Values in Action\" program teaching integrity, compassion, respect, and responsibility.";
+export const historyTitle = "From Small Seeds, Great Trees Grow";
 
-/* The school's history paragraph, split into the timeline steps */
-export const history = [
-  {
-    when: "2008",
-    title: "Small Beginnings",
-    paragraphs: ["Starting with 18 students in a rented building, it added one class yearly and grew in reputation for nurturing well-rounded, kind-hearted children."],
-    image: "pre-primary-2",
-  },
-  {
-    when: "Own Campus",
-    title: "A Home of Its Own",
-    paragraphs: ["The school later moved to its own two-acre campus near Aligarh Muslim University."],
-    image: "campus-aerial-front",
-  },
-  {
-    when: "2020",
-    title: "CISCE Affiliation",
-    paragraphs: ["The school received CISCE affiliation in 2020."],
-    image: "smart-class-1",
-  },
-  {
-    when: "Today",
-    title: "Growing Further",
-    paragraphs: ["Today it offers modern science, computer, and robotics labs plus enhancement classes in communication, financial literacy, and life skills."],
-    image: "robotics-lab-2",
-  },
-];
+export const history =
+  "Islamic Mission School was founded in 2008 to give academic excellence and ethical character equal importance, blending a strong curriculum with a \"Values in Action\" program teaching integrity, compassion, respect, and responsibility. Starting with 18 students in a rented building, it added one class yearly and grew in reputation for nurturing well-rounded, kind-hearted children. The school later moved to its own two-acre campus near Aligarh Muslim University and received CISCE affiliation in 2020. Today it offers modern science, computer, and robotics labs plus enhancement classes in communication, financial literacy, and life skills.";
 
 export const governanceIntro =
-  "Islamic Mission School is a private, non-profit institution operated under the Society for Moral Education and Social Development and overseen by an independent Board of Trustees. The Trustees value IMS education for students, families, and the wider community, and are committed to collaborating with faculty, staff, and administration to ensure the school's continued success.";
+  "Islamic Mission School is a private, non-profit institution operated under the Society for Moral Education and Social Development and overseen by an independent Board of Trustees. The Trustees value IMS education for students, families, and the wider community, and are committed to collaborating with faculty, staff, and administration to ensure the school's continued success. The office Bearers include:";
 
 /* Used until the Governance table in the admin panel responds */
 export const boardFallback = [

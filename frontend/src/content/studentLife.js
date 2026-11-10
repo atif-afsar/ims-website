@@ -20,31 +20,21 @@ export const english = {
 
 export const pbl = {
   tagline: "Nurturing Problem-Solvers & Change-Makers",
-  text: "At IMS, we don't just teach subjects—we empower problem-solvers through real-world, interdisciplinary projects where students discover their passions and build skills to shape the future.",
-  steps: [
-    { title: "Discover & Question", text: "Discovering and questioning community challenges." },
-    { title: "Research & Investigate", text: "Researching and investigating across disciplines." },
-    { title: "Design & Create", text: "Designing and creating innovative solutions." },
-    { title: "Refine & Present", text: "Refining and presenting their work at our annual Science Fair, Sciberation." },
-  ],
+  text: "At IMS, we don't just teach subjects—we empower problem-solvers through real-world, interdisciplinary projects where students discover their passions and build skills to shape the future. Our PBL approach guides students through discovering and questioning community challenges, researching and investigating across disciplines, designing and creating innovative solutions, and refining and presenting their work at our annual Science Fair, Sciberation.",
 };
 
 export const taekwondo = {
   text: "IMS offers Taekwondo classes for both boys and girls as part of learning self-defence. Meaning \"the way of foot and fist,\" Taekwondo is a multipronged skill that improves physical health, enhances self-esteem, builds confidence, develops discipline, teaches self-defence, and strengthens both mind and body.",
-  benefits: ["Physical health", "Self-esteem", "Confidence", "Discipline", "Self-defence", "Mind & body"],
 };
 
 export const sportsDay = {
   text: "Sports at IMS are about building character, fostering teamwork, and celebrating healthy competition, with our Annual Sports Day bringing the entire school community together in a display of energy, enthusiasm, and sportsmanship. Students participate in team games like football, cricket, and volleyball, along with fun races such as sack race, three-legged race, and lemon and spoon race.",
-  events: ["Football", "Cricket", "Volleyball", "Sack race", "Three-legged race", "Lemon and spoon race"],
 };
 
 export const annualFunction = {
-  text: "Our Annual Function is the cornerstone of our philosophy of nurturing well-rounded individuals, giving students a grand stage to display their remarkable talents and skills honed throughout the year. This much-anticipated event enhances:",
-  competencies: ["Confidence & Eloquence", "Collaboration & Teamwork", "Cultural Awareness & Artistic Expression", "Critical Thinking & Analysis", "Creativity & Imagination"],
+  text: "Our Annual Function is the cornerstone of our philosophy of nurturing well-rounded individuals, giving students a grand stage to display their remarkable talents and skills honed throughout the year. This much-anticipated event enhances confidence and eloquence, collaboration and teamwork, cultural awareness and artistic expression, critical thinking and analysis, and creativity and imagination.",
 };
 
 export const misc = {
-  text: "We organize a wide array of competitions meticulously designed to hone specific life skills and intellectual abilities, serving as catalysts for growth that help students discover hidden talents, build resilience, and learn the lessons of both victory and gracious participation. These include:",
-  competitions: ["Speech & Debate", "Quiz", "UN Meet & State Meet", "Drawing", "Creative Writing", "Skit"],
+  text: "We organize a wide array of competitions meticulously designed to hone specific life skills and intellectual abilities, serving as catalysts for growth that help students discover hidden talents, build resilience, and learn the lessons of both victory and gracious participation. These include Speech & Debate, Quiz, UN Meet & State Meet, Drawing, Creative Writing, and Skit competitions.",
 };

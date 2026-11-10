@@ -1,8 +1,6 @@
 import { PiFilePdf } from "react-icons/pi";
 import SEOHelmet from "../../components/common/SEO/SEOHelmet";
-import { contact } from "../../content/site";
 import { useNeetJeeData } from "../../hooks/useNeetJeeData";
-import { neet2024, mbbsAlumni } from "../../content/neetAchievers";
 import PageHero from "../../ui/PageHero";
 import SectionNav from "../../ui/SectionNav";
 import ContentSection, { Prose } from "../../ui/ContentSection";
@@ -10,47 +8,19 @@ import Reveal from "../../ui/Reveal";
 import Img from "../../ui/Img";
 import Button from "../../ui/Button";
 import IconBadge from "../../ui/IconBadge";
-import { Comparison, PersonCard } from "../../ui/Blocks";
+import { Comparison } from "../../ui/Blocks";
 import { PatternBg, Sparkle } from "../../ui/Ornaments";
 
 const sections = [
-  { id: "neet-program", label: "The Program" },
+  { id: "neet-program", label: "Program Structure & Details" },
   { id: "neet-strategy", label: "Special Features" },
-  { id: "neet-comparison", label: "Why Integrated" },
-  { id: "neet-results", label: "Achievers" },
-  { id: "neet-alumni", label: "Our Doctors" },
-  { id: "neet-faculty", label: "Faculty" },
+  { id: "neet-comparison", label: "Comparison" },
 ];
 
 const featureIcons = ["teacher", "exam", "chart", "chat", "clock", "shield", "coins", "calendar", "checklist", "books"];
 
-// Toppers whose photos were cut from the official result posters
-const posterPhotos = {
-  "Ibrahim Faisal": "topper-ibrahim-faisal",
-  "Abdul Rehman": "topper-abdul-rehman",
-  "Ahmad Misbah": "topper-ahmad-misbah",
-  "Shaikh Fidyan Shayan": "topper-shaikh-fidyan-shayan",
-};
-
-const initials = (name) => name.split(/\s+/).map((w) => w[0]).slice(0, 2).join("");
-
-/* Uploaded admin photo, else poster crop, else monogram */
-const TopperPhoto = ({ result }) => {
-  const uploaded = result.photo_url?.startsWith("http") ? result.photo_url : null;
-  const poster = posterPhotos[result.name?.trim()];
-  if (uploaded) return <img src={uploaded} alt={result.name} loading="lazy" className="h-full w-full rounded-full object-cover ring-4 ring-ivory-50" />;
-  if (poster) return <Img name={poster} alt={result.name} sizes="144px" className="h-full w-full rounded-full ring-4 ring-ivory-50" />;
-  return (
-    <span className="flex h-full w-full items-center justify-center rounded-full bg-emerald-700 font-display text-4xl font-bold text-gold-300 ring-4 ring-ivory-50" aria-hidden="true">
-      {initials(result.name)}
-    </span>
-  );
-};
-
 const NeetJeePage = () => {
-  const { settings, tracks, features, comparison, roadmap, results, faculty, answerKeys } = useNeetJeeData();
-
-  const groups = [...new Set(results.map((r) => r.class_group || "Board Toppers"))];
+  const { settings, tracks, features, comparison, roadmap, answerKeys } = useNeetJeeData();
 
   // The default intro and vision text both open with "The journey to premier
   // institutions..."; drop the vision's repeated opening sentence
@@ -111,7 +81,7 @@ const NeetJeePage = () => {
       </ContentSection>
 
       {/* Strategy + roadmap */}
-      <ContentSection id="neet-strategy" tone="sand" eyebrow="Special Features" title={settings.features_title}>
+      <ContentSection id="neet-strategy" tone="sand" title={settings.features_title}>
         <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((f, i) => (
             <Reveal as="li" key={f.text} delay={(i % 4) * 0.06} className="flex items-start gap-4 rounded-2xl border border-gold-500/30 bg-ivory-50 p-6 shadow-card">
@@ -138,81 +108,12 @@ const NeetJeePage = () => {
 
       {/* Comparison */}
       {comparison.length > 0 && (
-        <ContentSection id="neet-comparison" eyebrow="Why Integrated" title={settings.comparison_title}>
+        <ContentSection id="neet-comparison" title={settings.comparison_title}>
           <Comparison
             leftTitle="Conventional Schooling"
-            rightTitle="IMS Integrated Schooling"
+            rightTitle="IMS NEET/JEE Integrated Schooling"
             rows={comparison.map((c) => [<>{c.point && <strong className="block text-ink">{c.point}</strong>}{c.conventional}</>, <>{c.point && <strong className="block">{c.point}</strong>}{c.integrated}</>])}
           />
-        </ContentSection>
-      )}
-
-      {/* Results */}
-      {results.length > 0 && (
-        <ContentSection id="neet-results" tone="sand" eyebrow="Our Results" title={settings.results_title}>
-          {groups.map((g) => (
-            <div key={g} className="mt-14">
-              <h3 className="text-xs font-semibold uppercase tracking-eyebrow text-emerald-700">{g} District Toppers · 2026</h3>
-              <div className="mt-8 grid grid-cols-2 gap-y-12 sm:grid-cols-3 lg:grid-cols-5">
-                {results.filter((r) => (r.class_group || "Board Toppers") === g).map((r, i) => (
-                  <Reveal key={r.name} delay={i * 0.06} className="flex flex-col items-center text-center">
-                    <div className="relative">
-                      <div className="h-32 w-32 rounded-full bg-gradient-to-br from-gold-300 to-gold-600 p-1 shadow-lift md:h-36 md:w-36">
-                        <TopperPhoto result={r} />
-                      </div>
-                      <span className="absolute -right-3 top-1 rounded-full bg-emerald-700 px-3 py-1 font-display text-lg font-bold text-gold-300 shadow-card">{r.score}</span>
-                    </div>
-                    <p className="mt-5 font-display text-lg font-bold text-ink">{r.name}</p>
-                    <p className="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-gold-600">{r.exam_year}</p>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-          ))}
-        </ContentSection>
-      )}
-
-      {/* NEET results and alumni in medical colleges */}
-      <ContentSection id="neet-alumni" tone="emerald" eyebrow="Doctors in the Making" title="Our NEET Achievers">
-        <Reveal className="mt-12 rounded-3xl bg-ivory-50/5 p-6 ring-1 ring-gold-300/25 md:p-10">
-          <h3 className="text-xs font-semibold uppercase tracking-eyebrow text-gold-300">{neet2024.title}</h3>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            {neet2024.results.map((r) => (
-              <div key={r.name} className="flex items-center gap-4 rounded-2xl bg-ivory-50 p-4 text-ink">
-                <div className="h-16 w-16 shrink-0 overflow-hidden rounded-full bg-gold-400 ring-2 ring-gold-400">
-                  {r.photo ? <Img name={r.photo} alt={r.name} sizes="64px" className="h-full w-full" /> : <span className="flex h-full items-center justify-center font-display text-xl font-bold text-emerald-900">{r.name.split(" ").map((w) => w[0]).join("")}</span>}
-                </div>
-                <div>
-                  <p className="font-display text-3xl font-bold leading-none text-emerald-700">{r.score}<span className="ml-1 text-sm font-semibold text-ink/50">/ 720</span></p>
-                  <p className="mt-1 font-semibold">{r.name}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-        <h3 className="mt-14 text-xs font-semibold uppercase tracking-eyebrow text-gold-300">IMS alumni now studying MBBS</h3>
-        <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-          {mbbsAlumni.map((a, i) => (
-            <Reveal key={a.name} delay={i * 0.05} className="flex flex-col items-center rounded-2xl bg-ivory-50 px-4 pb-6 pt-7 text-center text-ink">
-              <div className="h-24 w-24 overflow-hidden rounded-full bg-gradient-to-br from-gold-300 to-gold-600 p-1">
-                <Img name={a.photo} alt={a.name} sizes="96px" className="h-full w-full rounded-full" />
-              </div>
-              <p className="mt-4 font-display text-lg font-bold leading-tight">{a.name}</p>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-gold-600">MBBS</p>
-              <p className="mt-1 text-sm text-ink/70">{a.college}</p>
-            </Reveal>
-          ))}
-        </div>
-      </ContentSection>
-
-      {/* Faculty */}
-      {faculty.length > 0 && (
-        <ContentSection id="neet-faculty" eyebrow="Mentors" title={settings.faculty_title}>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {faculty.map((f, i) => (
-              <PersonCard key={f.name} index={i} name={f.name} role={f.subject} detail={f.qualification} note={f.bio} photo={f.photo_url?.startsWith("http") ? f.photo_url : null} />
-            ))}
-          </div>
         </ContentSection>
       )}
 
@@ -235,20 +136,6 @@ const NeetJeePage = () => {
         </ContentSection>
       )}
 
-      {/* Closing call to action */}
-      <section className="relative overflow-hidden bg-emerald-800 py-20 text-center text-ivory-50 md:py-24">
-        <PatternBg opacity={0.08} />
-        <div className="relative mx-auto max-w-3xl px-4">
-          <Reveal>
-            <h2 className="font-display text-4xl font-bold leading-tight md:text-5xl">{settings.bottom_cta_title}</h2>
-            <p className="mt-5 text-lg text-ivory-100/80">{settings.bottom_cta_subtitle}</p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Button to={settings.bottom_cta_primary_link || "/contact"}>{settings.bottom_cta_primary_text}</Button>
-              <Button to={settings.bottom_cta_secondary_link || contact.phones[0].href} variant="light">{settings.bottom_cta_secondary_text}</Button>
-            </div>
-          </Reveal>
-        </div>
-      </section>
     </>
   );
 };

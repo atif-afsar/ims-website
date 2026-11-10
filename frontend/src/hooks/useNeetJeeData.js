@@ -3,7 +3,7 @@ import { publicDb as db } from "../lib/db";
 import { neetProgram } from "../dummydata";
 
 const DEFAULT_SETTINGS = {
-  hero_badge: "Integrated Academy",
+  hero_badge: "",
   hero_title: neetProgram.title,
   hero_subtitle: neetProgram.subtitle,
   hero_image_url: "/images/programs/program4.png",
@@ -16,7 +16,7 @@ const DEFAULT_SETTINGS = {
   vision_description: neetProgram.visionDescription,
   features_image_url: "",
   features_title: "Special Features",
-  comparison_title: "IMS NEET/JEE Integrated Schooling vs Conventional Schooling",
+  comparison_title: "Comparison Between IMS NEET/JEE Integrated Schooling vs Conventional Schooling",
   results_title: "Our Proud Achievers",
   faculty_title: "Our Expert Faculty",
   answer_keys_title: "Answer Keys & Resources",

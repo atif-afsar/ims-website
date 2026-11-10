@@ -6,7 +6,7 @@ import ContentSection, { Prose } from "../../ui/ContentSection";
 import PhotoStrip from "../../ui/PhotoStrip";
 import Reveal from "../../ui/Reveal";
 import IconBadge from "../../ui/IconBadge";
-import { IconList, TagCard } from "../../ui/Blocks";
+import { IconList } from "../../ui/Blocks";
 import { Sparkle, PatternBg } from "../../ui/Ornaments";
 
 const sections = [
@@ -55,7 +55,7 @@ const CurriculumPage = () => (
     {/* 1. Academic excellence */}
     <ContentSection id="curriculum-academic" eyebrow="01 · ICSE & ISC" title="Academic Excellence: The National Framework" lede={academic.intro}>
       <PhotoStrip names={["smart-class-1", "smart-class-2", "pre-primary-1"]} className="mt-12" />
-      <SubHeading>Core Subjects</SubHeading>
+      <SubHeading>Core Subjects: We teach a comprehensive range of subjects including:</SubHeading>
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {academic.subjects.map((s, i) => (
           <Reveal key={s.title} delay={i * 0.06} className="rounded-2xl border border-gold-500/30 bg-ivory-50 p-7 shadow-card">
@@ -71,19 +71,13 @@ const CurriculumPage = () => (
         <IconBadge icon="books" />
         <div className="space-y-1 text-lg leading-relaxed text-emerald-800">{academic.minority.map((p) => <p key={p}>{p}</p>)}</div>
       </Reveal>
-      <SubHeading>Pedagogy — our teaching methodology moves beyond rote learning</SubHeading>
+      <SubHeading>Pedagogy: Our teaching methodology moves beyond rote learning. We emphasize:</SubHeading>
       <IconList items={academic.pedagogy} cols={3} />
     </ContentSection>
 
     {/* 2. 21st century skills */}
-    <ContentSection id="curriculum-21-skills" tone="sand" eyebrow="02 · Skills for Life" title="21st Century Skills" lede={skills.intro}>
-      <SubHeading>Four Interconnected Pathways</SubHeading>
-      <div className="mt-6 grid gap-4 md:grid-cols-2">
-        {skills.pathways.map((p, i) => <TagCard key={p.title} index={i} {...p} />)}
-      </div>
-      <SubHeading>How We Develop These Skills</SubHeading>
-      <IconList items={skills.methods} cols={3} />
-      <Reveal className="mt-10"><Prose><p>{skills.closing}</p></Prose></Reveal>
+    <ContentSection id="curriculum-21-skills" tone="sand" eyebrow="02" title="21st Century Skills">
+      <Reveal className="mt-10"><Prose><p>{skills}</p></Prose></Reveal>
       <PhotoStrip names={["student-speech-2", "science-exhibition-3", "smart-class-3"]} className="mt-14" />
     </ContentSection>
 

@@ -13,7 +13,7 @@ import { IconList } from "../../ui/Blocks";
 
 const sections = [
   { id: "fac-land-building", label: "Land & Building" },
-  { id: "fac-labs", label: "Laboratories" },
+  { id: "fac-labs", label: "Labs" },
   { id: "fac-other", label: "Additional Facilities" },
   { id: "fac-explore", label: "Explore" },
 ];
@@ -46,7 +46,7 @@ const CampusPage = () => (
     <SEOHelmet />
     <PageHero
       eyebrow="Campus"
-      title="A Campus Built for Learning"
+      title="Facilities"
       lede={overview.intro}
       crumbs={[{ label: "Campus" }]}
       image="campus-aerial-front"
@@ -59,7 +59,7 @@ const CampusPage = () => (
       <PhotoStrip names={["campus-aerial-front", "campus-aerial", "campus-corridor"]} className="mt-12" />
     </ContentSection>
 
-    <ContentSection id="fac-labs" tone="sand" eyebrow="02 · Where Theory Meets Experiment" title="Laboratories" lede={overview.labsIntro}>
+    <ContentSection id="fac-labs" tone="sand" eyebrow="02 · Where Theory Meets Experiment" title="Labs" lede={overview.labsIntro}>
       <div className="mt-14 space-y-6">
         {overview.labs.map((lab, i) => (
           <Reveal key={lab.title} className={`grid overflow-hidden rounded-3xl bg-ivory-50 shadow-card ${i % 2 ? "md:grid-cols-[7fr_5fr]" : "md:grid-cols-[5fr_7fr]"}`}>
@@ -81,7 +81,7 @@ const CampusPage = () => (
       <IconList items={overview.additional} cols={4} />
     </ContentSection>
 
-    <ContentSection id="fac-explore" tone="emerald" eyebrow="04" title="Explore Our Facilities" lede="Step inside each space for photos and details." align="center">
+    <ContentSection id="fac-explore" tone="emerald" eyebrow="04" title="Explore Our Facilities" align="center">
       <FacilityCards />
     </ContentSection>
   </>

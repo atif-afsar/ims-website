@@ -70,7 +70,7 @@ const SlideMedia = ({ slide, priority, videoAllowed, zoom }) => {
   );
 };
 
-/* What to say over a slide: its own text if the admin switched that on, else the main message */
+/* Text over a slide: its own if the admin switched that on, else the optional main message (blank by default) */
 const messageFor = (slide, content) => {
   const own = slide.show_text && (slide.title || slide.highlight || slide.subtitle || slide.eyebrow);
   if (!own) return { key: "main", ...content };
@@ -148,7 +148,7 @@ const Tile = ({ tile, i }) => {
   );
 };
 
-/* `slides` from the backend when available; the photos move, the message usually stays put */
+/* `slides` from the backend when available; photos only, unless the admin adds text */
 const Hero = ({ content, slides: liveSlides }) => {
   const fallbackSlides = useHeroSlides();
   const slides = useMemo(() => {
@@ -190,6 +190,7 @@ const Hero = ({ content, slides: liveSlides }) => {
 
   const slide = slides[index] || slides[0];
   const message = messageFor(slide, content);
+  const hasText = Boolean(message.eyebrow || message.title || message.highlight || message.subtitle);
 
   return (
     <section className="bg-ivory-50 lg:flex lg:h-[100svh] lg:min-h-[640px]" aria-label="Photos of school life">
@@ -215,17 +216,16 @@ const Hero = ({ content, slides: liveSlides }) => {
           </motion.div>
         </AnimatePresence>
 
-        {/* Legibility: header at the top, message at the bottom */}
-        <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-emerald-950/55 via-transparent via-30% to-transparent" aria-hidden="true" />
-        <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-t from-emerald-950/90 via-emerald-950/40 via-50% to-transparent" aria-hidden="true" />
-        <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-r from-emerald-950/60 via-emerald-950/20 via-50% to-transparent" aria-hidden="true" />
+        {/* A light neutral fade keeps the logo readable; a darker one only when a photo has text */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-[2] h-32 bg-gradient-to-b from-black/30 to-transparent" aria-hidden="true" />
+        {hasText && <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-t from-black/65 via-black/20 via-45% to-transparent" aria-hidden="true" />}
 
         <div className="absolute inset-x-0 bottom-0 z-[3] flex flex-col gap-4 px-5 pb-6 sm:gap-8 sm:px-10 sm:pb-8 lg:px-14 lg:pb-12">
           <AnimatePresence mode="wait">
-            <Message key={message.key} message={message} reduce={reduce} />
+            {hasText && <Message key={message.key} message={message} reduce={reduce} />}
           </AnimatePresence>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 drop-shadow-[0_1px_4px_rgba(0,0,0,.7)]">
             <button onClick={() => setPaused((p) => !p)} className="grid h-10 w-10 shrink-0 place-items-center rounded-full text-ivory-50 transition hover:bg-ivory-50/15" aria-label={paused ? "Play slideshow" : "Pause slideshow"}>
               {paused ? <PiPlay /> : <PiPause />}
             </button>

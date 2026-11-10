@@ -4,7 +4,6 @@ import PageHero from "../../ui/PageHero";
 import ContentSection from "../../ui/ContentSection";
 import PhotoGrid from "../../ui/PhotoGrid";
 import Button from "../../ui/Button";
-import { IconList } from "../../ui/Blocks";
 import { FacilityCards } from "./CampusPage";
 
 /* One template for /infrastructure/<slug> */
@@ -15,8 +14,8 @@ const FacilityPage = ({ slug }) => {
     <>
       <SEOHelmet />
       <PageHero
-        eyebrow={f.eyebrow}
-        title={`IMS ${f.title}`}
+        eyebrow="Facilities"
+        title={f.title}
         lede={f.lede}
         crumbs={[{ label: "Campus", to: "/facilities" }, { label: f.title }]}
         image={f.heroImage}
@@ -24,11 +23,7 @@ const FacilityPage = ({ slug }) => {
         actions={<Button to="/contact" variant="light">Visit the Campus</Button>}
       />
 
-      <ContentSection id="features" eyebrow={f.title} title={f.featuresTitle}>
-        <IconList items={f.features} />
-      </ContentSection>
-
-      <ContentSection id="photos" tone="sand" eyebrow="Gallery" title={f.galleryTitle} lede={f.galleryText}>
+      <ContentSection id="photos" tone="sand" eyebrow={f.title} title="Photos">
         <PhotoGrid names={f.gallery} className="mt-12" />
       </ContentSection>
 

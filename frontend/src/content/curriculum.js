@@ -23,25 +23,8 @@ export const academic = {
   ],
 };
 
-export const skills = {
-  intro:
-    "At Islamic Mission School, we believe skills are the bridge between potential and achievement, ensuring students learn not just what to think but how to think, adapt, and lead.",
-  closing:
-    "This comprehensive approach cultivates capabilities that enable individuals to thrive in careers, contribute to communities, and navigate the modern world with confidence.",
-  pathways: [
-    { title: "Cognitive & Analytical Skills", tagline: "", tags: ["Critical Thinking", "Digital Literacy"] },
-    { title: "Personal & Intrapersonal Skills", tagline: "", tags: ["Resilience", "Self-Management", "Lifelong Learning"] },
-    { title: "Social & Interpersonal Skills", tagline: "", tags: ["Communication", "Leadership", "Conflict Resolution"] },
-    { title: "Creative & Practical Skills", tagline: "", tags: ["Innovation", "Design Thinking", "Project Management", "Public Speaking"] },
-  ],
-  methods: [
-    { icon: "puzzle", title: "Project-Based Learning" },
-    { icon: "teacher", title: "Dedicated Workshops & Masterclasses" },
-    { icon: "heart", title: "Life Skills curriculum from Grade 1" },
-    { icon: "flag", title: "Leadership Roles & Student Houses" },
-    { icon: "compass", title: "Educational Excursions" },
-  ],
-};
+export const skills =
+  "At Islamic Mission School, we believe skills are the bridge between potential and achievement, ensuring students learn not just what to think but how to think, adapt, and lead. Our skills development is structured into four interconnected pathways: cognitive and analytical skills (critical thinking, digital literacy), personal and intrapersonal skills (resilience, self-management, lifelong learning), social and interpersonal skills (communication, leadership, conflict resolution), and creative and practical skills (innovation, design thinking, project management, public speaking). These skills are brought to life through project-based learning, dedicated workshops and masterclasses, a Life Skills curriculum from Grade 1, leadership roles and student houses, and educational excursions. This comprehensive approach cultivates capabilities that enable individuals to thrive in careers, contribute to communities, and navigate the modern world with confidence.";
 
 export const stem = {
   tagline: "Where Innovation Meets Insight, and Discovery Deepens Faith.",
