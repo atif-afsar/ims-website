@@ -39,7 +39,7 @@ const NeetJeePage = () => {
         title={settings.hero_title}
         lede={settings.hero_subtitle}
         crumbs={[{ label: "Academics", to: "/curriculum" }, { label: "NEET / JEE" }]}
-        image="science-exhibition-7"
+        image="microscope-girl-3"
         imagePosition="70% 40%"
         actions={
           <>
@@ -60,7 +60,7 @@ const NeetJeePage = () => {
               {visionText && <p>{visionText}</p>}
             </Prose>
           </Reveal>
-          <Img name="science-exhibition-6" position="50% 60%" sizes="(min-width: 1024px) 50vw, 100vw" className="aspect-[4/3] rounded-t-[160px] rounded-b-2xl shadow-lift" />
+          <Img name="microscope-girl" sizes="(min-width: 1024px) 50vw, 100vw" className="aspect-[4/3] rounded-t-[160px] rounded-b-2xl shadow-lift" />
         </div>
 
         <h3 className="mt-20 text-xs font-semibold uppercase tracking-eyebrow text-emerald-700">Program Structure &amp; Details</h3>

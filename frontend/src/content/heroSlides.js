@@ -1,16 +1,17 @@
 /*
- * Built-in hero photos. Shown until the admin sets at least two slides in
+ * Built-in hero photos: the campus and school life, from the photos the school
+ * supplied in November 2026. Shown until the admin sets at least two slides in
  * Admin → Hero Slides, and as a fallback if the database is unreachable.
- * These show the main message from Admin → Homepage → Hero.
- * `position` optionally sets which part of the photo stays in view when cropped.
+ * Each photo's focal point (for phone crops) is set in scripts/media.config.js.
  */
 const heroSlides = [
-  { id: "default-campus", media_key: "campus-aerial", video_url: "/media/video/campus-hero.mp4" },
-  { id: "default-science", media_key: "science-exhibition-1", position: "center 8%" },
-  { id: "default-robotics", media_key: "robotics-lab-2" },
-  { id: "default-sports", media_key: "sports-volleyball" },
-  { id: "default-classroom", media_key: "smart-class-2" },
-  { id: "default-chemistry", media_key: "chemistry-lab-img-2664" },
+  { id: "default-campus", media_key: "campus-aerial-new" },
+  { id: "default-assembly", media_key: "assembly-ground" },
+  { id: "default-robotics", media_key: "robotics-girls-build" },
+  { id: "default-dna-workshop", media_key: "dna-workshop" },
+  { id: "default-computer-lab", media_key: "computer-lab-girl" },
+  { id: "default-taekwondo", media_key: "taekwondo-aerial" },
+  { id: "default-annual-function", media_key: "gems-of-ims" },
 ];
 
 export default heroSlides;

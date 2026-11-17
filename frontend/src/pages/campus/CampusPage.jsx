@@ -49,14 +49,14 @@ const CampusPage = () => (
       title="Facilities"
       lede={overview.intro}
       crumbs={[{ label: "Campus" }]}
-      image="campus-aerial-front"
+      image="campus-aerial-tents"
       imagePosition="45% 50%"
     />
     <SectionNav items={sections} />
 
     <ContentSection id="fac-land-building" eyebrow="01" title="Land & Building">
       <Reveal className="mt-8"><Prose><p>{overview.building}</p></Prose></Reveal>
-      <PhotoStrip names={["campus-aerial-front", "campus-aerial", "campus-corridor"]} className="mt-12" />
+      <PhotoStrip names={["campus-aerial-front", "campus-aerial-wide", "campus-corridor"]} className="mt-12" />
     </ContentSection>
 
     <ContentSection id="fac-labs" tone="sand" eyebrow="02 · Where Theory Meets Experiment" title="Labs" lede={overview.labsIntro}>

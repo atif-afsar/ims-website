@@ -35,7 +35,7 @@ const AboutPage = () => {
         eyebrow="About Us"
         title="Shaping Hearts, Building Minds"
         crumbs={[{ label: "About" }]}
-        image="student-speech-1"
+        image="students-group-classroom"
       />
       <SectionNav items={sections} />
 
@@ -48,7 +48,7 @@ const AboutPage = () => {
             </Prose>
           </Reveal>
           <Reveal delay={0.1} className="mx-auto w-full max-w-sm px-4">
-            <ArchFrame name="pre-primary-2" position="40% 60%" sizes="380px" />
+            <ArchFrame name="little-girls-class" sizes="380px" />
           </Reveal>
         </div>
       </ContentSection>
@@ -68,7 +68,7 @@ const AboutPage = () => {
             <Prose><p>{history}</p></Prose>
           </Reveal>
           <Reveal delay={0.1} className="mx-auto w-full max-w-sm px-4">
-            <ArchFrame name="campus-aerial-front" position="50% 50%" sizes="380px" />
+            <ArchFrame name="campus-aerial-event" sizes="380px" />
           </Reveal>
         </div>
       </ContentSection>

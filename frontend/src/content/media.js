@@ -3923,6 +3923,676 @@ const media = {
     "alt": "Guests and staff at the IMS main gate",
     "group": "events",
     "placeholder": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADwAwCdASoYABAAPu1qrU8ppiQiMAgBMB2JZQBUfoeg+tQ3c53LduPoAP7x3pNBomux0mrw3JdCAB9iXeECXO/EzGLIUGZTyOyki1cliKI0UAM1pJgp3sxxCMVxiz/AbtQsouTYAAA="
+  },
+  "pledge-assembly": {
+    "src": "/media/campus/pledge-assembly-1600.webp",
+    "srcSet": "/media/campus/pledge-assembly-480.webp 480w, /media/campus/pledge-assembly-960.webp 960w, /media/campus/pledge-assembly-1600.webp 1600w",
+    "width": 1812,
+    "height": 829,
+    "alt": "Young students taking the pledge at morning assembly",
+    "group": "campus",
+    "position": "45% 30%",
+    "placeholder": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQBACdASoYAAsAPu1oqk6ppiQiMAgBMB2JZQCdAB7DyfSJxVDWt4xgAAD6/5K4SDhzzKIXKQPn850/noGbZQRJy5KuipoWnHNfSWyzjZWll2GrTFap8RlZO1gAAA=="
+  },
+  "young-learner": {
+    "src": "/media/classroom/young-learner-1600.webp",
+    "srcSet": "/media/classroom/young-learner-480.webp 480w, /media/classroom/young-learner-960.webp 960w, /media/classroom/young-learner-1600.webp 1600w",
+    "width": 1761,
+    "height": 772,
+    "alt": "A young pre-primary student in class",
+    "group": "classroom",
+    "position": "50% 35%",
+    "placeholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAACwAwCdASoYAAsAPu1orU6ppiSiMAgBMB2JQBOgArqvj4SVkXPKgAD9lHhBCFKqYjHviEUX3eoY7w4+ksZw4GQspyT1D/MYDD3GdEcF4IxG3L0b/qQnNyt2Viw+fIPxtVYqrWSC+ERgXAAA"
+  },
+  "robotics-girls-build": {
+    "src": "/media/robotics/robotics-girls-build-960.webp",
+    "srcSet": "/media/robotics/robotics-girls-build-480.webp 480w, /media/robotics/robotics-girls-build-960.webp 960w",
+    "width": 1253,
+    "height": 829,
+    "alt": "Students building a robot car in the robotics lab",
+    "group": "robotics",
+    "position": "50% 30%",
+    "placeholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JQBOgBA/eCLW7Hz0yxlWgugAA/pTWBJcj1AIx/kOSY5RggXzeJjwpyz/dRHV5Cn0H2o7k9MIUY+8dR01OnHXSrajRL/tSZzGv3FOgZCE7zvyNohS9KWwoZ9LWOB0aTO7hLd4A"
+  },
+  "classroom-attentive": {
+    "src": "/media/classroom/classroom-attentive-1600.webp",
+    "srcSet": "/media/classroom/classroom-attentive-480.webp 480w, /media/classroom/classroom-attentive-960.webp 960w, /media/classroom/classroom-attentive-1600.webp 1600w",
+    "width": 1655,
+    "height": 827,
+    "alt": "Students listening attentively in class",
+    "group": "classroom",
+    "position": "48% 30%",
+    "placeholder": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACQAwCdASoYAAwAPu1iqk2ppaQiMAgBMB2JYwC06CD1ofLyxgIAAP39MFGx6mKQOdIQkOVnZQSk5dcnMrj0TunIjObkGOjitnnP0XX+PUv1fmXUp09fQuHvvL78zAPkxer2S/wA"
+  },
+  "lab-student-focus": {
+    "src": "/media/physics-lab/lab-student-focus-960.webp",
+    "srcSet": "/media/physics-lab/lab-student-focus-480.webp 480w, /media/physics-lab/lab-student-focus-960.webp 960w",
+    "width": 1495,
+    "height": 845,
+    "alt": "A senior student working with lab apparatus",
+    "group": "physics-lab",
+    "position": "55% 35%",
+    "placeholder": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAwBACdASoYAA4APu1kqU2ppaQiMAgBMB2JYwC7MoABg2sKGPCmAHO8BYAA/svsOOzrI+Ie3IjXteEV6p+iO1t6zbhBYSiCU6iOdVOTzzvvLoxVm5vzQ6QDqACgq10VXoPWL8xxzT8EYYF7I+cgdP18/VlCAA=="
+  },
+  "circuits-boys": {
+    "src": "/media/robotics/circuits-boys-1600.webp",
+    "srcSet": "/media/robotics/circuits-boys-480.webp 480w, /media/robotics/circuits-boys-960.webp 960w, /media/robotics/circuits-boys-1600.webp 1600w",
+    "width": 1737,
+    "height": 823,
+    "alt": "Students testing an electronic circuit",
+    "group": "robotics",
+    "position": "55% 40%",
+    "placeholder": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAwCdASoYAAsAPu1mqk2ppaQiMAgBMB2JQBWAAwo0r3vOx36MuYOAAP7QxcCXGJlbP8SlJhK782QglYt9MKM51sWSEahWlDFniNHgWxnYwR/SG6FLLTEcBK4gAA=="
+  },
+  "chemistry-lab-teacher": {
+    "src": "/media/chemistry-lab/chemistry-lab-teacher-1600.webp",
+    "srcSet": "/media/chemistry-lab/chemistry-lab-teacher-480.webp 480w, /media/chemistry-lab/chemistry-lab-teacher-960.webp 960w, /media/chemistry-lab/chemistry-lab-teacher-1600.webp 1600w",
+    "width": 1786,
+    "height": 830,
+    "alt": "Teacher guiding students in the chemistry lab",
+    "group": "chemistry-lab",
+    "position": "35% 30%",
+    "placeholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABQBACdASoYAAsAPu1krU6ppaSiMAgBMB2JYwCdACPO/tHAEItn7MzOY4SwAP6/vBpPTevAFDuQEL/GarHMGdUt6xYNFWQdCAUVR3EqI1O2U2ts1EDgOfDBpbJrJizZ2nTnzkVrCA5RTrAA"
+  },
+  "girl-glasses-class": {
+    "src": "/media/classroom/girl-glasses-class-1600.webp",
+    "srcSet": "/media/classroom/girl-glasses-class-480.webp 480w, /media/classroom/girl-glasses-class-960.webp 960w, /media/classroom/girl-glasses-class-1600.webp 1600w",
+    "width": 1781,
+    "height": 823,
+    "alt": "A student in class",
+    "group": "classroom",
+    "position": "50% 30%",
+    "placeholder": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoYAAsAPu1kq04ppaQiMAgBMB2JZQAAOELZPRd8bdmn8EGAAOJ+eakVBftwT3AAUNE1z0iOKeHW4eni6p3acGXuDfU47lLt7KEA3G/kO9e7mKjtT0lHGAWoPXAQBu/7fQAAAA=="
+  },
+  "little-girls-class": {
+    "src": "/media/classroom/little-girls-class-960.webp",
+    "srcSet": "/media/classroom/little-girls-class-480.webp 480w, /media/classroom/little-girls-class-960.webp 960w",
+    "width": 1141,
+    "height": 812,
+    "alt": "Pre-primary students in class",
+    "group": "classroom",
+    "position": "40% 35%",
+    "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQBQCdASoYABEAPu1kqU2ppaQiMBgMATAdiWMAwNwPuOlqVvRkeK5sYaqoER8ar6GYAPZMdKVXt3JO9U89sAExgbZwhMapFImwTe1pJcog7NgdufyxJLXHqhNpFJf5/cOxkezsZGo5XRUS8sAtNdpFumR5Soi4zwAAAA=="
+  },
+  "students-group-classroom": {
+    "src": "/media/classroom/students-group-classroom-1600.webp",
+    "srcSet": "/media/classroom/students-group-classroom-480.webp 480w, /media/classroom/students-group-classroom-960.webp 960w, /media/classroom/students-group-classroom-1600.webp 1600w",
+    "width": 1810,
+    "height": 778,
+    "alt": "Students in a classroom",
+    "group": "classroom",
+    "position": "50% 40%",
+    "placeholder": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQBACdASoYAAoAPu1kqk4ppaQiMAgBMB2JZQC7ACGYwoql2pO4gsucAAD45bTqUqHGK5EOUaZZzWMNy0uJJsg0+HhjR/qwG7NFsDpBdEPOr4x7AAA="
+  },
+  "computer-lab-girl": {
+    "src": "/media/computer-lab/computer-lab-girl-960.webp",
+    "srcSet": "/media/computer-lab/computer-lab-girl-480.webp 480w, /media/computer-lab/computer-lab-girl-960.webp 960w",
+    "width": 1540,
+    "height": 662,
+    "alt": "A student working in the computer lab",
+    "group": "computer-lab",
+    "position": "70% 40%",
+    "placeholder": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwBACdASoYAAoAPu1kqk4ppaQiMAgBMB2JQBdgA+9f/qkeBRERwEcT44AA942xY1v+/DqKOY88BwcKGwKxcqLrRsOGVIZo/rlHf8ErUXjnWl5ltpqThmo2+tkbzIcAAAA="
+  },
+  "robotics-boys-computer": {
+    "src": "/media/robotics/robotics-boys-computer-960.webp",
+    "srcSet": "/media/robotics/robotics-boys-computer-480.webp 480w, /media/robotics/robotics-boys-computer-960.webp 960w",
+    "width": 1410,
+    "height": 557,
+    "alt": "Students programming a robot in the robotics lab",
+    "group": "robotics",
+    "position": "45% 40%",
+    "placeholder": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAwCdASoYAAkALrV2u12jqampiYC0SgCdAEfn7NTM7oNEk3vycgAA+p/vevTk7Y782x99XgQHVWHAWbV3n2SJUT+IjlgbxMVdbomhsK4ptUAUcSunUVGiAAA="
+  },
+  "robotics-boys-kit": {
+    "src": "/media/robotics/robotics-boys-kit-1600.webp",
+    "srcSet": "/media/robotics/robotics-boys-kit-480.webp 480w, /media/robotics/robotics-boys-kit-960.webp 960w, /media/robotics/robotics-boys-kit-1600.webp 1600w",
+    "width": 1812,
+    "height": 826,
+    "alt": "Students assembling a robot kit",
+    "group": "robotics",
+    "position": "60% 40%",
+    "placeholder": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAACwAwCdASoYAAsAPu1krU6ppaSiMAgBMB2JQBOgAfJCfsVLpBNIwAD+v7tz7B5vhAEaq9wYU8EAH66UtoTnPmqXg/8QcOdK+oCeNkf56VMk6tUsaW8LcHm+SK0eGAju0Ltojn4I1f7vrA/pTLQt4wTmDu6tgOjAQAA="
+  },
+  "printer-3d-boy": {
+    "src": "/media/robotics/printer-3d-boy-480.webp",
+    "srcSet": "/media/robotics/printer-3d-boy-480.webp 480w",
+    "width": 885,
+    "height": 826,
+    "alt": "A student operating a 3D printer",
+    "group": "robotics",
+    "position": "45% 40%",
+    "placeholder": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAwBQCdASoYABYAPu1mrU+ppSQiMBgIATAdiWMAgAAEWOMHDwcbbQXMWYSZoCSWTEPlgADLHVj8TBofOCCPLuwxCEOSi1RvyKtsQCCyJ1MIGBZitgchteg40AOrUQLWOO7lgZXK1hpkaRXhXytNLv+4fBR5Gfo+uOdD0RqSf7U3RcKAAAA="
+  },
+  "robotics-3d-printing": {
+    "src": "/media/robotics/robotics-3d-printing-960.webp",
+    "srcSet": "/media/robotics/robotics-3d-printing-480.webp 480w, /media/robotics/robotics-3d-printing-960.webp 960w",
+    "width": 1142,
+    "height": 662,
+    "alt": "Students and a teacher with a 3D printer",
+    "group": "robotics",
+    "position": "50% 40%",
+    "placeholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwAwCdASoYAA4APu1iqU2ppaOiMAgBMB2JQBAAAR5fTIav66CDKmwAAP5YCizt1kvLNnqjHuhU2lCMeIwlKmlM2Ymc2Y6gwX56dj+IfyN0fKECJih2tW5WIK1QGgFyUKwq68oZsAA5wL+blAwAAA=="
+  },
+  "taekwondo-aerial": {
+    "src": "/media/sports/taekwondo-aerial-1600.webp",
+    "srcSet": "/media/sports/taekwondo-aerial-480.webp 480w, /media/sports/taekwondo-aerial-960.webp 960w, /media/sports/taekwondo-aerial-1600.webp 1600w",
+    "width": 1708,
+    "height": 891,
+    "alt": "Taekwondo drill on the school ground",
+    "group": "sports",
+    "position": "50% 50%",
+    "placeholder": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JZQCw7CFlo/saQMP6vlUMAAD9MQN9Xe0/bnnXJ67wdNo1y+C7nrP1KhtKTM3oestJkMvYE8EB39PgAAA="
+  },
+  "taekwondo-practice": {
+    "src": "/media/sports/taekwondo-practice-960.webp",
+    "srcSet": "/media/sports/taekwondo-practice-480.webp 480w, /media/sports/taekwondo-practice-960.webp 960w",
+    "width": 1177,
+    "height": 663,
+    "alt": "Taekwondo practice",
+    "group": "sports",
+    "position": "45% 40%",
+    "placeholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQBACdASoYAA4APu1iqU2ppaQiMAgBMB2JYwC7B3gAnvyMxnjN5BO6qi4AAP7Q4eCayU8z7P3ix8GZ8X3RhzJ/fr8R4drIdps64+QQd/7gSCAuco46vszl9KEU4V1Y/tD5kt616YPPpyLUUnYEAA=="
+  },
+  "taekwondo-girls": {
+    "src": "/media/sports/taekwondo-girls-960.webp",
+    "srcSet": "/media/sports/taekwondo-girls-480.webp 480w, /media/sports/taekwondo-girls-960.webp 960w",
+    "width": 1491,
+    "height": 747,
+    "alt": "Girls practising Taekwondo",
+    "group": "sports",
+    "position": "60% 40%",
+    "placeholder": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAACQAwCdASoYAAwAPu1krU6ppaSiMAgBMB2JZwAALGvYga/sScrAAMsWNrUly6bp32jIPjqMrMn0oCIQWGEepeNChHt/n3pL6dM4/VW1Z+B1uBfPKLBtHjR/ycD04AAA"
+  },
+  "biology-model": {
+    "src": "/media/science-lab/biology-model-960.webp",
+    "srcSet": "/media/science-lab/biology-model-480.webp 480w, /media/science-lab/biology-model-960.webp 960w",
+    "width": 1287,
+    "height": 830,
+    "alt": "Students studying a human anatomy model",
+    "group": "science-lab",
+    "position": "50% 35%",
+    "placeholder": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAwBACdASoYAA8APu1iqU2ppaOiMAgBMB2JaACdMoADVPObfnFglmIcyAAA/mxBGOROxAcKSKtW6rN9zelAuXzovPe/EcssUsXUS2s8+v2kP00gF+NXAeJtwoM67cflLBA1uCjGCvbIy0f2REA95FdUlk/6d70AAAA="
+  },
+  "robotics-girls-kit": {
+    "src": "/media/robotics/robotics-girls-kit-1600.webp",
+    "srcSet": "/media/robotics/robotics-girls-kit-480.webp 480w, /media/robotics/robotics-girls-kit-960.webp 960w, /media/robotics/robotics-girls-kit-1600.webp 1600w",
+    "width": 6000,
+    "height": 4000,
+    "alt": "Students wiring a robot kit",
+    "group": "robotics",
+    "position": "35% 40%",
+    "placeholder": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQBACdASoYABAAPu1iqk4ppaQiMAgBMB2JYgC7ACPRghDbj4XXHkoqP2wAAPfehQg6WagRtLxPTYwCIZaS6rGgz8pPP3m0QXrP5ZYqPscVd01iusezT+2Qnd5tKJr8jqFn3j2iPh9i6RJLc/9BGsAA"
+  },
+  "robotics-workshop": {
+    "src": "/media/robotics/robotics-workshop-1600.webp",
+    "srcSet": "/media/robotics/robotics-workshop-480.webp 480w, /media/robotics/robotics-workshop-960.webp 960w, /media/robotics/robotics-workshop-1600.webp 1600w",
+    "width": 6000,
+    "height": 4000,
+    "alt": "Students at a robotics workshop",
+    "group": "robotics",
+    "position": "50% 50%",
+    "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAABQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JYwDA/CYcABKNLN6xyTuPYSQAAP2KwT7M9/f7DJzR5QqLAO0R6W9faVp3SYWweBK6PIo6+KMLX5aAGbrmmLKXixIlr38RaVNspWo/vmPytWgCQ1RYOhxXnvuoc3VqfUAAAA=="
+  },
+  "neet-result-students": {
+    "src": "/media/chemistry-lab/neet-result-students-1600.webp",
+    "srcSet": "/media/chemistry-lab/neet-result-students-480.webp 480w, /media/chemistry-lab/neet-result-students-960.webp 960w, /media/chemistry-lab/neet-result-students-1600.webp 1600w",
+    "width": 3040,
+    "height": 1844,
+    "alt": "Students holding test tubes in the science lab",
+    "group": "chemistry-lab",
+    "position": "45% 45%",
+    "placeholder": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwBACdASoYAA8APu1iqk2ppaQiMAgBMB2JYwCdABQv8t5ajfZ3alMWMIAA4Yt9bTmW+9+I1UDLishYEF3tWt2KKGQXwTLKLFmES+nKLFCoTATma6xJZ6cN0YLdxY2dTHNcAA=="
+  },
+  "panel-discussion": {
+    "src": "/media/public-speaking/panel-discussion-1600.webp",
+    "srcSet": "/media/public-speaking/panel-discussion-480.webp 480w, /media/public-speaking/panel-discussion-960.webp 960w, /media/public-speaking/panel-discussion-1600.webp 1600w",
+    "width": 5464,
+    "height": 3148,
+    "alt": "Students on stage at a panel discussion",
+    "group": "public-speaking",
+    "position": "50% 50%",
+    "placeholder": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JbACdMoR3ACVfDOq47/Vd0AAA/tOVnl5xOPKiMwWmpG1EHKP/Ya4orGJPHNgA5d0Xb/S8BCOmu3C2sbthVi4QONAqNf1+gAA="
+  },
+  "science-fair-project": {
+    "src": "/media/events/science-fair-project-1600.webp",
+    "srcSet": "/media/events/science-fair-project-480.webp 480w, /media/events/science-fair-project-960.webp 960w, /media/events/science-fair-project-1600.webp 1600w",
+    "width": 6240,
+    "height": 4160,
+    "alt": "A student presenting her science fair project",
+    "group": "events",
+    "position": "60% 40%",
+    "placeholder": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwBACdASoYABAAPu1krU6ppaSiMAgBMB2JbACdABnfZqBiZ5jxb7zY6YAA/SPAy1/Q1xR/SlrBQRKJR4gFtbFKhsKIvZe3vneq59IZ8ZvODK1ahPSERQUzw5tjkYgxzcbGEucL74AAAA=="
+  },
+  "science-fair-3": {
+    "src": "/media/events/science-fair-3-1600.webp",
+    "srcSet": "/media/events/science-fair-3-480.webp 480w, /media/events/science-fair-3-960.webp 960w, /media/events/science-fair-3-1600.webp 1600w",
+    "width": 6048,
+    "height": 4024,
+    "alt": "Students showing their science fair project to a guest",
+    "group": "events",
+    "position": "50% 40%",
+    "placeholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAwBACdASoYABAAPu1iqk2ppaQiMAgBMB2JYwCsACB1nP4lF06JztzQZMAA/nG1pGHvAVLo4godAip7z/Tbp7gvgM4KwTdxgUYbyabfgqm0+2Udk3PyrWQzRx5aFKUQ40/MhPN9wBTZL+s4nwSQAA=="
+  },
+  "sciberation-2023-guests": {
+    "src": "/media/events/sciberation-2023-guests-1600.webp",
+    "srcSet": "/media/events/sciberation-2023-guests-480.webp 480w, /media/events/sciberation-2023-guests-960.webp 960w, /media/events/sciberation-2023-guests-1600.webp 1600w",
+    "width": 6016,
+    "height": 4016,
+    "alt": "Guests at the Sciberation 2023 science fair",
+    "group": "events",
+    "position": "50% 50%",
+    "placeholder": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADQAwCdASoYABAAPu1mqk2ppaQiMAgBMB2JbACdAGlXG4qUHf2ByCAA/vs4yHP/iRngSjB7MwNKXy/ornsDBmT7xMpl8cBCoMdg7av90UAexbO/z607CuKz3UVprpy6q2omrM7lURtih6H9BKvmKxzv8KIAAA=="
+  },
+  "independence-flags": {
+    "src": "/media/events/independence-flags-1600.webp",
+    "srcSet": "/media/events/independence-flags-480.webp 480w, /media/events/independence-flags-960.webp 960w, /media/events/independence-flags-1600.webp 1600w",
+    "width": 3264,
+    "height": 2448,
+    "alt": "Children celebrating Independence Day",
+    "group": "events",
+    "position": "45% 40%",
+    "placeholder": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABQBQCdASoYABIAPu1oqk+ppaOiKA1RMB2JZQDDcA3ytwnmf6svkLZHLpVDnqOA0JDYPXAA/t2b/9UCNd5g+vlQn8t2nl3IiVdCSt5ryxB/pHq9wjIZO5TTUqJIYlivdPHeMJPgNothoabP7fsUB+0gRDxgAAAA"
+  },
+  "gems-of-ims": {
+    "src": "/media/events/gems-of-ims-1600.webp",
+    "srcSet": "/media/events/gems-of-ims-480.webp 480w, /media/events/gems-of-ims-960.webp 960w, /media/events/gems-of-ims-1600.webp 1600w",
+    "width": 6240,
+    "height": 4160,
+    "alt": "Students performing on stage at the annual function",
+    "group": "events",
+    "position": "50% 50%",
+    "placeholder": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACwAwCdASoYABAALrV2u12jqampiYC0SzAE6ZQANSjao2Ez8fnAQAD8AjZy67zNwf3YsHR6NapErvjpFTFTKdFKtR8+fZT3FmS1rGK0bhkX0r0ADKYYp0XcOAUQ85sRsg2LAAAA"
+  },
+  "mushaira-stage": {
+    "src": "/media/events/mushaira-stage-1600.webp",
+    "srcSet": "/media/events/mushaira-stage-480.webp 480w, /media/events/mushaira-stage-960.webp 960w, /media/events/mushaira-stage-1600.webp 1600w",
+    "width": 6240,
+    "height": 4160,
+    "alt": "Students performing at the annual function",
+    "group": "events",
+    "position": "50% 50%",
+    "placeholder": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAwBACdASoYABAAPu1mqk2ppaQiMAgBMB2JYgCdMoADTWibYXbyQHFTL/QA+UALCsRKJU8hYGYpVRCPnCgrYwuG/s85MEOotv4RGbGtbUcQY6AdGo11U873L5XOBi8JopEFeWIFhV1lyIRTxDDkoAAA"
+  },
+  "students-playing": {
+    "src": "/media/sports/students-playing-960.webp",
+    "srcSet": "/media/sports/students-playing-480.webp 480w, /media/sports/students-playing-960.webp 960w",
+    "width": 1413,
+    "height": 720,
+    "alt": "Students playing on the school ground",
+    "group": "sports",
+    "position": "50% 50%",
+    "placeholder": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAwCdASoYAAwAPu1kqk4ppaQiMAgBMB2JYgCdMoR3ACWCJvxQBG6kAPqMv7IfJpoJo9funj0EaeJ5xidRzfKZDMzNTdun6kBCBp3NTAAAAA=="
+  },
+  "campus-aerial-new": {
+    "src": "/media/campus/campus-aerial-new-1600.webp",
+    "srcSet": "/media/campus/campus-aerial-new-480.webp 480w, /media/campus/campus-aerial-new-960.webp 960w, /media/campus/campus-aerial-new-1600.webp 1600w",
+    "width": 5107,
+    "height": 2866,
+    "alt": "Aerial view of the IMS campus",
+    "group": "campus",
+    "position": "62% 45%",
+    "placeholder": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAwCdASoYAA0APu1kqU2ppaQiMAgBMB2JYwC2yCIi2VwYYV/B3AgAAP6XSrcFWhFltdCKCac0gjZKDJx7dUx11zcgfhBHON5wrtOB45JazfF9obLC5SxWJQQgAA=="
+  },
+  "campus-aerial-event": {
+    "src": "/media/campus/campus-aerial-event-1600.webp",
+    "srcSet": "/media/campus/campus-aerial-event-480.webp 480w, /media/campus/campus-aerial-event-960.webp 960w, /media/campus/campus-aerial-event-1600.webp 1600w",
+    "width": 5472,
+    "height": 3078,
+    "alt": "Aerial view of the IMS campus during an event",
+    "group": "campus",
+    "position": "50% 50%",
+    "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABwAwCdASoYAA0ALrV2u12jqampiYC0S0AFYAI/9QOgyVSJ0PgA/rYIJoAybUeuXK41zv9NS78aCHQrxNtJxx7CQ1LWZL3EiddaEa9invdRRfHzest/rpiUbvhOI34BMMdYn2P8R1uBnMJhjbXFGdoAAAA="
+  },
+  "assembly-ground": {
+    "src": "/media/campus/assembly-ground-1600.webp",
+    "srcSet": "/media/campus/assembly-ground-480.webp 480w, /media/campus/assembly-ground-960.webp 960w, /media/campus/assembly-ground-1600.webp 1600w",
+    "width": 1812,
+    "height": 830,
+    "alt": "Students lined up at morning assembly on the school ground",
+    "group": "campus",
+    "position": "50% 50%",
+    "placeholder": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAwCdASoYAAsAPu1iqU2ppaOiMAgBMB2JYwC+SBBuUhHoks2NfoAA+kEwS3KC7RZYH4RymfSxM/Muheg+gCAymZCe9gVnSmlcp6j0B8OfgepDAAA="
+  },
+  "dna-workshop": {
+    "src": "/media/events/dna-workshop-1600.webp",
+    "srcSet": "/media/events/dna-workshop-480.webp 480w, /media/events/dna-workshop-960.webp 960w, /media/events/dna-workshop-1600.webp 1600w",
+    "width": 6240,
+    "height": 4160,
+    "alt": "A teacher demonstrating DNA extraction at the Sciberation 2025 workshop",
+    "group": "events",
+    "position": "58% 40%",
+    "placeholder": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoYABAAPu1iqk4ppaQiMAgBMB2JZwAAUpWbjVyAA4fWMVMeAAD+YWIF9W6If7Pri4ttSiAAUpzqq+gI7vMhVbFKOjNfsmg3jcfsZFtEGY983r6/fOmEgL6bNEk2Jur3169QqiYvnvoq6zaFggFj7gAA"
+  },
+  "students-in-apron": {
+    "src": "/media/classroom/students-in-apron-960.webp",
+    "srcSet": "/media/classroom/students-in-apron-480.webp 480w, /media/classroom/students-in-apron-960.webp 960w",
+    "width": 1200,
+    "height": 1599,
+    "alt": "Young students in aprons at an art activity",
+    "group": "classroom",
+    "position": "50% 30%",
+    "placeholder": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAACwBQCdASoYACAAPu1iqU2ppaQiMAgBMB2JQBYebwAR+SIPKFpwfcjUivGGKmrM/7U3QGybz4AA/dSNHTLLxu53TyPn5gaqChZ4YzYrIw49reMe4TNExLfjcepy6Wm5Uyk+G9WtAYz4nxHRsuEKj7HdNc/n1yqiaSRBkllPTJcksYyNvHEzR1bVp6aA+jPDAIcnrgC2M6vLUyBkB2/b9Xp3dwWTgDDb4WoPraAAdQ5uIYLCeVlBgAAA"
+  },
+  "project-team-girls": {
+    "src": "/media/events/project-team-girls-1600.webp",
+    "srcSet": "/media/events/project-team-girls-480.webp 480w, /media/events/project-team-girls-960.webp 960w, /media/events/project-team-girls-1600.webp 1600w",
+    "width": 6048,
+    "height": 4024,
+    "alt": "Students with their science project and teacher",
+    "group": "events",
+    "position": "50% 40%",
+    "placeholder": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAwBACdASoYABAAPu1kqk2ppaQiMAgBMB2JagC7H8AJWpWYLKi4eiZstgAA/vtgAYUL6lmGAbkobwazYKZBhm/5JTiQldqS3/bf3h1Qg05gNEr10TKJFsaWYvMZmu6zSUrbfyUPF8dkb6LAkL+Dct+T8wc6VM5GW3o/uqAmDvZ+Hhzu21iNYzZrNr+HgAAA"
+  },
+  "lab-coats-girls": {
+    "src": "/media/science-lab/lab-coats-girls-1600.webp",
+    "srcSet": "/media/science-lab/lab-coats-girls-480.webp 480w, /media/science-lab/lab-coats-girls-960.webp 960w, /media/science-lab/lab-coats-girls-1600.webp 1600w",
+    "width": 2929,
+    "height": 3585,
+    "alt": "Students in lab coats at a first-aid demonstration",
+    "group": "science-lab",
+    "position": "50% 30%",
+    "placeholder": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAACwBQCdASoYAB0APuFgqk2opaQiMAwBEBwJaAC7MtrGriNjyJD6GX6DahQVQ4P0d6KqcDRekAAA/uHg1VMdUQhmPSTFD0hro769y4vzIJJpIg89OgTSFhJo1kkbSpTmXLXHTHPuk58mp7hsOAXiMJNt2tFeN+5BVIv05A3rzsvOMFIH4Ea59unEJOCr4f2y/nL0fVXDaTzeJlRvcnj19cU+QcYp7swjLLTO57+pFUV4EbnKdvEr0AwJGaOTJ8AA"
+  },
+  "sciberation-guests-project": {
+    "src": "/media/events/sciberation-guests-project-1600.webp",
+    "srcSet": "/media/events/sciberation-guests-project-480.webp 480w, /media/events/sciberation-guests-project-960.webp 960w, /media/events/sciberation-guests-project-1600.webp 1600w",
+    "width": 6240,
+    "height": 4160,
+    "alt": "Guests viewing a student project at Sciberation 2025",
+    "group": "events",
+    "position": "50% 40%",
+    "placeholder": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAwBACdASoYABAAPu1iqk4ppaQiMAgBMB2JYwC+TagBcogas0Nf21CSp1gA999BbbXX7r05nYIfIUqrk5IEuacY7tIv90Oq3smCb0NaRG5INII547joyx2TFRx0wnMQNOevkypCGFOYue4NvUj+31dsEqQV/FwA"
+  },
+  "independence-day-girls": {
+    "src": "/media/events/independence-day-girls-1600.webp",
+    "srcSet": "/media/events/independence-day-girls-480.webp 480w, /media/events/independence-day-girls-960.webp 960w, /media/events/independence-day-girls-1600.webp 1600w",
+    "width": 3872,
+    "height": 2592,
+    "alt": "Students performing at the Independence Day celebration",
+    "group": "events",
+    "position": "50% 45%",
+    "placeholder": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAACQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JZACdMoMh1EmZqsRHAkFMMUjpltAA99FZ7AaPpeTK0ZF+MdpuFVQsVQPPAXqv2dtFH1os3RIdFHNqMIbK6hUliE9NUMKNk1eu0Um5Ow8MkRnqmAVDFTxm5xosBtAA"
+  },
+  "trophy-girls": {
+    "src": "/media/competitions/trophy-girls-1600.webp",
+    "srcSet": "/media/competitions/trophy-girls-480.webp 480w, /media/competitions/trophy-girls-960.webp 960w, /media/competitions/trophy-girls-1600.webp 1600w",
+    "width": 2928,
+    "height": 1755,
+    "alt": "Students celebrating with their trophy",
+    "group": "competitions",
+    "position": "50% 40%",
+    "placeholder": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwAwCdASoYAA4APu1kq04ppaQiMAgBMB2JZQAASoIxuzZzcdjOgN2AAP7ytNQdG4to9o+cPBw/RDhzJku8H/w4QikRIdHtmGpfmTmY0+t/tol2b/Md6pxclfR/RNWE/mBomQAA"
+  },
+  "assembly-flag-day": {
+    "src": "/media/campus/assembly-flag-day-1600.webp",
+    "srcSet": "/media/campus/assembly-flag-day-480.webp 480w, /media/campus/assembly-flag-day-960.webp 960w, /media/campus/assembly-flag-day-1600.webp 1600w",
+    "width": 4272,
+    "height": 2848,
+    "alt": "Students at assembly beside the national flag",
+    "group": "campus",
+    "position": "50% 60%",
+    "placeholder": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADQAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JYwDG9B6PorMqgMJv5WYA/sP9sJHrdLstXioUEOevGmL1eqnUtdmsfXBkSb7iyGK/b6P94IBgcmrbQcARFK+7k+nBGJAA"
+  },
+  "scouts-ground": {
+    "src": "/media/sports/scouts-ground-960.webp",
+    "srcSet": "/media/sports/scouts-ground-480.webp 480w, /media/sports/scouts-ground-960.webp 960w",
+    "width": 1280,
+    "height": 590,
+    "alt": "Students lined up on the school ground",
+    "group": "sports",
+    "position": "50% 50%",
+    "placeholder": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACQAwCdASoYAAsAPu1orU6ppiSiMAgBMB2JZQDCgB2OippnfWSAAPWanNqFctdQlCbPMX2cr0KqAYaNk/4+mQmMuEvdo6iscjOAWHCypcZCE4U3hAAAAA=="
+  },
+  "comp-lab-wide": {
+    "src": "/media/computer-lab/comp-lab-wide-960.webp",
+    "srcSet": "/media/computer-lab/comp-lab-wide-480.webp 480w, /media/computer-lab/comp-lab-wide-960.webp 960w",
+    "width": 1380,
+    "height": 585,
+    "alt": "Students at work in the computer lab",
+    "group": "computer-lab",
+    "position": "50% 40%",
+    "placeholder": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACQAwCdASoYAAoALrV2u12jqampiYC0SxgGJsHpIpQ0oAqo7ZuAAMyjX4FjkukZq6W3vXYdLhAqUnsfl4FbNXqF6tZ39pAUX8MCXWeGUjQJlXBz/o6drFuLRpBlRpRAAAA="
+  },
+  "dna-lab-wide": {
+    "src": "/media/science-lab/dna-lab-wide-1600.webp",
+    "srcSet": "/media/science-lab/dna-lab-wide-480.webp 480w, /media/science-lab/dna-lab-wide-960.webp 960w, /media/science-lab/dna-lab-wide-1600.webp 1600w",
+    "width": 6240,
+    "height": 4160,
+    "alt": "The science lab set up for the DNA workshop",
+    "group": "science-lab",
+    "position": "50% 45%",
+    "placeholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JZwDE2CHSvuQxRoJeZBQA/vHaaQDTypyJtxBAStm4ZFmN6fdKjDMpLdRZdOg9r1lfP7/D2sUvZK4HxkixD+ulgUmnqu6IIlv2qGnLugf8VvT6vmHAAA=="
+  },
+  "little-girls-lab": {
+    "src": "/media/science-lab/little-girls-lab-1600.webp",
+    "srcSet": "/media/science-lab/little-girls-lab-480.webp 480w, /media/science-lab/little-girls-lab-960.webp 960w, /media/science-lab/little-girls-lab-1600.webp 1600w",
+    "width": 3264,
+    "height": 1678,
+    "alt": "Young students exploring in the science lab",
+    "group": "science-lab",
+    "position": "50% 40%",
+    "placeholder": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAwBACdASoYAAwAPu1iqk2ppaQiMAgBMB2JZwAATvWQPTWV7tcSyqg/EAAA/ozmTm7r42+oS9AUJ2IvHGxknsXwDMcA2huHzW+hZNDo9nga9G17RmNy69tX4AA="
+  },
+  "boys-flags-cheer": {
+    "src": "/media/events/boys-flags-cheer-960.webp",
+    "srcSet": "/media/events/boys-flags-cheer-480.webp 480w, /media/events/boys-flags-cheer-960.webp 960w",
+    "width": 1040,
+    "height": 585,
+    "alt": "Students cheering with flags on Independence Day",
+    "group": "events",
+    "position": "45% 40%",
+    "placeholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoYAA0APu1krU2ppaSiMAgBMB2JQBOmUAA7kmWx/t4yMTSKEAD556Tc34YIlhTJ9OBnP7VBZp0tuAJm5LYZu+23suCrS7TY/+fHSPG2PjTwZvPEZyuPCYTsLFUN3CBbQLOt9/UJVsAAAA=="
+  },
+  "costume-speech-child": {
+    "src": "/media/events/costume-speech-child-1600.webp",
+    "srcSet": "/media/events/costume-speech-child-480.webp 480w, /media/events/costume-speech-child-960.webp 960w, /media/events/costume-speech-child-1600.webp 1600w",
+    "width": 5472,
+    "height": 3648,
+    "alt": "A young student giving a speech in costume",
+    "group": "events",
+    "position": "50% 35%",
+    "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAABQBACdASoYABAAPu1krU2ppaSiMAgBMB2JbACdMoAKI+VvTbAm170woQ+AAP4LTEGqZ+WCUc3/g23u0MSfP3xB+laQeqi2aA9Y+jf9ZDE1pJ+aPr8CIuB9RtvRVb59uOpY/efCQrOsS2N5J0k92n4gN5LLG55I3Ij7ezH42yDCLd7k/viYJu8KUW8c0BP1qjbGM4pbwNAAAA=="
+  },
+  "cute-girl-flag": {
+    "src": "/media/events/cute-girl-flag-480.webp",
+    "srcSet": "/media/events/cute-girl-flag-480.webp 480w",
+    "width": 780,
+    "height": 1040,
+    "alt": "A young student with a flag painted on her hand",
+    "group": "events",
+    "position": "50% 30%",
+    "placeholder": "data:image/webp;base64,UklGRvAAAABXRUJQVlA4IOQAAABwBgCdASoYACAAPu1orE8ppiQiMBgIATAdiWgAtRryopsMFYSYgF5xh9GVUw8G8AdEhaIQiytAWdNH2GAA/WkIbM+2D5E+X30M00V7ruwWskX1fxrJ/YUAk9rkYR+chN8aUh6g7/X0h5PwsQiTtvkpY519r/egwtlm6/1sj8PfOuiEgEnjBTkWgmsMe+nr2eljNkgQNXO36a88napJXXl5Wm936dSzugyJWzjECNOMTrYjBrm3YIhhJ52HXfjJs2rPafHBs0rkJDwX0BTQFz1iUySBHhglYwdIyGyxW21P+04l6AA="
+  },
+  "student-glasses-row": {
+    "src": "/media/classroom/student-glasses-row-1600.webp",
+    "srcSet": "/media/classroom/student-glasses-row-480.webp 480w, /media/classroom/student-glasses-row-960.webp 960w, /media/classroom/student-glasses-row-1600.webp 1600w",
+    "width": 1757,
+    "height": 831,
+    "alt": "A student listening in class",
+    "group": "classroom",
+    "position": "25% 35%",
+    "placeholder": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAwCdASoYAAsAPu1mqk2ppaQiMAgBMB2JQBdgBCdxwRzyosOHiHgAAP7gCeLoIm76d3MEhG3y2/8eLJcBogPNT/Pd/OCq0mgBJJFT3R85n40/9m9ZFIouUyM/EpxAAAA="
+  },
+  "microscope-girl-2": {
+    "src": "/media/science-lab/microscope-girl-2-960.webp",
+    "srcSet": "/media/science-lab/microscope-girl-2-480.webp 480w, /media/science-lab/microscope-girl-2-960.webp 960w",
+    "width": 965,
+    "height": 737,
+    "alt": "A student looking through a microscope",
+    "group": "science-lab",
+    "position": "50% 30%",
+    "placeholder": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBQCdASoYABIAPu1qsFCppaSiqAqpMB2JQBadAXlnRf8ZmJH6vhzopytX9iwHc2R2AAD8XI32pSTeC28+1iYhiD5CVoVowbGh4SWgwiPLpSf/LNmapd2b9kYRKfwpEA1SUTMuwHo9vou+4Rr2TlWem1Gx9n/QpK/qEBxtECl7kV04i7cMAA=="
+  },
+  "kids-line-class": {
+    "src": "/media/classroom/kids-line-class-1600.webp",
+    "srcSet": "/media/classroom/kids-line-class-480.webp 480w, /media/classroom/kids-line-class-960.webp 960w, /media/classroom/kids-line-class-1600.webp 1600w",
+    "width": 1835,
+    "height": 821,
+    "alt": "Young students lining up in class",
+    "group": "classroom",
+    "position": "35% 40%",
+    "placeholder": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAwBACdASoYAAsAPu1kqk4ppaQiMAgBMB2JQBdgA4ZA+FNsUeGmhf5/bCAA/qaCnIuMx58BKl7lCNF/rMcwStVuEbZGeyP9eI1JS5+NDTM/9wtlkG8OKdMAAAA="
+  },
+  "maths-activity": {
+    "src": "/media/classroom/maths-activity-960.webp",
+    "srcSet": "/media/classroom/maths-activity-480.webp 480w, /media/classroom/maths-activity-960.webp 960w",
+    "width": 1280,
+    "height": 576,
+    "alt": "Students measuring during a hands-on maths activity",
+    "group": "classroom",
+    "position": "45% 45%",
+    "placeholder": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAABQBACdASoYAAsAPu1iqU2ppaQiMAgBMB2JYwC7ACP4jvxSvBQDpkrdrQgAAPyrp/uSsuCNy7lsqmqSZrujWB5mmk427ueJ93dCHfpbpJA5JimACyU1qXmiO9SEdX/ILhqZbiAA"
+  },
+  "speech-boys": {
+    "src": "/media/public-speaking/speech-boys-960.webp",
+    "srcSet": "/media/public-speaking/speech-boys-480.webp 480w, /media/public-speaking/speech-boys-960.webp 960w",
+    "width": 1557,
+    "height": 2609,
+    "alt": "Two young students speaking on stage",
+    "group": "public-speaking",
+    "position": "50% 30%",
+    "placeholder": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAAAQBwCdASoYACgAPu1eqE4ppKOiMBqqqTAdiUAX7WyANBIM7LevdoZXaxc2qPT/9QSg0CinUEQX8WxsHdu0o2t/AAD+7oxPeb22QnRNCizkSFQ53TET+U8eashn6B1plDVKN5hz3iGK4lVzMUiHvhO1RQ4uaGWmmco3jNTNxt5KqBbW38aWqVWc01v5DJ/qAHtZXvI4VgTyS5TjPDcIcEBy45x56rZKttQpkJOxyGIeNUY7lYLI1uHL8LHvpSzqgAA="
+  },
+  "plants-project": {
+    "src": "/media/events/plants-project-1600.webp",
+    "srcSet": "/media/events/plants-project-480.webp 480w, /media/events/plants-project-960.webp 960w, /media/events/plants-project-1600.webp 1600w",
+    "width": 6048,
+    "height": 4024,
+    "alt": "Students presenting their plant project",
+    "group": "events",
+    "position": "50% 45%",
+    "placeholder": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAwBACdASoYABAAPu1iqU2ppaQiMAgBMB2JQBahFTg+YZ58Bvwxts/USwAA++rCLWi5MiE/Nky5BCdz1Q4oHTlf3TiB53Wszmzky3pTIOwJrcEd/b9JID7SQMunbrA9pTjdKaaxnnxX0mpoQBLy+zaR/a019Bxd3WjO7ii4AAA="
+  },
+  "girls-science-model": {
+    "src": "/media/events/girls-science-model-1600.webp",
+    "srcSet": "/media/events/girls-science-model-480.webp 480w, /media/events/girls-science-model-960.webp 960w, /media/events/girls-science-model-1600.webp 1600w",
+    "width": 2143,
+    "height": 1872,
+    "alt": "Two students with their science model",
+    "group": "events",
+    "position": "50% 35%",
+    "placeholder": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAABwBQCdASoYABUAPu1qrlCppaQiqAqpMB2JZwDGRrQgW42ysQqMc6znQvdoi0pQ6jd/Li4AAP6vK75ZdPQZZvbwct17rTeBH+eystjr8jWy2/2WsxjcIvBtTWm7NGyodSCg0hIzJPqejQgm2YbAjBH/Fv0HT1IIJuYYltnsbnFpb0I2ifKwz3TbUYHdz0c5mhMm4VkeRiY3pkfjSQAAAA=="
+  },
+  "robotics-kit-closeup": {
+    "src": "/media/robotics/robotics-kit-closeup-1600.webp",
+    "srcSet": "/media/robotics/robotics-kit-closeup-480.webp 480w, /media/robotics/robotics-kit-closeup-960.webp 960w, /media/robotics/robotics-kit-closeup-1600.webp 1600w",
+    "width": 2289,
+    "height": 1793,
+    "alt": "Students assembling a robot kit",
+    "group": "robotics",
+    "position": "50% 45%",
+    "placeholder": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAABwBQCdASoYABMAPu1qrlCppaQiqAqpMB2JZgCdMuI6ABu/MpR6E/INTLJCPMixEdRN6Gr8AP7rGKG6RMA03F6XS6LdC3V3WT/KGQwguebwH+x5PRZQ1yRwasxvjn9ne+ocF+FRtoh172CD/HwGNZtx6wPN208vyO+UI+eYkVxJcEFu35p0k5LgK/N2wEhh+Ysx1wF28IYXGjz/0AA="
+  },
+  "science-exhibition-2019": {
+    "src": "/media/events/science-exhibition-2019-1600.webp",
+    "srcSet": "/media/events/science-exhibition-2019-480.webp 480w, /media/events/science-exhibition-2019-960.webp 960w, /media/events/science-exhibition-2019-1600.webp 1600w",
+    "width": 6016,
+    "height": 4016,
+    "alt": "Students and guests at the IMS Science Exhibition 2019",
+    "group": "events",
+    "position": "50% 45%",
+    "placeholder": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAQBACdASoYABAALrV2u12jqampiYC0SxAFYQOAMC411VMUOtOE507abAD+78p98gmt0C2APl/3/Y9F5Lv7/Dg9++26lkgF0EwCV78hQS92Odc+9s1fUTDSpx9tYtAnzozHu8EOJN/wOYMNGU3jDAAA"
+  },
+  "stage-performance": {
+    "src": "/media/events/stage-performance-1600.webp",
+    "srcSet": "/media/events/stage-performance-480.webp 480w, /media/events/stage-performance-960.webp 960w, /media/events/stage-performance-1600.webp 1600w",
+    "width": 3872,
+    "height": 2592,
+    "alt": "Students performing on stage",
+    "group": "events",
+    "position": "50% 40%",
+    "placeholder": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoYABAAPu1Ct1apoqakGAEwHYljAJ0AYjURaslgx4WJN9gA9kZKyneDEyz3Pf/1e7KykUKGxL6YJZtpQRmVxBly7YpyCIYQ1tlkEU4CKvBG1qEDXYNrsHVPkRLmF03iuiAAAA=="
+  },
+  "einstein-speech": {
+    "src": "/media/public-speaking/einstein-speech-1600.webp",
+    "srcSet": "/media/public-speaking/einstein-speech-480.webp 480w, /media/public-speaking/einstein-speech-960.webp 960w, /media/public-speaking/einstein-speech-1600.webp 1600w",
+    "width": 6240,
+    "height": 4160,
+    "alt": "Students presenting on stage at Sciberation 2024",
+    "group": "public-speaking",
+    "position": "50% 40%",
+    "placeholder": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABwAwCdASoYABAAPu1kqU4ppaOiMAgBMB2JQAAGhSZuPNuXrgAA/U0QwG5USKljUdH+AcqqLz7R/YNsyPciBWykZGSl2sjbuaXOouOo38fCvCcJA51KAjUQa5eAAA=="
+  },
+  "girls-project-p119": {
+    "src": "/media/events/girls-project-p119-1600.webp",
+    "srcSet": "/media/events/girls-project-p119-480.webp 480w, /media/events/girls-project-p119-960.webp 960w, /media/events/girls-project-p119-1600.webp 1600w",
+    "width": 6240,
+    "height": 4160,
+    "alt": "Students with their project at the science fair",
+    "group": "events",
+    "position": "50% 40%",
+    "placeholder": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JZQARQAKly363cFNKq4KXAAD+7Xzpp8B3BHcIfeLGlHv40JSvOyoxx8jRBlAlC79lnbm83ncLR3HPp+RtXEOjpa6DZ2avHxLCrkrJykAAAA=="
+  },
+  "apron-dna-student": {
+    "src": "/media/events/apron-dna-student-1600.webp",
+    "srcSet": "/media/events/apron-dna-student-480.webp 480w, /media/events/apron-dna-student-960.webp 960w, /media/events/apron-dna-student-1600.webp 1600w",
+    "width": 6240,
+    "height": 4160,
+    "alt": "A student demonstrating at the DNA workshop",
+    "group": "events",
+    "position": "60% 40%",
+    "placeholder": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JYwDKABZZg76FdUZ1DQAA/e9x2Mg7hJWzxWrmHd21ONs09UjJpokzg2Y4PhUTeNGrOBQsYGCHHK6MfqTV2s+12Xn4RCJyYjt4RAF9OSAAAA=="
+  },
+  "poet-performance": {
+    "src": "/media/events/poet-performance-1600.webp",
+    "srcSet": "/media/events/poet-performance-480.webp 480w, /media/events/poet-performance-960.webp 960w, /media/events/poet-performance-1600.webp 1600w",
+    "width": 6240,
+    "height": 4160,
+    "alt": "A student performing in costume at the annual function",
+    "group": "events",
+    "position": "50% 40%",
+    "placeholder": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQBACdASoYABAAPu1iqU2ppaQiMAgBMB2JbACdMoMYACyxBuFx8Fy5YADcZvg+a3dB0LVFJeNhrhay5qOpnAqyae73Lq7dYg/wOPr7YMAF2T3C0u29qJtl8kanntlVbl1kpUVkJH5jEz7R30LGnl+kwlvVbdupiAA="
+  },
+  "costume-doctor-boy": {
+    "src": "/media/events/costume-doctor-boy-1600.webp",
+    "srcSet": "/media/events/costume-doctor-boy-480.webp 480w, /media/events/costume-doctor-boy-960.webp 960w, /media/events/costume-doctor-boy-1600.webp 1600w",
+    "width": 2639,
+    "height": 3332,
+    "alt": "A young student speaking on stage dressed as a doctor",
+    "group": "events",
+    "position": "50% 30%",
+    "placeholder": "data:image/webp;base64,UklGRvgAAABXRUJQVlA4IOwAAADQBQCdASoYAB4APu1grFAppKQisBgIATAdiWwAnTLqYIACmSwi26b9s/hx9df7ZNVN1BiC9dAAAM402Rqk7MpLSB8bZnPEwaC0wng3yeg62PqLASo5fVkahaoLlfSH1h1A1ajV0StLFammxJ8auTQzq8EEG98QH/p/z5+hOtNzqT/p4qK6H9jCJHjll2U0x46CeovFyfM92z+9MK6eKlWRtMPp4rBxVVeIufEDA6bL4ZV6Iv+AtoJ1RO8O9AHD1yIfuqt9Y9QqWftvVftVDp7unQDj5hoLhAwvk7cb2+fAEwURsTTvlJ+rlQAAAA=="
+  },
+  "campus-aerial-tents": {
+    "src": "/media/campus/campus-aerial-tents-1600.webp",
+    "srcSet": "/media/campus/campus-aerial-tents-480.webp 480w, /media/campus/campus-aerial-tents-960.webp 960w, /media/campus/campus-aerial-tents-1600.webp 1600w",
+    "width": 5472,
+    "height": 3078,
+    "alt": "Aerial view of the IMS campus set up for an event",
+    "group": "campus",
+    "position": "50% 45%",
+    "placeholder": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQBACdASoYAA0APu1kq04ppaQiMAgBMB2JQBbZBEP41OkRNRcLDd24AAD+tX8MWErIyLMZxEnq6TcdsVFK3bE4QRbvw3IRPfWfsqxUCg1jOnpgTcLOLW2npDluV/7M1POiVYAA"
+  },
+  "assembly-aerial-top": {
+    "src": "/media/campus/assembly-aerial-top-960.webp",
+    "srcSet": "/media/campus/assembly-aerial-top-480.webp 480w, /media/campus/assembly-aerial-top-960.webp 960w",
+    "width": 1466,
+    "height": 884,
+    "alt": "Students at assembly seen from above",
+    "group": "campus",
+    "position": "50% 50%",
+    "placeholder": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAwCdASoYAA4APu1yrU+pp6QiMAgBMB2JYwC2yBueLtLy62U59ZAA/p7Efvl9iq6JXyG9eEZj8HgtMfpdEteI1d18mQaAAAA="
+  },
+  "microscope-girl-3": {
+    "src": "/media/science-lab/microscope-girl-3-480.webp",
+    "srcSet": "/media/science-lab/microscope-girl-3-480.webp 480w",
+    "width": 852,
+    "height": 1024,
+    "alt": "A student at a microscope in the lab",
+    "group": "science-lab",
+    "position": "50% 35%",
+    "placeholder": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAACQBQCdASoYAB0APuVeo02pJSMiMAwBIByJQBdgCx+sZBWMr1IH/puHVQdsrx1YuFhHBFU16AD+9flA/aWPPvZyKXJsrTKfTgoaRaTChNA3lY7jAbG/bhSNi5ujYp6LxYaU3TFqQVgvU0gkcFuNZKMKfL26KSf0CegAg4U8z5toTspgJmjiRBRomXv7bZnrWgEuHo7Y0ADs/BOTOvCXzmVMElOjiHRPC13wcgAA"
+  },
+  "microscope-girl": {
+    "src": "/media/science-lab/microscope-girl-960.webp",
+    "srcSet": "/media/science-lab/microscope-girl-480.webp 480w, /media/science-lab/microscope-girl-960.webp 960w",
+    "width": 1368,
+    "height": 874,
+    "alt": "A student focusing a microscope",
+    "group": "science-lab",
+    "position": "45% 40%",
+    "placeholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQBACdASoYAA8APu1iqU2ppaOiMAgBMB2JbAC7AGk65tJQwxIl7NoEAAD+/QGp7HAxCw1SrnSLGGNjaFN5Mdnyt9r9qutZIFxaf+03bX/V8B4tDZVFIUY8b6naRSvGEAouebW7TDPUcAAA"
   }
 };
 

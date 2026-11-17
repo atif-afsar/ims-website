@@ -63,7 +63,7 @@ const SlideMedia = ({ slide, priority, videoAllowed, zoom }) => {
         onLoad={onLoad}
         onError={onLoad}
         ref={(el) => el?.complete && onLoad?.()}
-        style={{ objectPosition: slide.position || "center 35%" }}
+        style={{ objectPosition: slide.position || lib?.position || "center 35%" }}
         className={`h-full w-full object-cover ${zoom || ""}`}
       />
     </div>
@@ -216,8 +216,8 @@ const Hero = ({ content, slides: liveSlides }) => {
           </motion.div>
         </AnimatePresence>
 
-        {/* A light neutral fade keeps the logo readable; a darker one only when a photo has text */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-[2] h-32 bg-gradient-to-b from-black/30 to-transparent" aria-hidden="true" />
+        {/* A neutral dark fade keeps the header readable on bright photos; a darker one only when a photo has text */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-[2] h-48 bg-gradient-to-b from-black/70 via-black/35 to-transparent" aria-hidden="true" />
         {hasText && <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-t from-black/65 via-black/20 via-45% to-transparent" aria-hidden="true" />}
 
         <div className="absolute inset-x-0 bottom-0 z-[3] flex flex-col gap-4 px-5 pb-6 sm:gap-8 sm:px-10 sm:pb-8 lg:px-14 lg:pb-12">
@@ -255,7 +255,7 @@ const Hero = ({ content, slides: liveSlides }) => {
 
       {/* Tile column: under the header's white box on desktop, a row below the photos on phones */}
       {tiles.length > 0 && (
-        <div className="flex flex-col lg:w-[22rem] xl:w-[26rem]">
+        <div className="flex flex-col lg:w-[22rem] 2xl:w-[26rem]">
           <div className={`hidden shrink-0 lg:block ${HEADER_H}`} aria-hidden="true" />
           <div className="grid sm:grid-cols-3 lg:flex lg:flex-1 lg:flex-col">
             {tiles.map((t, i) => <Tile key={`${t.title}-${i}`} tile={t} i={i} />)}

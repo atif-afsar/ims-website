@@ -25,9 +25,9 @@ const Logo = ({ light }) => (
     <span className={`grid h-12 w-12 shrink-0 place-items-center rounded-full md:h-14 md:w-14 ${light ? "bg-ivory-50/95 shadow-lift" : ""}`}>
       <img src="/images/logo/logo.webp" alt="" width="56" height="56" className="h-11 w-11 md:h-12 md:w-12" />
     </span>
-    <span className={`leading-tight ${light ? "drop-shadow-[0_1px_8px_rgba(0,20,12,.6)]" : ""}`}>
+    <span className={`leading-tight ${light ? "[text-shadow:0_1px_3px_rgba(0,0,0,.9),0_0_14px_rgba(0,0,0,.6)]" : ""}`}>
       <span className={`block font-display text-lg font-bold md:text-xl ${light ? "text-ivory-50" : "text-emerald-800"}`}>{school.name}</span>
-      <span className={`hidden text-[10px] font-semibold uppercase tracking-[0.16em] sm:block md:text-[11px] ${light ? "text-gold-300" : "text-gold-600"}`}>{school.affiliation}</span>
+      <span className={`hidden whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.16em] sm:block md:text-[11px] ${light ? "text-gold-300" : "text-gold-600"}`}>{school.affiliation}</span>
     </span>
   </Link>
 );
@@ -247,6 +247,71 @@ const MenuOverlay = ({ open, onClose }) => {
   );
 };
 
+/* ── Desktop navigation (xl and up): the five sections with dropdowns ── */
+
+const DesktopNav = ({ light }) => {
+  const [open, setOpen] = useState(null);
+  const { pathname } = useLocation();
+  const leaveTimer = useRef(null);
+
+  useEffect(() => setOpen(null), [pathname]);
+
+  const show = (label) => {
+    clearTimeout(leaveTimer.current);
+    setOpen(label);
+  };
+  const hide = () => {
+    leaveTimer.current = setTimeout(() => setOpen(null), 120);
+  };
+
+  return (
+    <nav aria-label="Main" className="hidden flex-1 items-center justify-center xl:flex 2xl:gap-1" onKeyDown={(e) => e.key === "Escape" && setOpen(null)}>
+      {navigation.map((item) => {
+        const active = pathname === item.to || item.links.some((l) => pathname === l.to.split("#")[0]);
+        const isOpen = open === item.label;
+        return (
+          <div key={item.label} className="relative" onMouseEnter={() => show(item.label)} onMouseLeave={hide}>
+            <Link
+              to={item.to}
+              onFocus={() => show(item.label)}
+              aria-expanded={isOpen}
+              className={`flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2.5 text-sm font-semibold tracking-wide transition 2xl:px-4 ${
+                light ? "text-ivory-50 [text-shadow:0_1px_3px_rgba(0,0,0,.9),0_0_14px_rgba(0,0,0,.6)] hover:bg-ivory-50/15" : "text-emerald-900 hover:bg-emerald-50"
+              }`}
+            >
+              {item.label}
+              <PiCaretDown className={`text-xs transition-transform ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
+              {active && <span className={`absolute inset-x-4 bottom-1 h-0.5 rounded-full ${light ? "bg-gold-300" : "bg-gold-500"}`} aria-hidden="true" />}
+            </Link>
+            <AnimatePresence>
+              {isOpen && (
+                <motion.div
+                  className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8, transition: { duration: 0.15 } }}
+                  transition={{ duration: 0.25, ease: EASE }}
+                >
+                  <ul className="min-w-[16rem] rounded-2xl border border-gold-500/30 bg-ivory-50 p-2 shadow-lift">
+                    {item.links.map((l) => (
+                      <li key={l.to}>
+                        <Link to={l.to} onBlur={hide} onFocus={() => show(item.label)} className="flex items-center justify-between gap-4 rounded-xl px-4 py-2.5 text-sm font-medium text-emerald-900 transition hover:bg-emerald-50 focus:bg-emerald-50">
+                          {l.label}
+                          <HiArrowRight className="shrink-0 text-xs text-gold-600" aria-hidden="true" />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        );
+      })}
+    </nav>
+  );
+};
+
 /* ── Header ───────────────────────────────────────────────────── */
 
 const SiteHeader = () => {
@@ -285,8 +350,10 @@ const SiteHeader = () => {
             <Logo light={overHero} />
           </div>
 
+          <DesktopNav light={overHero} />
+
           {/* Right box: on the homepage it caps the hero's tab column */}
-          <div className={`flex items-center justify-end gap-1 pr-3 text-emerald-800 transition-all duration-500 sm:gap-2 md:pr-6 ${overHero ? "rounded-bl-[1.75rem] bg-ivory-50 pl-4 md:pl-6 lg:w-[22rem] xl:w-[26rem]" : "pl-2"}`}>
+          <div className={`flex items-center justify-end gap-1 pr-3 text-emerald-800 transition-all duration-500 sm:gap-2 md:pr-6 ${overHero ? "rounded-bl-[1.75rem] bg-ivory-50 pl-4 md:pl-6 lg:w-[22rem] 2xl:w-[26rem]" : "pl-2"}`}>
             <a href={contact.phones[0].href} className={`hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold hover:bg-emerald-50 xl:flex`} aria-label={`Call ${contact.phones[0].label}`}>
               <PiPhone className="text-lg" aria-hidden="true" /> Call
             </a>
@@ -294,12 +361,12 @@ const SiteHeader = () => {
             <Link to="/classes" className={`hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-bold uppercase tracking-[0.14em] hover:bg-emerald-50 sm:flex`}>
               <PiPencilSimpleLine className="text-lg text-gold-600" aria-hidden="true" /> Apply
             </Link>
-            <span className="hidden h-6 w-px bg-emerald-900/15 sm:block" aria-hidden="true" />
+            <span className="hidden h-6 w-px bg-emerald-900/15 sm:block xl:hidden" aria-hidden="true" />
             <button
               onClick={() => setMenuOpen(true)}
               aria-expanded={menuOpen}
               aria-haspopup="dialog"
-              className={`flex items-center gap-3 rounded-full px-4 py-2.5 text-sm font-bold uppercase tracking-[0.18em] transition hover:bg-emerald-50`}
+              className={`flex items-center gap-3 rounded-full px-4 py-2.5 text-sm font-bold uppercase tracking-[0.18em] transition hover:bg-emerald-50 xl:hidden`}
             >
               <MenuIcon open={menuOpen} /> Menu
             </button>

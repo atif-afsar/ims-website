@@ -52,7 +52,7 @@ const StudentLifePage = () => {
         title={tagline}
         lede={intro}
         crumbs={[{ label: "Student Life" }]}
-        image="science-exhibition-8"
+        image="stage-performance"
         imagePosition="40% 40%"
       />
       <SectionNav items={sections} />
@@ -62,7 +62,7 @@ const StudentLifePage = () => {
         <Tagline>{english.tagline}</Tagline>
         <div className="mt-10 grid items-start gap-12 lg:grid-cols-2">
           <Reveal><Prose>{english.paragraphs.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}</Prose></Reveal>
-          <PhotoStrip names={["public-speaking-public-speaking-8-jpeg", "student-speech-1"]} className="!my-0" />
+          <PhotoStrip names={["einstein-speech", "student-speech-1"]} className="!my-0" />
         </div>
         <IconList items={english.formats} cols={4} />
         <PhotoStrip names={["public-speaking-dsc-0039", "public-speaking-public-speaking-4-jpeg", "public-speaking-public-speaking-2-jpeg"]} className="mt-14" />
@@ -72,12 +72,15 @@ const StudentLifePage = () => {
       <ContentSection id="cc-pbl" tone="sand" eyebrow="02" title="Project Based Learning">
         <Tagline>{pbl.tagline}</Tagline>
         <Reveal className="mt-8"><Prose><p>{pbl.text}</p></Prose></Reveal>
-        <PhotoStrip names={["science-exhibition-4", "science-activities-dsc-1575-3", "science-exhibition-11"]} className="mt-14" />
+        <PhotoStrip names={["girls-project-p119", "apron-dna-student", "science-exhibition-11"]} className="mt-14" />
       </ContentSection>
 
       {/* 4. Taekwondo */}
       <ContentSection id="cc-taekwondo" eyebrow="03" title="Taekwondo">
-        <Reveal className="mt-10"><Prose><p>{taekwondo.text}</p></Prose></Reveal>
+        <div className="mt-10 grid items-start gap-12 lg:grid-cols-2">
+          <Reveal><Prose><p>{taekwondo.text}</p></Prose></Reveal>
+          <PhotoStrip names={["taekwondo-practice", "taekwondo-girls"]} className="!my-0" />
+        </div>
       </ContentSection>
 
       {/* 5. Sports Day */}
@@ -96,7 +99,7 @@ const StudentLifePage = () => {
           <Reveal>
             <Prose tone="light"><p>{annualFunction.text}</p></Prose>
                       </Reveal>
-          <PhotoStrip names={["guest-address", "award-ceremony"]} className="!my-0" />
+          <PhotoStrip names={["poet-performance", "costume-doctor-boy"]} className="!my-0" />
         </div>
       </ContentSection>
 

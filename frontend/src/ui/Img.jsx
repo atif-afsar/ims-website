@@ -10,8 +10,9 @@ import media from "../content/media";
  * it in. `priority` is for above-the-fold images (no lazy loading); `fill`
  * stretches the image over its positioned parent.
  */
-const Img = ({ name, alt, sizes = "100vw", priority = false, fill = false, className = "", imgClassName = "", position = "center" }) => {
+const Img = ({ name, alt, sizes = "100vw", priority = false, fill = false, className = "", imgClassName = "", position: positionProp }) => {
   const image = media[name];
+  const position = positionProp || image?.position || "center";
   const [loaded, setLoaded] = useState(false);
 
   if (!image) {

@@ -139,7 +139,7 @@ const GalleryPage = () => {
         title="Gallery"
         lede="Science fairs, competitions, camps, visits and everyday life — over 400 moments from Islamic Mission School."
         crumbs={[{ label: "Student Life", to: "/co-curricular-extracurricular" }, { label: "Gallery" }]}
-        image="robotics-lab-1"
+        image="science-exhibition-2019"
       />
 
       <section className="bg-ivory-50 py-16 md:py-20">

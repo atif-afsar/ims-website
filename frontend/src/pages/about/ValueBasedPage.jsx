@@ -20,7 +20,7 @@ const ValueBasedPage = () => (
       eyebrow="Value-Based Education"
       title="IMS, A Value Based School"
       crumbs={[{ label: "About", to: "/about" }, { label: "Value-Based School" }]}
-      image="pre-primary-2"
+      image="pledge-assembly"
     />
     <SectionNav items={sections} />
 
@@ -30,7 +30,7 @@ const ValueBasedPage = () => (
           <Prose>{need.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}</Prose>
         </Reveal>
         <Reveal delay={0.1} className="mx-auto w-full max-w-sm px-4">
-          <ArchFrame name="student-speech-2" position="48% 30%" sizes="360px" />
+          <ArchFrame name="cute-girl-flag" sizes="360px" />
         </Reveal>
       </div>
     </ContentSection>
@@ -41,7 +41,7 @@ const ValueBasedPage = () => (
           <Prose><p>{curriculum}</p></Prose>
         </Reveal>
         <Reveal delay={0.1} className="mx-auto w-full max-w-sm px-4">
-          <ArchFrame name="pre-primary-2" position="40% 60%" sizes="360px" />
+          <ArchFrame name="student-glasses-row" sizes="360px" />
         </Reveal>
       </div>
     </ContentSection>

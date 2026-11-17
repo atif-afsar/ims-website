@@ -84,6 +84,7 @@ export default [
   { slug: "topper-shaikh-fidyan-shayan", group: "toppers", src: `${RESULTS}/class_xii_poster.png`, crop: [420, 270, 166, 166], widths: [160], alt: "Shaikh Fidyan Shayan" },
 
   ...oldSite(),
+  ...school2026(),
 ];
 
 /*
@@ -163,4 +164,81 @@ function oldSite() {
   entries.push({ slug: "guests-campus-gate", group: "events", src: `${OLD}/campus-misc/DSC_3216.jpg`, alt: "Guests and staff at the IMS main gate" });
 
   return entries;
+}
+
+/*
+ * Photos the school supplied in November 2026 (E:\\For Website), copied to
+ * Images/school-2026/<slug>. `position` is the focal point kept when cropped.
+ */
+function school2026() {
+  const NEW2026 = "Images/school-2026";
+  return [
+  { slug: "pledge-assembly", group: "campus", src: `${NEW2026}/pledge-assembly.png`, position: "45% 30%", alt: "Young students taking the pledge at morning assembly" },
+  { slug: "young-learner", group: "classroom", src: `${NEW2026}/young-learner.png`, position: "50% 35%", alt: "A young pre-primary student in class" },
+  { slug: "robotics-girls-build", group: "robotics", src: `${NEW2026}/robotics-girls-build.jpg`, position: "50% 30%", alt: "Students building a robot car in the robotics lab" },
+  { slug: "classroom-attentive", group: "classroom", src: `${NEW2026}/classroom-attentive.png`, position: "48% 30%", alt: "Students listening attentively in class" },
+  { slug: "lab-student-focus", group: "physics-lab", src: `${NEW2026}/lab-student-focus.png`, position: "55% 35%", alt: "A senior student working with lab apparatus" },
+  { slug: "circuits-boys", group: "robotics", src: `${NEW2026}/circuits-boys.png`, position: "55% 40%", alt: "Students testing an electronic circuit" },
+  { slug: "chemistry-lab-teacher", group: "chemistry-lab", src: `${NEW2026}/chemistry-lab-teacher.png`, position: "35% 30%", alt: "Teacher guiding students in the chemistry lab" },
+  { slug: "girl-glasses-class", group: "classroom", src: `${NEW2026}/girl-glasses-class.png`, position: "50% 30%", alt: "A student in class" },
+  { slug: "little-girls-class", group: "classroom", src: `${NEW2026}/little-girls-class.png`, position: "40% 35%", alt: "Pre-primary students in class" },
+  { slug: "students-group-classroom", group: "classroom", src: `${NEW2026}/students-group-classroom.png`, position: "50% 40%", alt: "Students in a classroom" },
+  { slug: "computer-lab-girl", group: "computer-lab", src: `${NEW2026}/computer-lab-girl.png`, position: "70% 40%", alt: "A student working in the computer lab" },
+  { slug: "robotics-boys-computer", group: "robotics", src: `${NEW2026}/robotics-boys-computer.png`, position: "45% 40%", alt: "Students programming a robot in the robotics lab" },
+  { slug: "robotics-boys-kit", group: "robotics", src: `${NEW2026}/robotics-boys-kit.png`, position: "60% 40%", alt: "Students assembling a robot kit" },
+  { slug: "printer-3d-boy", group: "robotics", src: `${NEW2026}/printer-3d-boy.png`, position: "45% 40%", alt: "A student operating a 3D printer" },
+  { slug: "robotics-3d-printing", group: "robotics", src: `${NEW2026}/robotics-3d-printing.png`, position: "50% 40%", alt: "Students and a teacher with a 3D printer" },
+  { slug: "taekwondo-aerial", group: "sports", src: `${NEW2026}/taekwondo-aerial.png`, position: "50% 50%", alt: "Taekwondo drill on the school ground" },
+  { slug: "taekwondo-practice", group: "sports", src: `${NEW2026}/taekwondo-practice.png`, position: "45% 40%", alt: "Taekwondo practice" },
+  { slug: "taekwondo-girls", group: "sports", src: `${NEW2026}/taekwondo-girls.png`, position: "60% 40%", alt: "Girls practising Taekwondo" },
+  { slug: "biology-model", group: "science-lab", src: `${NEW2026}/biology-model.png`, position: "50% 35%", alt: "Students studying a human anatomy model" },
+  { slug: "robotics-girls-kit", group: "robotics", src: `${NEW2026}/robotics-girls-kit.jpg`, position: "35% 40%", alt: "Students wiring a robot kit" },
+  { slug: "robotics-workshop", group: "robotics", src: `${NEW2026}/robotics-workshop.jpg`, position: "50% 50%", alt: "Students at a robotics workshop" },
+  { slug: "neet-result-students", group: "chemistry-lab", src: `${NEW2026}/neet-result-students.jpg`, position: "45% 45%", crop: [960, 0, 3040, 1844], alt: "Students holding test tubes in the science lab" },
+  { slug: "panel-discussion", group: "public-speaking", src: `${NEW2026}/panel-discussion.jpg`, position: "50% 50%", alt: "Students on stage at a panel discussion" },
+  { slug: "science-fair-project", group: "events", src: `${NEW2026}/science-fair-project.jpg`, position: "60% 40%", alt: "A student presenting her science fair project" },
+  { slug: "science-fair-3", group: "events", src: `${NEW2026}/science-fair-3.jpg`, position: "50% 40%", alt: "Students showing their science fair project to a guest" },
+  { slug: "sciberation-2023-guests", group: "events", src: `${NEW2026}/sciberation-2023-guests.jpg`, position: "50% 50%", alt: "Guests at the Sciberation 2023 science fair" },
+  { slug: "independence-flags", group: "events", src: `${NEW2026}/independence-flags.jpg`, position: "45% 40%", alt: "Children celebrating Independence Day" },
+  { slug: "gems-of-ims", group: "events", src: `${NEW2026}/gems-of-ims.jpg`, position: "50% 50%", alt: "Students performing on stage at the annual function" },
+  { slug: "mushaira-stage", group: "events", src: `${NEW2026}/mushaira-stage.jpg`, position: "50% 50%", alt: "Students performing at the annual function" },
+  { slug: "students-playing", group: "sports", src: `${NEW2026}/students-playing.jpg`, position: "50% 50%", alt: "Students playing on the school ground" },
+  { slug: "campus-aerial-new", group: "campus", src: `${NEW2026}/campus-aerial-new.jpg`, position: "62% 45%", alt: "Aerial view of the IMS campus" },
+  { slug: "campus-aerial-event", group: "campus", src: `${NEW2026}/campus-aerial-event.jpg`, position: "50% 50%", alt: "Aerial view of the IMS campus during an event" },
+  { slug: "assembly-ground", group: "campus", src: `${NEW2026}/assembly-ground.png`, position: "50% 50%", alt: "Students lined up at morning assembly on the school ground" },
+  { slug: "dna-workshop", group: "events", src: `${NEW2026}/dna-workshop.jpg`, position: "58% 40%", alt: "A teacher demonstrating DNA extraction at the Sciberation 2025 workshop" },
+  { slug: "students-in-apron", group: "classroom", src: `${NEW2026}/students-in-apron.jpg`, position: "50% 30%", alt: "Young students in aprons at an art activity" },
+  { slug: "project-team-girls", group: "events", src: `${NEW2026}/project-team-girls.jpg`, position: "50% 40%", alt: "Students with their science project and teacher" },
+  { slug: "lab-coats-girls", group: "science-lab", src: `${NEW2026}/lab-coats-girls.jpg`, position: "50% 30%", alt: "Students in lab coats at a first-aid demonstration" },
+  { slug: "sciberation-guests-project", group: "events", src: `${NEW2026}/sciberation-guests-project.jpg`, position: "50% 40%", alt: "Guests viewing a student project at Sciberation 2025" },
+  { slug: "independence-day-girls", group: "events", src: `${NEW2026}/independence-day-girls.jpg`, position: "50% 45%", alt: "Students performing at the Independence Day celebration" },
+  { slug: "trophy-girls", group: "competitions", src: `${NEW2026}/trophy-girls.jpg`, position: "50% 40%", alt: "Students celebrating with their trophy" },
+  { slug: "assembly-flag-day", group: "campus", src: `${NEW2026}/assembly-flag-day.jpg`, position: "50% 60%", alt: "Students at assembly beside the national flag" },
+  { slug: "scouts-ground", group: "sports", src: `${NEW2026}/scouts-ground.jpg`, position: "50% 50%", alt: "Students lined up on the school ground" },
+  { slug: "comp-lab-wide", group: "computer-lab", src: `${NEW2026}/comp-lab-wide.png`, position: "50% 40%", alt: "Students at work in the computer lab" },
+  { slug: "dna-lab-wide", group: "science-lab", src: `${NEW2026}/dna-lab-wide.jpg`, position: "50% 45%", alt: "The science lab set up for the DNA workshop" },
+  { slug: "little-girls-lab", group: "science-lab", src: `${NEW2026}/little-girls-lab.jpg`, position: "50% 40%", alt: "Young students exploring in the science lab" },
+  { slug: "boys-flags-cheer", group: "events", src: `${NEW2026}/boys-flags-cheer.jpg`, position: "45% 40%", alt: "Students cheering with flags on Independence Day" },
+  { slug: "costume-speech-child", group: "events", src: `${NEW2026}/costume-speech-child.jpg`, position: "50% 35%", alt: "A young student giving a speech in costume" },
+  { slug: "cute-girl-flag", group: "events", src: `${NEW2026}/cute-girl-flag.jpg`, position: "50% 30%", alt: "A young student with a flag painted on her hand" },
+  { slug: "student-glasses-row", group: "classroom", src: `${NEW2026}/student-glasses-row.png`, position: "25% 35%", alt: "A student listening in class" },
+  { slug: "microscope-girl-2", group: "science-lab", src: `${NEW2026}/microscope-girl-2.png`, position: "50% 30%", alt: "A student looking through a microscope" },
+  { slug: "kids-line-class", group: "classroom", src: `${NEW2026}/kids-line-class.png`, position: "35% 40%", alt: "Young students lining up in class" },
+  { slug: "maths-activity", group: "classroom", src: `${NEW2026}/maths-activity.jpg`, position: "45% 45%", alt: "Students measuring during a hands-on maths activity" },
+  { slug: "speech-boys", group: "public-speaking", src: `${NEW2026}/speech-boys.jpg`, position: "50% 30%", alt: "Two young students speaking on stage" },
+  { slug: "plants-project", group: "events", src: `${NEW2026}/plants-project.jpg`, position: "50% 45%", alt: "Students presenting their plant project" },
+  { slug: "girls-science-model", group: "events", src: `${NEW2026}/girls-science-model.jpg`, position: "50% 35%", alt: "Two students with their science model" },
+  { slug: "robotics-kit-closeup", group: "robotics", src: `${NEW2026}/robotics-kit-closeup.jpg`, position: "50% 45%", alt: "Students assembling a robot kit" },
+  { slug: "science-exhibition-2019", group: "events", src: `${NEW2026}/science-exhibition-2019.jpg`, position: "50% 45%", alt: "Students and guests at the IMS Science Exhibition 2019" },
+  { slug: "stage-performance", group: "events", src: `${NEW2026}/stage-performance.jpg`, position: "50% 40%", alt: "Students performing on stage" },
+  { slug: "einstein-speech", group: "public-speaking", src: `${NEW2026}/einstein-speech.jpg`, position: "50% 40%", alt: "Students presenting on stage at Sciberation 2024" },
+  { slug: "girls-project-p119", group: "events", src: `${NEW2026}/girls-project-p119.jpg`, position: "50% 40%", alt: "Students with their project at the science fair" },
+  { slug: "apron-dna-student", group: "events", src: `${NEW2026}/apron-dna-student.jpg`, position: "60% 40%", alt: "A student demonstrating at the DNA workshop" },
+  { slug: "poet-performance", group: "events", src: `${NEW2026}/poet-performance.jpg`, position: "50% 40%", alt: "A student performing in costume at the annual function" },
+  { slug: "costume-doctor-boy", group: "events", src: `${NEW2026}/costume-doctor-boy.jpg`, position: "50% 30%", alt: "A young student speaking on stage dressed as a doctor" },
+  { slug: "campus-aerial-tents", group: "campus", src: `${NEW2026}/campus-aerial-tents.jpg`, position: "50% 45%", alt: "Aerial view of the IMS campus set up for an event" },
+  { slug: "assembly-aerial-top", group: "campus", src: `${NEW2026}/assembly-aerial-top.png`, position: "50% 50%", alt: "Students at assembly seen from above" },
+  { slug: "microscope-girl-3", group: "science-lab", src: `${NEW2026}/microscope-girl-3.jpg`, position: "50% 35%", alt: "A student at a microscope in the lab" },
+  { slug: "microscope-girl", group: "science-lab", src: `${NEW2026}/microscope-girl.png`, position: "45% 40%", alt: "A student focusing a microscope" },
+  ];
 }

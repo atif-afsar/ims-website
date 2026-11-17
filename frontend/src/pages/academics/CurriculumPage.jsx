@@ -47,14 +47,14 @@ const CurriculumPage = () => (
       title="Curriculum: Nurturing Mind, Body, and Soul"
       lede={overview}
       crumbs={[{ label: "Academics" }, { label: "Curriculum" }]}
-      image="smart-class-1"
+      image="microscope-girl-2"
       imagePosition="60% 50%"
     />
     <SectionNav items={sections} />
 
     {/* 1. Academic excellence */}
     <ContentSection id="curriculum-academic" eyebrow="01 · ICSE & ISC" title="Academic Excellence: The National Framework" lede={academic.intro}>
-      <PhotoStrip names={["smart-class-1", "smart-class-2", "pre-primary-1"]} className="mt-12" />
+      <PhotoStrip names={["kids-line-class", "maths-activity", "smart-class-1"]} className="mt-12" />
       <SubHeading>Core Subjects: We teach a comprehensive range of subjects including:</SubHeading>
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {academic.subjects.map((s, i) => (
@@ -78,7 +78,7 @@ const CurriculumPage = () => (
     {/* 2. 21st century skills */}
     <ContentSection id="curriculum-21-skills" tone="sand" eyebrow="02" title="21st Century Skills">
       <Reveal className="mt-10"><Prose><p>{skills}</p></Prose></Reveal>
-      <PhotoStrip names={["student-speech-2", "science-exhibition-3", "smart-class-3"]} className="mt-14" />
+      <PhotoStrip names={["speech-boys", "plants-project", "girls-science-model"]} className="mt-14" />
     </ContentSection>
 
     {/* 3. STEM */}
@@ -86,7 +86,7 @@ const CurriculumPage = () => (
       <Tagline>{stem.tagline}</Tagline>
       <div className="mt-10 grid items-start gap-12 lg:grid-cols-2">
         <Reveal><Prose><p>{stem.intro}</p></Prose></Reveal>
-        <PhotoStrip names={["science-exhibition-6", "stem-activity"]} className="!my-0" />
+        <PhotoStrip names={["robotics-3d-printing", "circuits-boys"]} className="!my-0" />
       </div>
       <PartnerPanel label="Our STEM Partner" title={stem.partnerTitle} tagline={stem.partnerTagline} text={stem.partner} />
     </ContentSection>
@@ -96,9 +96,9 @@ const CurriculumPage = () => (
       <Tagline>{robotics.tagline}</Tagline>
       <div className="mt-10 grid items-start gap-12 lg:grid-cols-2">
         <Reveal><Prose>{robotics.paragraphs.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}</Prose></Reveal>
-        <PhotoStrip names={["robotics-lab-2", "robotics-lab-1"]} className="!my-0" />
+        <PhotoStrip names={["robotics-kit-closeup", "robotics-lab-2"]} className="!my-0" />
       </div>
-      <PhotoStrip names={["robotics-lab-3", "robotics-lab-4", "robotics-lab-5"]} className="mt-14" />
+      <PhotoStrip names={["robotics-boys-kit", "robotics-lab-1", "robotics-lab-3"]} className="mt-14" />
     </ContentSection>
   </>
 );

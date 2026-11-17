@@ -14,10 +14,10 @@ import { IconList, Steps } from "../../ui/Blocks";
 import { PatternBg, Sparkle } from "../../ui/Ornaments";
 
 const stages = [
-  { key: "pre-primary", title: "Pre-Primary", grades: "Play Group – K.G.", image: "pre-primary-2", position: "38% 70%" },
-  { key: "primary", title: "Primary", grades: "Class 1 – 5", image: "summer-camp-2025-img-20250610-wa0016", position: "50% 30%" },
-  { key: "middle", title: "Middle", grades: "Class 6 – 8", image: "science-exhibition-9", position: "42% 35%" },
-  { key: "secondary", title: "Secondary", grades: "Class 9 – 10", image: "robotics-lab-3", position: "38% 45%" },
+  { key: "pre-primary", title: "Pre-Primary", grades: "Play Group – K.G.", image: "little-girls-lab", position: "50% 40%" },
+  { key: "primary", title: "Primary", grades: "Class 1 – 5", image: "boys-flags-cheer", position: "45% 40%" },
+  { key: "middle", title: "Middle", grades: "Class 6 – 8", image: "robotics-lab-4", position: "50% 40%" },
+  { key: "secondary", title: "Secondary", grades: "Class 9 – 10", image: "smart-class-3", position: "50% 40%" },
   { key: "senior-secondary", title: "Senior Secondary", grades: "Class 11 – 12 · PCM · PCB · Commerce · Humanities", image: "chemistry-lab-img-2659", position: "50% 25%" },
 ];
 
@@ -70,9 +70,9 @@ const ClassesPage = () => {
       <PageHero
         eyebrow={`Admission Open ${admissions.session}`}
         title="Classes & Admissions"
-        lede={`Build Deen & Dunya together — ${admissions.classes} and ${admissions.seniorClasses} (${admissions.streams.join(" · ")}).`}
+        lede={`${admissions.classes} and ${admissions.seniorClasses} (${admissions.streams.join(" · ")}).`}
         crumbs={[{ label: "Admissions" }, { label: "Classes" }]}
-        image="pre-primary-1"
+        image="costume-speech-child"
         imagePosition="40% 60%"
         actions={
           <>

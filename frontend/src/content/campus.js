@@ -18,10 +18,10 @@ export const overview = {
   labsIntro:
     "True understanding comes from doing, which is why we have invested in distinct, specialized laboratories for Physics, Chemistry, Biology, Robotics & STEM, and Computer Science. This dedicated approach provides an immersive, hands-on learning environment, ensuring every experiment and project receives the focused space and resources it deserves.",
   labs: [
-    { icon: "atom", title: "The Physics Lab", tagline: "Unraveling the Laws of the Universe", image: "physics-lab-img-2691" },
+    { icon: "atom", title: "The Physics Lab", tagline: "Unraveling the Laws of the Universe", image: "lab-student-focus" },
     { icon: "flask", title: "The Chemistry Lab", tagline: "A Realm of Molecular Discovery", image: "chemistry-lab-img-2670" },
-    { icon: "plant", title: "The Biology Lab", tagline: "Exploring the Web of Life", image: "science-exhibition-7" },
-    { icon: "code", title: "The Computer Science Lab", tagline: "Coding the Digital World", image: "computer-lab-1" },
+    { icon: "plant", title: "The Biology Lab", tagline: "Exploring the Web of Life", image: "biology-model" },
+    { icon: "code", title: "The Computer Science Lab", tagline: "Coding the Digital World", image: "comp-lab-wide" },
   ],
   additional: [
     { icon: "books", title: "Library" },
@@ -49,12 +49,12 @@ export const facilities = {
   laboratories: {
     title: "Labs",
     lede: "Where Theory Meets Experiment",
-    heroImage: "chemistry-lab-img-2670",
+    heroImage: "dna-lab-wide",
     gallery: [...fromGroups("chemistry-lab"), ...fromGroups("physics-lab")],
   },
   "sports-complex": {
     title: "Playing Fields",
-    heroImage: "sports-volleyball",
+    heroImage: "assembly-aerial-top",
     gallery: ["sports-volleyball", ...fromGroups("sports").filter((k) => k !== "sports-volleyball" && !lowRes(k)), ...Object.keys(media).filter((k) => k.startsWith("summer-camp-2025-archery"))],
   },
 };
