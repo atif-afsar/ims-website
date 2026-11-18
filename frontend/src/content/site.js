@@ -18,10 +18,9 @@ export const contact = {
   address: "Near AMU Fort, Aligarh, Uttar Pradesh",
   addressFull: "Fort Green City, AMU Fort, Aligarh, Uttar Pradesh 202001",
   phones: [
-    { label: "07417914164", href: "tel:+917417914164" },
-    { label: "09219401623", href: "tel:+919219401623" },
+    { label: "9762224702", href: "tel:+919762224702" },
   ],
-  whatsapp: "https://wa.me/919219401623",
+  whatsapp: "https://wa.me/919762224702",
   email: "info.imsaligarh@gmail.com",
   mapUrl: "https://www.google.com/maps/search/?api=1&query=Islamic+Mission+School+Aligarh",
   mapEmbed:

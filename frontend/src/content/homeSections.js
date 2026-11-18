@@ -361,7 +361,7 @@ export const homeSections = [
         { q: "Do students need outside coaching for NEET or JEE?", a: "No. The Integrated NEET/JEE Program, starting from Class IX, synchronises the ICSE syllabus with competitive-exam preparation during school hours, with daily practice tests and weekly analysis." },
         { q: "What does a value-based school mean at IMS?", a: "Academic excellence and ethical character are given equal importance. Our “Values in Action” programme teaches integrity, compassion, respect and responsibility, and every staff member is trained to impart values." },
         { q: "Is hostel accommodation available?", a: "Yes, hostel facilities are available. Please contact the admissions team for details." },
-        { q: "How do I start the admission process?", a: "Call or WhatsApp us on 07417914164 or 09219401623 with your child’s age and current class, then visit the campus to meet our team." },
+        { q: "How do I start the admission process?", a: "Call or WhatsApp us on 9762224702 with your child’s age and current class, then visit the campus to meet our team." },
       ],
     },
     fields: [

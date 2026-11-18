@@ -140,7 +140,7 @@ const ClassesPage = () => {
             </div>
             <div className="relative mt-8 flex shrink-0 flex-wrap gap-3 md:mt-0">
               <Button to={contact.whatsapp} arrow={false}><PiWhatsappLogo /> WhatsApp Details</Button>
-              <Button to={contact.phones[1].href} variant="light" arrow={false}><PiPhone /> {contact.phones[1].label}</Button>
+              <Button to={contact.phones[0].href} variant="light" arrow={false}><PiPhone /> {contact.phones[0].label}</Button>
             </div>
           </Reveal>
         </div>
